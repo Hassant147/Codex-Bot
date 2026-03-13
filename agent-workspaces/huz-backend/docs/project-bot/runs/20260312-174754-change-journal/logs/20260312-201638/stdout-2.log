@@ -1,0 +1,1369 @@
+OpenAI Codex v0.108.0-alpha.12 (research preview)
+--------
+workdir: /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend
+model: gpt-5.4
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR, /Users/macbook/.codex/memories, /Users/macbook/Desktop/Huz/Huz-Backend]
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019ce2a3-4bf8-7ee2-9ba1-58026c3332bd
+--------
+user
+Use $project-autopilot-manager in `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend`.
+Read `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/state.json` and `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/prompts/phase-01.md`.
+Execute only Phase 1 (Write Journal Entry) against target project `/Users/macbook/Desktop/Huz/Huz-Backend`.
+At the end, run:
+1. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal --phase 1`
+2. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal`
+Then print `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/NEXT_PROMPT.md`.
+
+mcp: playwright starting
+2026-03-12T15:21:19.501495Z  WARN codex_core::shell_snapshot: Failed to delete shell snapshot at "/Users/macbook/.codex/shell_snapshots/019ce2a3-4bf8-7ee2-9ba1-58026c3332bd.tmp-1773328878590438000": Os { code: 2, kind: NotFound, message: "No such file or directory" }
+mcp: playwright ready
+mcp startup: ready: playwright
+codex
+Using `project-autopilot-manager` for this run. I’m reading the run state and Phase 1 prompt first, then I’ll make only the journal-entry changes in `/Users/macbook/Desktop/Huz/Huz-Backend` and finish the orchestration commands you specified.
+exec
+/bin/zsh -lc "sed -n '1,260p' /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/state.json" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc "sed -n '1,220p' /Users/macbook/.codex/skills/project-autopilot-manager/SKILL.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 52ms:
+---
+name: project-autopilot-manager
+description: General-purpose Codex project bot for initializing persistent atlas docs, creating bounded multi-phase task runs, keeping blueprint/map files updated after code changes, and automating fresh-session execution for scans, cleanup, revamps, feature work, and full project enhancement. Use when Codex should manage a project end-to-end instead of relying on repeated manual prompt transfer.
+---
+
+# Project Autopilot Manager
+
+## Purpose
+
+Run large project tasks through durable docs and bounded fresh-session phases so Codex can keep working without rescanning the entire codebase every time.
+
+## Core Guarantees
+
+- Keep atlas docs current after code changes.
+- Store project memory in files, not chat memory.
+- Split large work into bounded phases.
+- Generate fresh-session prompts automatically.
+- Work across different local projects by changing the target project path.
+
+## Main Script
+ succeeded in 52ms:
+{
+  "version": 1,
+  "workspaceRoot": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend",
+  "projectPath": "/Users/macbook/Desktop/Huz/Huz-Backend",
+  "mode": "change-journal",
+  "modeTitle": "Change Journal",
+  "description": "Summarize what changed in the latest work, why it changed, how it was implemented, and what remains, using existing run and atlas state.",
+  "scopeLevel": "panel-be",
+  "scope": "/Users/macbook/Desktop/Huz/Huz-Backend",
+  "scopeTargets": [],
+  "request": "Team mission: Audit the entire Huz-Backend repository deeply. Act as a project manager, Django architect, Python performance specialist, security reviewer, QA engineer, and implementation engineer. First perform a full backend audit for performance bottlenecks, optimization issues, N+1 queries, ORM misuse, inefficient loops, unnecessary database or network work, cache gaps, slow request paths, dead code, risky patterns, security flaws, and anything clearly wrong. Then create a prioritized remediation plan and implement the safe backend fixes in parallel. Important constraint: only document and fix issues that can be resolved entirely inside Huz-Backend. If an issue requires edits in any other repository, consumer application, or downstream client, do not implement that part. Document it clearly as out-of-scope and skip code changes. Keep all changes scoped to Huz-Backend, verify each batch, and finish with a final summary of issues found, fixes implemented, skipped out-of-scope items, and verification results.\n\nYou are the Project Manager in coordinated team \"Huz Backend Strict Backend Audit and Fix Active\".\nAssigned lane: Final recap\nPrimary objective: Summarize what was fixed, what remains, and the next recommended batch.\nExecution phase: wrap-up\nMode: change-journal\nScope level: panel-be\nScope: /Users/macbook/Desktop/Huz/Huz-Backend\nScope targets: [Not specified]\n\nTeam coordination contract:\n- Work only inside your assigned lane.\n- Ownership boundaries: coordination:wrap\n- This is a report-only run. Do not modify product code; workspace docs and reports are allowed.\n- Read atlas docs, QA reports, and BUG_BACKLOG before making major decisions.\n- If you discover issues outside your lane, document them clearly in RUN_SUMMARY or BUG_BACKLOG instead of implementing them here.\n- Upstream dependencies that should already be complete: QA Verification Sweep\n\nWrap-up contract:\n- Summarize what the team completed, what remains, and the next recommended batch.\n- Keep the change journal concise and developer-actionable.\n\nOriginal operator request:\nAudit the entire Huz-Backend repository deeply. Act as a project manager, Django architect, Python performance specialist, security reviewer, QA engineer, and implementation engineer. First perform a full backend audit for performance bottlenecks, optimization issues, N+1 queries, ORM misuse, inefficient loops, unnecessary database or network work, cache gaps, slow request paths, dead code, risky patterns, security flaws, and anything clearly wrong. Then create a prioritized remediation plan and implement the safe backend fixes in parallel. Important constraint: only document and fix issues that can be resolved entirely inside Huz-Backend. If an issue requires edits in any other repository, consumer application, or downstream client, do not implement that part. Document it clearly as out-of-scope and skip code changes. Keep all changes scoped to Huz-Backend, verify each batch, and finish with a final summary of issues found, fixes implemented, skipped out-of-scope items, and verification results.\n\nGlobal Instructions (always apply):\nAlways maintain full-system project memory in docs for the selected scope level.\nExclude non-dev and non-required files from deep mapping and auditing.\nWhen code changes touch modules/routes/APIs/contracts/schema/security/state, refresh relevant atlas docs in the same run.\nKeep audit findings traceable with status updates (open, fixed, verified) when remediation occurs.\nFor full-system or multi-panel fullstack scope, ensure frontend panels and backend structure/contracts are mapped together.",
+  "projectSurfaces": [
+    {
+      "id": "huz-backend",
+      "label": "Huz-Backend",
+      "path": "/Users/macbook/Desktop/Huz/Huz-Backend",
+      "kind": "panel-be"
+    }
+  ],
+  "devIgnorePatterns": [
+exec
+/bin/zsh -lc "sed -n '1,260p' /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/prompts/phase-01.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 52ms:
+# Phase 1: Write Journal Entry
+
+Run Mode: `change-journal`
+Run Directory: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal`
+Workspace Root: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend`
+Target Project: `/Users/macbook/Desktop/Huz/Huz-Backend`
+Scoped Directory/Module: `/Users/macbook/Desktop/Huz/Huz-Backend`
+
+## Original Request
+Team mission: Audit the entire Huz-Backend repository deeply. Act as a project manager, Django architect, Python performance specialist, security reviewer, QA engineer, and implementation engineer. First perform a full backend audit for performance bottlenecks, optimization issues, N+1 queries, ORM misuse, inefficient loops, unnecessary database or network work, cache gaps, slow request paths, dead code, risky patterns, security flaws, and anything clearly wrong. Then create a prioritized remediation plan and implement the safe backend fixes in parallel. Important constraint: only document and fix issues that can be resolved entirely inside Huz-Backend. If an issue requires edits in any other repository, consumer application, or downstream client, do not implement that part. Document it clearly as out-of-scope and skip code changes. Keep all changes scoped to Huz-Backend, verify each batch, and finish with a final summary of issues found, fixes implemented, skipped out-of-scope items, and verification results.
+
+You are the Project Manager in coordinated team "Huz Backend Strict Backend Audit and Fix Active".
+Assigned lane: Final recap
+Primary objective: Summarize what was fixed, what remains, and the next recommended batch.
+Execution phase: wrap-up
+Mode: change-journal
+Scope level: panel-be
+Scope: /Users/macbook/Desktop/Huz/Huz-Backend
+Scope targets: [Not specified]
+
+codex
+I have the phase contract. Next I’m loading the required atlas and QA docs plus the run task/summary so the journal entry reflects the recorded audit work rather than inventing a recap.
+exec
+/bin/zsh -lc "sed -n '1,240p' docs/project-bot/OPERATOR_PROFILE.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc "sed -n '1,220p' docs/project-bot/config.json" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 51ms:
+{
+  "version": 1,
+  "workspaceRoot": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend",
+  "projectPath": "/Users/macbook/Desktop/Huz/Huz-Backend",
+  "designGuides": [
+    "/Users/macbook/Desktop/Huz/UI_DESIGN_SYSTEM_GUIDE.md",
+    "/Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md"
+  ],
+  "blueprintSources": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/SYSTEM_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/FILE_MAP_DEV_ONLY.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/PANEL_MODULE_INDEX.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/FRONTEND_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/BACKEND_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/PROJECT_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/MODULE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/ROUTES_AND_ENTRYPOINTS.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/API_SURFACE.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/CHANGE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/ROUTE_MATRIX.md",
+ succeeded in 51ms:
+# Operator Profile
+
+This file captures the default working style for the project bot. Every run should read this file before planning or changing code.
+
+## Working Style
+- Work in clearly scoped phases with durable written outputs.
+- Prefer module-by-module execution instead of scattered random fixes.
+- Treat frontend and backend as one connected system map when integration is involved.
+- Use existing atlas docs first, then read only the extra code needed for accuracy.
+
+## Scope Rules
+- The target project is the only place code changes should happen unless the task explicitly requires a related supporting change.
+- Keep the bot workspace as the long-term memory layer. Store reports, atlas docs, backlogs, summaries, and run state here instead of inside the target repo when possible.
+- Match frontend to backend contracts when drift is found, unless the task explicitly says to refactor the backend contract itself.
+
+## Quality Rules
+- Reduce duplication, stale logic, dead code, and brittle state flows.
+- Prefer modern modular patterns, reusable primitives, and clear ownership boundaries.
+- Keep routes stable unless the task explicitly requires a migration.
+- If code changes affect structure, routes, APIs, or ownership, refresh the relevant atlas docs in the same phase.
+exec
+/bin/zsh -lc "sed -n '1,220p' docs/project-bot/runs/20260312-174754-change-journal/TASK.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc "sed -n '1,260p' docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 51ms:
+# Run Summary
+
+- Run mode: `change-journal`
+- Target project: `/Users/macbook/Desktop/Huz/Huz-Backend`
+- Workspace root: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend`
+- Scope level: `panel-be`
+- Scope: `/Users/macbook/Desktop/Huz/Huz-Backend`
+- Scope targets: None
+- Full-system required docs: `disabled`
+- Rule: append one section per completed phase. Do not overwrite prior phase sections.
+
+Expected section format:
+
+## Phase X - Title
+### Changes Made
+### How It Was Implemented
+### Files Touched
+### Verification
+
+## Phase 0 - Collect Recent Change Context
+ succeeded in 51ms:
+Team mission: Audit the entire Huz-Backend repository deeply. Act as a project manager, Django architect, Python performance specialist, security reviewer, QA engineer, and implementation engineer. First perform a full backend audit for performance bottlenecks, optimization issues, N+1 queries, ORM misuse, inefficient loops, unnecessary database or network work, cache gaps, slow request paths, dead code, risky patterns, security flaws, and anything clearly wrong. Then create a prioritized remediation plan and implement the safe backend fixes in parallel. Important constraint: only document and fix issues that can be resolved entirely inside Huz-Backend. If an issue requires edits in any other repository, consumer application, or downstream client, do not implement that part. Document it clearly as out-of-scope and skip code changes. Keep all changes scoped to Huz-Backend, verify each batch, and finish with a final summary of issues found, fixes implemented, skipped out-of-scope items, and verification results.
+
+You are the Project Manager in coordinated team "Huz Backend Strict Backend Audit and Fix Active".
+Assigned lane: Final recap
+Primary objective: Summarize what was fixed, what remains, and the next recommended batch.
+Execution phase: wrap-up
+Mode: change-journal
+Scope level: panel-be
+Scope: /Users/macbook/Desktop/Huz/Huz-Backend
+Scope targets: [Not specified]
+
+Team coordination contract:
+- Work only inside your assigned lane.
+- Ownership boundaries: coordination:wrap
+- This is a report-only run. Do not modify product code; workspace docs and reports are allowed.
+- Read atlas docs, QA reports, and BUG_BACKLOG before making major decisions.
+- If you discover issues outside your lane, document them clearly in RUN_SUMMARY or BUG_BACKLOG instead of implementing them here.
+- Upstream dependencies that should already be complete: QA Verification Sweep
+
+Wrap-up contract:
+codex
+Phase 0 already narrowed the recency window. I’m pulling the relevant audit artifacts and run-history references now so Phase 1 writes a durable journal entry into the right docs instead of just appending a generic summary.
+exec
+/bin/zsh -lc "sed -n '1,260p' docs/qa/BUG_BACKLOG.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc "sed -n '1,260p' docs/atlas/CHANGE_MAP.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc "sed -n '1,260p' docs/qa/DEEP_SCAN_REPORT.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc "rg --files docs/project-bot/runs/20260312-174754-change-journal docs/qa docs/atlas | sed -n '1,240p'" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 51ms:
+# Change Map
+
+Every code-changing run should append what changed and which atlas docs were refreshed.
+
+## Entries
+### 2026-03-12 - Deep Scan Phase 0 atlas context refresh
+- Scope: `/Users/macbook/Desktop/Huz/Huz-Backend`
+- Files changed:
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+  - `docs/atlas/MODULE_MAP.md`
+  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
+  - `docs/atlas/CHANGE_MAP.md`
+  - `docs/qa/DEEP_SCAN_REPORT.md`
+  - `docs/project-bot/runs/20260312-174754-deep-scan/RUN_SUMMARY.md`
+- Atlas docs refreshed:
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+  - `docs/atlas/MODULE_MAP.md`
+  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
+  - `docs/atlas/CHANGE_MAP.md`
+- Notes:
+ succeeded in 51ms:
+Total output lines: 130
+
+# Bug and Improvement Backlog
+
+Use this backlog for prioritized follow-up work discovered during scans or implementation.
+
+| ID | Priority | Module | Summary | Status | Verification |
+| --- | --- | --- | --- | --- | --- |
+| DS-P1-001 | Critical | Partner auth/profile/account | Replace legacy `AllowAny` partner self-service with authenticated-principal-only access, remove raw `partner_session_token` lookups from profile, OTP, address, bank, withdrawal, logo, and password handlers, and stop serializing `partner_session_token`, `firebase_token`, and `web_firebase_token` in partner profile payloads. | open | Add partner API regressions that reject anonymous or foreign-token profile/bank/withdraw writes and confirm owner-only Bearer-authenticated reads and writes. Source: `partners/partner_profile.py:334-1295`; `partners/partner_accounts_and_transactions.py:15-344`; `partners/serializers.py:214-229` |
+| DS-P1-002 | High | Partner booking fulfillment | Normalize partner booking mutations around the authenticated principal. Remove request-body/query `partner_session_token` rebinding from booking action, document, arrangement, complaint, close, and report endpoints so booking ownership comes from the auth helper only. | open | Add partner-booking regressions proving a foreign token cannot mutate another partner's booking, documents, complaints, or close/report routes. Source: `booking/manage_partner_booking.py:394-643`; `booking/manage_partner_booking.py:646-940`; `booking/manage_partner_booking.py:1378-1774` |
+| DS-P1-003 | High | Booking documents and payouts | Enforce one-row-per-booking invariants for `DocumentsStatus` and `PartnersBookingPayment`, recalculate document completeness on delete/update, and stop creating duplicate receivable rows during repeated fulfillment transitions. | open | Add service/model tests for duplicate-row prevention, delete-triggered completion recompute, and idempotent payout creation across repeated document updates. Source: `booking/models.py:172-181`; `booking/models.py:266-279`; `booking/workflow.py:215-225`; `booking/manage_partner_booking.py:556-640`; `booking/services.py:734-766` |
+| DS-P1-004 | High | Wallet withdrawals | Move balance validation inside a locked transaction for both customer and partner withdrawals and update wallet amounts with row locking or database-side arithmetic so concurrent requests cannot overdraw or lose updates. | open | Add concurrent withdrawal tests or transaction-level regressions proving two simultaneous requests cannot overdraw the same wallet. Source: `common/api_v1.py:218-256`; `partners/partner_accounts_and_transactions.py:235-264` |
+| DS-P1-005 | Medium | Dead routes and duplicate package logic | Align maintained code with the live route surface: either mount or delete the unmounted management views, and clearly separate website-only legacy package code from the routed operator package write path so dead implementations stop drifting. | open | Add route inventory coverage or explicit deprecation tests showing which management/package views are intentionally live versus unreachable. Source: `management/urls.py:6-15`; `management/approval_task.py:907-990`; `management/approval_task.py:1282-1333`; `partners/urls.py:32-48`; `partners/package_management.py` |
+| DS-P1-006 | Medium | Management QA coverage | Restore a dedicated `management` test module for company approval, payment review, receivable transfer, master hotels, and any intentionally unmounted admin views so follow-on fixes can be verified without rescanning the repo. | open | Reintroduce `management/tests.py` or `management/tests/*` and run `python3 manage.py test management partners booking common --settings=huz.settings_test` in a provisioned environment. Source: `rg --files /Users/macbook/Desktop/Huz/Huz-Backend/management`; `python3 manage.py test partners.tests booking.tests common.tests --settings=huz.settings_test` |
+| OPT-P1-001 | High | Booking customer detail responses | Reuse a `select_related`/`prefetch_related` detail queryset for current-user booking retrieve and post-mutation responses so `DetailBookingSerializer` stops lazily loading company, address, payment, document, passport, arrangement, and rating relations per request. | verified | Implemented in `booking/services.py` and `booking/views/bookings.py`, with serializer/query regressions added in `booking/tests.py` for retrieve, payment, and passport detail responses. Re-verified by `.venv/bin/python manage.py test booking.tests.BookingWorkflowServiceValidationTests booking.tests.ManagePartnerBookingViewsTests booking.tests.BookingSerializerQueryTests --settings=huz.settings_test` (70 tests, OK) and `python3 -m compileall booking management huz`; the focused serializer regressions still observe 0 extra serialization queries on the preloaded detail path. |
+| OPT-P1-002 | High | Partner dashboard and rating stats | Collapse partner dashboard counts and rating histograms into DB-side aggregates instead of per-bucket `.count()` loops and Python iteration over every rating row. | verified | Implemented in `booking/manage_partner_booking.py`, with bounded-query regressions added for `/bookings/get_overall_booking_statistics/`, `/bookings/get_overall_partner_rating/`, and `/bookings/get_overall_rating_package_wise/`. Re-verified by `.venv/bin/python manage.py test booking.tests.BookingWorkflowServiceValidationTests booking.tests.ManagePartnerBookingViewsTests booking.tests.BookingSerializerQueryTests --settings=huz.settings_test` (70 tests, OK); current budgets remain <=2 queries for booking stats and overall rating plus <=3 queries for package rating. |
+| OPT-P1-003 | High | Admin payment review queue | Replace the queue-count fan-out on the annotated `reviewable_queryset` with filtered aggregates so `/management/fetch_all_paid_bookings/` does not rerun the same join-heavy review query for each counter and summary value. | verified | Implemented in `management/approval_task.py`, with a bounded-query regression added for `/management/fetch_all_paid_bookings/`. Re-verified by `.venv/bin/python manage.py test booking.tests.BookingWorkflowServiceValidationTests booking.tests.ManagePartnerBookingViewsTests booking.tests.BookingSerializerQueryTests --settings=huz.settings_test` (70 tests, OK) and `python3 -m compileall booking management huz`; the focused queue regression still holds the response to <=7 queries while preserving aggregate queue metadata. |
+| OPT-P1-004 | Medium | Operator hotel catalog fallback | Stop loading and deduplicating the full `HuzHotelDetail` table in Python when the synthetic master-hotel package is missing; push dedupe/limit logic into the database or enforce canonical source data before serialization. | open | Add fallback-path coverage for `/partner/get_all_hotels_with_images/` that seeds non-catalog hotels and asserts bounded query count and bounded result size under city/search filters. Source: `partners/package_management_operator.py:1392-1429` |
+| REG-P0-001 | High | Route compatibility and legacy endpoint removal | The live working tree removes multiple legacy customer, admin, website, and chat routes, including older `/common/*` self-service endpoints, customer-facing `/bookings/*` endpoints, several `/management/*` report routes, `/partner/get_city_wise_packages_count/`, and `/chat/`. If any downstream client still depends on those paths, the change is externally breaking and cannot be fully validated inside Huz-Backend alone. | open | In the regression sweep, smoke the live route table and confirm the missing endpoints are intentional. If consumer apps still call them, treat restoration or migration as downstream coordination work rather than a same-lane backend-only fix. Source: `common/urls.py`; `booking/urls.py`; `management/urls.py`; `partners/urls.py`; `huz/urls.py` |
+| SEC-001 | Critical | `common/authentication.py`, `partners/partner_profile.py`, `partners/partner_accounts_and_transactions.py`, `booking/manage_partner_booking.py` | Legacy session-token transport is still accepted across customer and partner flows, including high-value mutation routes, so bearer-equivalent secrets can still travel in query strings and request bodies. | open | Source inspection during security-audit Phase 0 |
+ succeeded in 51ms:
+Total output lines: 260
+
+# Deep Scan Report
+
+Use this report for on-demand deep analysis of logic, structures, routes, contracts, and mismatch risks.
+
+## Findings
+### 2026-03-12 Deep Scan Phase 0 Refresh Atlas Context
+- Read the run config, operator profile, task prompt, existing atlas docs, current deep scan report, and bug backlog before validating source files.
+- Revalidated the live scan scope against the working tree: the audit remains centered on dev-relevant sources under `huz/`, `common/`, `partners/`, `booking/`, and `management/`, plus root bootstrap files like `manage.py`, `requirements.txt`, and `README.md`; large `media/`, `static/`, `.venv/`, and migration artifacts remain out of primary audit scope unless a later finding points back to them.
+- Cross-checked the current atlas against `git status --short`, `huz/urls.py`, app `urls.py` and `api_urls.py` files, `huz/settings.py`, `common/authentication.py`, `common/permissions.py`, `booking/views/bookings.py`, `booking/views/api_v1.py`, `booking/views/support.py`, `booking/flow_utils.py`, and `partners/management/commands/seed_huz_packages.py`.
+- Confirmed the previously documented route groups, auth split, dirty-tree warning, unmounted management views, and package-management routing seam still match the live tree.
+- Found two atlas omissions that were small but relevant for later scan phases: `partners/management/commands/seed_huz_packages.py` is a live management-command entrypoint for realistic package fixture generation, and `booking/flow_utils.py` is the shared traveller-count helper reused by both `booking/workflow.py` and `booking/services.py`.
+- Refreshed `PROJECT_BLUEPRINT.md`, `MODULE_MAP.md`, and `ROUTES_AND_ENTRYPOINTS.md` so downstream audit phases inherit the corrected context without needing another repo-wide inventory pass.
+- Verification in this phase was source-based only. No product code was modified.
+
+### 2026-03-12 Phase 0 Inventory Scope
+- Scope inventoried: `/Users/macbook/Desktop/Huz/Huz-Backend` for the `system-atlas` run. This phase was report-only and did not modify product code.
+- Runtime shape: Django 5 + DRF project rooted in `huz/`, with installed apps `common`, `partners`, `management`, and `booking`; `huz/settings_test.py` swaps the default MySQL database for SQLite during non-interactive test runs.
+- Route surface snapshot: `huz/urls.py` mounts newer `/api/v1/` user/customer routes from `common/api_urls.py` and `booking/api_urls.py`, plus legacy or back-office groups at `/common/`, `/partner/`, `/bookings/`, and `/management/`.
+ succeeded in 52ms:
+docs/project-bot/runs/20260312-174754-change-journal/NEXT_PROMPT.md
+docs/project-bot/runs/20260312-174754-change-journal/TASK.md
+docs/project-bot/runs/20260312-174754-change-journal/prompts/phase-00.md
+docs/project-bot/runs/20260312-174754-change-journal/prompts/phase-01.md
+docs/project-bot/runs/20260312-174754-change-journal/logs/20260312-201638/prompt-1.md
+docs/project-bot/runs/20260312-174754-change-journal/logs/20260312-201638/stdout-2.log
+docs/project-bot/runs/20260312-174754-change-journal/logs/20260312-201638/stdout-1.log
+docs/project-bot/runs/20260312-174754-change-journal/logs/20260312-201638/last-message-1.txt
+docs/project-bot/runs/20260312-174754-change-journal/logs/20260312-201638/prompt-2.md
+docs/project-bot/runs/20260312-174754-change-journal/README.md
+docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md
+docs/project-bot/runs/20260312-174754-change-journal/state.json
+docs/atlas/API_CONTRACT_REGISTRY.md
+docs/atlas/TRACEABILITY_MAP.md
+docs/atlas/DEPENDENCY_GRAPH.md
+docs/atlas/PROJECT_BLUEPRINT.md
+docs/atlas/ROUTE_MATRIX.md
+docs/atlas/CHANGE_MAP.md
+docs/atlas/PANEL_MODULE_INDEX.md
+docs/atlas/SYSTEM_BLUEPRINT.md
+codex
+The recent source of truth is consistent so far: verified work is the optimization batch plus the follow-up regression fix, while route/auth drift remains open and mostly downstream or later-batch material. I’m checking the existing run patterns now to decide which durable docs Phase 1 should update beyond `RUN_SUMMARY.md`.
+exec
+/bin/zsh -lc "sed -n '1,240p' docs/qa/FULL_AUDIT_REPORT.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc "rg -n \"backend-optimize|regression-hunt|plan-batch|QA Verification Sweep|verification sweep\" docs/project-bot/runs -g 'RUN_SUMMARY.md'" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc 'rg -n "Change Journal|change-journal|Phase 1 - Write Journal Entry|What changed|next recommended batch" docs/project-bot/runs docs/qa docs/atlas' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 52ms:
+# Full Audit Report
+
+Use this report for full-system audits across frontend, backend, contracts, security, and performance.
+
+## Coverage
+- List surfaces, scope level, and dev-only inventory boundaries.
+
+## Findings
+- Group findings by panel/service/module with evidence and priority.
+ succeeded in 51ms:
+docs/project-bot/runs/20260312-174754-backend-optimize/RUN_SUMMARY.md:3:- Run mode: `backend-optimize`
+docs/project-bot/runs/20260312-174754-backend-optimize/RUN_SUMMARY.md:26:- Read the required run context, atlas docs, audit backlog, and plan-batch notes before reopening the live backend source.
+docs/project-bot/runs/20260312-174754-backend-optimize/RUN_SUMMARY.md:33:- `docs/project-bot/runs/20260312-174754-backend-optimize/RUN_SUMMARY.md`
+docs/project-bot/runs/20260312-174754-backend-optimize/RUN_SUMMARY.md:65:- `docs/project-bot/runs/20260312-174754-backend-optimize/RUN_SUMMARY.md`
+docs/project-bot/runs/20260312-174754-backend-optimize/RUN_SUMMARY.md:89:- `docs/project-bot/runs/20260312-174754-backend-optimize/RUN_SUMMARY.md`
+docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md:3:- Run mode: `plan-batch`
+docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md:22:- Read the run state, Phase 0 prompt, project-bot config, operator profile, task prompt, required atlas docs, and current QA/backlog artifacts for the plan-batch lane.
+docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md:33:- `docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md`
+docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md:53:- `docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md`
+docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md:55:- Re-read the required plan-batch context plus the current `BUG_BACKLOG.md` and `DEEP_SCAN_REPORT.md` before selecting the batch boundary.
+docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md:73:- `docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md`
+docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md:75:- Re-read `docs/project-bot/config.json`, `docs/project-bot/OPERATOR_PROFILE.md`, `docs/atlas/PROJECT_BLUEPRINT.md`, `docs/atlas/MODULE_MAP.md`, `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`, `docs/atlas/API_SURFACE.md`, `docs/atlas/CHANGE_MAP.md`, `docs/project-bot/runs/20260312-174754-plan-batch/TASK.md`, `docs/qa/BUG_BACKLOG.md`, and `docs/qa/DEEP_SCAN_REPORT.md` before finalizing the handoff.
+docs/project-bot/runs/20260312-174754-regression-hunt/RUN_SUMMARY.md:3:- Run mode: `regression-hunt`
+docs/project-bot/runs/20260312-174754-regression-hunt/RUN_SUMMARY.md:34:- `docs/project-bot/runs/20260312-174754-regression-hunt/RUN_SUMMARY.md`
+docs/project-bot/runs/20260312-174754-regression-hunt/RUN_SUMMARY.md:60:- `docs/project-bot/runs/20260312-174754-regression-hunt/RUN_SUMMARY.md`
+docs/project-bot/runs/20260312-174754-regression-hunt/RUN_SUMMARY.md:82:- `docs/project-bot/runs/20260312-174754-regression-hunt/RUN_SUMMARY.md`
+docs/project-bot/runs/20260312-174754-regression-hunt/RUN_SUMMARY.md:88:- Final confidence: high for the regression-hunt scope covered by the passing 116-test suite plus compile and route-smoke evidence; residual risk remains on downstream route compatibility (`REG-P0-001`) and the lack of a dedicated `management/tests.py`.
+docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md:22:- Collected the latest backend change context from the required atlas docs, `CHANGE_MAP.md`, `DEEP_SCAN_REPORT.md`, `BUG_BACKLOG.md`, `FULL_AUDIT_REPORT.md`, and the recent `backend-optimize`, `regression-hunt`, and `plan-batch` run summaries.
+docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md:23:- Identified the latest verified product changes as the `OPT-P1-001` through `OPT-P1-003` optimization batch plus the regression-hunt admin payment-review queue fix that restored the intended `<=7` query budget.
+docs/project-bot/runs/20260312-174549-plan-batch/RUN_SUMMARY.md:3:- Run mode: `plan-batch`
+ succeeded in 51ms:
+Total output lines: 279
+
+docs/qa/DEEP_SCAN_REPORT.md:338:### 2026-03-12 Change Journal Phase 0 Recent Change Context
+docs/qa/DEEP_SCAN_REPORT.md:339:- Re-read the change-journal run state and Phase 0 prompt, the required atlas docs, `CHANGE_MAP.md`, `BUG_BACKLOG.md`, `DEEP_SCAN_REPORT.md`, `FULL_AUDIT_REPORT.md`, and the recent `backend-optimize`, `regression-hunt`, and `plan-batch` run summaries before reopening the live target repo.
+docs/project-bot/runs/20260312-174754-change-journal/NEXT_PROMPT.md:2:Read `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/state.json` and `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/prompts/phase-01.md`.
+docs/project-bot/runs/20260312-174754-change-journal/NEXT_PROMPT.md:5:1. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal --phase 1`
+docs/project-bot/runs/20260312-174754-change-journal/NEXT_PROMPT.md:6:2. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal`
+docs/project-bot/runs/20260312-174754-change-journal/NEXT_PROMPT.md:7:Then print `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/NEXT_PROMPT.md`.
+docs/project-bot/runs/20260312-174754-change-journal/TASK.md:5:Primary objective: Summarize what was fixed, what remains, and the next recommended batch.
+docs/project-bot/runs/20260312-174754-change-journal/TASK.md:7:Mode: change-journal
+docs/project-bot/runs/20260312-174754-change-journal/TASK.md:21:- Summarize what the team completed, what remains, and the next recommended batch.
+docs/project-bot/runs/20260312-174356-change-journal/NEXT_PROMPT.md:2:Read `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174356-change-journal/state.json` and `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174356-change-journal/prompts/phase-00.md`.
+docs/project-bot/runs/20260312-174356-change-journal/NEXT_PROMPT.md:5:1. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174356-change-journal --phase 0`
+docs/project-bot/runs/20260312-174356-change-journal/NEXT_PROMPT.md:6:2. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174356-change-journal`
+docs/project-bot/runs/20260312-174356-change-journal/NEXT_PROMPT.md:7:Then print `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174356-change-journal/NEXT_PROMPT.md`.
+docs/project-bot/runs/20260312-174356-change-journal/TASK.md:5:Primary objective: Summarize what was fixed, what remains, and the next recommended batch.
+docs/project-bot/runs/20260312-174356-change-journal/TASK.md:7:Mode: change-journal
+docs/project-bot/runs/20260312-174356-change-journal/TASK.md:21:- Summarize what the team completed, what remains, and the next recommended batch.
+docs/project-bot/runs/20260312-174754-change-journal/prompts/phase-00.md:3:Run Mode: `change-journal`
+docs/project-bot/runs/20260312-174754-change-journal/prompts/phase-00.md:4:Run Directory: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal`
+Plan update
+Phase 1 is documentation-only. I’m extracting the verified changes and residual backlog from the existing audit runs, then I’ll append the durable journal summary, mark the phase complete, and print the next prompt.
+  → Review the recent change-journal, backend-optimize, regression-hunt, and planning artifacts to capture the verified work and remaining backlog accurately
+  • Append the Phase 1 journal summary to the durable workspace docs required for this run
+  • Run the orchestration completion commands, verify updated state, and print NEXT_PROMPT.md
+codex
+The durable inputs already contain a Phase 0 change-journal section, so I’m narrowing to the exact verification outcomes and remaining backlog IDs that Phase 1 needs to hand off. After that I’ll write the journal docs in one pass.
+exec
+/bin/zsh -lc "sed -n '330,410p' docs/qa/DEEP_SCAN_REPORT.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc "sed -n '1,220p' docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc "sed -n '1,220p' docs/project-bot/runs/20260312-174754-regression-hunt/RUN_SUMMARY.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc "sed -n '1,220p' docs/project-bot/runs/20260312-174754-backend-optimize/RUN_SUMMARY.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 52ms:
+  - Still live: `/common/send_otp_sms/`, `/common/is_user_exist/`, `/bookings/get_overall_booking_statistics/`, `/management/fetch_all_paid_bookings/`, `/partner/get_featured_packages/`
+  - Still removed: `/bookings/get_all_booking_short_detail_by_user/`, `/management/fetch_all_approved_companies/`, `/management/manage_featured_package/`, `/partner/get_city_wise_packages_count/`, `/chat/`
+- No new in-scope regressions surfaced beyond the Phase 1 admin payment-review queue issue that was already fixed and re-verified.
+- Confidence update:
+  - High confidence for the touched booking/customer/partner regression surfaces and the admin review queue path covered by the 116-test suite plus compile and route-smoke evidence.
+  - Residual risk remains on `REG-P0-001` because route restoration decisions depend on downstream clients outside Huz-Backend, and on broader admin-only behavior because the repo still lacks a dedicated `management/tests.py`.
+- Environment note: the earlier shell-level `ModuleNotFoundError: No module named 'django'` blocker no longer applies when verification is run through `/Users/macbook/Desktop/Huz/Huz-Backend/.venv/bin/python`; the remaining test-confidence gap is coverage depth, not dependency availability.
+
+### 2026-03-12 Change Journal Phase 0 Recent Change Context
+- Re-read the change-journal run state and Phase 0 prompt, the required atlas docs, `CHANGE_MAP.md`, `BUG_BACKLOG.md`, `DEEP_SCAN_REPORT.md`, `FULL_AUDIT_REPORT.md`, and the recent `backend-optimize`, `regression-hunt`, and `plan-batch` run summaries before reopening the live target repo.
+- The latest verified implementation batch in the backend is still the optimization slice from `backend-optimize`:
+  - `OPT-P1-001`: current-user booking retrieve plus payment/passport mutation responses now reload through a preloaded detail queryset in `booking/services.py` and `booking/views/bookings.py`.
+  - `OPT-P1-002`: partner booking statistics and rating summaries now use DB-side aggregates in `booking/manage_partner_booking.py`.
+  - `OPT-P1-003`: the admin payment-review queue now derives queue counts and request totals from a consolidated aggregate in `management/approval_task.py`.
+- The most recent verified follow-up change is the regression-hunt repair on the admin payment-review queue:
+  - `booking/tests.py` regained the direct-view auth helper needed to exercise the queue path correctly.
+  - `management/approval_task.py` now returns queue-specific total amounts from the same review-summary aggregate instead of a second filtered sum query.
+  - `booking/workflow.py` now defers operator-document completeness reads until fulfillment-state recalculation actually needs them, restoring `/management/fetch_all_paid_bookings/` to the intended `<=7` query budget.
+- The current verification baseline for the recent documented work is:
+  - `.venv/bin/python manage.py test booking.tests.BookingWorkflowServiceValidationTests booking.tests.ManagePartnerBookingViewsTests booking.tests.BookingSerializerQueryTests --settings=huz.settings_test` passed with 70 tests.
+ succeeded in 51ms:
+# Run Summary
+
+- Run mode: `backend-optimize`
+- Target project: `/Users/macbook/Desktop/Huz/Huz-Backend`
+- Workspace root: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend`
+- Scope level: `panel-be`
+- Scope: `/Users/macbook/Desktop/Huz/Huz-Backend`
+- Scope targets: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/huz-backend`
+- Full-system required docs: `disabled`
+- Rule: append one section per completed phase. Do not overwrite prior phase sections.
+
+Expected section format:
+
+## Phase X - Title
+### Changes Made
+### How It Was Implemented
+### Files Touched
+### Verification
+
+## Phase 0 - Baseline Backend Hotspots
+ succeeded in 52ms:
+# Run Summary
+
+- Run mode: `plan-batch`
+- Target project: `/Users/macbook/Desktop/Huz/Huz-Backend`
+- Workspace root: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend`
+- Scope level: `panel-be`
+- Scope: `/Users/macbook/Desktop/Huz/Huz-Backend`
+- Scope targets: None
+- Full-system required docs: `disabled`
+- Rule: append one section per completed phase. Do not overwrite prior phase sections.
+
+Expected section format:
+
+## Phase X - Title
+### Changes Made
+### How It Was Implemented
+### Files Touched
+### Verification
+
+## Phase 0 - Read Context and Backlog
+ succeeded in 51ms:
+# Run Summary
+
+- Run mode: `regression-hunt`
+- Target project: `/Users/macbook/Desktop/Huz/Huz-Backend`
+- Workspace root: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend`
+- Scope level: `panel-be`
+- Scope: `/Users/macbook/Desktop/Huz/Huz-Backend`
+- Scope targets: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/huz-backend`
+- Full-system required docs: `disabled`
+- Rule: append one section per completed phase. Do not overwrite prior phase sections.
+
+Expected section format:
+
+## Phase X - Title
+### Changes Made
+### How It Was Implemented
+### Files Touched
+### Verification
+
+## Phase 0 - Target Recent Risk
+codex
+I still need to satisfy the explicit atlas-read requirement before writing. I’m pulling the relevant entries from `PROJECT_BLUEPRINT`, `MODULE_MAP`, `ROUTES_AND_ENTRYPOINTS`, and `API_SURFACE` now, focused on the booking detail, partner stats, and admin review queue surfaces the journal will reference.
+exec
+/bin/zsh -lc "sed -n '1,220p' docs/atlas/PROJECT_BLUEPRINT.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc "sed -n '1,260p' docs/atlas/MODULE_MAP.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc 'rg -n "OPT-P1|booking detail|payment-review|fetch_all_paid_bookings|partner stats|rating|current-user booking|management/approval_task|booking/manage_partner_booking" docs/atlas/PROJECT_BLUEPRINT.md docs/atlas/MODULE_MAP.md docs/atlas/ROUTES_AND_ENTRYPOINTS.md docs/atlas/API_SURFACE.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 52ms:
+# Module Map
+
+Update this file whenever modules, folders, or responsibilities change.
+
+## Top-Level Modules
+| Module | Path | Responsibility | Notes |
+| --- | --- | --- | --- |
+| Django project shell | `/Users/macbook/Desktop/Huz/Huz-Backend/huz` | Settings, root URL mounts, WSGI/ASGI bootstraps, optional docs/static serving | `huz/settings.py` is production-first; `huz/settings_test.py` swaps to SQLite for verification runs. |
+| Shared user domain | `/Users/macbook/Desktop/Huz/Huz-Backend/common` | Customer identity, OTP, wallets, addresses, notifications, auth bridge, email/SMS/Firebase helpers | Mixed legacy and modern APIs; contains the session-token authentication bridge used by `/api/v1/`. |
+| Partner domain | `/Users/macbook/Desktop/Huz/Huz-Backend/partners` | Partner onboarding, identity, services, package catalog, website package reads, partner wallets and withdrawals | Write path is split between modern operator views and older legacy modules. |
+| Booking domain | `/Users/macbook/Desktop/Huz/Huz-Backend/booking` | Booking creation, payment/passport lifecycle, support flows, partner fulfillment, receivable tracking | Contains the current state machine and the largest cross-module coupling. |
+| Back-office domain | `/Users/macbook/Desktop/Huz/Huz-Backend/management` | Company approvals, payment review, master hotel catalog, partner payout transfer | All routed views currently live in `approval_task.py`. |
+| Email templates | `/Users/macbook/Desktop/Huz/Huz-Backend/huz/templates/emails` | Transactional email rendering for approval, booking, objection, complaint, payment, and verification flows | Driven through helper functions in `common/utility.py`. |
+
+## Shared Platform and Auth
+| Module | Path | Responsibility | Notes |
+| --- | --- | --- | --- |
+| Session-token auth bridge | `/Users/macbook/Desktop/Huz/Huz-Backend/common/authentication.py` | Resolves Bearer/Token headers and legacy query/payload session tokens to customer or partner principals | Sets request auth context and drives `X-Auth-Deprecated` header when legacy token transport is used. |
+| Auth helpers | `/Users/macbook/Desktop/Huz/Huz-Backend/common/auth_utils.py` | Resolves authenticated user/partner principals and admin checks | Used by the modern `/api/v1/` and newer operator views. |
+| Custom permissions | `/Users/macbook/Desktop/Huz/Huz-Backend/common/permissions.py` | DRF permission classes for authenticated user and partner profile access | Keeps admin override behavior intact. |
+ succeeded in 51ms:
+# Project Blueprint
+
+Keep this file current whenever code changes touch architecture, flows, or module boundaries.
+
+## Scope
+- Target project: `/Users/macbook/Desktop/Huz/Huz-Backend`
+- Runtime: Django 5.0.6 + Django REST Framework 3.15 + drf-yasg
+- Primary domains: customer identity and wallets, partner onboarding and package catalog, booking lifecycle, admin approvals and payouts
+- Refresh basis: live working tree as inspected on 2026-03-12 during `system-atlas` Phase 1
+
+## System Purpose
+Huz-Backend is the backend for a Hajj and Umrah marketplace. It supports:
+
+- Customer onboarding, profile management, addresses, wallets, and withdrawals
+- Partner onboarding for individual and company operators
+- Package enrollment and website package discovery
+- Customer booking creation, staged payment submission, traveller passport capture, post-booking support, and review flows
+- Partner booking fulfillment, operator document uploads, complaints handling, and receivable tracking
+- Admin approval of partner companies, payment review, master hotel catalog maintenance, and partner payout release
+
+ succeeded in 51ms:
+docs/atlas/MODULE_MAP.md:42:| Partner serializers | `/Users/macbook/Desktop/Huz/Huz-Backend/partners/serializers.py` | Nested partner, package, hotel, date range, and financial serialization contracts | Flattens hotel images and computes package ratings and date-range expiry. |
+docs/atlas/MODULE_MAP.md:49:| Booking models | `/Users/macbook/Desktop/Huz/Huz-Backend/booking/models.py` | Booking, payment, passport, operator documents, ratings, complaints, requests, receivables | Booking status, issue status, hold expiry, and correction expiry all live on `Booking`. |
+docs/atlas/MODULE_MAP.md:55:| Booking serializers | `/Users/macbook/Desktop/Huz/Huz-Backend/booking/serializers.py` | Customer, partner, and admin-facing booking detail contracts | Injects workflow-derived fields into response payloads. |
+docs/atlas/MODULE_MAP.md:59:| Partner booking operations | `/Users/macbook/Desktop/Huz/Huz-Backend/booking/manage_partner_booking.py` | Booking queues, detail, operator action, fulfilment docs, arrangement detail, ratings, complaints, partner stats, payout visibility | Largest file in the repo and the highest collision risk for downstream changes; Phase 1 backend-optimize moved stats and rating summaries onto DB-side aggregates. |
+docs/atlas/MODULE_MAP.md:66:| Admin task hub | `/Users/macbook/Desktop/Huz/Huz-Backend/management/approval_task.py` | Master hotels CRUD, company approvals, payment review queue, payout release, cache management | Contains both routed and currently unrouted admin endpoints; payment-review queue summary metadata now comes from consolidated filtered aggregates. |
+docs/atlas/MODULE_MAP.md:82:| Admin task monolith | `/Users/macbook/Desktop/Huz/Huz-Backend/management/approval_task.py` | Diverse admin concerns in a single file | Back-office changes should be batched carefully to avoid cache or payout regressions. |
+docs/atlas/PROJECT_BLUEPRINT.md:74:- Company approval and optional sales-director assignment live in `management/approval_task.py`.
+docs/atlas/PROJECT_BLUEPRINT.md:81:- Admin-maintained master hotel templates are stored as a synthetic package owned by the system in `management/approval_task.py`.
+docs/atlas/PROJECT_BLUEPRINT.md:85:- Current-user retrieve plus the payment and passport mutation responses now reload through a preloaded detail queryset before `DetailBookingSerializer` runs, keeping the nested booking payload bounded to the booking detail read path.
+docs/atlas/PROJECT_BLUEPRINT.md:91:- Admins review booking payments in `management/approval_task.py`.
+docs/atlas/PROJECT_BLUEPRINT.md:97:- Partner-facing booking operations live in `booking/manage_partner_booking.py`.
+docs/atlas/PROJECT_BLUEPRINT.md:99:- Partner dashboard booking totals and rating histograms now aggregate inside the database rather than looping through per-bucket counts or every rating row in Python.
+docs/atlas/PROJECT_BLUEPRINT.md:104:- Operators manage those complaints in `booking/manage_partner_booking.py`.
+docs/atlas/PROJECT_BLUEPRINT.md:114:| Partner booking fulfillment | `booking/manage_partner_booking.py` | Reads and mutates the same booking lifecycle state as customer and admin flows. |
+docs/atlas/PROJECT_BLUEPRINT.md:115:| Back-office approvals and payouts | `management/approval_task.py` | Touches partner approval, payment review, master hotel catalog, and wallet release. |
+docs/atlas/PROJECT_BLUEPRINT.md:128:- `management/approval_task.py` defines `GetAllApprovedCompaniesView` and `ManageFeaturedPackageView`, but `management/urls.py` does not mount them.
+docs/atlas/PROJECT_BLUEPRINT.md:134:- `booking/manage_partner_booking.py`: partner fulfillment, complaints, payout visibility, and large view density
+docs/atlas/PROJECT_BLUEPRINT.md:139:- `management/approval_task.py`: admin approvals, payment review, master hotels, payout transfer, and cache invalidation
+docs/atlas/PROJECT_BLUEPRINT.md:146:- Partner booking fulfillment: `booking/manage_partner_booking.py`
+docs/atlas/PROJECT_BLUEPRINT.md:147:- Admin approval and payouts: `management/approval_task.py`
+exec
+/bin/zsh -lc "sed -n '1,260p' docs/atlas/ROUTES_AND_ENTRYPOINTS.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 52ms:
+Total output lines: 166
+
+# Routes and Entrypoints
+
+Track frontend routes, backend route groups, entry components, and bootstrap paths here.
+
+## Bootstrap Entrypoints
+| Entrypoint | Path | Purpose | Notes |
+| --- | --- | --- | --- |
+| Django CLI | `/Users/macbook/Desktop/Huz/Huz-Backend/manage.py` | Standard management-command bootstrap | Uses `huz.settings` by default. |
+| WSGI app | `/Users/macbook/Desktop/Huz/Huz-Backend/huz/wsgi.py` | Deployment WSGI entrypoint | Standard synchronous deployment path. |
+| ASGI app | `/Users/macbook/Desktop/Huz/Huz-Backend/huz/asgi.py` | ASGI entrypoint | Present even though `ASGI_APPLICATION` is commented in `huz/settings.py`. |
+| Root router | `/Users/macbook/Desktop/Huz/Huz-Backend/huz/urls.py` | Mounts all HTTP route groups | Also conditionally exposes Swagger/Redoc and Django static/media serving. |
+| Booking lifecycle timer | `/Users/macbook/Desktop/Huz/Huz-Backend/booking/management/commands/process_booking_timers.py` | Scheduled reconciler for booking expiry and completion | Must be run out-of-band by ops/cron; there is no Celery worker in the inspected tree. |
+| Package seed command | `/Users/macbook/Desktop/Huz/Huz-Backend/partners/management/commands/seed_huz_packages.py` | Developer data-seeding entrypoint for package catalog scenarios | Creates realistic package graphs and can attach them to an existing partner or bootstrap a seed partner. |
+
+## Root Route Mounts
+| Prefix | Mounted module | Auth model | Purpose | Notes |
+| --- | --- | --- | --- | --- |
+| `/api/v1/` | `booking.api_urls` and `common.api_urls` | Modern session-token auth bridge | Current authenticated customer API surface | `Authorization: Bearer/Token <session token>` preferred. |
+codex
+The atlas read requirement is satisfied now. I’m using the existing change-journal Phase 0 section plus the optimize/regression run summaries as the basis for the final journal text, and I’m checking whether an earlier change-journal run used a specific doc pattern before editing.
+exec
+/bin/zsh -lc "sed -n '330,420p' docs/qa/DEEP_SCAN_REPORT.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc "sed -n '1,260p' docs/project-bot/runs/20260312-174356-change-journal/RUN_SUMMARY.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc 'rg -n "Change Journal Phase 1|## Phase 1 - Write Journal Entry" docs/project-bot/runs docs/qa' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 52ms:
+# Run Summary
+
+- Run mode: `change-journal`
+- Target project: `/Users/macbook/Desktop/Huz/Huz-Backend`
+- Workspace root: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend`
+- Scope level: `panel-fullstack`
+- Scope: `/Users/macbook/Desktop/Huz/Huz-Backend`
+- Scope targets: None
+- Full-system required docs: `disabled`
+- Rule: append one section per completed phase. Do not overwrite prior phase sections.
+
+Expected section format:
+
+## Phase X - Title
+### Changes Made
+### How It Was Implemented
+### Files Touched
+### Verification
+ succeeded in 52ms:
+  - Still live: `/common/send_otp_sms/`, `/common/is_user_exist/`, `/bookings/get_overall_booking_statistics/`, `/management/fetch_all_paid_bookings/`, `/partner/get_featured_packages/`
+  - Still removed: `/bookings/get_all_booking_short_detail_by_user/`, `/management/fetch_all_approved_companies/`, `/management/manage_featured_package/`, `/partner/get_city_wise_packages_count/`, `/chat/`
+- No new in-scope regressions surfaced beyond the Phase 1 admin payment-review queue issue that was already fixed and re-verified.
+- Confidence update:
+  - High confidence for the touched booking/customer/partner regression surfaces and the admin review queue path covered by the 116-test suite plus compile and route-smoke evidence.
+  - Residual risk remains on `REG-P0-001` because route restoration decisions depend on downstream clients outside Huz-Backend, and on broader admin-only behavior because the repo still lacks a dedicated `management/tests.py`.
+- Environment note: the earlier shell-level `ModuleNotFoundError: No module named 'django'` blocker no longer applies when verification is run through `/Users/macbook/Desktop/Huz/Huz-Backend/.venv/bin/python`; the remaining test-confidence gap is coverage depth, not dependency availability.
+
+### 2026-03-12 Change Journal Phase 0 Recent Change Context
+- Re-read the change-journal run state and Phase 0 prompt, the required atlas docs, `CHANGE_MAP.md`, `BUG_BACKLOG.md`, `DEEP_SCAN_REPORT.md`, `FULL_AUDIT_REPORT.md`, and the recent `backend-optimize`, `regression-hunt`, and `plan-batch` run summaries before reopening the live target repo.
+- The latest verified implementation batch in the backend is still the optimization slice from `backend-optimize`:
+  - `OPT-P1-001`: current-user booking retrieve plus payment/passport mutation responses now reload through a preloaded detail queryset in `booking/services.py` and `booking/views/bookings.py`.
+  - `OPT-P1-002`: partner booking statistics and rating summaries now use DB-side aggregates in `booking/manage_partner_booking.py`.
+  - `OPT-P1-003`: the admin payment-review queue now derives queue counts and request totals from a consolidated aggregate in `management/approval_task.py`.
+- The most recent verified follow-up change is the regression-hunt repair on the admin payment-review queue:
+  - `booking/tests.py` regained the direct-view auth helper needed to exercise the queue path correctly.
+  - `management/approval_task.py` now returns queue-specific total amounts from the same review-summary aggregate instead of a second filtered sum query.
+  - `booking/workflow.py` now defers operator-document completeness reads until fulfillment-state recalculation actually needs them, restoring `/management/fetch_all_paid_bookings/` to the intended `<=7` query budget.
+- The current verification baseline for the recent documented work is:
+  - `.venv/bin/python manage.py test booking.tests.BookingWorkflowServiceValidationTests booking.tests.ManagePartnerBookingViewsTests booking.tests.BookingSerializerQueryTests --settings=huz.settings_test` passed with 70 tests.
+ exited 1 in 50ms:
+
+codex
+I have the journal content and the open-item handoff. I’m making documentation-only edits now: append the Phase 1 change-journal section to `DEEP_SCAN_REPORT.md` and the required Phase 1 block to this run’s `RUN_SUMMARY.md`.
+exec
+/bin/zsh -lc 'tail -n 40 docs/qa/DEEP_SCAN_REPORT.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 52ms:
+- Re-verified the repair with:
+  - `.venv/bin/python manage.py test booking.tests.ApproveBookingPaymentViewTests.test_admin_review_queue_uses_bounded_summary_query_count --settings=huz.settings_test`
+  - Result: passed, restoring the admin queue regression budget to `<=7` queries.
+- Additional Phase 1 verification:
+  - `python3 -m compileall booking management huz common partners` passed.
+  - Route smoke checks confirmed that `/bookings/get_all_booking_short_detail_by_user/`, `/management/fetch_all_approved_companies/`, `/management/manage_featured_package/`, `/partner/get_city_wise_packages_count/`, and `/chat/` still resolve to `404`, matching the legacy-route removal already tracked in `REG-P0-001`.
+- Phase 1 touched only the regression lane files needed to restore test confidence and the admin queue query budget. The legacy-route compatibility item remains open because restoring or migrating those paths depends on downstream consumers outside Huz-Backend.
+
+### 2026-03-12 Regression Hunt Phase 2 Document Regression Outcome
+- Re-ran a broader verification sweep from the project virtualenv instead of stopping at the original focused regression slice:
+  - `.venv/bin/python manage.py test common.tests partners.tests booking.tests --settings=huz.settings_test`
+  - Result: `116` tests passed in `2.990s` with `System check identified no issues (0 silenced).`
+- Re-ran `python3 -m compileall booking management huz common partners`; the checked-out backend modules still parse cleanly after the Phase 1 repair.
+- Re-smoked the documented route split with Django's resolver:
+  - Still live: `/common/send_otp_sms/`, `/common/is_user_exist/`, `/bookings/get_overall_booking_statistics/`, `/management/fetch_all_paid_bookings/`, `/partner/get_featured_packages/`
+  - Still removed: `/bookings/get_all_booking_short_detail_by_user/`, `/management/fetch_all_approved_companies/`, `/management/manage_featured_package/`, `/partner/get_city_wise_packages_count/`, `/chat/`
+- No new in-scope regressions surfaced beyond the Phase 1 admin payment-review queue issue that was already fixed and re-verified.
+- Confidence update:
+  - High confidence for the touched booking/customer/partner regression surfaces and the admin review queue path covered by the 116-test suite plus compile and route-smoke evidence.
+  - Residual risk remains on `REG-P0-001` because route restoration decisions depend on downstream clients outside Huz-Backend, and on broader admin-only behavior because the repo still lacks a dedicated `management/tests.py`.
+exec
+/bin/zsh -lc 'tail -n 60 docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 52ms:
+# Run Summary
+
+- Run mode: `change-journal`
+- Target project: `/Users/macbook/Desktop/Huz/Huz-Backend`
+- Workspace root: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend`
+- Scope level: `panel-be`
+- Scope: `/Users/macbook/Desktop/Huz/Huz-Backend`
+- Scope targets: None
+- Full-system required docs: `disabled`
+- Rule: append one section per completed phase. Do not overwrite prior phase sections.
+
+Expected section format:
+
+## Phase X - Title
+### Changes Made
+### How It Was Implemented
+### Files Touched
+### Verification
+
+## Phase 0 - Collect Recent Change Context
+file update
+M /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+@@ -355 +355,26 @@
+ - `FULL_AUDIT_REPORT.md` remains placeholder-level, so the durable source of truth for the latest backend changes is the combination of `CHANGE_MAP.md`, `DEEP_SCAN_REPORT.md`, `BUG_BACKLOG.md`, and the recent `backend-optimize` and `regression-hunt` run summaries rather than the full-audit stub.
++
++### 2026-03-12 Change Journal Phase 1 Write Journal Entry
++- Wrote the durable final recap for the latest verified backend work and kept it explicitly bounded to changes backed by the existing optimize/regression run summaries, atlas updates, backlog state, and verification evidence rather than the broader ambient dirty-tree churn.
++- What changed in the last verified implementation window:
++  - `OPT-P1-001` moved current-user booking detail, payment, and passport responses onto the preloaded booking-detail queryset in `booking/services.py` and `booking/views/bookings.py`, so `DetailBookingSerializer` no longer rehydrates the same related objects lazily on those customer-facing paths.
++  - `OPT-P1-002` moved partner booking statistics and rating summaries in `booking/manage_partner_booking.py` onto filtered database aggregates instead of repeated per-bucket `.count()` calls and Python-side rating loops.
++  - `OPT-P1-003` moved `/management/fetch_all_paid_bookings/` queue counts and request-summary metadata in `management/approval_task.py` onto consolidated filtered aggregates.
++  - The most recent follow-up fix restored the admin payment-review queue regression budget by repairing the direct-view auth test harness in `booking/tests.py`, returning queue-specific total amounts from the same review-summary aggregate in `management/approval_task.py`, and deferring operator-document reads in `booking/workflow.py` until fulfillment-state recalculation actually needs them.
++- Why those changes landed:
++  - The highest-value repo-local performance wins were on the customer booking detail path, partner dashboard/statistics reads, and the admin payment-review queue, where the prior implementations repeated relation loading or aggregate work unnecessarily.
++  - The regression-hunt repair was needed because the queue path drifted back above the intended `<=7` query budget during later verification, and the final journal needed to distinguish that verified fix from unrelated route/auth churn still present in the repo.
++- How the work was implemented:
++  - Reused the existing prefetch-aware detail-loading pattern on the customer booking response path instead of widening every booking mutation flow.
++  - Replaced repeated Python loops and queryset fan-out in partner/admin summary endpoints with SQL-side filtered aggregates.
++  - Used the refreshed atlas (`PROJECT_BLUEPRINT.md`, `MODULE_MAP.md`, `ROUTES_AND_ENTRYPOINTS.md`, `API_SURFACE.md`, `CHANGE_MAP.md`) plus `BUG_BACKLOG.md` and the optimize/regression run summaries to keep the final recap aligned with the actual recorded work.
++- Verification outcomes carried into the journal:
++  - `.venv/bin/python manage.py test booking.tests.BookingWorkflowServiceValidationTests booking.tests.ManagePartnerBookingViewsTests booking.tests.BookingSerializerQueryTests --settings=huz.settings_test` passed with `70` tests.
++  - `.venv/bin/python manage.py test common.tests.CreateMemberProfileViewTransactionTests common.tests.PublicUrlExposureTests common.tests.UserProfileSerializerQueryTests booking.tests.BookingWorkflowServiceValidationTests booking.tests.ApproveBookingPaymentViewTests booking.tests.ManagePartnerBookingViewsTests booking.tests.BookingSerializerQueryTests --settings=huz.settings_test` passed with `84` tests after the regression repair.
++  - `.venv/bin/python manage.py test common.tests partners.tests booking.tests --settings=huz.settings_test` passed with `116` tests.
++  - `python3 -m compileall booking management huz common partners` passed, and resolver smoke checks still match the documented legacy-route removals tied to `REG-P0-001`.
++- What remains and the next recommended batch:
++  - `OPT-P1-004` stays open for the operator hotel-catalog fallback path in `partners/package_management_operator.py`.
++  - `DS-P1-006` stays open because the repo still has no dedicated `management/tests.py`, so admin-only confidence still depends on indirect coverage from `booking/tests.py`.
++  - `REG-P0-001` stays open because several removed legacy routes still resolve to `404`, and any restoration or migration decision depends on downstream consumers outside Huz-Backend.
++  - The next recommended implementation batch remains `PB-1A Response Contract Containment`: remove `session_token`, `partner_session_token`, `firebase_token`, and `web_firebase_token` from outward-facing `common`, `partners`, and `booking` responses without widening into the later auth-transport, principal-binding, or token-rotation work.
+M /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md
+@@ -40 +40,21 @@
+ - Phase 0 stayed documentation-only. No product code changed and no new runtime tests were executed in this phase.
++
++## Phase 1 - Write Journal Entry
++### Changes Made
++- Appended the durable change-journal recap to `docs/qa/DEEP_SCAN_REPORT.md`, summarizing the latest verified backend optimization and regression-fix work, the current verification baseline, the remaining open items, and the next recommended batch.
++- Locked the final recap to the documented-and-verified change set: `OPT-P1-001`, `OPT-P1-002`, `OPT-P1-003`, plus the regression-hunt admin payment-review queue repair across `booking/tests.py`, `management/approval_task.py`, and `booking/workflow.py`.
++- Recorded the remaining follow-up boundary as `OPT-P1-004`, `DS-P1-006`, `REG-P0-001`, and the already-planned `PB-1A Response Contract Containment` batch rather than widening the journal to ambient repo churn.
++
++### How It Was Implemented
++- Re-read the required atlas docs (`PROJECT_BLUEPRINT.md`, `MODULE_MAP.md`, `ROUTES_AND_ENTRYPOINTS.md`, `API_SURFACE.md`, `CHANGE_MAP.md`), the current QA docs, and the recent `backend-optimize`, `regression-hunt`, and `plan-batch` run summaries before writing the final recap.
++- Cross-checked the journal language against the durable optimize/regression verification evidence so the summary reflects what was actually fixed and re-verified, not the still-dirty route/auth drift elsewhere in the working tree.
++- Wrote the final handoff in append-only form and kept this phase documentation-only, as required by the wrap-up lane.
++
++### Files Touched
++- `docs/qa/DEEP_SCAN_REPORT.md`
++- `docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md`
++
++### Verification
++- Re-read `docs/project-bot/config.json`, `docs/project-bot/OPERATOR_PROFILE.md`, `docs/atlas/PROJECT_BLUEPRINT.md`, `docs/atlas/MODULE_MAP.md`, `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`, `docs/atlas/API_SURFACE.md`, `docs/atlas/CHANGE_MAP.md`, `docs/project-bot/runs/20260312-174754-change-journal/TASK.md`, `docs/qa/DEEP_SCAN_REPORT.md`, `docs/qa/BUG_BACKLOG.md`, and `docs/qa/FULL_AUDIT_REPORT.md`.
++- Re-read `docs/project-bot/runs/20260312-174754-backend-optimize/RUN_SUMMARY.md`, `docs/project-bot/runs/20260312-174754-regression-hunt/RUN_SUMMARY.md`, and `docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md` to confirm the final recap, verification outcomes, and next-batch handoff match the recorded work.
++- Phase 1 stayed documentation-only. No product code changed and no new runtime tests were executed in this phase.
+apply_patch(auto_approved=true) exited 0 in 53ms:
+Success. Updated the following files:
+M /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+M /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md
+index 62cc0fc9bb9282a28ab7bbbaea1a28d47cfc337a..122907260debbffd542fdf4e2f407ef94852a200
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md
+@@ -38,3 +38,23 @@
+ - `git -C /Users/macbook/Desktop/Huz/Huz-Backend diff --stat -- booking/services.py booking/views/bookings.py booking/manage_partner_booking.py management/approval_task.py booking/workflow.py booking/tests.py common/urls.py booking/urls.py management/urls.py partners/urls.py huz/urls.py common/user_profile.py common/serializers.py booking/serializers.py common/api_v1.py partners/partner_accounts_and_transactions.py`
+ - `git -C /Users/macbook/Desktop/Huz/Huz-Backend diff -- booking/services.py booking/views/bookings.py booking/manage_partner_booking.py management/approval_task.py booking/workflow.py booking/tests.py`
+ - Phase 0 stayed documentation-only. No product code changed and no new runtime tests were executed in this phase.
++
++## Phase 1 - Write Journal Entry
++### Changes Made
++- Appended the durable change-journal recap to `docs/qa/DEEP_SCAN_REPORT.md`, summarizing the latest verified backend optimization and regression-fix work, the current verification baseline, the remaining open items, and the next recommended batch.
++- Locked the final recap to the documented-and-verified change set: `OPT-P1-001`, `OPT-P1-002`, `OPT-P1-003`, plus the regression-hunt admin payment-review queue repair across `booking/tests.py`, `management/approval_task.py`, and `booking/workflow.py`.
++- Recorded the remaining follow-up boundary as `OPT-P1-004`, `DS-P1-006`, `REG-P0-001`, and the already-planned `PB-1A Response Contract Containment` batch rather than widening the journal to ambient repo churn.
++
++### How It Was Implemented
++- Re-read the required atlas docs (`PROJECT_BLUEPRINT.md`, `MODULE_MAP.md`, `ROUTES_AND_ENTRYPOINTS.md`, `API_SURFACE.md`, `CHANGE_MAP.md`), the current QA docs, and the recent `backend-optimize`, `regression-hunt`, and `plan-batch` run summaries before writing the final recap.
++- Cross-checked the journal language against the durable optimize/regression verification evidence so the summary reflects what was actually fixed and re-verified, not the still-dirty route/auth drift elsewhere in the working tree.
++- Wrote the final handoff in append-only form and kept this phase documentation-only, as required by the wrap-up lane.
++
++### Files Touched
++- `docs/qa/DEEP_SCAN_REPORT.md`
++- `docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md`
++
++### Verification
++- Re-read `docs/project-bot/config.json`, `docs/project-bot/OPERATOR_PROFILE.md`, `docs/atlas/PROJECT_BLUEPRINT.md`, `docs/atlas/MODULE_MAP.md`, `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`, `docs/atlas/API_SURFACE.md`, `docs/atlas/CHANGE_MAP.md`, `docs/project-bot/runs/20260312-174754-change-journal/TASK.md`, `docs/qa/DEEP_SCAN_REPORT.md`, `docs/qa/BUG_BACKLOG.md`, and `docs/qa/FULL_AUDIT_REPORT.md`.
++- Re-read `docs/project-bot/runs/20260312-174754-backend-optimize/RUN_SUMMARY.md`, `docs/project-bot/runs/20260312-174754-regression-hunt/RUN_SUMMARY.md`, and `docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md` to confirm the final recap, verification outcomes, and next-batch handoff match the recorded work.
++- Phase 1 stayed documentation-only. No product code changed and no new runtime tests were executed in this phase.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+index 835684ff29c4d8936fee4b7502659d4ddf658467..0ea9b255a1be1256effbe61282cfc106de2b2b7d
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+@@ -353,3 +353,28 @@
+ - The live working tree still contains a broader dirty-tree compatibility/auth cluster outside the last verified implementation batches, including route and contract drift across `common/urls.py`, `booking/urls.py`, `management/urls.py`, `partners/urls.py`, `huz/urls.py`, `common/user_profile.py`, `booking/serializers.py`, `common/serializers.py`, `common/api_v1.py`, and `partners/partner_accounts_and_transactions.py`.
+ - Treat that broader drift as ambient repo state and compatibility-risk context, not as a completed verified deliverable for the final journal, unless a dedicated run summary or verification sweep records it explicitly. This is the same boundary already captured in `REG-P0-001` and the regression-hunt Phase 0 notes.
+ - `FULL_AUDIT_REPORT.md` remains placeholder-level, so the durable source of truth for the latest backend changes is the combination of `CHANGE_MAP.md`, `DEEP_SCAN_REPORT.md`, `BUG_BACKLOG.md`, and the recent `backend-optimize` and `regression-hunt` run summaries rather than the full-audit stub.
++
++### 2026-03-12 Change Journal Phase 1 Write Journal Entry
++- Wrote the durable final recap for the latest verified backend work and kept it explicitly bounded to changes backed by the existing optimize/regression run summaries, atlas updates, backlog state, and verification evidence rather than the broader ambient dirty-tree churn.
++- What changed in the last verified implementation window:
++  - `OPT-P1-001` moved current-user booking detail, payment, and passport responses onto the preloaded booking-detail queryset in `booking/services.py` and `booking/views/bookings.py`, so `DetailBookingSerializer` no longer rehydrates the same related objects lazily on those customer-facing paths.
++  - `OPT-P1-002` moved partner booking statistics and rating summaries in `booking/manage_partner_booking.py` onto filtered database aggregates instead of repeated per-bucket `.count()` calls and Python-side rating loops.
++  - `OPT-P1-003` moved `/management/fetch_all_paid_bookings/` queue counts and request-summary metadata in `management/approval_task.py` onto consolidated filtered aggregates.
++  - The most recent follow-up fix restored the admin payment-review queue regression budget by repairing the direct-view auth test harness in `booking/tests.py`, returning queue-specific total amounts from the same review-summary aggregate in `management/approval_task.py`, and deferring operator-document reads in `booking/workflow.py` until fulfillment-state recalculation actually needs them.
++- Why those changes landed:
++  - The highest-value repo-local performance wins were on the customer booking detail path, partner dashboard/statistics reads, and the admin payment-review queue, where the prior implementations repeated relation loading or aggregate work unnecessarily.
++  - The regression-hunt repair was needed because the queue path drifted back above the intended `<=7` query budget during later verification, and the final journal needed to distinguish that verified fix from unrelated route/auth churn still present in the repo.
++- How the work was implemented:
++  - Reused the existing prefetch-aware detail-loading pattern on the customer booking response path instead of widening every booking mutation flow.
++  - Replaced repeated Python loops and queryset fan-out in partner/admin summary endpoints with SQL-side filtered aggregates.
++  - Used the refreshed atlas (`PROJECT_BLUEPRINT.md`, `MODULE_MAP.md`, `ROUTES_AND_ENTRYPOINTS.md`, `API_SURFACE.md`, `CHANGE_MAP.md`) plus `BUG_BACKLOG.md` and the optimize/regression run summaries to keep the final recap aligned with the actual recorded work.
++- Verification outcomes carried into the journal:
++  - `.venv/bin/python manage.py test booking.tests.BookingWorkflowServiceValidationTests booking.tests.ManagePartnerBookingViewsTests booking.tests.BookingSerializerQueryTests --settings=huz.settings_test` passed with `70` tests.
++  - `.venv/bin/python manage.py test common.tests.CreateMemberProfileViewTransactionTests common.tests.PublicUrlExposureTests common.tests.UserProfileSerializerQueryTests booking.tests.BookingWorkflowServiceValidationTests booking.tests.ApproveBookingPaymentViewTests booking.tests.ManagePartnerBookingViewsTests booking.tests.BookingSerializerQueryTests --settings=huz.settings_test` passed with `84` tests after the regression repair.
++  - `.venv/bin/python manage.py test common.tests partners.tests booking.tests --settings=huz.settings_test` passed with `116` tests.
++  - `python3 -m compileall booking management huz common partners` passed, and resolver smoke checks still match the documented legacy-route removals tied to `REG-P0-001`.
++- What remains and the next recommended batch:
++  - `OPT-P1-004` stays open for the operator hotel-catalog fallback path in `partners/package_management_operator.py`.
++  - `DS-P1-006` stays open because the repo still has no dedicated `management/tests.py`, so admin-only confidence still depends on indirect coverage from `booking/tests.py`.
++  - `REG-P0-001` stays open because several removed legacy routes still resolve to `404`, and any restoration or migration decision depends on downstream consumers outside Huz-Backend.
++  - The next recommended implementation batch remains `PB-1A Response Contract Containment`: remove `session_token`, `partner_session_token`, `firebase_token`, and `web_firebase_token` from outward-facing `common`, `partners`, and `booking` responses without widening into the later auth-transport, principal-binding, or token-rotation work.
+
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md
+index 62cc0fc9bb9282a28ab7bbbaea1a28d47cfc337a..122907260debbffd542fdf4e2f407ef94852a200
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md
+@@ -38,3 +38,23 @@
+ - `git -C /Users/macbook/Desktop/Huz/Huz-Backend diff --stat -- booking/services.py booking/views/bookings.py booking/manage_partner_booking.py management/approval_task.py booking/workflow.py booking/tests.py common/urls.py booking/urls.py management/urls.py partners/urls.py huz/urls.py common/user_profile.py common/serializers.py booking/serializers.py common/api_v1.py partners/partner_accounts_and_transactions.py`
+ - `git -C /Users/macbook/Desktop/Huz/Huz-Backend diff -- booking/services.py booking/views/bookings.py booking/manage_partner_booking.py management/approval_task.py booking/workflow.py booking/tests.py`
+ - Phase 0 stayed documentation-only. No product code changed and no new runtime tests were executed in this phase.
++
++## Phase 1 - Write Journal Entry
++### Changes Made
++- Appended the durable change-journal recap to `docs/qa/DEEP_SCAN_REPORT.md`, summarizing the latest verified backend optimization and regression-fix work, the current verification baseline, the remaining open items, and the next recommended batch.
++- Locked the final recap to the documented-and-verified change set: `OPT-P1-001`, `OPT-P1-002`, `OPT-P1-003`, plus the regression-hunt admin payment-review queue repair across `booking/tests.py`, `management/approval_task.py`, and `booking/workflow.py`.
++- Recorded the remaining follow-up boundary as `OPT-P1-004`, `DS-P1-006`, `REG-P0-001`, and the already-planned `PB-1A Response Contract Containment` batch rather than widening the journal to ambient repo churn.
++
++### How It Was Implemented
++- Re-read the required atlas docs (`PROJECT_BLUEPRINT.md`, `MODULE_MAP.md`, `ROUTES_AND_ENTRYPOINTS.md`, `API_SURFACE.md`, `CHANGE_MAP.md`), the current QA docs, and the recent `backend-optimize`, `regression-hunt`, and `plan-batch` run summaries before writing the final recap.
++- Cross-checked the journal language against the durable optimize/regression verification evidence so the summary reflects what was actually fixed and re-verified, not the still-dirty route/auth drift elsewhere in the working tree.
++- Wrote the final handoff in append-only form and kept this phase documentation-only, as required by the wrap-up lane.
++
++### Files Touched
++- `docs/qa/DEEP_SCAN_REPORT.md`
++- `docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md`
++
++### Verification
++- Re-read `docs/project-bot/config.json`, `docs/project-bot/OPERATOR_PROFILE.md`, `docs/atlas/PROJECT_BLUEPRINT.md`, `docs/atlas/MODULE_MAP.md`, `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`, `docs/atlas/API_SURFACE.md`, `docs/atlas/CHANGE_MAP.md`, `docs/project-bot/runs/20260312-174754-change-journal/TASK.md`, `docs/qa/DEEP_SCAN_REPORT.md`, `docs/qa/BUG_BACKLOG.md`, and `docs/qa/FULL_AUDIT_REPORT.md`.
++- Re-read `docs/project-bot/runs/20260312-174754-backend-optimize/RUN_SUMMARY.md`, `docs/project-bot/runs/20260312-174754-regression-hunt/RUN_SUMMARY.md`, and `docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md` to confirm the final recap, verification outcomes, and next-batch handoff match the recorded work.
++- Phase 1 stayed documentation-only. No product code changed and no new runtime tests were executed in this phase.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+index 835684ff29c4d8936fee4b7502659d4ddf658467..0ea9b255a1be1256effbe61282cfc106de2b2b7d
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+@@ -353,3 +353,28 @@
+ - The live working tree still contains a broader dirty-tree compatibility/auth cluster outside the last verified implementation batches, including route and contract drift across `common/urls.py`, `booking/urls.py`, `management/urls.py`, `partners/urls.py`, `huz/urls.py`, `common/user_profile.py`, `booking/serializers.py`, `common/serializers.py`, `common/api_v1.py`, and `partners/partner_accounts_and_transactions.py`.
+ - Treat that broader drift as ambient repo state and compatibility-risk context, not as a completed verified deliverable for the final journal, unless a dedicated run summary or verification sweep records it explicitly. This is the same boundary already captured in `REG-P0-001` and the regression-hunt Phase 0 notes.
+ - `FULL_AUDIT_REPORT.md` remains placeholder-level, so the durable source of truth for the latest backend changes is the combination of `CHANGE_MAP.md`, `DEEP_SCAN_REPORT.md`, `BUG_BACKLOG.md`, and the recent `backend-optimize` and `regression-hunt` run summaries rather than the full-audit stub.
++
++### 2026-03-12 Change Journal Phase 1 Write Journal Entry
++- Wrote the durable final recap for the latest verified backend work and kept it explicitly bounded to changes backed by the existing optimize/regression run summaries, atlas updates, backlog state, and verification evidence rather than the broader ambient dirty-tree churn.
++- What changed in the last verified implementation window:
++  - `OPT-P1-001` moved current-user booking detail, payment, and passport responses onto the preloaded booking-detail queryset in `booking/services.py` and `booking/views/bookings.py`, so `DetailBookingSerializer` no longer rehydrates the same related objects lazily on those customer-facing paths.
++  - `OPT-P1-002` moved partner booking statistics and rating summaries in `booking/manage_partner_booking.py` onto filtered database aggregates instead of repeated per-bucket `.count()` calls and Python-side rating loops.
++  - `OPT-P1-003` moved `/management/fetch_all_paid_bookings/` queue counts and request-summary metadata in `management/approval_task.py` onto consolidated filtered aggregates.
++  - The most recent follow-up fix restored the admin payment-review queue regression budget by repairing the direct-view auth test harness in `booking/tests.py`, returning queue-specific total amounts from the same review-summary aggregate in `management/approval_task.py`, and deferring operator-document reads in `booking/workflow.py` until fulfillment-state recalculation actually needs them.
++- Why those changes landed:
++  - The highest-value repo-local performance wins were on the customer booking detail path, partner dashboard/statistics reads, and the admin payment-review queue, where the prior implementations repeated relation loading or aggregate work unnecessarily.
++  - The regression-hunt repair was needed because the queue path drifted back above the intended `<=7` query budget during later verification, and the final journal needed to distinguish that verified fix from unrelated route/auth churn still present in the repo.
++- How the work was implemented:
++  - Reused the existing prefetch-aware detail-loading pattern on the customer booking response path instead of widening every booking mutation flow.
++  - Replaced repeated Python loops and queryset fan-out in partner/admin summary endpoints with SQL-side filtered aggregates.
++  - Used the refreshed atlas (`PROJECT_BLUEPRINT.md`, `MODULE_MAP.md`, `ROUTES_AND_ENTRYPOINTS.md`, `API_SURFACE.md`, `CHANGE_MAP.md`) plus `BUG_BACKLOG.md` and the optimize/regression run summaries to keep the final recap aligned with the actual recorded work.
++- Verification outcomes carried into the journal:
++  - `.venv/bin/python manage.py test booking.tests.BookingWorkflowServiceValidationTests booking.tests.ManagePartnerBookingViewsTests booking.tests.BookingSerializerQueryTests --settings=huz.settings_test` passed with `70` tests.
++  - `.venv/bin/python manage.py test common.tests.CreateMemberProfileViewTransactionTests common.tests.PublicUrlExposureTests common.tests.UserProfileSerializerQueryTests booking.tests.BookingWorkflowServiceValidationTests booking.tests.ApproveBookingPaymentViewTests booking.tests.ManagePartnerBookingViewsTests booking.tests.BookingSerializerQueryTests --settings=huz.settings_test` passed with `84` tests after the regression repair.
++  - `.venv/bin/python manage.py test common.tests partners.tests booking.tests --settings=huz.settings_test` passed with `116` tests.
++  - `python3 -m compileall booking management huz common partners` passed, and resolver smoke checks still match the documented legacy-route removals tied to `REG-P0-001`.
++- What remains and the next recommended batch:
++  - `OPT-P1-004` stays open for the operator hotel-catalog fallback path in `partners/package_management_operator.py`.
++  - `DS-P1-006` stays open because the repo still has no dedicated `management/tests.py`, so admin-only confidence still depends on indirect coverage from `booking/tests.py`.
++  - `REG-P0-001` stays open because several removed legacy routes still resolve to `404`, and any restoration or migration decision depends on downstream consumers outside Huz-Backend.
++  - The next recommended implementation batch remains `PB-1A Response Contract Containment`: remove `session_token`, `partner_session_token`, `firebase_token`, and `web_firebase_token` from outward-facing `common`, `partners`, and `booking` responses without widening into the later auth-transport, principal-binding, or token-rotation work.
+
+codex
+The Phase 1 journal text is in place. I’m doing a quick readback on the edited docs, then I’ll run the required `complete` and `next` orchestration commands and print the generated `NEXT_PROMPT.md`.
+exec
+/bin/zsh -lc 'tail -n 80 docs/qa/DEEP_SCAN_REPORT.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 52ms:
+- Phase 1 validation matrix chosen from the live source and current tests:
+  - `/Users/macbook/Desktop/Huz/Huz-Backend/.venv/bin/python manage.py test common.tests.CreateMemberProfileViewTransactionTests common.tests.PublicUrlExposureTests common.tests.UserProfileSerializerQueryTests booking.tests.BookingWorkflowServiceValidationTests booking.tests.ApproveBookingPaymentViewTests booking.tests.ManagePartnerBookingViewsTests booking.tests.BookingSerializerQueryTests --settings=huz.settings_test`
+  - `python3 -m compileall common booking management huz`
+  - Route smoke or resolver spot checks for intentionally removed legacy endpoints so compatibility breaks are made explicit; if any external client still requires those routes, that follow-up becomes downstream coordination work rather than a same-lane backend-only fix.
+- Phase 0 stayed documentation-only. No runtime validation was executed yet so the actual regression sweep remains in Phase 1.
+
+### 2026-03-12 Regression Hunt Phase 1 Reproduce and Fix Regressions
+- Ran the focused Phase 1 validation bundle from the project virtualenv:
+  - `.venv/bin/python manage.py test common.tests.CreateMemberProfileViewTransactionTests common.tests.PublicUrlExposureTests common.tests.UserProfileSerializerQueryTests booking.tests.BookingWorkflowServiceValidationTests booking.tests.ApproveBookingPaymentViewTests booking.tests.ManagePartnerBookingViewsTests booking.tests.BookingSerializerQueryTests --settings=huz.settings_test`
+  - Result after fixes: `84` tests passed in `2.328s` with `System check identified no issues (0 silenced).`
+- The first failure was in the verification harness itself: `booking.tests.ApproveBookingPaymentViewTests.test_admin_review_queue_uses_bounded_summary_query_count` called a removed `_authenticated_request()` helper. Restoring the class-local `APIRequestFactory` setup and auth helper exposed the underlying product regression instead of hiding it behind an `AttributeError`.
+- The confirmed product regression was on `/management/fetch_all_paid_bookings/`:
+  - The focused queue test regressed to `9` queries instead of the intended `<=7`.
+  - Source-backed query capture showed two avoidable costs: a second filtered `SUM(total_price)` query after the main review summary aggregate, and eager operator-document recalculation in `booking/workflow.py` even for bookings still in traveller-details/payment-review stages.
+  - Fixed by folding queue-specific total amounts into `_build_payment_review_summary()` and deferring `booking_operator_documents_are_complete()` until the booking is actually in `IN_FULFILLMENT`.
+- Re-verified the repair with:
+  - `.venv/bin/python manage.py test booking.tests.ApproveBookingPaymentViewTests.test_admin_review_queue_uses_bounded_summary_query_count --settings=huz.settings_test`
+  - Result: passed, restoring the admin queue regression budget to `<=7` queries.
+- Additional Phase 1 verification:
+  - `python3 -m compileall booking management huz common partners` passed.
+exec
+/bin/zsh -lc 'tail -n 80 docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 52ms:
+# Run Summary
+
+- Run mode: `change-journal`
+- Target project: `/Users/macbook/Desktop/Huz/Huz-Backend`
+- Workspace root: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend`
+- Scope level: `panel-be`
+- Scope: `/Users/macbook/Desktop/Huz/Huz-Backend`
+- Scope targets: None
+- Full-system required docs: `disabled`
+- Rule: append one section per completed phase. Do not overwrite prior phase sections.
+
+Expected section format:
+
+## Phase X - Title
+### Changes Made
+### How It Was Implemented
+### Files Touched
+### Verification
+
+## Phase 0 - Collect Recent Change Context
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md
+index 62cc0fc9bb9282a28ab7bbbaea1a28d47cfc337a..122907260debbffd542fdf4e2f407ef94852a200
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md
+@@ -38,3 +38,23 @@
+ - `git -C /Users/macbook/Desktop/Huz/Huz-Backend diff --stat -- booking/services.py booking/views/bookings.py booking/manage_partner_booking.py management/approval_task.py booking/workflow.py booking/tests.py common/urls.py booking/urls.py management/urls.py partners/urls.py huz/urls.py common/user_profile.py common/serializers.py booking/serializers.py common/api_v1.py partners/partner_accounts_and_transactions.py`
+ - `git -C /Users/macbook/Desktop/Huz/Huz-Backend diff -- booking/services.py booking/views/bookings.py booking/manage_partner_booking.py management/approval_task.py booking/workflow.py booking/tests.py`
+ - Phase 0 stayed documentation-only. No product code changed and no new runtime tests were executed in this phase.
++
++## Phase 1 - Write Journal Entry
++### Changes Made
++- Appended the durable change-journal recap to `docs/qa/DEEP_SCAN_REPORT.md`, summarizing the latest verified backend optimization and regression-fix work, the current verification baseline, the remaining open items, and the next recommended batch.
++- Locked the final recap to the documented-and-verified change set: `OPT-P1-001`, `OPT-P1-002`, `OPT-P1-003`, plus the regression-hunt admin payment-review queue repair across `booking/tests.py`, `management/approval_task.py`, and `booking/workflow.py`.
++- Recorded the remaining follow-up boundary as `OPT-P1-004`, `DS-P1-006`, `REG-P0-001`, and the already-planned `PB-1A Response Contract Containment` batch rather than widening the journal to ambient repo churn.
++
++### How It Was Implemented
++- Re-read the required atlas docs (`PROJECT_BLUEPRINT.md`, `MODULE_MAP.md`, `ROUTES_AND_ENTRYPOINTS.md`, `API_SURFACE.md`, `CHANGE_MAP.md`), the current QA docs, and the recent `backend-optimize`, `regression-hunt`, and `plan-batch` run summaries before writing the final recap.
++- Cross-checked the journal language against the durable optimize/regression verification evidence so the summary reflects what was actually fixed and re-verified, not the still-dirty route/auth drift elsewhere in the working tree.
++- Wrote the final handoff in append-only form and kept this phase documentation-only, as required by the wrap-up lane.
++
++### Files Touched
++- `docs/qa/DEEP_SCAN_REPORT.md`
++- `docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md`
++
++### Verification
++- Re-read `docs/project-bot/config.json`, `docs/project-bot/OPERATOR_PROFILE.md`, `docs/atlas/PROJECT_BLUEPRINT.md`, `docs/atlas/MODULE_MAP.md`, `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`, `docs/atlas/API_SURFACE.md`, `docs/atlas/CHANGE_MAP.md`, `docs/project-bot/runs/20260312-174754-change-journal/TASK.md`, `docs/qa/DEEP_SCAN_REPORT.md`, `docs/qa/BUG_BACKLOG.md`, and `docs/qa/FULL_AUDIT_REPORT.md`.
++- Re-read `docs/project-bot/runs/20260312-174754-backend-optimize/RUN_SUMMARY.md`, `docs/project-bot/runs/20260312-174754-regression-hunt/RUN_SUMMARY.md`, and `docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md` to confirm the final recap, verification outcomes, and next-batch handoff match the recorded work.
++- Phase 1 stayed documentation-only. No product code changed and no new runtime tests were executed in this phase.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+index 835684ff29c4d8936fee4b7502659d4ddf658467..0ea9b255a1be1256effbe61282cfc106de2b2b7d
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+@@ -353,3 +353,28 @@
+ - The live working tree still contains a broader dirty-tree compatibility/auth cluster outside the last verified implementation batches, including route and contract drift across `common/urls.py`, `booking/urls.py`, `management/urls.py`, `partners/urls.py`, `huz/urls.py`, `common/user_profile.py`, `booking/serializers.py`, `common/serializers.py`, `common/api_v1.py`, and `partners/partner_accounts_and_transactions.py`.
+ - Treat that broader drift as ambient repo state and compatibility-risk context, not as a completed verified deliverable for the final journal, unless a dedicated run summary or verification sweep records it explicitly. This is the same boundary already captured in `REG-P0-001` and the regression-hunt Phase 0 notes.
+ - `FULL_AUDIT_REPORT.md` remains placeholder-level, so the durable source of truth for the latest backend changes is the combination of `CHANGE_MAP.md`, `DEEP_SCAN_REPORT.md`, `BUG_BACKLOG.md`, and the recent `backend-optimize` and `regression-hunt` run summaries rather than the full-audit stub.
++
++### 2026-03-12 Change Journal Phase 1 Write Journal Entry
++- Wrote the durable final recap for the latest verified backend work and kept it explicitly bounded to changes backed by the existing optimize/regression run summaries, atlas updates, backlog state, and verification evidence rather than the broader ambient dirty-tree churn.
++- What changed in the last verified implementation window:
++  - `OPT-P1-001` moved current-user booking detail, payment, and passport responses onto the preloaded booking-detail queryset in `booking/services.py` and `booking/views/bookings.py`, so `DetailBookingSerializer` no longer rehydrates the same related objects lazily on those customer-facing paths.
++  - `OPT-P1-002` moved partner booking statistics and rating summaries in `booking/manage_partner_booking.py` onto filtered database aggregates instead of repeated per-bucket `.count()` calls and Python-side rating loops.
++  - `OPT-P1-003` moved `/management/fetch_all_paid_bookings/` queue counts and request-summary metadata in `management/approval_task.py` onto consolidated filtered aggregates.
++  - The most recent follow-up fix restored the admin payment-review queue regression budget by repairing the direct-view auth test harness in `booking/tests.py`, returning queue-specific total amounts from the same review-summary aggregate in `management/approval_task.py`, and deferring operator-document reads in `booking/workflow.py` until fulfillment-state recalculation actually needs them.
++- Why those changes landed:
++  - The highest-value repo-local performance wins were on the customer booking detail path, partner dashboard/statistics reads, and the admin payment-review queue, where the prior implementations repeated relation loading or aggregate work unnecessarily.
++  - The regression-hunt repair was needed because the queue path drifted back above the intended `<=7` query budget during later verification, and the final journal needed to distinguish that verified fix from unrelated route/auth churn still present in the repo.
++- How the work was implemented:
++  - Reused the existing prefetch-aware detail-loading pattern on the customer booking response path instead of widening every booking mutation flow.
++  - Replaced repeated Python loops and queryset fan-out in partner/admin summary endpoints with SQL-side filtered aggregates.
++  - Used the refreshed atlas (`PROJECT_BLUEPRINT.md`, `MODULE_MAP.md`, `ROUTES_AND_ENTRYPOINTS.md`, `API_SURFACE.md`, `CHANGE_MAP.md`) plus `BUG_BACKLOG.md` and the optimize/regression run summaries to keep the final recap aligned with the actual recorded work.
++- Verification outcomes carried into the journal:
++  - `.venv/bin/python manage.py test booking.tests.BookingWorkflowServiceValidationTests booking.tests.ManagePartnerBookingViewsTests booking.tests.BookingSerializerQueryTests --settings=huz.settings_test` passed with `70` tests.
++  - `.venv/bin/python manage.py test common.tests.CreateMemberProfileViewTransactionTests common.tests.PublicUrlExposureTests common.tests.UserProfileSerializerQueryTests booking.tests.BookingWorkflowServiceValidationTests booking.tests.ApproveBookingPaymentViewTests booking.tests.ManagePartnerBookingViewsTests booking.tests.BookingSerializerQueryTests --settings=huz.settings_test` passed with `84` tests after the regression repair.
++  - `.venv/bin/python manage.py test common.tests partners.tests booking.tests --settings=huz.settings_test` passed with `116` tests.
++  - `python3 -m compileall booking management huz common partners` passed, and resolver smoke checks still match the documented legacy-route removals tied to `REG-P0-001`.
++- What remains and the next recommended batch:
++  - `OPT-P1-004` stays open for the operator hotel-catalog fallback path in `partners/package_management_operator.py`.
++  - `DS-P1-006` stays open because the repo still has no dedicated `management/tests.py`, so admin-only confidence still depends on indirect coverage from `booking/tests.py`.
++  - `REG-P0-001` stays open because several removed legacy routes still resolve to `404`, and any restoration or migration decision depends on downstream consumers outside Huz-Backend.
++  - The next recommended implementation batch remains `PB-1A Response Contract Containment`: remove `session_token`, `partner_session_token`, `firebase_token`, and `web_firebase_token` from outward-facing `common`, `partners`, and `booking` responses without widening into the later auth-transport, principal-binding, or token-rotation work.
+
+Plan update
+The journal docs are appended and verified. I’m finishing the run lifecycle now: mark Phase 1 complete, generate the next prompt, and then read back the updated run files.
+  ✓ Review the recent change-journal, backend-optimize, regression-hunt, and planning artifacts to capture the verified work and remaining backlog accurately
+  ✓ Append the Phase 1 journal summary to the durable workspace docs required for this run
+  → Run the orchestration completion commands, verify updated state, and print NEXT_PROMPT.md
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md
+index 62cc0fc9bb9282a28ab7bbbaea1a28d47cfc337a..122907260debbffd542fdf4e2f407ef94852a200
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md
+@@ -38,3 +38,23 @@
+ - `git -C /Users/macbook/Desktop/Huz/Huz-Backend diff --stat -- booking/services.py booking/views/bookings.py booking/manage_partner_booking.py management/approval_task.py booking/workflow.py booking/tests.py common/urls.py booking/urls.py management/urls.py partners/urls.py huz/urls.py common/user_profile.py common/serializers.py booking/serializers.py common/api_v1.py partners/partner_accounts_and_transactions.py`
+ - `git -C /Users/macbook/Desktop/Huz/Huz-Backend diff -- booking/services.py booking/views/bookings.py booking/manage_partner_booking.py management/approval_task.py booking/workflow.py booking/tests.py`
+ - Phase 0 stayed documentation-only. No product code changed and no new runtime tests were executed in this phase.
++
++## Phase 1 - Write Journal Entry
++### Changes Made
++- Appended the durable change-journal recap to `docs/qa/DEEP_SCAN_REPORT.md`, summarizing the latest verified backend optimization and regression-fix work, the current verification baseline, the remaining open items, and the next recommended batch.
++- Locked the final recap to the documented-and-verified change set: `OPT-P1-001`, `OPT-P1-002`, `OPT-P1-003`, plus the regression-hunt admin payment-review queue repair across `booking/tests.py`, `management/approval_task.py`, and `booking/workflow.py`.
++- Recorded the remaining follow-up boundary as `OPT-P1-004`, `DS-P1-006`, `REG-P0-001`, and the already-planned `PB-1A Response Contract Containment` batch rather than widening the journal to ambient repo churn.
++
++### How It Was Implemented
++- Re-read the required atlas docs (`PROJECT_BLUEPRINT.md`, `MODULE_MAP.md`, `ROUTES_AND_ENTRYPOINTS.md`, `API_SURFACE.md`, `CHANGE_MAP.md`), the current QA docs, and the recent `backend-optimize`, `regression-hunt`, and `plan-batch` run summaries before writing the final recap.
++- Cross-checked the journal language against the durable optimize/regression verification evidence so the summary reflects what was actually fixed and re-verified, not the still-dirty route/auth drift elsewhere in the working tree.
++- Wrote the final handoff in append-only form and kept this phase documentation-only, as required by the wrap-up lane.
++
++### Files Touched
++- `docs/qa/DEEP_SCAN_REPORT.md`
++- `docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md`
++
++### Verification
++- Re-read `docs/project-bot/config.json`, `docs/project-bot/OPERATOR_PROFILE.md`, `docs/atlas/PROJECT_BLUEPRINT.md`, `docs/atlas/MODULE_MAP.md`, `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`, `docs/atlas/API_SURFACE.md`, `docs/atlas/CHANGE_MAP.md`, `docs/project-bot/runs/20260312-174754-change-journal/TASK.md`, `docs/qa/DEEP_SCAN_REPORT.md`, `docs/qa/BUG_BACKLOG.md`, and `docs/qa/FULL_AUDIT_REPORT.md`.
++- Re-read `docs/project-bot/runs/20260312-174754-backend-optimize/RUN_SUMMARY.md`, `docs/project-bot/runs/20260312-174754-regression-hunt/RUN_SUMMARY.md`, and `docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md` to confirm the final recap, verification outcomes, and next-batch handoff match the recorded work.
++- Phase 1 stayed documentation-only. No product code changed and no new runtime tests were executed in this phase.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+index 835684ff29c4d8936fee4b7502659d4ddf658467..0ea9b255a1be1256effbe61282cfc106de2b2b7d
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+@@ -353,3 +353,28 @@
+ - The live working tree still contains a broader dirty-tree compatibility/auth cluster outside the last verified implementation batches, including route and contract drift across `common/urls.py`, `booking/urls.py`, `management/urls.py`, `partners/urls.py`, `huz/urls.py`, `common/user_profile.py`, `booking/serializers.py`, `common/serializers.py`, `common/api_v1.py`, and `partners/partner_accounts_and_transactions.py`.
+ - Treat that broader drift as ambient repo state and compatibility-risk context, not as a completed verified deliverable for the final journal, unless a dedicated run summary or verification sweep records it explicitly. This is the same boundary already captured in `REG-P0-001` and the regression-hunt Phase 0 notes.
+ - `FULL_AUDIT_REPORT.md` remains placeholder-level, so the durable source of truth for the latest backend changes is the combination of `CHANGE_MAP.md`, `DEEP_SCAN_REPORT.md`, `BUG_BACKLOG.md`, and the recent `backend-optimize` and `regression-hunt` run summaries rather than the full-audit stub.
++
++### 2026-03-12 Change Journal Phase 1 Write Journal Entry
++- Wrote the durable final recap for the latest verified backend work and kept it explicitly bounded to changes backed by the existing optimize/regression run summaries, atlas updates, backlog state, and verification evidence rather than the broader ambient dirty-tree churn.
++- What changed in the last verified implementation window:
++  - `OPT-P1-001` moved current-user booking detail, payment, and passport responses onto the preloaded booking-detail queryset in `booking/services.py` and `booking/views/bookings.py`, so `DetailBookingSerializer` no longer rehydrates the same related objects lazily on those customer-facing paths.
++  - `OPT-P1-002` moved partner booking statistics and rating summaries in `booking/manage_partner_booking.py` onto filtered database aggregates instead of repeated per-bucket `.count()` calls and Python-side rating loops.
++  - `OPT-P1-003` moved `/management/fetch_all_paid_bookings/` queue counts and request-summary metadata in `management/approval_task.py` onto consolidated filtered aggregates.
++  - The most recent follow-up fix restored the admin payment-review queue regression budget by repairing the direct-view auth test harness in `booking/tests.py`, returning queue-specific total amounts from the same review-summary aggregate in `management/approval_task.py`, and deferring operator-document reads in `booking/workflow.py` until fulfillment-state recalculation actually needs them.
++- Why those changes landed:
++  - The highest-value repo-local performance wins were on the customer booking detail path, partner dashboard/statistics reads, and the admin payment-review queue, where the prior implementations repeated relation loading or aggregate work unnecessarily.
++  - The regression-hunt repair was needed because the queue path drifted back above the intended `<=7` query budget during later verification, and the final journal needed to distinguish that verified fix from unrelated route/auth churn still present in the repo.
++- How the work was implemented:
++  - Reused the existing prefetch-aware detail-loading pattern on the customer booking response path instead of widening every booking mutation flow.
++  - Replaced repeated Python loops and queryset fan-out in partner/admin summary endpoints with SQL-side filtered aggregates.
++  - Used the refreshed atlas (`PROJECT_BLUEPRINT.md`, `MODULE_MAP.md`, `ROUTES_AND_ENTRYPOINTS.md`, `API_SURFACE.md`, `CHANGE_MAP.md`) plus `BUG_BACKLOG.md` and the optimize/regression run summaries to keep the final recap aligned with the actual recorded work.
++- Verification outcomes carried into the journal:
++  - `.venv/bin/python manage.py test booking.tests.BookingWorkflowServiceValidationTests booking.tests.ManagePartnerBookingViewsTests booking.tests.BookingSerializerQueryTests --settings=huz.settings_test` passed with `70` tests.
++  - `.venv/bin/python manage.py test common.tests.CreateMemberProfileViewTransactionTests common.tests.PublicUrlExposureTests common.tests.UserProfileSerializerQueryTests booking.tests.BookingWorkflowServiceValidationTests booking.tests.ApproveBookingPaymentViewTests booking.tests.ManagePartnerBookingViewsTests booking.tests.BookingSerializerQueryTests --settings=huz.settings_test` passed with `84` tests after the regression repair.
++  - `.venv/bin/python manage.py test common.tests partners.tests booking.tests --settings=huz.settings_test` passed with `116` tests.
++  - `python3 -m compileall booking management huz common partners` passed, and resolver smoke checks still match the documented legacy-route removals tied to `REG-P0-001`.
++- What remains and the next recommended batch:
++  - `OPT-P1-004` stays open for the operator hotel-catalog fallback path in `partners/package_management_operator.py`.
++  - `DS-P1-006` stays open because the repo still has no dedicated `management/tests.py`, so admin-only confidence still depends on indirect coverage from `booking/tests.py`.
++  - `REG-P0-001` stays open because several removed legacy routes still resolve to `404`, and any restoration or migration decision depends on downstream consumers outside Huz-Backend.
++  - The next recommended implementation batch remains `PB-1A Response Contract Containment`: remove `session_token`, `partner_session_token`, `firebase_token`, and `web_firebase_token` from outward-facing `common`, `partners`, and `booking` responses without widening into the later auth-transport, principal-binding, or token-rotation work.
+
+codex
+The documentation work is complete. I’m running the orchestrator completion step now, then I’ll generate and read back the updated `NEXT_PROMPT.md`.
+exec
+/bin/zsh -lc 'node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal --phase 1' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 88ms:
+Marked phase 1 as completed.
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md
+index 62cc0fc9bb9282a28ab7bbbaea1a28d47cfc337a..122907260debbffd542fdf4e2f407ef94852a200
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md
+@@ -38,3 +38,23 @@
+ - `git -C /Users/macbook/Desktop/Huz/Huz-Backend diff --stat -- booking/services.py booking/views/bookings.py booking/manage_partner_booking.py management/approval_task.py booking/workflow.py booking/tests.py common/urls.py booking/urls.py management/urls.py partners/urls.py huz/urls.py common/user_profile.py common/serializers.py booking/serializers.py common/api_v1.py partners/partner_accounts_and_transactions.py`
+ - `git -C /Users/macbook/Desktop/Huz/Huz-Backend diff -- booking/services.py booking/views/bookings.py booking/manage_partner_booking.py management/approval_task.py booking/workflow.py booking/tests.py`
+ - Phase 0 stayed documentation-only. No product code changed and no new runtime tests were executed in this phase.
++
++## Phase 1 - Write Journal Entry
++### Changes Made
++- Appended the durable change-journal recap to `docs/qa/DEEP_SCAN_REPORT.md`, summarizing the latest verified backend optimization and regression-fix work, the current verification baseline, the remaining open items, and the next recommended batch.
++- Locked the final recap to the documented-and-verified change set: `OPT-P1-001`, `OPT-P1-002`, `OPT-P1-003`, plus the regression-hunt admin payment-review queue repair across `booking/tests.py`, `management/approval_task.py`, and `booking/workflow.py`.
++- Recorded the remaining follow-up boundary as `OPT-P1-004`, `DS-P1-006`, `REG-P0-001`, and the already-planned `PB-1A Response Contract Containment` batch rather than widening the journal to ambient repo churn.
++
++### How It Was Implemented
++- Re-read the required atlas docs (`PROJECT_BLUEPRINT.md`, `MODULE_MAP.md`, `ROUTES_AND_ENTRYPOINTS.md`, `API_SURFACE.md`, `CHANGE_MAP.md`), the current QA docs, and the recent `backend-optimize`, `regression-hunt`, and `plan-batch` run summaries before writing the final recap.
++- Cross-checked the journal language against the durable optimize/regression verification evidence so the summary reflects what was actually fixed and re-verified, not the still-dirty route/auth drift elsewhere in the working tree.
++- Wrote the final handoff in append-only form and kept this phase documentation-only, as required by the wrap-up lane.
++
++### Files Touched
++- `docs/qa/DEEP_SCAN_REPORT.md`
++- `docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md`
++
++### Verification
++- Re-read `docs/project-bot/config.json`, `docs/project-bot/OPERATOR_PROFILE.md`, `docs/atlas/PROJECT_BLUEPRINT.md`, `docs/atlas/MODULE_MAP.md`, `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`, `docs/atlas/API_SURFACE.md`, `docs/atlas/CHANGE_MAP.md`, `docs/project-bot/runs/20260312-174754-change-journal/TASK.md`, `docs/qa/DEEP_SCAN_REPORT.md`, `docs/qa/BUG_BACKLOG.md`, and `docs/qa/FULL_AUDIT_REPORT.md`.
++- Re-read `docs/project-bot/runs/20260312-174754-backend-optimize/RUN_SUMMARY.md`, `docs/project-bot/runs/20260312-174754-regression-hunt/RUN_SUMMARY.md`, and `docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md` to confirm the final recap, verification outcomes, and next-batch handoff match the recorded work.
++- Phase 1 stayed documentation-only. No product code changed and no new runtime tests were executed in this phase.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+index 835684ff29c4d8936fee4b7502659d4ddf658467..0ea9b255a1be1256effbe61282cfc106de2b2b7d
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+@@ -353,3 +353,28 @@
+ - The live working tree still contains a broader dirty-tree compatibility/auth cluster outside the last verified implementation batches, including route and contract drift across `common/urls.py`, `booking/urls.py`, `management/urls.py`, `partners/urls.py`, `huz/urls.py`, `common/user_profile.py`, `booking/serializers.py`, `common/serializers.py`, `common/api_v1.py`, and `partners/partner_accounts_and_transactions.py`.
+ - Treat that broader drift as ambient repo state and compatibility-risk context, not as a completed verified deliverable for the final journal, unless a dedicated run summary or verification sweep records it explicitly. This is the same boundary already captured in `REG-P0-001` and the regression-hunt Phase 0 notes.
+ - `FULL_AUDIT_REPORT.md` remains placeholder-level, so the durable source of truth for the latest backend changes is the combination of `CHANGE_MAP.md`, `DEEP_SCAN_REPORT.md`, `BUG_BACKLOG.md`, and the recent `backend-optimize` and `regression-hunt` run summaries rather than the full-audit stub.
++
++### 2026-03-12 Change Journal Phase 1 Write Journal Entry
++- Wrote the durable final recap for the latest verified backend work and kept it explicitly bounded to changes backed by the existing optimize/regression run summaries, atlas updates, backlog state, and verification evidence rather than the broader ambient dirty-tree churn.
++- What changed in the last verified implementation window:
++  - `OPT-P1-001` moved current-user booking detail, payment, and passport responses onto the preloaded booking-detail queryset in `booking/services.py` and `booking/views/bookings.py`, so `DetailBookingSerializer` no longer rehydrates the same related objects lazily on those customer-facing paths.
++  - `OPT-P1-002` moved partner booking statistics and rating summaries in `booking/manage_partner_booking.py` onto filtered database aggregates instead of repeated per-bucket `.count()` calls and Python-side rating loops.
++  - `OPT-P1-003` moved `/management/fetch_all_paid_bookings/` queue counts and request-summary metadata in `management/approval_task.py` onto consolidated filtered aggregates.
++  - The most recent follow-up fix restored the admin payment-review queue regression budget by repairing the direct-view auth test harness in `booking/tests.py`, returning queue-specific total amounts from the same review-summary aggregate in `management/approval_task.py`, and deferring operator-document reads in `booking/workflow.py` until fulfillment-state recalculation actually needs them.
++- Why those changes landed:
++  - The highest-value repo-local performance wins were on the customer booking detail path, partner dashboard/statistics reads, and the admin payment-review queue, where the prior implementations repeated relation loading or aggregate work unnecessarily.
++  - The regression-hunt repair was needed because the queue path drifted back above the intended `<=7` query budget during later verification, and the final journal needed to distinguish that verified fix from unrelated route/auth churn still present in the repo.
++- How the work was implemented:
++  - Reused the existing prefetch-aware detail-loading pattern on the customer booking response path instead of widening every booking mutation flow.
++  - Replaced repeated Python loops and queryset fan-out in partner/admin summary endpoints with SQL-side filtered aggregates.
++  - Used the refreshed atlas (`PROJECT_BLUEPRINT.md`, `MODULE_MAP.md`, `ROUTES_AND_ENTRYPOINTS.md`, `API_SURFACE.md`, `CHANGE_MAP.md`) plus `BUG_BACKLOG.md` and the optimize/regression run summaries to keep the final recap aligned with the actual recorded work.
++- Verification outcomes carried into the journal:
++  - `.venv/bin/python manage.py test booking.tests.BookingWorkflowServiceValidationTests booking.tests.ManagePartnerBookingViewsTests booking.tests.BookingSerializerQueryTests --settings=huz.settings_test` passed with `70` tests.
++  - `.venv/bin/python manage.py test common.tests.CreateMemberProfileViewTransactionTests common.tests.PublicUrlExposureTests common.tests.UserProfileSerializerQueryTests booking.tests.BookingWorkflowServiceValidationTests booking.tests.ApproveBookingPaymentViewTests booking.tests.ManagePartnerBookingViewsTests booking.tests.BookingSerializerQueryTests --settings=huz.settings_test` passed with `84` tests after the regression repair.
++  - `.venv/bin/python manage.py test common.tests partners.tests booking.tests --settings=huz.settings_test` passed with `116` tests.
++  - `python3 -m compileall booking management huz common partners` passed, and resolver smoke checks still match the documented legacy-route removals tied to `REG-P0-001`.
++- What remains and the next recommended batch:
++  - `OPT-P1-004` stays open for the operator hotel-catalog fallback path in `partners/package_management_operator.py`.
++  - `DS-P1-006` stays open because the repo still has no dedicated `management/tests.py`, so admin-only confidence still depends on indirect coverage from `booking/tests.py`.
++  - `REG-P0-001` stays open because several removed legacy routes still resolve to `404`, and any restoration or migration decision depends on downstream consumers outside Huz-Backend.
++  - The next recommended implementation batch remains `PB-1A Response Contract Containment`: remove `session_token`, `partner_session_token`, `firebase_token`, and `web_firebase_token` from outward-facing `common`, `partners`, and `booking` responses without widening into the later auth-transport, principal-binding, or token-rotation work.
+
+exec
+/bin/zsh -lc 'node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 52ms:
+Project bot run complete for target `/Users/macbook/Desktop/Huz/Huz-Backend`.
+
+No remaining phases.
+Final validation checklist:
+- Ensure the requested build/test/lint commands were run for the changed scope.
+- Ensure the atlas docs under `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas` were refreshed for touched modules.
+- Ensure `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md` contains the full cumulative summary of changes and implementation details.
+- Ensure any mode-specific report docs were updated.
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md
+index 62cc0fc9bb9282a28ab7bbbaea1a28d47cfc337a..122907260debbffd542fdf4e2f407ef94852a200
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md
+@@ -38,3 +38,23 @@
+ - `git -C /Users/macbook/Desktop/Huz/Huz-Backend diff --stat -- booking/services.py booking/views/bookings.py booking/manage_partner_booking.py management/approval_task.py booking/workflow.py booking/tests.py common/urls.py booking/urls.py management/urls.py partners/urls.py huz/urls.py common/user_profile.py common/serializers.py booking/serializers.py common/api_v1.py partners/partner_accounts_and_transactions.py`
+ - `git -C /Users/macbook/Desktop/Huz/Huz-Backend diff -- booking/services.py booking/views/bookings.py booking/manage_partner_booking.py management/approval_task.py booking/workflow.py booking/tests.py`
+ - Phase 0 stayed documentation-only. No product code changed and no new runtime tests were executed in this phase.
++
++## Phase 1 - Write Journal Entry
++### Changes Made
++- Appended the durable change-journal recap to `docs/qa/DEEP_SCAN_REPORT.md`, summarizing the latest verified backend optimization and regression-fix work, the current verification baseline, the remaining open items, and the next recommended batch.
++- Locked the final recap to the documented-and-verified change set: `OPT-P1-001`, `OPT-P1-002`, `OPT-P1-003`, plus the regression-hunt admin payment-review queue repair across `booking/tests.py`, `management/approval_task.py`, and `booking/workflow.py`.
++- Recorded the remaining follow-up boundary as `OPT-P1-004`, `DS-P1-006`, `REG-P0-001`, and the already-planned `PB-1A Response Contract Containment` batch rather than widening the journal to ambient repo churn.
++
++### How It Was Implemented
++- Re-read the required atlas docs (`PROJECT_BLUEPRINT.md`, `MODULE_MAP.md`, `ROUTES_AND_ENTRYPOINTS.md`, `API_SURFACE.md`, `CHANGE_MAP.md`), the current QA docs, and the recent `backend-optimize`, `regression-hunt`, and `plan-batch` run summaries before writing the final recap.
++- Cross-checked the journal language against the durable optimize/regression verification evidence so the summary reflects what was actually fixed and re-verified, not the still-dirty route/auth drift elsewhere in the working tree.
++- Wrote the final handoff in append-only form and kept this phase documentation-only, as required by the wrap-up lane.
++
++### Files Touched
++- `docs/qa/DEEP_SCAN_REPORT.md`
++- `docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md`
++
++### Verification
++- Re-read `docs/project-bot/config.json`, `docs/project-bot/OPERATOR_PROFILE.md`, `docs/atlas/PROJECT_BLUEPRINT.md`, `docs/atlas/MODULE_MAP.md`, `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`, `docs/atlas/API_SURFACE.md`, `docs/atlas/CHANGE_MAP.md`, `docs/project-bot/runs/20260312-174754-change-journal/TASK.md`, `docs/qa/DEEP_SCAN_REPORT.md`, `docs/qa/BUG_BACKLOG.md`, and `docs/qa/FULL_AUDIT_REPORT.md`.
++- Re-read `docs/project-bot/runs/20260312-174754-backend-optimize/RUN_SUMMARY.md`, `docs/project-bot/runs/20260312-174754-regression-hunt/RUN_SUMMARY.md`, and `docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md` to confirm the final recap, verification outcomes, and next-batch handoff match the recorded work.
++- Phase 1 stayed documentation-only. No product code changed and no new runtime tests were executed in this phase.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+index 835684ff29c4d8936fee4b7502659d4ddf658467..0ea9b255a1be1256effbe61282cfc106de2b2b7d
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+@@ -353,3 +353,28 @@
+ - The live working tree still contains a broader dirty-tree compatibility/auth cluster outside the last verified implementation batches, including route and contract drift across `common/urls.py`, `booking/urls.py`, `management/urls.py`, `partners/urls.py`, `huz/urls.py`, `common/user_profile.py`, `booking/serializers.py`, `common/serializers.py`, `common/api_v1.py`, and `partners/partner_accounts_and_transactions.py`.
+ - Treat that broader drift as ambient repo state and compatibility-risk context, not as a completed verified deliverable for the final journal, unless a dedicated run summary or verification sweep records it explicitly. This is the same boundary already captured in `REG-P0-001` and the regression-hunt Phase 0 notes.
+ - `FULL_AUDIT_REPORT.md` remains placeholder-level, so the durable source of truth for the latest backend changes is the combination of `CHANGE_MAP.md`, `DEEP_SCAN_REPORT.md`, `BUG_BACKLOG.md`, and the recent `backend-optimize` and `regression-hunt` run summaries rather than the full-audit stub.
++
++### 2026-03-12 Change Journal Phase 1 Write Journal Entry
++- Wrote the durable final recap for the latest verified backend work and kept it explicitly bounded to changes backed by the existing optimize/regression run summaries, atlas updates, backlog state, and verification evidence rather than the broader ambient dirty-tree churn.
++- What changed in the last verified implementation window:
++  - `OPT-P1-001` moved current-user booking detail, payment, and passport responses onto the preloaded booking-detail queryset in `booking/services.py` and `booking/views/bookings.py`, so `DetailBookingSerializer` no longer rehydrates the same related objects lazily on those customer-facing paths.
++  - `OPT-P1-002` moved partner booking statistics and rating summaries in `booking/manage_partner_booking.py` onto filtered database aggregates instead of repeated per-bucket `.count()` calls and Python-side rating loops.
++  - `OPT-P1-003` moved `/management/fetch_all_paid_bookings/` queue counts and request-summary metadata in `management/approval_task.py` onto consolidated filtered aggregates.
++  - The most recent follow-up fix restored the admin payment-review queue regression budget by repairing the direct-view auth test harness in `booking/tests.py`, returning queue-specific total amounts from the same review-summary aggregate in `management/approval_task.py`, and deferring operator-document reads in `booking/workflow.py` until fulfillment-state recalculation actually needs them.
++- Why those changes landed:
++  - The highest-value repo-local performance wins were on the customer booking detail path, partner dashboard/statistics reads, and the admin payment-review queue, where the prior implementations repeated relation loading or aggregate work unnecessarily.
++  - The regression-hunt repair was needed because the queue path drifted back above the intended `<=7` query budget during later verification, and the final journal needed to distinguish that verified fix from unrelated route/auth churn still present in the repo.
++- How the work was implemented:
++  - Reused the existing prefetch-aware detail-loading pattern on the customer booking response path instead of widening every booking mutation flow.
++  - Replaced repeated Python loops and queryset fan-out in partner/admin summary endpoints with SQL-side filtered aggregates.
++  - Used the refreshed atlas (`PROJECT_BLUEPRINT.md`, `MODULE_MAP.md`, `ROUTES_AND_ENTRYPOINTS.md`, `API_SURFACE.md`, `CHANGE_MAP.md`) plus `BUG_BACKLOG.md` and the optimize/regression run summaries to keep the final recap aligned with the actual recorded work.
++- Verification outcomes carried into the journal:
++  - `.venv/bin/python manage.py test booking.tests.BookingWorkflowServiceValidationTests booking.tests.ManagePartnerBookingViewsTests booking.tests.BookingSerializerQueryTests --settings=huz.settings_test` passed with `70` tests.
++  - `.venv/bin/python manage.py test common.tests.CreateMemberProfileViewTransactionTests common.tests.PublicUrlExposureTests common.tests.UserProfileSerializerQueryTests booking.tests.BookingWorkflowServiceValidationTests booking.tests.ApproveBookingPaymentViewTests booking.tests.ManagePartnerBookingViewsTests booking.tests.BookingSerializerQueryTests --settings=huz.settings_test` passed with `84` tests after the regression repair.
++  - `.venv/bin/python manage.py test common.tests partners.tests booking.tests --settings=huz.settings_test` passed with `116` tests.
++  - `python3 -m compileall booking management huz common partners` passed, and resolver smoke checks still match the documented legacy-route removals tied to `REG-P0-001`.
++- What remains and the next recommended batch:
++  - `OPT-P1-004` stays open for the operator hotel-catalog fallback path in `partners/package_management_operator.py`.
++  - `DS-P1-006` stays open because the repo still has no dedicated `management/tests.py`, so admin-only confidence still depends on indirect coverage from `booking/tests.py`.
++  - `REG-P0-001` stays open because several removed legacy routes still resolve to `404`, and any restoration or migration decision depends on downstream consumers outside Huz-Backend.
++  - The next recommended implementation batch remains `PB-1A Response Contract Containment`: remove `session_token`, `partner_session_token`, `firebase_token`, and `web_firebase_token` from outward-facing `common`, `partners`, and `booking` responses without widening into the later auth-transport, principal-binding, or token-rotation work.
+
+codex
+The run is now marked complete and the orchestrator reports no remaining phases. I’m reading back the generated prompt file and updated state once more so the final response includes the exact `NEXT_PROMPT.md` content the run produced.
+exec
+/bin/zsh -lc "sed -n '1,240p' /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/NEXT_PROMPT.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc "sed -n '1,240p' /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/state.json" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 52ms:
+Project bot run complete for target `/Users/macbook/Desktop/Huz/Huz-Backend`.
+
+No remaining phases.
+Final validation checklist:
+- Ensure the requested build/test/lint commands were run for the changed scope.
+- Ensure the atlas docs under `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas` were refreshed for touched modules.
+- Ensure `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md` contains the full cumulative summary of changes and implementation details.
+- Ensure any mode-specific report docs were updated.
+ succeeded in 52ms:
+{
+  "version": 1,
+  "workspaceRoot": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend",
+  "projectPath": "/Users/macbook/Desktop/Huz/Huz-Backend",
+  "mode": "change-journal",
+  "modeTitle": "Change Journal",
+  "description": "Summarize what changed in the latest work, why it changed, how it was implemented, and what remains, using existing run and atlas state.",
+  "scopeLevel": "panel-be",
+  "scope": "/Users/macbook/Desktop/Huz/Huz-Backend",
+  "scopeTargets": [],
+  "request": "Team mission: Audit the entire Huz-Backend repository deeply. Act as a project manager, Django architect, Python performance specialist, security reviewer, QA engineer, and implementation engineer. First perform a full backend audit for performance bottlenecks, optimization issues, N+1 queries, ORM misuse, inefficient loops, unnecessary database or network work, cache gaps, slow request paths, dead code, risky patterns, security flaws, and anything clearly wrong. Then create a prioritized remediation plan and implement the safe backend fixes in parallel. Important constraint: only document and fix issues that can be resolved entirely inside Huz-Backend. If an issue requires edits in any other repository, consumer application, or downstream client, do not implement that part. Document it clearly as out-of-scope and skip code changes. Keep all changes scoped to Huz-Backend, verify each batch, and finish with a final summary of issues found, fixes implemented, skipped out-of-scope items, and verification results.\n\nYou are the Project Manager in coordinated team \"Huz Backend Strict Backend Audit and Fix Active\".\nAssigned lane: Final recap\nPrimary objective: Summarize what was fixed, what remains, and the next recommended batch.\nExecution phase: wrap-up\nMode: change-journal\nScope level: panel-be\nScope: /Users/macbook/Desktop/Huz/Huz-Backend\nScope targets: [Not specified]\n\nTeam coordination contract:\n- Work only inside your assigned lane.\n- Ownership boundaries: coordination:wrap\n- This is a report-only run. Do not modify product code; workspace docs and reports are allowed.\n- Read atlas docs, QA reports, and BUG_BACKLOG before making major decisions.\n- If you discover issues outside your lane, document them clearly in RUN_SUMMARY or BUG_BACKLOG instead of implementing them here.\n- Upstream dependencies that should already be complete: QA Verification Sweep\n\nWrap-up contract:\n- Summarize what the team completed, what remains, and the next recommended batch.\n- Keep the change journal concise and developer-actionable.\n\nOriginal operator request:\nAudit the entire Huz-Backend repository deeply. Act as a project manager, Django architect, Python performance specialist, security reviewer, QA engineer, and implementation engineer. First perform a full backend audit for performance bottlenecks, optimization issues, N+1 queries, ORM misuse, inefficient loops, unnecessary database or network work, cache gaps, slow request paths, dead code, risky patterns, security flaws, and anything clearly wrong. Then create a prioritized remediation plan and implement the safe backend fixes in parallel. Important constraint: only document and fix issues that can be resolved entirely inside Huz-Backend. If an issue requires edits in any other repository, consumer application, or downstream client, do not implement that part. Document it clearly as out-of-scope and skip code changes. Keep all changes scoped to Huz-Backend, verify each batch, and finish with a final summary of issues found, fixes implemented, skipped out-of-scope items, and verification results.\n\nGlobal Instructions (always apply):\nAlways maintain full-system project memory in docs for the selected scope level.\nExclude non-dev and non-required files from deep mapping and auditing.\nWhen code changes touch modules/routes/APIs/contracts/schema/security/state, refresh relevant atlas docs in the same run.\nKeep audit findings traceable with status updates (open, fixed, verified) when remediation occurs.\nFor full-system or multi-panel fullstack scope, ensure frontend panels and backend structure/contracts are mapped together.",
+  "projectSurfaces": [
+    {
+      "id": "huz-backend",
+      "label": "Huz-Backend",
+      "path": "/Users/macbook/Desktop/Huz/Huz-Backend",
+      "kind": "panel-be"
+    }
+  ],
+  "devIgnorePatterns": [
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md
+index 62cc0fc9bb9282a28ab7bbbaea1a28d47cfc337a..122907260debbffd542fdf4e2f407ef94852a200
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md
+@@ -38,3 +38,23 @@
+ - `git -C /Users/macbook/Desktop/Huz/Huz-Backend diff --stat -- booking/services.py booking/views/bookings.py booking/manage_partner_booking.py management/approval_task.py booking/workflow.py booking/tests.py common/urls.py booking/urls.py management/urls.py partners/urls.py huz/urls.py common/user_profile.py common/serializers.py booking/serializers.py common/api_v1.py partners/partner_accounts_and_transactions.py`
+ - `git -C /Users/macbook/Desktop/Huz/Huz-Backend diff -- booking/services.py booking/views/bookings.py booking/manage_partner_booking.py management/approval_task.py booking/workflow.py booking/tests.py`
+ - Phase 0 stayed documentation-only. No product code changed and no new runtime tests were executed in this phase.
++
++## Phase 1 - Write Journal Entry
++### Changes Made
++- Appended the durable change-journal recap to `docs/qa/DEEP_SCAN_REPORT.md`, summarizing the latest verified backend optimization and regression-fix work, the current verification baseline, the remaining open items, and the next recommended batch.
++- Locked the final recap to the documented-and-verified change set: `OPT-P1-001`, `OPT-P1-002`, `OPT-P1-003`, plus the regression-hunt admin payment-review queue repair across `booking/tests.py`, `management/approval_task.py`, and `booking/workflow.py`.
++- Recorded the remaining follow-up boundary as `OPT-P1-004`, `DS-P1-006`, `REG-P0-001`, and the already-planned `PB-1A Response Contract Containment` batch rather than widening the journal to ambient repo churn.
++
++### How It Was Implemented
++- Re-read the required atlas docs (`PROJECT_BLUEPRINT.md`, `MODULE_MAP.md`, `ROUTES_AND_ENTRYPOINTS.md`, `API_SURFACE.md`, `CHANGE_MAP.md`), the current QA docs, and the recent `backend-optimize`, `regression-hunt`, and `plan-batch` run summaries before writing the final recap.
++- Cross-checked the journal language against the durable optimize/regression verification evidence so the summary reflects what was actually fixed and re-verified, not the still-dirty route/auth drift elsewhere in the working tree.
++- Wrote the final handoff in append-only form and kept this phase documentation-only, as required by the wrap-up lane.
++
++### Files Touched
++- `docs/qa/DEEP_SCAN_REPORT.md`
++- `docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md`
++
++### Verification
++- Re-read `docs/project-bot/config.json`, `docs/project-bot/OPERATOR_PROFILE.md`, `docs/atlas/PROJECT_BLUEPRINT.md`, `docs/atlas/MODULE_MAP.md`, `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`, `docs/atlas/API_SURFACE.md`, `docs/atlas/CHANGE_MAP.md`, `docs/project-bot/runs/20260312-174754-change-journal/TASK.md`, `docs/qa/DEEP_SCAN_REPORT.md`, `docs/qa/BUG_BACKLOG.md`, and `docs/qa/FULL_AUDIT_REPORT.md`.
++- Re-read `docs/project-bot/runs/20260312-174754-backend-optimize/RUN_SUMMARY.md`, `docs/project-bot/runs/20260312-174754-regression-hunt/RUN_SUMMARY.md`, and `docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md` to confirm the final recap, verification outcomes, and next-batch handoff match the recorded work.
++- Phase 1 stayed documentation-only. No product code changed and no new runtime tests were executed in this phase.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+index 835684ff29c4d8936fee4b7502659d4ddf658467..0ea9b255a1be1256effbe61282cfc106de2b2b7d
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+@@ -353,3 +353,28 @@
+ - The live working tree still contains a broader dirty-tree compatibility/auth cluster outside the last verified implementation batches, including route and contract drift across `common/urls.py`, `booking/urls.py`, `management/urls.py`, `partners/urls.py`, `huz/urls.py`, `common/user_profile.py`, `booking/serializers.py`, `common/serializers.py`, `common/api_v1.py`, and `partners/partner_accounts_and_transactions.py`.
+ - Treat that broader drift as ambient repo state and compatibility-risk context, not as a completed verified deliverable for the final journal, unless a dedicated run summary or verification sweep records it explicitly. This is the same boundary already captured in `REG-P0-001` and the regression-hunt Phase 0 notes.
+ - `FULL_AUDIT_REPORT.md` remains placeholder-level, so the durable source of truth for the latest backend changes is the combination of `CHANGE_MAP.md`, `DEEP_SCAN_REPORT.md`, `BUG_BACKLOG.md`, and the recent `backend-optimize` and `regression-hunt` run summaries rather than the full-audit stub.
++
++### 2026-03-12 Change Journal Phase 1 Write Journal Entry
++- Wrote the durable final recap for the latest verified backend work and kept it explicitly bounded to changes backed by the existing optimize/regression run summaries, atlas updates, backlog state, and verification evidence rather than the broader ambient dirty-tree churn.
++- What changed in the last verified implementation window:
++  - `OPT-P1-001` moved current-user booking detail, payment, and passport responses onto the preloaded booking-detail queryset in `booking/services.py` and `booking/views/bookings.py`, so `DetailBookingSerializer` no longer rehydrates the same related objects lazily on those customer-facing paths.
++  - `OPT-P1-002` moved partner booking statistics and rating summaries in `booking/manage_partner_booking.py` onto filtered database aggregates instead of repeated per-bucket `.count()` calls and Python-side rating loops.
++  - `OPT-P1-003` moved `/management/fetch_all_paid_bookings/` queue counts and request-summary metadata in `management/approval_task.py` onto consolidated filtered aggregates.
++  - The most recent follow-up fix restored the admin payment-review queue regression budget by repairing the direct-view auth test harness in `booking/tests.py`, returning queue-specific total amounts from the same review-summary aggregate in `management/approval_task.py`, and deferring operator-document reads in `booking/workflow.py` until fulfillment-state recalculation actually needs them.
++- Why those changes landed:
++  - The highest-value repo-local performance wins were on the customer booking detail path, partner dashboard/statistics reads, and the admin payment-review queue, where the prior implementations repeated relation loading or aggregate work unnecessarily.
++  - The regression-hunt repair was needed because the queue path drifted back above the intended `<=7` query budget during later verification, and the final journal needed to distinguish that verified fix from unrelated route/auth churn still present in the repo.
++- How the work was implemented:
++  - Reused the existing prefetch-aware detail-loading pattern on the customer booking response path instead of widening every booking mutation flow.
++  - Replaced repeated Python loops and queryset fan-out in partner/admin summary endpoints with SQL-side filtered aggregates.
++  - Used the refreshed atlas (`PROJECT_BLUEPRINT.md`, `MODULE_MAP.md`, `ROUTES_AND_ENTRYPOINTS.md`, `API_SURFACE.md`, `CHANGE_MAP.md`) plus `BUG_BACKLOG.md` and the optimize/regression run summaries to keep the final recap aligned with the actual recorded work.
++- Verification outcomes carried into the journal:
++  - `.venv/bin/python manage.py test booking.tests.BookingWorkflowServiceValidationTests booking.tests.ManagePartnerBookingViewsTests booking.tests.BookingSerializerQueryTests --settings=huz.settings_test` passed with `70` tests.
++  - `.venv/bin/python manage.py test common.tests.CreateMemberProfileViewTransactionTests common.tests.PublicUrlExposureTests common.tests.UserProfileSerializerQueryTests booking.tests.BookingWorkflowServiceValidationTests booking.tests.ApproveBookingPaymentViewTests booking.tests.ManagePartnerBookingViewsTests booking.tests.BookingSerializerQueryTests --settings=huz.settings_test` passed with `84` tests after the regression repair.
++  - `.venv/bin/python manage.py test common.tests partners.tests booking.tests --settings=huz.settings_test` passed with `116` tests.
++  - `python3 -m compileall booking management huz common partners` passed, and resolver smoke checks still match the documented legacy-route removals tied to `REG-P0-001`.
++- What remains and the next recommended batch:
++  - `OPT-P1-004` stays open for the operator hotel-catalog fallback path in `partners/package_management_operator.py`.
++  - `DS-P1-006` stays open because the repo still has no dedicated `management/tests.py`, so admin-only confidence still depends on indirect coverage from `booking/tests.py`.
++  - `REG-P0-001` stays open because several removed legacy routes still resolve to `404`, and any restoration or migration decision depends on downstream consumers outside Huz-Backend.
++  - The next recommended implementation batch remains `PB-1A Response Contract Containment`: remove `session_token`, `partner_session_token`, `firebase_token`, and `web_firebase_token` from outward-facing `common`, `partners`, and `booking` responses without widening into the later auth-transport, principal-binding, or token-rotation work.
+
+Plan update
+  ✓ Review the recent change-journal, backend-optimize, regression-hunt, and planning artifacts to capture the verified work and remaining backlog accurately
+  ✓ Append the Phase 1 journal summary to the durable workspace docs required for this run
+  ✓ Run the orchestration completion commands, verify updated state, and print NEXT_PROMPT.md
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md
+index 62cc0fc9bb9282a28ab7bbbaea1a28d47cfc337a..122907260debbffd542fdf4e2f407ef94852a200
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md
+@@ -38,3 +38,23 @@
+ - `git -C /Users/macbook/Desktop/Huz/Huz-Backend diff --stat -- booking/services.py booking/views/bookings.py booking/manage_partner_booking.py management/approval_task.py booking/workflow.py booking/tests.py common/urls.py booking/urls.py management/urls.py partners/urls.py huz/urls.py common/user_profile.py common/serializers.py booking/serializers.py common/api_v1.py partners/partner_accounts_and_transactions.py`
+ - `git -C /Users/macbook/Desktop/Huz/Huz-Backend diff -- booking/services.py booking/views/bookings.py booking/manage_partner_booking.py management/approval_task.py booking/workflow.py booking/tests.py`
+ - Phase 0 stayed documentation-only. No product code changed and no new runtime tests were executed in this phase.
++
++## Phase 1 - Write Journal Entry
++### Changes Made
++- Appended the durable change-journal recap to `docs/qa/DEEP_SCAN_REPORT.md`, summarizing the latest verified backend optimization and regression-fix work, the current verification baseline, the remaining open items, and the next recommended batch.
++- Locked the final recap to the documented-and-verified change set: `OPT-P1-001`, `OPT-P1-002`, `OPT-P1-003`, plus the regression-hunt admin payment-review queue repair across `booking/tests.py`, `management/approval_task.py`, and `booking/workflow.py`.
++- Recorded the remaining follow-up boundary as `OPT-P1-004`, `DS-P1-006`, `REG-P0-001`, and the already-planned `PB-1A Response Contract Containment` batch rather than widening the journal to ambient repo churn.
++
++### How It Was Implemented
++- Re-read the required atlas docs (`PROJECT_BLUEPRINT.md`, `MODULE_MAP.md`, `ROUTES_AND_ENTRYPOINTS.md`, `API_SURFACE.md`, `CHANGE_MAP.md`), the current QA docs, and the recent `backend-optimize`, `regression-hunt`, and `plan-batch` run summaries before writing the final recap.
++- Cross-checked the journal language against the durable optimize/regression verification evidence so the summary reflects what was actually fixed and re-verified, not the still-dirty route/auth drift elsewhere in the working tree.
++- Wrote the final handoff in append-only form and kept this phase documentation-only, as required by the wrap-up lane.
++
++### Files Touched
++- `docs/qa/DEEP_SCAN_REPORT.md`
++- `docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md`
++
++### Verification
++- Re-read `docs/project-bot/config.json`, `docs/project-bot/OPERATOR_PROFILE.md`, `docs/atlas/PROJECT_BLUEPRINT.md`, `docs/atlas/MODULE_MAP.md`, `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`, `docs/atlas/API_SURFACE.md`, `docs/atlas/CHANGE_MAP.md`, `docs/project-bot/runs/20260312-174754-change-journal/TASK.md`, `docs/qa/DEEP_SCAN_REPORT.md`, `docs/qa/BUG_BACKLOG.md`, and `docs/qa/FULL_AUDIT_REPORT.md`.
++- Re-read `docs/project-bot/runs/20260312-174754-backend-optimize/RUN_SUMMARY.md`, `docs/project-bot/runs/20260312-174754-regression-hunt/RUN_SUMMARY.md`, and `docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md` to confirm the final recap, verification outcomes, and next-batch handoff match the recorded work.
++- Phase 1 stayed documentation-only. No product code changed and no new runtime tests were executed in this phase.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+index 835684ff29c4d8936fee4b7502659d4ddf658467..0ea9b255a1be1256effbe61282cfc106de2b2b7d
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+@@ -353,3 +353,28 @@
+ - The live working tree still contains a broader dirty-tree compatibility/auth cluster outside the last verified implementation batches, including route and contract drift across `common/urls.py`, `booking/urls.py`, `management/urls.py`, `partners/urls.py`, `huz/urls.py`, `common/user_profile.py`, `booking/serializers.py`, `common/serializers.py`, `common/api_v1.py`, and `partners/partner_accounts_and_transactions.py`.
+ - Treat that broader drift as ambient repo state and compatibility-risk context, not as a completed verified deliverable for the final journal, unless a dedicated run summary or verification sweep records it explicitly. This is the same boundary already captured in `REG-P0-001` and the regression-hunt Phase 0 notes.
+ - `FULL_AUDIT_REPORT.md` remains placeholder-level, so the durable source of truth for the latest backend changes is the combination of `CHANGE_MAP.md`, `DEEP_SCAN_REPORT.md`, `BUG_BACKLOG.md`, and the recent `backend-optimize` and `regression-hunt` run summaries rather than the full-audit stub.
++
++### 2026-03-12 Change Journal Phase 1 Write Journal Entry
++- Wrote the durable final recap for the latest verified backend work and kept it explicitly bounded to changes backed by the existing optimize/regression run summaries, atlas updates, backlog state, and verification evidence rather than the broader ambient dirty-tree churn.
++- What changed in the last verified implementation window:
++  - `OPT-P1-001` moved current-user booking detail, payment, and passport responses onto the preloaded booking-detail queryset in `booking/services.py` and `booking/views/bookings.py`, so `DetailBookingSerializer` no longer rehydrates the same related objects lazily on those customer-facing paths.
++  - `OPT-P1-002` moved partner booking statistics and rating summaries in `booking/manage_partner_booking.py` onto filtered database aggregates instead of repeated per-bucket `.count()` calls and Python-side rating loops.
++  - `OPT-P1-003` moved `/management/fetch_all_paid_bookings/` queue counts and request-summary metadata in `management/approval_task.py` onto consolidated filtered aggregates.
++  - The most recent follow-up fix restored the admin payment-review queue regression budget by repairing the direct-view auth test harness in `booking/tests.py`, returning queue-specific total amounts from the same review-summary aggregate in `management/approval_task.py`, and deferring operator-document reads in `booking/workflow.py` until fulfillment-state recalculation actually needs them.
++- Why those changes landed:
++  - The highest-value repo-local performance wins were on the customer booking detail path, partner dashboard/statistics reads, and the admin payment-review queue, where the prior implementations repeated relation loading or aggregate work unnecessarily.
++  - The regression-hunt repair was needed because the queue path drifted back above the intended `<=7` query budget during later verification, and the final journal needed to distinguish that verified fix from unrelated route/auth churn still present in the repo.
++- How the work was implemented:
++  - Reused the existing prefetch-aware detail-loading pattern on the customer booking response path instead of widening every booking mutation flow.
++  - Replaced repeated Python loops and queryset fan-out in partner/admin summary endpoints with SQL-side filtered aggregates.
++  - Used the refreshed atlas (`PROJECT_BLUEPRINT.md`, `MODULE_MAP.md`, `ROUTES_AND_ENTRYPOINTS.md`, `API_SURFACE.md`, `CHANGE_MAP.md`) plus `BUG_BACKLOG.md` and the optimize/regression run summaries to keep the final recap aligned with the actual recorded work.
++- Verification outcomes carried into the journal:
++  - `.venv/bin/python manage.py test booking.tests.BookingWorkflowServiceValidationTests booking.tests.ManagePartnerBookingViewsTests booking.tests.BookingSerializerQueryTests --settings=huz.settings_test` passed with `70` tests.
++  - `.venv/bin/python manage.py test common.tests.CreateMemberProfileViewTransactionTests common.tests.PublicUrlExposureTests common.tests.UserProfileSerializerQueryTests booking.tests.BookingWorkflowServiceValidationTests booking.tests.ApproveBookingPaymentViewTests booking.tests.ManagePartnerBookingViewsTests booking.tests.BookingSerializerQueryTests --settings=huz.settings_test` passed with `84` tests after the regression repair.
++  - `.venv/bin/python manage.py test common.tests partners.tests booking.tests --settings=huz.settings_test` passed with `116` tests.
++  - `python3 -m compileall booking management huz common partners` passed, and resolver smoke checks still match the documented legacy-route removals tied to `REG-P0-001`.
++- What remains and the next recommended batch:
++  - `OPT-P1-004` stays open for the operator hotel-catalog fallback path in `partners/package_management_operator.py`.
++  - `DS-P1-006` stays open because the repo still has no dedicated `management/tests.py`, so admin-only confidence still depends on indirect coverage from `booking/tests.py`.
++  - `REG-P0-001` stays open because several removed legacy routes still resolve to `404`, and any restoration or migration decision depends on downstream consumers outside Huz-Backend.
++  - The next recommended implementation batch remains `PB-1A Response Contract Containment`: remove `session_token`, `partner_session_token`, `firebase_token`, and `web_firebase_token` from outward-facing `common`, `partners`, and `booking` responses without widening into the later auth-transport, principal-binding, or token-rotation work.
+
+codex
+Phase 1 is complete. I updated [DEEP_SCAN_REPORT.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md) with the durable journal entry and appended the required Phase 1 section to [RUN_SUMMARY.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md). This phase stayed documentation-only; no product code under `/Users/macbook/Desktop/Huz/Huz-Backend` was modified.
+
+I then ran the required orchestration commands. [state.json](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/state.json) now shows both phases completed and the run is finished.
+
+`NEXT_PROMPT.md` from [NEXT_PROMPT.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/NEXT_PROMPT.md):
+
+```text
+Project bot run complete for target `/Users/macbook/Desktop/Huz/Huz-Backend`.
+
+No remaining phases.
+Final validation checklist:
+- Ensure the requested build/test/lint commands were run for the changed scope.
+- Ensure the atlas docs under `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas` were refreshed for touched modules.
+- Ensure `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md` contains the full cumulative summary of changes and implementation details.
+- Ensure any mode-specific report docs were updated.
+```
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md
+index 62cc0fc9bb9282a28ab7bbbaea1a28d47cfc337a..122907260debbffd542fdf4e2f407ef94852a200
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md
+@@ -38,3 +38,23 @@
+ - `git -C /Users/macbook/Desktop/Huz/Huz-Backend diff --stat -- booking/services.py booking/views/bookings.py booking/manage_partner_booking.py management/approval_task.py booking/workflow.py booking/tests.py common/urls.py booking/urls.py management/urls.py partners/urls.py huz/urls.py common/user_profile.py common/serializers.py booking/serializers.py common/api_v1.py partners/partner_accounts_and_transactions.py`
+ - `git -C /Users/macbook/Desktop/Huz/Huz-Backend diff -- booking/services.py booking/views/bookings.py booking/manage_partner_booking.py management/approval_task.py booking/workflow.py booking/tests.py`
+ - Phase 0 stayed documentation-only. No product code changed and no new runtime tests were executed in this phase.
++
++## Phase 1 - Write Journal Entry
++### Changes Made
++- Appended the durable change-journal recap to `docs/qa/DEEP_SCAN_REPORT.md`, summarizing the latest verified backend optimization and regression-fix work, the current verification baseline, the remaining open items, and the next recommended batch.
++- Locked the final recap to the documented-and-verified change set: `OPT-P1-001`, `OPT-P1-002`, `OPT-P1-003`, plus the regression-hunt admin payment-review queue repair across `booking/tests.py`, `management/approval_task.py`, and `booking/workflow.py`.
++- Recorded the remaining follow-up boundary as `OPT-P1-004`, `DS-P1-006`, `REG-P0-001`, and the already-planned `PB-1A Response Contract Containment` batch rather than widening the journal to ambient repo churn.
++
++### How It Was Implemented
++- Re-read the required atlas docs (`PROJECT_BLUEPRINT.md`, `MODULE_MAP.md`, `ROUTES_AND_ENTRYPOINTS.md`, `API_SURFACE.md`, `CHANGE_MAP.md`), the current QA docs, and the recent `backend-optimize`, `regression-hunt`, and `plan-batch` run summaries before writing the final recap.
++- Cross-checked the journal language against the durable optimize/regression verification evidence so the summary reflects what was actually fixed and re-verified, not the still-dirty route/auth drift elsewhere in the working tree.
++- Wrote the final handoff in append-only form and kept this phase documentation-only, as required by the wrap-up lane.
++
++### Files Touched
++- `docs/qa/DEEP_SCAN_REPORT.md`
++- `docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md`
++
++### Verification
++- Re-read `docs/project-bot/config.json`, `docs/project-bot/OPERATOR_PROFILE.md`, `docs/atlas/PROJECT_BLUEPRINT.md`, `docs/atlas/MODULE_MAP.md`, `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`, `docs/atlas/API_SURFACE.md`, `docs/atlas/CHANGE_MAP.md`, `docs/project-bot/runs/20260312-174754-change-journal/TASK.md`, `docs/qa/DEEP_SCAN_REPORT.md`, `docs/qa/BUG_BACKLOG.md`, and `docs/qa/FULL_AUDIT_REPORT.md`.
++- Re-read `docs/project-bot/runs/20260312-174754-backend-optimize/RUN_SUMMARY.md`, `docs/project-bot/runs/20260312-174754-regression-hunt/RUN_SUMMARY.md`, and `docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md` to confirm the final recap, verification outcomes, and next-batch handoff match the recorded work.
++- Phase 1 stayed documentation-only. No product code changed and no new runtime tests were executed in this phase.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+index 835684ff29c4d8936fee4b7502659d4ddf658467..0ea9b255a1be1256effbe61282cfc106de2b2b7d
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+@@ -353,3 +353,28 @@
+ - The live working tree still contains a broader dirty-tree compatibility/auth cluster outside the last verified implementation batches, including route and contract drift across `common/urls.py`, `booking/urls.py`, `management/urls.py`, `partners/urls.py`, `huz/urls.py`, `common/user_profile.py`, `booking/serializers.py`, `common/serializers.py`, `common/api_v1.py`, and `partners/partner_accounts_and_transactions.py`.
+ - Treat that broader drift as ambient repo state and compatibility-risk context, not as a completed verified deliverable for the final journal, unless a dedicated run summary or verification sweep records it explicitly. This is the same boundary already captured in `REG-P0-001` and the regression-hunt Phase 0 notes.
+ - `FULL_AUDIT_REPORT.md` remains placeholder-level, so the durable source of truth for the latest backend changes is the combination of `CHANGE_MAP.md`, `DEEP_SCAN_REPORT.md`, `BUG_BACKLOG.md`, and the recent `backend-optimize` and `regression-hunt` run summaries rather than the full-audit stub.
++
++### 2026-03-12 Change Journal Phase 1 Write Journal Entry
++- Wrote the durable final recap for the latest verified backend work and kept it explicitly bounded to changes backed by the existing optimize/regression run summaries, atlas updates, backlog state, and verification evidence rather than the broader ambient dirty-tree churn.
++- What changed in the last verified implementation window:
++  - `OPT-P1-001` moved current-user booking detail, payment, and passport responses onto the preloaded booking-detail queryset in `booking/services.py` and `booking/views/bookings.py`, so `DetailBookingSerializer` no longer rehydrates the same related objects lazily on those customer-facing paths.
++  - `OPT-P1-002` moved partner booking statistics and rating summaries in `booking/manage_partner_booking.py` onto filtered database aggregates instead of repeated per-bucket `.count()` calls and Python-side rating loops.
++  - `OPT-P1-003` moved `/management/fetch_all_paid_bookings/` queue counts and request-summary metadata in `management/approval_task.py` onto consolidated filtered aggregates.
++  - The most recent follow-up fix restored the admin payment-review queue regression budget by repairing the direct-view auth test harness in `booking/tests.py`, returning queue-specific total amounts from the same review-summary aggregate in `management/approval_task.py`, and deferring operator-document reads in `booking/workflow.py` until fulfillment-state recalculation actually needs them.
++- Why those changes landed:
++  - The highest-value repo-local performance wins were on the customer booking detail path, partner dashboard/statistics reads, and the admin payment-review queue, where the prior implementations repeated relation loading or aggregate work unnecessarily.
++  - The regression-hunt repair was needed because the queue path drifted back above the intended `<=7` query budget during later verification, and the final journal needed to distinguish that verified fix from unrelated route/auth churn still present in the repo.
++- How the work was implemented:
++  - Reused the existing prefetch-aware detail-loading pattern on the customer booking response path instead of widening every booking mutation flow.
++  - Replaced repeated Python loops and queryset fan-out in partner/admin summary endpoints with SQL-side filtered aggregates.
++  - Used the refreshed atlas (`PROJECT_BLUEPRINT.md`, `MODULE_MAP.md`, `ROUTES_AND_ENTRYPOINTS.md`, `API_SURFACE.md`, `CHANGE_MAP.md`) plus `BUG_BACKLOG.md` and the optimize/regression run summaries to keep the final recap aligned with the actual recorded work.
++- Verification outcomes carried into the journal:
++  - `.venv/bin/python manage.py test booking.tests.BookingWorkflowServiceValidationTests booking.tests.ManagePartnerBookingViewsTests booking.tests.BookingSerializerQueryTests --settings=huz.settings_test` passed with `70` tests.
++  - `.venv/bin/python manage.py test common.tests.CreateMemberProfileViewTransactionTests common.tests.PublicUrlExposureTests common.tests.UserProfileSerializerQueryTests booking.tests.BookingWorkflowServiceValidationTests booking.tests.ApproveBookingPaymentViewTests booking.tests.ManagePartnerBookingViewsTests booking.tests.BookingSerializerQueryTests --settings=huz.settings_test` passed with `84` tests after the regression repair.
++  - `.venv/bin/python manage.py test common.tests partners.tests booking.tests --settings=huz.settings_test` passed with `116` tests.
++  - `python3 -m compileall booking management huz common partners` passed, and resolver smoke checks still match the documented legacy-route removals tied to `REG-P0-001`.
++- What remains and the next recommended batch:
++  - `OPT-P1-004` stays open for the operator hotel-catalog fallback path in `partners/package_management_operator.py`.
++  - `DS-P1-006` stays open because the repo still has no dedicated `management/tests.py`, so admin-only confidence still depends on indirect coverage from `booking/tests.py`.
++  - `REG-P0-001` stays open because several removed legacy routes still resolve to `404`, and any restoration or migration decision depends on downstream consumers outside Huz-Backend.
++  - The next recommended implementation batch remains `PB-1A Response Contract Containment`: remove `session_token`, `partner_session_token`, `firebase_token`, and `web_firebase_token` from outward-facing `common`, `partners`, and `booking` responses without widening into the later auth-transport, principal-binding, or token-rotation work.
+
+tokens used
+116,640
+Phase 1 is complete. I updated [DEEP_SCAN_REPORT.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md) with the durable journal entry and appended the required Phase 1 section to [RUN_SUMMARY.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md). This phase stayed documentation-only; no product code under `/Users/macbook/Desktop/Huz/Huz-Backend` was modified.
+
+I then ran the required orchestration commands. [state.json](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/state.json) now shows both phases completed and the run is finished.
+
+`NEXT_PROMPT.md` from [NEXT_PROMPT.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/NEXT_PROMPT.md):
+
+```text
+Project bot run complete for target `/Users/macbook/Desktop/Huz/Huz-Backend`.
+
+No remaining phases.
+Final validation checklist:
+- Ensure the requested build/test/lint commands were run for the changed scope.
+- Ensure the atlas docs under `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas` were refreshed for touched modules.
+- Ensure `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-change-journal/RUN_SUMMARY.md` contains the full cumulative summary of changes and implementation details.
+- Ensure any mode-specific report docs were updated.
+```

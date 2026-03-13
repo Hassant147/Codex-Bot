@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "workspaceRoot": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default",
+  "projectPath": "/Users/macbook/Desktop/Huz/Huz-Web-Frontend",
+  "mode": "system-atlas",
+  "modeTitle": "System Atlas",
+  "description": "Build or refresh the master project blueprint, module map, routes, APIs, flows, and change map so future work can rely on durable project memory.",
+  "scope": "/Users/macbook/Desktop/Huz",
+  "request": "Refresh full system atlas and fill blueprint/module/routes/api/change map docs.",
+  "designGuides": [
+    "/Users/macbook/Desktop/Huz/UI_DESIGN_SYSTEM_GUIDE.md",
+    "/Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md"
+  ],
+  "referenceDocs": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/PROJECT_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/MODULE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/ROUTES_AND_ENTRYPOINTS.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/API_SURFACE.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/BUG_BACKLOG.md"
+  ],
+  "forceExternalDocs": true,
+  "reportFiles": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md"
+  ],
+  "createdAt": "2026-03-05T10:25:20.876Z",
+  "updatedAt": "2026-03-05T10:43:30.244Z",
+  "phaseCursor": 3,
+  "phases": [
+    {
+      "id": 0,
+      "title": "Inventory Scope",
+      "status": "completed",
+      "completedAt": "2026-03-05T10:32:13.282Z",
+      "note": "",
+      "goal": "Scan the requested project scope and identify the major modules, entrypoints, routes, APIs, and ownership boundaries.",
+      "required": [
+        "Inspect only the directories and files needed to map the requested scope accurately.",
+        "Capture major modules, routes, service layers, data flows, and integration boundaries.",
+        "Collect evidence for stale docs, missing map sections, or structural ambiguity."
+      ]
+    },
+    {
+      "id": 1,
+      "title": "Refresh Atlas Docs",
+      "status": "completed",
+      "completedAt": "2026-03-05T10:38:12.794Z",
+      "note": "",
+      "goal": "Update every core atlas document so the project map is current and reusable.",
+      "required": [
+        "Update the project blueprint, module map, routes and entrypoints, API surface, and change map docs.",
+        "Document critical flows, ownership boundaries, and known implementation constraints.",
+        "Preserve useful historical context instead of overwriting it blindly."
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Validate Atlas Coverage",
+      "status": "completed",
+      "completedAt": "2026-03-05T10:43:30.240Z",
+      "note": "",
+      "goal": "Recheck the refreshed atlas against the codebase and record remaining blind spots.",
+      "required": [
+        "Reopen the highest-risk files referenced by the atlas and confirm the docs match reality.",
+        "Record assumptions, unknowns, and the next recommended atlas refresh targets.",
+        "Summarize what changed and how the atlas was verified."
+      ]
+    }
+  ]
+}

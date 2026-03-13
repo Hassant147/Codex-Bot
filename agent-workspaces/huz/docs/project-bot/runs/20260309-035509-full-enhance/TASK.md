@@ -1,0 +1,1 @@
+Clean the Huz project safely: remove proven-unused frontend legacy code, unused FE/BE files/assets/dependencies where safe, reduce duplicated logic on backend and frontend, keep backend compatibility endpoints unless proven dead, and refresh workspace docs with verification.

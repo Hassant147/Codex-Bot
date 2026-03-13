@@ -1,0 +1,15 @@
+**Phase 3**
+- `FE-REV-003` is implemented. The 7 guide and holy-site routes now resolve through shared pilgrimage modules in [GuideArticlePage.jsx](/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/features/pilgrimageGuides/GuideArticlePage.jsx#L162) and [HolySiteCityPage.jsx](/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/features/pilgrimageGuides/HolySiteCityPage.jsx#L200); the routed city-nav contract was tightened in [CityNavbar.jsx](/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/components/CityNavbar/CityNavbar.jsx#L11).
+- The route files are now thin wrappers, Makkah no longer owns a page-local navbar, and the workspace docs/run memory were refreshed, including the Phase 3 append in [RUN_SUMMARY.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-145701-full-enhance/RUN_SUMMARY.md#L93).
+- Verification completed: route tracing passed, the 7 route owners no longer import `Header`/`Footer`, `@babel/parser` checks passed, and scoped eslint passed with only the existing `Browserslist: caniuse-lite is 13 months old` warning. No build, install, or lockfile changes.
+
+**NEXT_PROMPT.md**
+```text
+Use $project-autopilot-manager in `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz`.
+Read `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-145701-full-enhance/state.json` and `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-145701-full-enhance/prompts/phase-04.md`.
+Execute only Phase 4 (Verify and Reprioritize) against target project `/Users/macbook/Desktop/Huz`.
+At the end, run:
+1. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-145701-full-enhance --phase 4`
+2. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-145701-full-enhance`
+Then print `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-145701-full-enhance/NEXT_PROMPT.md`.
+```

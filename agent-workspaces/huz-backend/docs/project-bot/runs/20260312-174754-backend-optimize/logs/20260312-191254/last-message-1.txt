@@ -1,0 +1,14 @@
+Phase 0 is complete. I documented the baseline hotspots in [DEEP_SCAN_REPORT.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md), added `OPT-P1-001` through `OPT-P1-004` to [BUG_BACKLOG.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md), and appended the required phase section to [RUN_SUMMARY.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-backend-optimize/RUN_SUMMARY.md). No product code was changed.
+
+Verification baseline: `python3 manage.py test common.tests --settings=huz.settings_test` is still blocked because Django is not installed in this shell, and `python3 -m compileall booking partners management common huz` succeeded. The run state is advanced to Phase 1.
+
+`NEXT_PROMPT.md`:
+```text
+Use $project-autopilot-manager in `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend`.
+Read `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-backend-optimize/state.json` and `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-backend-optimize/prompts/phase-01.md`.
+Execute only Phase 1 (Implement Backend Optimizations) against target project `/Users/macbook/Desktop/Huz/Huz-Backend`.
+At the end, run:
+1. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-backend-optimize --phase 1`
+2. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-backend-optimize`
+Then print `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-backend-optimize/NEXT_PROMPT.md`.
+```

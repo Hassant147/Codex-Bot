@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "workspaceRoot": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend",
+  "projectPath": "/Users/macbook/Desktop/Huz/Huz-Backend",
+  "mode": "plan-batch",
+  "modeTitle": "Plan Batch",
+  "description": "Read the atlas and backlog, then produce a concrete execution plan for the next bounded implementation batch without overcommitting to the entire backlog.",
+  "scopeLevel": "panel-be",
+  "scope": "/Users/macbook/Desktop/Huz/Huz-Backend",
+  "scopeTargets": [],
+  "request": "Team mission: Audit the entire Huz-Backend repository deeply. Act as a project manager, Django architect, Python performance specialist, security reviewer, QA engineer, and implementation engineer. First perform a full backend audit for performance bottlenecks, optimization issues, N+1 queries, ORM misuse, inefficient loops, unnecessary database or network work, cache gaps, slow request paths, dead code, risky patterns, security flaws, and anything clearly wrong. Then create a prioritized remediation plan and implement the safe backend fixes in parallel. Important constraint: only document and fix issues that can be resolved entirely inside Huz-Backend. If an issue requires edits in any other repository, consumer application, or downstream client, do not implement that part. Document it clearly as out-of-scope and skip code changes. Keep all changes scoped to Huz-Backend, verify each batch, and finish with a final summary of issues found, fixes implemented, skipped out-of-scope items, and verification results.\n\nYou are the Project Manager in coordinated team \"Huz Backend Strict Backend Audit and Fix\".\nAssigned lane: Backlog triage and batching\nPrimary objective: Turn audit findings into lane-specific implementation batches with clear ownership and priorities.\nExecution phase: planning\nMode: plan-batch\nScope level: panel-be\nScope: /Users/macbook/Desktop/Huz/Huz-Backend\nScope targets: [Not specified]\n\nTeam coordination contract:\n- Work only inside your assigned lane.\n- Ownership boundaries: coordination:plan\n- This is a report-only run. Do not modify product code; workspace docs and reports are allowed.\n- Read atlas docs, QA reports, and BUG_BACKLOG before making major decisions.\n- If you discover issues outside your lane, document them clearly in RUN_SUMMARY or BUG_BACKLOG instead of implementing them here.\n- Upstream dependencies that should already be complete: QA Audit, Security Audit\n\nPlanning contract:\n- Read all upstream reports first.\n- Convert the findings into implementation batches grouped by lane.\n- Make ownership explicit so downstream implementers do not overlap.\n\nOriginal operator request:\nAudit the entire Huz-Backend repository deeply. Act as a project manager, Django architect, Python performance specialist, security reviewer, QA engineer, and implementation engineer. First perform a full backend audit for performance bottlenecks, optimization issues, N+1 queries, ORM misuse, inefficient loops, unnecessary database or network work, cache gaps, slow request paths, dead code, risky patterns, security flaws, and anything clearly wrong. Then create a prioritized remediation plan and implement the safe backend fixes in parallel. Important constraint: only document and fix issues that can be resolved entirely inside Huz-Backend. If an issue requires edits in any other repository, consumer application, or downstream client, do not implement that part. Document it clearly as out-of-scope and skip code changes. Keep all changes scoped to Huz-Backend, verify each batch, and finish with a final summary of issues found, fixes implemented, skipped out-of-scope items, and verification results.\n\nGlobal Instructions (always apply):\nAlways maintain full-system project memory in docs for the selected scope level.\nExclude non-dev and non-required files from deep mapping and auditing.\nWhen code changes touch modules/routes/APIs/contracts/schema/security/state, refresh relevant atlas docs in the same run.\nKeep audit findings traceable with status updates (open, fixed, verified) when remediation occurs.\nFor full-system or multi-panel fullstack scope, ensure frontend panels and backend structure/contracts are mapped together.",
+  "projectSurfaces": [
+    {
+      "id": "huz-backend",
+      "label": "Huz-Backend",
+      "path": "/Users/macbook/Desktop/Huz/Huz-Backend",
+      "kind": "panel-be"
+    }
+  ],
+  "devIgnorePatterns": [
+    "node_modules/**",
+    "dist/**",
+    "build/**",
+    "coverage/**",
+    ".git/**",
+    "*.log"
+  ],
+  "fullSystemRequiredDocs": false,
+  "requiredAtlasDocs": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/PROJECT_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/MODULE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/ROUTES_AND_ENTRYPOINTS.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/API_SURFACE.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/CHANGE_MAP.md"
+  ],
+  "designGuides": [
+    "/Users/macbook/Desktop/Huz/UI_DESIGN_SYSTEM_GUIDE.md",
+    "/Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md"
+  ],
+  "referenceDocs": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/SYSTEM_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/FILE_MAP_DEV_ONLY.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/PANEL_MODULE_INDEX.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/FRONTEND_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/BACKEND_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/PROJECT_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/MODULE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/ROUTES_AND_ENTRYPOINTS.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/API_SURFACE.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/CHANGE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/ROUTE_MATRIX.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/STATE_MANAGEMENT_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/API_CONTRACT_REGISTRY.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/BACKEND_SCHEMA_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/DEPENDENCY_GRAPH.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/SECURITY_THREAT_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/TRACEABILITY_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/FULL_AUDIT_REPORT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md"
+  ],
+  "forceExternalDocs": true,
+  "reportFiles": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md"
+  ],
+  "createdAt": "2026-03-12T12:45:49.440Z",
+  "updatedAt": "2026-03-12T12:45:49.440Z",
+  "phaseCursor": 0,
+  "phases": [
+    {
+      "id": 0,
+      "title": "Read Context and Backlog",
+      "status": "pending",
+      "completedAt": null,
+      "note": "",
+      "goal": "Load the atlas docs and backlog so the next batch is grounded in current project reality.",
+      "required": [
+        "Read the atlas docs, current reports, and backlog before planning.",
+        "Confirm the target module, requested scope, and current priority landscape.",
+        "Identify blockers or stale docs that must be refreshed before planning."
+      ]
+    },
+    {
+      "id": 1,
+      "title": "Prioritize the Next Batch",
+      "status": "pending",
+      "completedAt": null,
+      "note": "",
+      "goal": "Select the highest-value, safest next batch of work.",
+      "required": [
+        "Choose backlog items or improvements that fit in one bounded run.",
+        "Group related work by module, dependency chain, or validation path.",
+        "Avoid mixing unrelated tasks that would create noisy diffs or weak verification."
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Write the Execution Plan",
+      "status": "pending",
+      "completedAt": null,
+      "note": "",
+      "goal": "Produce a durable plan the next implementation run can follow directly.",
+      "required": [
+        "Update the backlog with a proposed batch boundary and priority notes.",
+        "Append a clear plan in the run summary describing the selected batch, affected modules, and expected verification commands.",
+        "Record what is intentionally deferred for later."
+      ]
+    }
+  ]
+}

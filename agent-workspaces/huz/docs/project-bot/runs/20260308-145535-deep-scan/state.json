@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "workspaceRoot": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz",
+  "projectPath": "/Users/macbook/Desktop/Huz",
+  "mode": "deep-scan",
+  "modeTitle": "Deep Scan",
+  "description": "Perform a code-level analysis of the requested scope, document logic, routes, contracts, structures, and risks, and produce a report plus backlog.",
+  "scopeLevel": "panel-fe",
+  "scope": "Huz-Web-Frontend remaining unrevamped routes, remaining site pages, and safe cleanup",
+  "scopeTargets": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/Huz-Web-Frontend remaining unrevamped routes",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/remaining site pages",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/and safe cleanup"
+  ],
+  "request": "Perform a deep scan of the requested scope, write findings, and update the backlog. Report only first.\n\nCompiled automation contract:\n- Scope level: panel-fe\n- Scope: Huz-Web-Frontend remaining unrevamped routes, remaining site pages, and safe cleanup\n- Scope targets: Huz-Web-Frontend remaining unrevamped routes, remaining site pages, and safe cleanup\n- Keep atlas, maps, and audit files synchronized with any implementation changes.\n\nLarge-task campaign contract (mandatory):\n- Treat this as a multi-run execution campaign, not a one-shot rewrite.\n- This run must complete one bounded implementation batch (target <= 8 pages or one backend domain).\n- Keep frontend and backend contracts synchronized for touched flows.\n- Update BUG_BACKLOG with completed items, deferred items, and the exact next batch recommendation.\n- Include concrete verification commands and outcomes in RUN_SUMMARY for every batch.\n- Do not claim full completion unless the backlog for this scope is explicitly clear.\n\nOriginal user request: Start a full enhance campaign for the remaining unrevamped pages in Huz-Web-Frontend.\n\nWorkspace: /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz\nProject: /Users/macbook/Desktop/Huz\nProfile: HUZ\nScope: Huz-Web-Frontend remaining unrevamped routes, remaining site pages, and safe cleanup\n\nMandatory operating contract:\n- Read /Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md first. It is reference-only, but it is the source of truth for the shared Huz shell, theme, layout, and responsive page system.\n- Also inspect the already revamped reference implementations named in that guide. Treat them as completed reference pages, not pages to redesign again, unless a tiny shared-component alignment fix is strictly required.\n- Read the existing workspace atlas, backlog, deep scan report, and previous completed run summary first, especially /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-062131-full-enhance/RUN_SUMMARY.md. Continue from the remaining batches instead of rescanning or redoing verified work.\n- The previous bot missed site pages. This campaign must cover the remaining guide/holy-site pages and all other remaining unrevamped routes, including static site pages.\n\nPrimary goal:\n- Revamp every remaining non-aligned page in Huz-Web-Frontend so it follows one consistent Huz theme across desktop and mobile using one responsive design system.\n- Use reusable, modular, data-driven shared sections and templates instead of repeated page-specific JSX.\n- Delete old, unused, dead, compatibility-only, or duplicate files only when route/import tracing proves they are safe to remove.\n- Keep code aligned, sorted, efficient, modern React + JavaScript, and consistent with the already revamped pages.\n- Improve performance where possible by consolidating repeated static/page families into shared abstractions, removing duplicate mobile/desktop trees where safe, and avoiding unnecessary component duplication.\n\nDo not do these things:\n- Do not run build.\n- Do not run npm install.\n- Do not modify lockfiles.\n- Do not redesign the already aligned reference pages just for cosmetic experimentation.\n- Do not keep obsolete wrappers after the canonical responsive route owner exists.\n\nAlready revamped references to follow and not rework unless required for a shared-system fix:\n- Homepage\n- ListingPage\n- PackageDetailPage\n- booking.jsx\n- paymentMethods.jsx\n- auth layout routes\n- PersonalDetailsPage\n- the already verified public/static pages from the previous run\n\nMandatory execution order:\n1. FE-REV-003 guide and holy-site content family:\n   - PreparationTips\n   - TravelEssentials\n   - UmrahGuide\n   - MakkahHolySites\n   - MadinahHolySites\n   - JeddahHolySites\n   - TaifHolySites\n2. FE-REV-005 lead-gen and partner pages:\n   - VisaServices\n   - ContactUs\n   - HajjUmrahBusiness\n   - ListPackagePage\n3. FE-REV-004 protected account shell convergence for the remaining non-aligned routes:\n   - bookingstatus.jsx\n   - datatable.jsx\n   - remainingPayment.jsx\n   - operatorresponse.jsx\n   - payment&wallet.jsx\n   - messagePage.jsx\n   - wishlist.jsx\n4. FE-REV-006 compatibility cleanup and dead file removal after the canonical owners are stable.\n\nImplementation rules:\n- Reuse BrandPageShell, homepage layout tokens, global surface classes, shared promo sections, and shared content abstractions.\n- For guide/static/site-page families, consolidate repeated hero, article, related-card, city-guide, slider, CTA, and promo patterns into reusable modules.\n- Preserve existing route paths, data flows, navigation behavior, and feature hooks unless a safer shared abstraction is required.\n- One route, one responsive design. No separate mobile-vs-desktop page redesigns.\n- Remove placeholder, dead, duplicate, or compatibility-only structures after migration.\n- Keep workspace atlas docs, backlog, deep scan report, and run summary updated after each implementation batch.\n- If a file is deleted, document exactly why it was safe.\n\nVerification rules:\n- No build.\n- No install.\n- No lockfile changes.\n- Use route tracing, import tracing, parser validation, targeted lint/static checks, and explicit dead-file proof.\n- Record concrete verification commands and outcomes in RUN_SUMMARY.\n\nDefinition of done:\n- All remaining unrevamped Huz-Web-Frontend pages, including site/static pages, have been migrated onto the shared branded system or an equivalent reusable responsive abstraction.\n- Unwanted and unused files that are proven dead are removed.\n- The next prompt should only exist if there is truly remaining scoped work.\n\nGlobal Instructions (always apply):\nAlways maintain full-system project memory in docs for the selected scope level.\nExclude non-dev and non-required files from deep mapping and auditing.\nWhen code changes touch modules/routes/APIs/contracts/schema/security/state, refresh relevant atlas docs in the same run.\nKeep audit findings traceable with status updates (open, fixed, verified) when remediation occurs.\nFor full-system or multi-panel fullstack scope, ensure frontend panels and backend structure/contracts are mapped together.",
+  "projectSurfaces": [
+    {
+      "id": "primary-project",
+      "label": "Huz-Web-Frontend",
+      "path": "/Users/macbook/Desktop/Huz/Huz-Web-Frontend",
+      "kind": "panel-fe"
+    }
+  ],
+  "devIgnorePatterns": [
+    "node_modules/**",
+    "dist/**",
+    "build/**",
+    "coverage/**",
+    ".git/**",
+    ".cache/**",
+    ".next/**",
+    ".turbo/**",
+    ".idea/**",
+    ".vscode/**",
+    "logs/**",
+    "tmp/**",
+    "temp/**",
+    "*.min.js",
+    "*.map",
+    "*.log",
+    "*.lock"
+  ],
+  "fullSystemRequiredDocs": true,
+  "requiredAtlasDocs": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/PROJECT_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/MODULE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/ROUTES_AND_ENTRYPOINTS.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/API_SURFACE.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/CHANGE_MAP.md"
+  ],
+  "designGuides": [
+    "/Users/macbook/Desktop/Huz/UI_DESIGN_SYSTEM_GUIDE.md",
+    "/Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md"
+  ],
+  "referenceDocs": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/PROJECT_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/MODULE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/ROUTES_AND_ENTRYPOINTS.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/API_SURFACE.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md"
+  ],
+  "forceExternalDocs": true,
+  "reportFiles": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md"
+  ],
+  "createdAt": "2026-03-08T09:55:35.701Z",
+  "updatedAt": "2026-03-08T10:09:16.404Z",
+  "phaseCursor": 1,
+  "phases": [
+    {
+      "id": 0,
+      "title": "Refresh Atlas Context",
+      "status": "completed",
+      "completedAt": "2026-03-08T10:09:16.402Z",
+      "note": "",
+      "goal": "Load the existing atlas docs, validate the scoped modules, and refresh stale context needed for a reliable scan.",
+      "required": [
+        "Read the current atlas docs before diving into code.",
+        "Confirm the exact directories, routes, APIs, or modules covered by the request.",
+        "Refresh atlas docs when stale context blocks an accurate scan."
+      ]
+    },
+    {
+      "id": 1,
+      "title": "Analyze Code Paths",
+      "status": "pending",
+      "completedAt": null,
+      "note": "",
+      "goal": "Inspect the requested scope deeply and capture logic flows, route structures, contracts, state handling, and mismatch risks.",
+      "required": [
+        "Trace important execution paths, data transformations, route definitions, and module boundaries in the scoped area.",
+        "Identify mismatches, bug risks, dead paths, duplicated logic, or weak assumptions.",
+        "Keep findings evidence-based with exact files and commands used to verify them."
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Write Findings and Backlog",
+      "status": "pending",
+      "completedAt": null,
+      "note": "",
+      "goal": "Produce durable reports and backlog entries so future work can execute without rescanning the full codebase.",
+      "required": [
+        "Update the deep scan report with findings grouped by module or concern.",
+        "Update the bug backlog with prioritized, actionable items and verification steps.",
+        "Capture the scope scanned, files examined, and remaining blind spots."
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Verify and Summarize",
+      "status": "pending",
+      "completedAt": null,
+      "note": "",
+      "goal": "Check the scan quality and ensure the atlas reflects newly clarified relationships.",
+      "required": [
+        "Sanity-check the report and backlog against the code reviewed.",
+        "Update atlas docs for any clarified structure or contract information.",
+        "Append a concise final summary of the scan and its evidence."
+      ]
+    }
+  ]
+}

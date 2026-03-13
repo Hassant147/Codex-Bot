@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "workspaceRoot": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend",
+  "projectPath": "/Users/macbook/Desktop/Huz/Huz-Backend",
+  "designGuides": [
+    "/Users/macbook/Desktop/Huz/UI_DESIGN_SYSTEM_GUIDE.md",
+    "/Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md"
+  ],
+  "blueprintSources": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/SYSTEM_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/FILE_MAP_DEV_ONLY.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/PANEL_MODULE_INDEX.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/FRONTEND_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/BACKEND_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/PROJECT_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/MODULE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/ROUTES_AND_ENTRYPOINTS.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/API_SURFACE.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/CHANGE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/ROUTE_MATRIX.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/STATE_MANAGEMENT_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/API_CONTRACT_REGISTRY.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/BACKEND_SCHEMA_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/DEPENDENCY_GRAPH.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/SECURITY_THREAT_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/TRACEABILITY_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/FULL_AUDIT_REPORT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md"
+  ],
+  "projectSurfaces": [
+    {
+      "id": "huz-backend",
+      "label": "Huz-Backend",
+      "path": "/Users/macbook/Desktop/Huz/Huz-Backend",
+      "kind": "panel-be"
+    }
+  ],
+  "devIgnorePatterns": [
+    "node_modules/**",
+    "dist/**",
+    "build/**",
+    "coverage/**",
+    ".git/**",
+    "*.log"
+  ],
+  "scopeLevelDefault": "panel-be",
+  "fullSystemRequiredDocs": false,
+  "requiredAtlasDocs": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/PROJECT_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/MODULE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/ROUTES_AND_ENTRYPOINTS.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/API_SURFACE.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/CHANGE_MAP.md"
+  ],
+  "forceExternalDocs": true,
+  "updatedAt": "2026-03-12T12:45:39.672Z",
+  "codexProfile": "",
+  "codexSearchEnabled": false,
+  "codexExtraAddDirs": [],
+  "codexConfigOverrides": [],
+  "codexAutoAddRelatedRepos": false,
+  "codexUseExperimentalMultiAgent": false,
+  "globalRules": "Always maintain full-system project memory in docs for the selected scope level.\nExclude non-dev and non-required files from deep mapping and auditing.\nWhen code changes touch modules/routes/APIs/contracts/schema/security/state, refresh relevant atlas docs in the same run.\nKeep audit findings traceable with status updates (open, fixed, verified) when remediation occurs.\nFor full-system or multi-panel fullstack scope, ensure frontend panels and backend structure/contracts are mapped together."
+}

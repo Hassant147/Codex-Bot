@@ -1,0 +1,18 @@
+Implemented Phase 1 against the backend target. The main code changes are in [booking/services.py](/Users/macbook/Desktop/Huz/Huz-Backend/booking/services.py#L534), [booking/views/bookings.py](/Users/macbook/Desktop/Huz/Huz-Backend/booking/views/bookings.py#L117), [booking/manage_partner_booking.py](/Users/macbook/Desktop/Huz/Huz-Backend/booking/manage_partner_booking.py#L233), [management/approval_task.py](/Users/macbook/Desktop/Huz/Huz-Backend/management/approval_task.py#L216), and the focused regressions in [booking/tests.py](/Users/macbook/Desktop/Huz/Huz-Backend/booking/tests.py#L1866). I also refreshed the durable docs in [BUG_BACKLOG.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md#L13), [DEEP_SCAN_REPORT.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md#L267), [CHANGE_MAP.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/CHANGE_MAP.md#L112), and [RUN_SUMMARY.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-backend-optimize/RUN_SUMMARY.md#L40).
+
+Verification passed with:
+`/Users/macbook/Desktop/Huz/Huz-Backend/.venv/bin/python manage.py test booking.tests.BookingWorkflowServiceValidationTests booking.tests.ManagePartnerBookingViewsTests booking.tests.BookingSerializerQueryTests --settings=huz.settings_test`
+and
+`python3 -m compileall /Users/macbook/Desktop/Huz/Huz-Backend/booking /Users/macbook/Desktop/Huz/Huz-Backend/management`
+
+The run is now advanced to Phase 2. `NEXT_PROMPT.md`:
+
+```text
+Use $project-autopilot-manager in `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend`.
+Read `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-backend-optimize/state.json` and `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-backend-optimize/prompts/phase-02.md`.
+Execute only Phase 2 (Verify and Document Improvements) against target project `/Users/macbook/Desktop/Huz/Huz-Backend`.
+At the end, run:
+1. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-backend-optimize --phase 2`
+2. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-backend-optimize`
+Then print `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-backend-optimize/NEXT_PROMPT.md`.
+```

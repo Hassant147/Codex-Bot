@@ -1,0 +1,13 @@
+Phase 3 was executed against `/Users/macbook/Desktop/Huz`. The remaining real gaps in the batch were finished in [TermsServices.jsx](/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/TermsServices/TermsServices.jsx), [PolicyPages.jsx](/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/PolicyPages/PolicyPages.jsx), [GenericPages.jsx](/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/GenericPages/GenericPages.jsx), and the two static content modules, then the atlas/backlog/run docs were refreshed in the workspace. Verification was static-only: route tracing, import tracing, `@babel/parser` JSX checks, and scoped `eslint`; no build or `npm install` was run.
+
+I also reran `next` in the correct order after `complete`, so `NEXT_PROMPT.md` now matches Phase 4. Its current contents are:
+
+```text
+Use $project-autopilot-manager in `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz`.
+Read `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-062131-full-enhance/state.json` and `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-062131-full-enhance/prompts/phase-04.md`.
+Execute only Phase 4 (Verify and Reprioritize) against target project `/Users/macbook/Desktop/Huz`.
+At the end, run:
+1. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-062131-full-enhance --phase 4`
+2. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-062131-full-enhance`
+Then print `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-062131-full-enhance/NEXT_PROMPT.md`.
+```

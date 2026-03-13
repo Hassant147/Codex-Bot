@@ -1,0 +1,10 @@
+Autopilot start
+Root: /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz
+Logs: /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-205940-full-enhance/logs/20260309-205958
+Mode: full-auto
+Codex: /Users/macbook/.vscode/extensions/openai.chatgpt-26.304.20706-darwin-arm64/bin/macos-aarch64/codex
+Model: <config-default>
+Effort: <config-default>
+Quiet agent output: 1
+Max cycles: 20
+Run summary: /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-205940-full-enhance/RUN_SUMMARY.md

@@ -1,0 +1,13 @@
+Phase 0 is complete. I refreshed the atlas context in [PROJECT_BLUEPRINT.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/PROJECT_BLUEPRINT.md), [MODULE_MAP.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/MODULE_MAP.md), and [ROUTES_AND_ENTRYPOINTS.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/ROUTES_AND_ENTRYPOINTS.md), then appended the Phase 0 notes to [DEEP_SCAN_REPORT.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md) and [RUN_SUMMARY.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-deep-scan/RUN_SUMMARY.md). The refresh captured two previously undocumented live backend surfaces: `partners/management/commands/seed_huz_packages.py` and `booking/flow_utils.py`. No product code was modified.
+
+I then ran the requested `complete` and `next` orchestration commands. Contents of [NEXT_PROMPT.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-deep-scan/NEXT_PROMPT.md):
+
+```md
+Use $project-autopilot-manager in `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend`.
+Read `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-deep-scan/state.json` and `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-deep-scan/prompts/phase-01.md`.
+Execute only Phase 1 (Analyze Code Paths) against target project `/Users/macbook/Desktop/Huz/Huz-Backend`.
+At the end, run:
+1. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-deep-scan --phase 1`
+2. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-deep-scan`
+Then print `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-deep-scan/NEXT_PROMPT.md`.
+```

@@ -1,0 +1,15 @@
+Phase 1 is complete. I updated [DEEP_SCAN_REPORT.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md), [BUG_BACKLOG.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md), and [RUN_SUMMARY.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-205940-full-enhance/RUN_SUMMARY.md), then ran the required `complete` and `next` orchestration commands.
+
+The main new Phase 1 finding is that the focused backend test command does not currently reach the suspected index issue in this environment. It fails earlier during test DB creation with `django.db.utils.OperationalError (2005)` because `Huz-Backend/.env` still points Django at the remote MySQL host `db-huz-chat-do-user-17155642-0.i.db.ondigitalocean.com`. I added `BE-ENV-001` for that and narrowed `BE-TEST-001` to the post-isolation index hardening work.
+
+`NEXT_PROMPT.md`:
+
+```md
+Use $project-autopilot-manager in `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz`.
+Read `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-205940-full-enhance/state.json` and `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-205940-full-enhance/prompts/phase-02.md`.
+Execute only Phase 2 (Plan Execution Batches) against target project `/Users/macbook/Desktop/Huz`.
+At the end, run:
+1. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-205940-full-enhance --phase 2`
+2. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-205940-full-enhance`
+Then print `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-205940-full-enhance/NEXT_PROMPT.md`.
+```

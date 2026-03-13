@@ -1,0 +1,627 @@
+# Change Map
+
+Every code-changing run should append what changed and which atlas docs were refreshed.
+
+## Entries
+- Date:
+- Scope:
+- Files changed:
+- Atlas docs refreshed:
+- Notes:
+
+- Date: 2026-03-11
+- Scope: Release Gate Phase 2 March 11 booking-contract verdict sync (workspace docs, repo-local booking docs)
+- Files changed:
+  - `docs/project-bot/runs/20260311-195057-release-gate/RELEASE_VERDICT.md`
+  - `docs/project-bot/runs/20260311-195057-release-gate/RUN_SUMMARY.md`
+  - `docs/atlas/CHANGE_MAP.md`
+  - `docs/qa/BUG_BACKLOG.md`
+  - `docs/qa/DEEP_SCAN_REPORT.md`
+  - `Huz/docs/qa/BUG_BACKLOG.md`
+  - `Huz/docs/qa/DEEP_SCAN_REPORT.md`
+  - `Huz/docs/codex_reports/BOOKING_FRONTEND_BACKEND_AUDIT_2026-03-11.md`
+  - `Huz/docs/codex_reports/BOOKING_CONTRACT_AUDIT_2026-03-11.md`
+- Atlas docs refreshed:
+  - `docs/atlas/CHANGE_MAP.md`
+- Notes:
+  - Wrote the final `GO` verdict for the scoped March 11 booking-contract remediation campaign after the Phase 1 cross-surface gate passed and no `BOOKING-001` through `BOOKING-011` blocker remained open.
+  - Synced the workspace backlog/deep-scan memory and the project-local March 11 booking docs so they all record the same release-state outcome and non-blocking watch items.
+  - No target-project source files changed in this phase; the only remaining watch items are the stale repo-local `scripts/release-gate.sh` automation plus `WEB-001` and `WEB-002`.
+
+- Date: 2026-03-11
+- Scope: Release Gate Phase 1 March 11 booking-contract closeout (`Huz-Backend`, workspace docs)
+- Files changed:
+  - `Huz-Backend/booking/serializers.py`
+  - `Huz-Backend/booking/manage_partner_booking.py`
+  - `Huz-Backend/booking/tests.py`
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+  - `docs/atlas/MODULE_MAP.md`
+  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
+  - `docs/atlas/API_SURFACE.md`
+  - `docs/atlas/API_CONTRACT_REGISTRY.md`
+  - `docs/atlas/STATE_MANAGEMENT_MAP.md`
+  - `docs/atlas/CHANGE_MAP.md`
+  - `docs/qa/BUG_BACKLOG.md`
+  - `docs/qa/DEEP_SCAN_REPORT.md`
+  - `docs/project-bot/runs/20260311-195057-release-gate/RUN_SUMMARY.md`
+- Atlas docs refreshed:
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+  - `docs/atlas/MODULE_MAP.md`
+  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
+  - `docs/atlas/API_SURFACE.md`
+  - `docs/atlas/API_CONTRACT_REGISTRY.md`
+  - `docs/atlas/STATE_MANAGEMENT_MAP.md`
+  - `docs/atlas/CHANGE_MAP.md`
+- Notes:
+  - Closed `BOOKING-009` by making the legacy partner booking detail/report payload expose additive `traveller_detail` compatibility and by reloading the booking before `update_booking_status_into_report_rabbit/` serializes the updated traveler list.
+  - Restored the targeted release-gate full-payment approval coverage by adding the missing helper fixture setup in `ApproveBookingPaymentViewTests`, then reran the full scoped backend gate successfully.
+  - Verified the full release checklist directly from the current repo scripts: admin build, operator lint/checks/build/e2e, web build, backend `manage.py check`, and the targeted 13-test booking gate all passed; only the known non-booking `WEB-001`/`WEB-002` warnings and the stale repo-local `scripts/release-gate.sh` automation remain for Phase 2 to document.
+
+- Date: 2026-03-11
+- Scope: Fix-backlog Phase 2 verification for Booking Contract Batch 04 (`Huz-Operator-Frontend`, `Huz-Web-Frontend`, workspace docs)
+- Files changed:
+  - `docs/qa/BUG_BACKLOG.md`
+  - `docs/qa/DEEP_SCAN_REPORT.md`
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+  - `docs/atlas/MODULE_MAP.md`
+  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
+  - `docs/atlas/API_SURFACE.md`
+  - `docs/atlas/CHANGE_MAP.md`
+  - `docs/project-bot/runs/20260311-192319-fix-backlog/RUN_SUMMARY.md`
+- Atlas docs refreshed:
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+  - `docs/atlas/MODULE_MAP.md`
+  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
+  - `docs/atlas/API_SURFACE.md`
+  - `docs/atlas/CHANGE_MAP.md`
+- Notes:
+  - Phase 2 verification closed `BOOKING-003`, `BOOKING-010`, and `BOOKING-011` after passing operator/web builds plus source smoke on the ready-queue labeling, booking-number-only operator search, and API-origin support media link resolution.
+  - No backend verification was required because Batch 04 stayed frontend-only and did not change the operator search backend contract or support-media serialization.
+  - Web build warnings remained limited to the pre-existing `WEB-001` unused imports and the existing bundle-size advisory.
+
+- Date: 2026-03-11
+- Scope: Dead-code prune across active workspaces (`Huz-Web-Frontend`, `Huz-Admin-Frontend`, `Huz-Operator-Frontend`, `Huz-Backend`)
+- Files changed:
+  - `Huz-Web-Frontend/src/api/apiService.js` (deleted)
+  - `Huz-Web-Frontend/src/pages/UserSetting/sidebar.jsx` (deleted)
+  - `Huz-Admin-Frontend/src/pages/AccountSetup/*` (deleted)
+  - `Huz-Admin-Frontend/src/pages/Signup/*` (deleted)
+  - `Huz-Admin-Frontend/src/pages/OTP/otpverification.js` (deleted)
+  - `Huz-Admin-Frontend/src/pages/PasswordSignupPage/PasswordSignupPage.js` (deleted)
+  - `Huz-Admin-Frontend/src/components/ErrorMessage.js` (deleted)
+  - `Huz-Admin-Frontend/src/components/FormInput.js` (deleted)
+  - `Huz-Admin-Frontend/src/components/Headers/HeaderForLoggedIn.js` (deleted)
+  - `Huz-Admin-Frontend/src/components/Headers/HeaderForLogin.js` (deleted)
+  - `Huz-Admin-Frontend/src/components/Headers/HeaderforSingup.js` (deleted)
+  - `Huz-Admin-Frontend/src/components/ImageInputComponent.js` (deleted)
+  - `Huz-Admin-Frontend/src/components/ProfileUpdateComponent/ProfileUpdateComponent.js` (deleted)
+  - `Huz-Admin-Frontend/src/pages/AccountReview/AccountReview.js` (deleted)
+  - `Huz-Admin-Frontend/src/pages/Admin-Panel/Bookings/Booking.css` (deleted)
+  - `Huz-Admin-Frontend/src/pages/Admin-Panel/Bookings/BookingDetailsPage/Close.js` (deleted)
+  - `Huz-Admin-Frontend/src/pages/Admin-Panel/Bookings/components/Banner.jsx` (deleted)
+  - `Huz-Admin-Frontend/src/pages/Admin-Panel/Complaints/complaints.css` (deleted)
+  - `Huz-Admin-Frontend/src/pages/Admin-Panel/ExtraPages/FrequentlyAskedQuestions/data.js` (deleted)
+  - `Huz-Admin-Frontend/src/pages/Admin-Panel/ProfilePage/PhoneInput.css` (deleted)
+  - `Huz-Admin-Frontend/src/pages/Admin-Panel/Wallet/Wallet.css` (deleted)
+  - `Huz-Admin-Frontend/src/firebaseConfig.js` (deleted)
+  - `Huz-Admin-Frontend/src/utility/useUserLocation.js` (deleted)
+  - `Huz-Admin-Frontend/src/utility/useUserValidation.js` (deleted)
+  - `Huz-Operator-Frontend/src/pages/Dashboard/BookingsModule/BookingDetailsPage/Close.jsx` (deleted)
+  - `Huz-Operator-Frontend/src/utils/createHuzBasicDetailUtil.js` (deleted)
+  - generated output/cache directories under `Huz-Web-Frontend/build`, `Huz-Admin-Frontend/build`, `Huz-Operator-Frontend/dist`, and backend `__pycache__` folders (deleted)
+- Atlas docs refreshed:
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+  - `docs/atlas/MODULE_MAP.md`
+  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
+  - `docs/atlas/CHANGE_MAP.md`
+- Notes:
+  - Static import-graph verification from the three active frontend entrypoints was used as the deletion gate.
+  - After the prune, no unreachable source files remain under the three frontend `src` trees and no empty source folders remain outside ignored dependency/tooling directories.
+  - The web account sidebar now exists only as `accountModule` shell/menu ownership, and the old catch-all web `apiService.js` wrapper retirement is complete.
+
+- Date: 2026-03-11
+- Scope: Deep-scan Phase 0 atlas context refresh for booking contract audit perimeter (`Huz-Web-Frontend`, `Huz-Admin-Frontend`, `Huz-Operator-Frontend`, `Huz-Backend`)
+- Files changed:
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+  - `docs/atlas/MODULE_MAP.md`
+  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
+  - `docs/atlas/API_SURFACE.md`
+  - `docs/atlas/SYSTEM_BLUEPRINT.md`
+  - `docs/atlas/PANEL_MODULE_INDEX.md`
+  - `docs/atlas/ROUTE_MATRIX.md`
+  - `docs/atlas/API_CONTRACT_REGISTRY.md`
+  - `docs/atlas/CHANGE_MAP.md`
+  - `docs/qa/DEEP_SCAN_REPORT.md`
+  - `docs/project-bot/runs/20260311-144436-deep-scan/RUN_SUMMARY.md`
+- Atlas docs refreshed:
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+  - `docs/atlas/MODULE_MAP.md`
+  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
+  - `docs/atlas/API_SURFACE.md`
+  - `docs/atlas/SYSTEM_BLUEPRINT.md`
+  - `docs/atlas/PANEL_MODULE_INDEX.md`
+  - `docs/atlas/ROUTE_MATRIX.md`
+  - `docs/atlas/API_CONTRACT_REGISTRY.md`
+  - `docs/atlas/CHANGE_MAP.md`
+- Notes:
+  - Confirmed the run scope spans all four surfaces in the workspace, not only the web panel configured in the older workspace metadata.
+  - Captured the exact booking-dependent route groups, API modules, and backend URL namespaces needed for the audit before Phase 1 code-path analysis.
+  - Corrected stale atlas claims about support-module usage: the live web `/help` and `/operator-response` routes currently import `src/api/supportApi.js`.
+  - Added durable perimeter docs for system surface mapping, route ownership, and contract registry so the next phase can analyze mismatches without rebuilding the scan boundary from scratch.
+
+- Date: 2026-03-11
+- Scope: Frontend/backend booking contract audit expansion across web, operator, and admin panels
+- Files changed:
+  - `docs/codex_reports/BOOKING_FRONTEND_BACKEND_AUDIT_2026-03-11.md`
+  - `docs/qa/DEEP_SCAN_REPORT.md`
+  - `docs/qa/BUG_BACKLOG.md`
+  - `docs/atlas/API_SURFACE.md`
+  - `docs/atlas/MODULE_MAP.md`
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
+  - `docs/atlas/CHANGE_MAP.md`
+  - `docs/project-bot/runs/20260311-155746-deep-scan/RUN_SUMMARY.md`
+- Atlas docs refreshed:
+  - `docs/atlas/API_SURFACE.md`
+  - `docs/atlas/MODULE_MAP.md`
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
+  - `docs/atlas/CHANGE_MAP.md`
+- Notes:
+  - Recorded the expanded contract audit covering admin pagination drift, admin state-ownership drift, operator dashboard/search honesty, completed-state edit affordances, and the residual web support-media URL assumption.
+  - Kept the admin access-operator-profile module out of scope as requested.
+  - Stored the full report in `docs/codex_reports/BOOKING_FRONTEND_BACKEND_AUDIT_2026-03-11.md` and synced the backlog so follow-up implementation work can proceed without rescanning the repo.
+
+- Date: 2026-03-09
+- Scope: User-setting account module consolidation (`Huz-Web-Frontend`)
+- Files changed:
+  - `Huz-Web-Frontend/src/features/accountModule/accountNavigation.js`
+  - `Huz-Web-Frontend/src/features/accountModule/components/AccountSidebarMenu.jsx`
+  - `Huz-Web-Frontend/src/features/accountModule/components/AccountMetricCard.jsx`
+  - `Huz-Web-Frontend/src/features/accountModule/components/AccountPageHero.jsx`
+  - `Huz-Web-Frontend/src/features/accountModule/components/AccountSectionCard.jsx`
+  - `Huz-Web-Frontend/src/features/accountModule/components/AccountPageShell.jsx`
+  - `Huz-Web-Frontend/src/features/accountModule/components/index.js`
+  - `Huz-Web-Frontend/src/pages/UserSetting/PersonalDetailsPage.js`
+  - `Huz-Web-Frontend/src/pages/UserSetting/MyApplication/Booking/bookingstatus.jsx`
+  - `Huz-Web-Frontend/src/pages/UserSetting/Wishlist/wishlist.jsx`
+  - `Huz-Web-Frontend/src/pages/UserSetting/Payment&Wallet/payment&wallet.jsx`
+  - `Huz-Web-Frontend/src/pages/UserSetting/Support/help.jsx`
+  - `Huz-Web-Frontend/src/pages/UserSetting/Message/messagePage.jsx`
+  - `Huz-Web-Frontend/src/pages/UserSetting/RemainingPayment/remainingPayment.jsx`
+  - `Huz-Web-Frontend/src/pages/UserSetting/sidebar.jsx`
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+  - `docs/atlas/MODULE_MAP.md`
+  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
+  - `docs/atlas/API_SURFACE.md`
+  - `docs/atlas/CHANGE_MAP.md`
+  - `docs/qa/DEEP_SCAN_REPORT.md`
+  - `docs/qa/BUG_BACKLOG.md`
+  - `docs/project-bot/runs/20260309-230923-migration-batch/RUN_SUMMARY.md`
+- Atlas docs refreshed:
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+  - `docs/atlas/MODULE_MAP.md`
+  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
+  - `docs/atlas/API_SURFACE.md`
+  - `docs/atlas/CHANGE_MAP.md`
+- Notes:
+  - Extracted a dedicated `accountModule` feature so sidebar-backed user-setting routes no longer own their own shell/banner/panel grammar independently.
+  - Migrated the live sidebar-backed routes onto the shared account shell and shared hero/section primitives without changing route paths or API contracts.
+  - Centralized account navigation state and active-path logic into one module-level navigation file.
+  - Verified the migration with a successful frontend production build; remaining warnings stayed limited to the unrelated package-detail import issue and the existing bundle-size advisory.
+
+- Date: 2026-03-09
+- Scope: Active account-route design-system alignment and dead page cleanup (`Huz-Web-Frontend`)
+- Files changed:
+  - `Huz-Web-Frontend/src/pages/UserSetting/sidebar.jsx`
+  - `Huz-Web-Frontend/src/pages/UserSetting/stepper.jsx`
+  - `Huz-Web-Frontend/src/pages/UserSetting/mobilestepper.jsx`
+  - `Huz-Web-Frontend/src/pages/UserSetting/MyApplication/Booking/bookingstatus.jsx`
+  - `Huz-Web-Frontend/src/pages/UserSetting/RemainingPayment/remainingPayment.jsx`
+  - `Huz-Web-Frontend/src/pages/UserSetting/Wishlist/wishlist.jsx`
+  - `Huz-Web-Frontend/src/pages/UserSetting/Payment&Wallet/payment&wallet.jsx`
+  - `Huz-Web-Frontend/src/components/MessageDisplay/MessageDisplay.js` (deleted)
+  - `Huz-Web-Frontend/src/pages/UserSetting/Message/message.jsx` (deleted)
+  - `Huz-Web-Frontend/src/pages/UserSetting/Message/messagechat.jsx` (deleted)
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+  - `docs/atlas/MODULE_MAP.md`
+  - `docs/atlas/CHANGE_MAP.md`
+  - `docs/qa/DEEP_SCAN_REPORT.md`
+  - `docs/qa/BUG_BACKLOG.md`
+  - `docs/project-bot/runs/20260309-225209-full-enhance/RUN_SUMMARY.md`
+- Atlas docs refreshed:
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+  - `docs/atlas/MODULE_MAP.md`
+  - `docs/atlas/CHANGE_MAP.md`
+- Notes:
+  - Standardized the active account-route outliers onto `BrandPageShell`, shared homepage spacing tokens, and the common promo/footer structure used by current homepage/auth/profile/listing surfaces.
+  - Removed split desktop/mobile page trees from booking status, remaining payment, wishlist, and payment/wallet in favor of one responsive hierarchy per route.
+  - Refreshed shared account navigation and progress chrome (`sidebar`, `stepper`, `mobilestepper`) so live user-setting flows use the same branded surface language.
+  - Deleted only message wrapper files that were proven unused by reference scan; no route-backed page was removed.
+  - Verified the batch with a successful frontend production build; remaining warnings are outside the touched scope.
+
+- Date: 2026-03-09
+- Scope: Web panel API refactor execution (`Huz-Web-Frontend`, `Huz-Backend`)
+- Files changed:
+  - `Huz-Backend/common/api_v1.py`
+  - `Huz-Backend/common/api_urls.py`
+  - `Huz-Backend/common/serializers.py`
+  - `Huz-Backend/common/tests.py`
+  - `Huz-Backend/huz/urls.py`
+  - `Huz-Backend/booking/api_urls.py`
+  - `Huz-Backend/booking/request_serializers.py`
+  - `Huz-Backend/booking/services.py`
+  - `Huz-Backend/booking/views/api_v1.py`
+  - `Huz-Backend/booking/views/support.py`
+  - `Huz-Backend/booking/tests.py`
+  - `Huz-Web-Frontend/src/api/AuthApi.js`
+  - `Huz-Web-Frontend/src/api/bookingApi.js`
+  - `Huz-Web-Frontend/src/api/profileApi.js`
+  - `Huz-Web-Frontend/src/api/walletApi.js`
+  - `Huz-Web-Frontend/src/api/supportApi.js`
+  - `Huz-Web-Frontend/src/api/publicPackagesApi.js`
+  - `Huz-Web-Frontend/src/api/homepageApi.js`
+  - `Huz-Web-Frontend/src/api/listingApi.js`
+  - `Huz-Web-Frontend/src/api/packageDetailApi.js`
+  - `Huz-Web-Frontend/src/features/booking/hooks/useBookingLogic.js`
+  - `Huz-Web-Frontend/src/features/booking/hooks/useBookingDetail.js`
+  - `Huz-Web-Frontend/src/features/paymentMethods/hooks/usePaymentMethodsLogic.js`
+  - `Huz-Web-Frontend/src/features/remainingPayment/hooks/useRemainingPaymentLogic.js`
+  - `Huz-Web-Frontend/src/features/travelersInfo/hooks/useTravelersInfoLogic.js`
+  - `Huz-Web-Frontend/src/features/bookingStatus/hooks/useBookingStatusData.js`
+  - `Huz-Web-Frontend/src/pages/Otp/Otp.js`
+  - `Huz-Web-Frontend/src/pages/UserSetting/PersonalDetailsPage.js`
+  - `Huz-Web-Frontend/src/pages/UserSetting/Payment&Wallet/payment&wallet.jsx`
+  - `Huz-Web-Frontend/src/pages/UserSetting/Wishlist/wishlist.jsx`
+  - `Huz-Web-Frontend/src/context/AuthContextProvider.js`
+  - `WEB_PANEL_API_REFACTOR_BLUEPRINT.md`
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+  - `docs/atlas/MODULE_MAP.md`
+  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
+  - `docs/atlas/API_SURFACE.md`
+  - `docs/atlas/CHANGE_MAP.md`
+- Atlas docs refreshed:
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+  - `docs/atlas/MODULE_MAP.md`
+  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
+  - `docs/atlas/API_SURFACE.md`
+  - `docs/atlas/CHANGE_MAP.md`
+- Notes:
+  - Added canonical `v1` self-service profile, address, wallet, and booking support endpoints on the backend.
+
+- Date: 2026-03-11
+- Scope: Fix-backlog Phase 1 Booking Contract Batch 01 (`Huz-Admin-Frontend`)
+- Files changed:
+  - `Huz-Admin-Frontend/src/utility/Api.js`
+  - `Huz-Admin-Frontend/src/utility/Super-Admin-Api.js`
+  - `Huz-Admin-Frontend/src/pages/Admin-Panel/Bookings/components/Tabs.jsx`
+  - `Huz-Admin-Frontend/src/pages/Admin-Panel/Complaints/Complaints.js`
+  - `Huz-Admin-Frontend/src/pages/Admin-Panel/Wallet/components/ReceivablePayments/CardList.jsx`
+  - `Huz-Admin-Frontend/src/pages/Admin-Panel/Wallet/components/ReceivablePayments/AllPayments.jsx`
+  - `Huz-Admin-Frontend/src/pages/dashboard/dashboard-pages/ApproveAmountsPartners/BookingDetailsPage/BookingDetailsComponent.js`
+  - `Huz-Admin-Frontend/src/pages/dashboard/dashboard-pages/ApproveAmountsPages/BookingDetailsPage/PackageDetails.js`
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+  - `docs/atlas/MODULE_MAP.md`
+  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
+  - `docs/atlas/API_SURFACE.md`
+  - `docs/atlas/CHANGE_MAP.md`
+  - `docs/qa/BUG_BACKLOG.md`
+  - `docs/qa/DEEP_SCAN_REPORT.md`
+  - `docs/project-bot/runs/20260311-165731-fix-backlog/RUN_SUMMARY.md`
+- Atlas docs refreshed:
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+  - `docs/atlas/MODULE_MAP.md`
+  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
+  - `docs/atlas/API_SURFACE.md`
+  - `docs/atlas/CHANGE_MAP.md`
+- Notes:
+  - Switched admin booking and complaint list views from local first-page filtering to backend-driven pagination.
+  - Normalized admin receivable consumers to the backend paginated envelope and added `/all-payments` page navigation.
+  - Restored settlement-review payment proofs by merging the management paid-bookings payload into the richer partner booking detail response instead of trusting hidden `payment_detail`.
+  - Verification passed for the admin frontend build and backend `manage.py check`; backend `booking.tests` did not complete because the environment hit existing MySQL test database/connection issues.
+  - Removed active web-panel dependency on legacy booking fallback routes by moving consumers onto `bookingApi.js`.
+  - Centralized profile, wallet, support, and public package ownership into domain modules under `Huz-Web-Frontend/src/api/`.
+  - Extracted profile/address calls into `profileApi.js` so `AuthApi.js` returns to auth/session responsibilities.
+  - Verified via frontend production build, Django `check`, and focused backend tests for the new `v1` flows.
+
+- Date: 2026-03-06
+- Scope: Backend optimize Phase 1 (`Huz-Backend`) - contract-preserving performance and reliability pass
+- Files changed:
+  - `Huz-Backend/partners/package_management.py`
+  - `Huz-Backend/partners/serializers.py`
+  - `Huz-Backend/booking/serializers.py`
+  - `Huz-Backend/common/user_profile.py`
+  - `Huz-Backend/partners/models.py`
+  - `Huz-Backend/booking/models.py`
+  - `Huz-Backend/common/models.py`
+  - `Huz-Backend/partners/migrations/0004_add_hotspot_indexes.py`
+  - `Huz-Backend/booking/migrations/0002_add_hotspot_indexes.py`
+  - `Huz-Backend/common/migrations/0002_add_hotspot_indexes.py`
+- Atlas docs refreshed:
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+  - `docs/atlas/MODULE_MAP.md`
+  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
+  - `docs/atlas/API_SURFACE.md`
+  - `docs/atlas/CHANGE_MAP.md`
+- Notes:
+  - Added shared package queryset optimization and prefetch coverage for public package endpoints.
+  - Fixed prefetch-empty serializer fallback behavior in partner and booking serializers.
+  - Added timeout + retry handling for OTP SMS gateway calls.
+  - Added additive DB indexes for package, booking, and OTP/user lookup hotspots.
+  - Deferred auth-principal hardening and legacy endpoint permission migration to dedicated compatibility phase.
+
+- Date: 2026-03-06
+- Scope: Backend optimize Phase 2 verification and documentation refresh
+- Files changed:
+  - `docs/qa/DEEP_SCAN_REPORT.md`
+  - `docs/qa/BUG_BACKLOG.md`
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+  - `docs/atlas/MODULE_MAP.md`
+  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
+  - `docs/atlas/API_SURFACE.md`
+  - `docs/atlas/CHANGE_MAP.md`
+  - `docs/project-bot/runs/20260306-030027-backend-optimize/RUN_SUMMARY.md`
+- Atlas docs refreshed:
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+  - `docs/atlas/MODULE_MAP.md`
+  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
+  - `docs/atlas/API_SURFACE.md`
+  - `docs/atlas/CHANGE_MAP.md`
+- Notes:
+  - Executed Django verification checks and focused regression tests from project virtualenv.
+  - Confirmed migration drift-free state for modified apps.
+  - Updated QA backlog/report status to reflect implemented and verified optimization items.
+
+- Date: 2026-03-06
+- Scope: Contract sync Phase 0/1/2 (`Huz-Web-Frontend`) - frontend/backend API reconciliation
+- Files changed:
+  - `Huz-Web-Frontend/src/api/apiService.js`
+  - `Huz-Web-Frontend/src/features/paymentMethods/utils/paymentMethodsUtils.js`
+  - `Huz-Web-Frontend/src/features/paymentMethods/hooks/usePaymentMethodsLogic.js`
+  - `Huz-Web-Frontend/src/features/remainingPayment/hooks/useRemainingPaymentLogic.js`
+  - `Huz-Web-Frontend/src/features/travelersInfo/utils/travelersInfoUtils.js`
+  - `Huz-Web-Frontend/src/features/travelersInfo/hooks/useTravelersInfoLogic.js`
+  - `Huz-Web-Frontend/src/features/bookingStatus/utils/bookingStatusUtils.js`
+  - `Huz-Web-Frontend/src/features/booking/utils/bookingUtils.js`
+  - `docs/qa/DEEP_SCAN_REPORT.md`
+  - `docs/qa/BUG_BACKLOG.md`
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+  - `docs/atlas/MODULE_MAP.md`
+  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
+  - `docs/atlas/API_SURFACE.md`
+  - `docs/atlas/CHANGE_MAP.md`
+  - `docs/project-bot/runs/20260306-033640-contract-sync/RUN_SUMMARY.md`
+- Atlas docs refreshed:
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+  - `docs/atlas/MODULE_MAP.md`
+  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
+  - `docs/atlas/API_SURFACE.md`
+  - `docs/atlas/CHANGE_MAP.md`
+- Notes:
+  - Mapped frontend contract drift against live backend URL inventory and audit requirements.
+  - Reconciled booking/payment/traveler/complaint/request wrappers to live backend routes with `/api/v1` primary + `/bookings` fallback strategy.
+  - Updated frontend shape assumptions for traveler and payment serializer outputs.
+  - Verified frontend compiles after reconciliation via production build.
+
+- Date: 2026-03-11
+- Scope: Deep scan Phase 3 verification and atlas sync for booking contract audit
+- Files changed:
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+  - `docs/atlas/MODULE_MAP.md`
+  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
+  - `docs/atlas/API_SURFACE.md`
+  - `docs/atlas/CHANGE_MAP.md`
+  - `docs/qa/DEEP_SCAN_REPORT.md`
+  - `docs/qa/BUG_BACKLOG.md`
+  - `docs/project-bot/runs/20260311-144436-deep-scan/RUN_SUMMARY.md`
+- Atlas docs refreshed:
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+  - `docs/atlas/MODULE_MAP.md`
+  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
+  - `docs/atlas/API_SURFACE.md`
+  - `docs/atlas/CHANGE_MAP.md`
+- Notes:
+  - Revalidated the three open booking mismatch findings directly against backend, admin, and operator source before closing the scan.
+  - Preserved the concrete contract caveats in atlas memory: paginated receivable summaries, partner booking detail hiding `payment_detail`, and the operator dashboard recent-bookings fallback collapsing to the `READY` queue when no summary endpoint is configured.
+  - Appended final verification notes to the deep scan report and bug backlog without changing application code.
+
+- Date: 2026-03-11
+- Scope: Fix-backlog Phase 3 summarize and queue next (`20260311-165731-fix-backlog`)
+- Files changed:
+  - `docs/project-bot/runs/20260311-165731-fix-backlog/RUN_SUMMARY.md`
+  - `docs/qa/BUG_BACKLOG.md`
+  - `docs/qa/DEEP_SCAN_REPORT.md`
+  - `docs/atlas/CHANGE_MAP.md`
+- Atlas docs refreshed:
+  - `docs/atlas/CHANGE_MAP.md`
+- Notes:
+  - Docs-only closeout phase; no target-project code changed.
+  - Recorded Booking Contract Batch 02 (`BOOKING-005`, `BOOKING-006`) as the next bounded implementation target using the existing campaign batch doc.
+  - Persisted the verified Batch 01 baseline and next-run rationale so the following fix-backlog run can start without a fresh booking audit scan.
+
+- Date: 2026-03-11
+- Scope: Fix-backlog Phase 1 implement Booking Contract Batch 02 (`20260311-180137-fix-backlog`)
+- Files changed:
+  - `Huz-Admin-Frontend/src/App.js`
+  - `Huz-Admin-Frontend/src/context/BookingContext.js`
+  - `Huz-Admin-Frontend/src/pages/Admin-Panel/Bookings/bookingRouteUtils.js`
+  - `Huz-Admin-Frontend/src/pages/Admin-Panel/Bookings/components/BookingCard.jsx`
+  - `Huz-Admin-Frontend/src/pages/Admin-Panel/Bookings/BookingDetailsPage/useAdminBookingLoader.js`
+  - `Huz-Admin-Frontend/src/pages/Admin-Panel/Bookings/BookingDetailsPage/BookingDetails.js`
+  - `Huz-Admin-Frontend/src/pages/Admin-Panel/Bookings/BookingDetailsPage/Pending.js`
+  - `Huz-Admin-Frontend/src/pages/Admin-Panel/Bookings/BookingDetailsPage/Active.js`
+  - `Huz-Admin-Frontend/src/pages/Admin-Panel/Bookings/BookingDetailsPage/ActiveSatusComponents/UploadVisa/UploadEvisa.jsx`
+  - `Huz-Admin-Frontend/src/pages/Admin-Panel/Bookings/BookingDetailsPage/ActiveSatusComponents/AirlineTickets/AirlineTickets.jsx`
+  - `Huz-Admin-Frontend/src/pages/Admin-Panel/Bookings/BookingDetailsPage/ActiveSatusComponents/TransportArrangement/TransportArrangement.jsx`
+  - `Huz-Admin-Frontend/src/pages/Admin-Panel/Bookings/BookingDetailsPage/ActiveSatusComponents/HotelArrangement/HotelArrangement.jsx`
+  - `Huz-Admin-Frontend/src/pages/Admin-Panel/Bookings/BookingDetailsPage/ActiveSatusComponents/UploadVisa/VisaDetails.js`
+  - `Huz-Admin-Frontend/src/pages/Admin-Panel/Bookings/BookingDetailsPage/ActiveSatusComponents/AirlineTickets/AirlineDetails.js`
+  - `Huz-Admin-Frontend/src/pages/Admin-Panel/Bookings/BookingDetailsPage/ActiveSatusComponents/TransportArrangement/TransportDetails.js`
+  - `Huz-Admin-Frontend/src/pages/Admin-Panel/Bookings/BookingDetailsPage/ActiveSatusComponents/HotelArrangement/HotelDetails.js`
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+  - `docs/atlas/FILE_MAP_DEV_ONLY.md`
+  - `docs/atlas/PANEL_MODULE_INDEX.md`
+  - `docs/atlas/FRONTEND_BLUEPRINT.md`
+  - `docs/atlas/BACKEND_BLUEPRINT.md`
+  - `docs/atlas/MODULE_MAP.md`
+  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
+  - `docs/atlas/ROUTE_MATRIX.md`
+  - `docs/atlas/STATE_MANAGEMENT_MAP.md`
+  - `docs/atlas/API_SURFACE.md`
+  - `docs/atlas/API_CONTRACT_REGISTRY.md`
+  - `docs/atlas/BACKEND_SCHEMA_MAP.md`
+  - `docs/atlas/DEPENDENCY_GRAPH.md`
+  - `docs/atlas/SECURITY_THREAT_MAP.md`
+  - `docs/atlas/TRACEABILITY_MAP.md`
+  - `docs/atlas/CHANGE_MAP.md`
+  - `docs/qa/BUG_BACKLOG.md`
+  - `docs/qa/DEEP_SCAN_REPORT.md`
+  - `docs/project-bot/runs/20260311-180137-fix-backlog/RUN_SUMMARY.md`
+- Atlas docs refreshed:
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+  - `docs/atlas/FILE_MAP_DEV_ONLY.md`
+  - `docs/atlas/PANEL_MODULE_INDEX.md`
+  - `docs/atlas/FRONTEND_BLUEPRINT.md`
+  - `docs/atlas/BACKEND_BLUEPRINT.md`
+  - `docs/atlas/MODULE_MAP.md`
+  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
+  - `docs/atlas/ROUTE_MATRIX.md`
+  - `docs/atlas/STATE_MANAGEMENT_MAP.md`
+  - `docs/atlas/API_SURFACE.md`
+  - `docs/atlas/API_CONTRACT_REGISTRY.md`
+  - `docs/atlas/BACKEND_SCHEMA_MAP.md`
+  - `docs/atlas/DEPENDENCY_GRAPH.md`
+  - `docs/atlas/SECURITY_THREAT_MAP.md`
+  - `docs/atlas/TRACEABILITY_MAP.md`
+  - `docs/atlas/CHANGE_MAP.md`
+- Notes:
+  - Implemented `BOOKING-005` by gating admin pending decisions on backend `operator_can_act`.
+  - Implemented `BOOKING-006` by moving admin booking detail/subflow identity into route params and removing the fixed-flow `localStorage("bookingNumber")` handoff.
+  - Verification was intentionally deferred to Phase 2 for this run, so the backlog items are implemented but not yet closed.
+
+- Date: 2026-03-11
+- Scope: Fix-backlog Phase 2 verify Booking Contract Batch 02 (`20260311-180137-fix-backlog`)
+- Files changed:
+  - `docs/qa/BUG_BACKLOG.md`
+  - `docs/qa/DEEP_SCAN_REPORT.md`
+  - `docs/atlas/STATE_MANAGEMENT_MAP.md`
+  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
+  - `docs/atlas/CHANGE_MAP.md`
+  - `docs/project-bot/runs/20260311-180137-fix-backlog/RUN_SUMMARY.md`
+- Atlas docs refreshed:
+  - `docs/atlas/STATE_MANAGEMENT_MAP.md`
+  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
+  - `docs/atlas/CHANGE_MAP.md`
+- Notes:
+  - Verified Batch 02 with a passing `Huz-Admin-Frontend` production build and passing backend `manage.py check`.
+  - Verified the touched booking workflow surfaces with targeted `huz.settings_test` backend tests covering booking-detail action locking and partner booking action flow.
+  - Closed `BOOKING-005` and `BOOKING-006` as resolved and recorded that one legacy backend test remains broken because `ApproveBookingPaymentViewTests` is missing `_approve_full`.
+
+- Date: 2026-03-11
+- Scope: Fix-backlog Phase 1 implement Booking Contract Batch 03 (`20260311-184716-fix-backlog`)
+- Files changed:
+  - `Huz-Backend/booking/manage_partner_booking.py`
+  - `Huz-Backend/booking/tests.py`
+  - `Huz-Admin-Frontend/src/pages/Admin-Panel/Bookings/bookingWorkflowUtils.js`
+  - `Huz-Admin-Frontend/src/pages/Admin-Panel/Bookings/BookingDetailsPage/BookingDetails.js`
+  - `Huz-Admin-Frontend/src/pages/Admin-Panel/Bookings/BookingDetailsPage/Completed.js`
+  - `Huz-Admin-Frontend/src/pages/Admin-Panel/Bookings/BookingDetailsPage/ActiveSatusComponents/UploadVisa/VisaDetails.js`
+  - `Huz-Admin-Frontend/src/pages/Admin-Panel/Bookings/BookingDetailsPage/ActiveSatusComponents/AirlineTickets/AirlineDetails.js`
+  - `Huz-Admin-Frontend/src/pages/Admin-Panel/Bookings/BookingDetailsPage/ActiveSatusComponents/TransportArrangement/TransportDetails.js`
+  - `Huz-Admin-Frontend/src/pages/Admin-Panel/Bookings/BookingDetailsPage/ActiveSatusComponents/HotelArrangement/HotelDetails.js`
+  - `Huz-Admin-Frontend/src/pages/Admin-Panel/Bookings/BookingDetailsPage/ActiveSatusComponents/UploadVisa/UploadEvisa.jsx`
+  - `Huz-Admin-Frontend/src/pages/Admin-Panel/Bookings/BookingDetailsPage/ActiveSatusComponents/AirlineTickets/AirlineTickets.jsx`
+  - `Huz-Admin-Frontend/src/pages/Admin-Panel/Bookings/BookingDetailsPage/ActiveSatusComponents/TransportArrangement/TransportArrangement.jsx`
+  - `Huz-Admin-Frontend/src/pages/Admin-Panel/Bookings/BookingDetailsPage/ActiveSatusComponents/HotelArrangement/HotelArrangement.jsx`
+  - `Huz-Admin-Frontend/src/pages/Admin-Panel/Bookings/BookingDetailsPage/components/FulfillmentEditUnavailable.js`
+  - `Huz-Admin-Frontend/src/pages/Admin-Panel/Bookings/BookingDetailsPage/components/ReportedTravelers.js`
+  - `Huz-Operator-Frontend/src/utils/bookingDomain.js`
+  - `Huz-Operator-Frontend/src/pages/Dashboard/BookingsModule/BookingDetailsPage/Completed.jsx`
+  - `Huz-Operator-Frontend/src/pages/Dashboard/BookingsModule/BookingDetailsPage/ActiveSatusComponents/UploadVisa/VisaDetails.jsx`
+  - `Huz-Operator-Frontend/src/pages/Dashboard/BookingsModule/BookingDetailsPage/ActiveSatusComponents/AirlineTickets/AirlineDetails.jsx`
+  - `Huz-Operator-Frontend/src/pages/Dashboard/BookingsModule/BookingDetailsPage/ActiveSatusComponents/TransportArrangement/TransportDetails.jsx`
+  - `Huz-Operator-Frontend/src/pages/Dashboard/BookingsModule/BookingDetailsPage/ActiveSatusComponents/HotelArrangement/HotelDetails.jsx`
+  - `Huz-Operator-Frontend/src/pages/Dashboard/BookingsModule/BookingDetailsPage/ActiveSatusComponents/shared/ArrangementDetailsCard.jsx`
+  - `Huz-Operator-Frontend/src/pages/Dashboard/BookingsModule/BookingDetailsPage/ActiveSatusComponents/shared/BookingSubflowPage.jsx`
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+  - `docs/atlas/MODULE_MAP.md`
+  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
+  - `docs/atlas/API_SURFACE.md`
+  - `docs/atlas/API_CONTRACT_REGISTRY.md`
+  - `docs/atlas/STATE_MANAGEMENT_MAP.md`
+  - `docs/atlas/CHANGE_MAP.md`
+  - `docs/qa/BUG_BACKLOG.md`
+  - `docs/qa/DEEP_SCAN_REPORT.md`
+  - `docs/project-bot/runs/20260311-184716-fix-backlog/RUN_SUMMARY.md`
+- Atlas docs refreshed:
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+  - `docs/atlas/MODULE_MAP.md`
+  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
+  - `docs/atlas/API_SURFACE.md`
+  - `docs/atlas/API_CONTRACT_REGISTRY.md`
+  - `docs/atlas/STATE_MANAGEMENT_MAP.md`
+  - `docs/atlas/CHANGE_MAP.md`
+- Notes:
+  - Implemented `BOOKING-008` by making completed-booking fulfillment details read-only in both partner panels, blocking routed subflow entry outside the backend-allowed fulfillment statuses, and gating `DeleteBookingDocumentsView` with the same server-side rule as the create/update fulfillment endpoints.
+  - Implemented `BOOKING-009` by surfacing `REPORTED` travelers in the admin booking detail from the existing legacy detail serializer payload.
+  - Added targeted backend tests for the completed-state delete rejection and the reported-traveler response shape, but verification commands remain intentionally deferred to Phase 2 for this run.
+
+- Date: 2026-03-11
+- Scope: Fix Backlog Phase 2 verification for run `20260311-184716-fix-backlog` (Booking Contract Batch 03)
+- Files changed:
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+  - `docs/atlas/MODULE_MAP.md`
+  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
+  - `docs/atlas/API_SURFACE.md`
+  - `docs/atlas/API_CONTRACT_REGISTRY.md`
+  - `docs/atlas/STATE_MANAGEMENT_MAP.md`
+  - `docs/atlas/CHANGE_MAP.md`
+  - `docs/qa/BUG_BACKLOG.md`
+  - `docs/qa/DEEP_SCAN_REPORT.md`
+  - `docs/project-bot/runs/20260311-184716-fix-backlog/RUN_SUMMARY.md`
+- Atlas docs refreshed:
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+  - `docs/atlas/MODULE_MAP.md`
+  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
+  - `docs/atlas/API_SURFACE.md`
+  - `docs/atlas/API_CONTRACT_REGISTRY.md`
+  - `docs/atlas/STATE_MANAGEMENT_MAP.md`
+  - `docs/atlas/CHANGE_MAP.md`
+- Notes:
+  - Verified `BOOKING-008` as resolved with passing admin/operator builds, a passing backend `manage.py check`, a passing targeted delete-guard test, and source smoke across the completed-booking fulfillment routes.
+  - Phase 2 found `BOOKING-009` still open because the legacy detail payload exposes traveler rows under `passport_validity_detail`, while the new admin `ReportedTravelers` UI reads `traveller_detail`; the operator panel already performs that aliasing in `src/api/apiUtils.js`, and the admin flow still does not.
+  - Corrected the atlas/backlog/deep-scan memory so future runs do not assume Batch 03 fully closed when only the completed-state guard work has been verified.
+
+- Date: 2026-03-11
+- Scope: Fix Backlog Phase 1 implementation for run `20260311-192319-fix-backlog` (Booking Contract Batch 04)
+- Files changed:
+  - `Huz-Operator-Frontend/src/api/DashboardApi.js`
+  - `Huz-Operator-Frontend/src/pages/Dashboard/components/overview/dashboardViewModel.js`
+  - `Huz-Operator-Frontend/src/pages/Dashboard/components/overview/RecentBookingsMiniList.jsx`
+  - `Huz-Operator-Frontend/src/pages/Dashboard/Dashboard.jsx`
+  - `Huz-Operator-Frontend/src/api/BookingApi.js`
+  - `Huz-Operator-Frontend/src/pages/Dashboard/BookingsModule/components/Tabs.jsx`
+  - `Huz-Web-Frontend/src/pages/UserSetting/Support/supportUtils.js`
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+  - `docs/atlas/MODULE_MAP.md`
+  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
+  - `docs/atlas/API_SURFACE.md`
+  - `docs/atlas/API_CONTRACT_REGISTRY.md`
+  - `docs/atlas/STATE_MANAGEMENT_MAP.md`
+  - `docs/atlas/CHANGE_MAP.md`
+  - `docs/qa/BUG_BACKLOG.md`
+  - `docs/qa/DEEP_SCAN_REPORT.md`
+  - `docs/project-bot/runs/20260311-192319-fix-backlog/RUN_SUMMARY.md`
+- Atlas docs refreshed:
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+  - `docs/atlas/MODULE_MAP.md`
+  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
+  - `docs/atlas/API_SURFACE.md`
+  - `docs/atlas/API_CONTRACT_REGISTRY.md`
+  - `docs/atlas/STATE_MANAGEMENT_MAP.md`
+  - `docs/atlas/CHANGE_MAP.md`
+- Notes:
+  - Implemented `BOOKING-003` by keeping the READY-only dashboard fallback but surfacing it explicitly as a ready-queue feed with ready-scope totals and a ready-queue dashboard source label when no unified summary endpoint is configured.
+  - Implemented `BOOKING-010` by renaming the operator booking-list consumer semantics to booking-number-only and updating all user-facing search copy to match the real backend filter contract.
+  - Implemented `BOOKING-011` by resolving relative support-history attachment/audio URLs against `REACT_APP_API_BASE_URL` in the web support helper without changing backend support serializers.
+  - Verification was intentionally deferred to Phase 2 by the run boundary, so this entry records implementation and atlas/backlog refresh only.

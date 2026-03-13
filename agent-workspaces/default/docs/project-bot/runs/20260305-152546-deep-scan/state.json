@@ -1,0 +1,84 @@
+{
+  "version": 1,
+  "workspaceRoot": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default",
+  "projectPath": "/Users/macbook/Desktop/Huz/Huz-Web-Frontend",
+  "mode": "deep-scan",
+  "modeTitle": "Deep Scan",
+  "description": "Perform a code-level analysis of the requested scope, document logic, routes, contracts, structures, and risks, and produce a report plus backlog.",
+  "scope": "/Users/macbook/Desktop/Huz",
+  "request": "Do full deep audit and fill DEEP_SCAN_REPORT and BUG_BACKLOG with findings and priorities.",
+  "designGuides": [
+    "/Users/macbook/Desktop/Huz/UI_DESIGN_SYSTEM_GUIDE.md",
+    "/Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md"
+  ],
+  "referenceDocs": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/PROJECT_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/MODULE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/ROUTES_AND_ENTRYPOINTS.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/API_SURFACE.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/BUG_BACKLOG.md"
+  ],
+  "forceExternalDocs": true,
+  "reportFiles": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/BUG_BACKLOG.md"
+  ],
+  "createdAt": "2026-03-05T10:25:46.040Z",
+  "updatedAt": "2026-03-05T10:45:56.035Z",
+  "phaseCursor": 4,
+  "phases": [
+    {
+      "id": 0,
+      "title": "Refresh Atlas Context",
+      "status": "completed",
+      "completedAt": "2026-03-05T10:30:40.713Z",
+      "note": "",
+      "goal": "Load the existing atlas docs, validate the scoped modules, and refresh stale context needed for a reliable scan.",
+      "required": [
+        "Read the current atlas docs before diving into code.",
+        "Confirm the exact directories, routes, APIs, or modules covered by the request.",
+        "Refresh atlas docs when stale context blocks an accurate scan."
+      ]
+    },
+    {
+      "id": 1,
+      "title": "Analyze Code Paths",
+      "status": "completed",
+      "completedAt": "2026-03-05T10:38:17.913Z",
+      "note": "",
+      "goal": "Inspect the requested scope deeply and capture logic flows, route structures, contracts, state handling, and mismatch risks.",
+      "required": [
+        "Trace important execution paths, data transformations, route definitions, and module boundaries in the scoped area.",
+        "Identify mismatches, bug risks, dead paths, duplicated logic, or weak assumptions.",
+        "Keep findings evidence-based with exact files and commands used to verify them."
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Write Findings and Backlog",
+      "status": "completed",
+      "completedAt": "2026-03-05T10:40:19.797Z",
+      "note": "",
+      "goal": "Produce durable reports and backlog entries so future work can execute without rescanning the full codebase.",
+      "required": [
+        "Update the deep scan report with findings grouped by module or concern.",
+        "Update the bug backlog with prioritized, actionable items and verification steps.",
+        "Capture the scope scanned, files examined, and remaining blind spots."
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Verify and Summarize",
+      "status": "completed",
+      "completedAt": "2026-03-05T10:45:56.035Z",
+      "note": "",
+      "goal": "Check the scan quality and ensure the atlas reflects newly clarified relationships.",
+      "required": [
+        "Sanity-check the report and backlog against the code reviewed.",
+        "Update atlas docs for any clarified structure or contract information.",
+        "Append a concise final summary of the scan and its evidence."
+      ]
+    }
+  ]
+}

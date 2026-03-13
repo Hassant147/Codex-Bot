@@ -1,0 +1,21 @@
+Phase 1 is complete. I updated [SECURITY_THREAT_MAP.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/SECURITY_THREAT_MAP.md), [DEEP_SCAN_REPORT.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md), [BUG_BACKLOG.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md), [CHANGE_MAP.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/CHANGE_MAP.md), and [RUN_SUMMARY.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-security-audit/RUN_SUMMARY.md). No product code was modified; verification was source inspection only.
+
+Highest-signal findings were:
+- Public website package APIs leak `partner_session_token`.
+- Customer and partner booking payloads leak the counterparty’s session token.
+- Public existence/profile endpoints return session tokens and Firebase device tokens.
+- Customer `session_token` generation is deterministic from phone numbers.
+- Partner bank-account and withdrawal routes are `AllowAny` and token-only, enabling wallet theft if a token is known.
+
+I ran the required orchestration commands. The run advanced to `phaseCursor: 2`.
+
+**NEXT_PROMPT.md**
+```text
+Use $project-autopilot-manager in `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend`.
+Read `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-security-audit/state.json` and `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-security-audit/prompts/phase-02.md`.
+Execute only Phase 2 (Write Security Findings) against target project `/Users/macbook/Desktop/Huz/Huz-Backend`.
+At the end, run:
+1. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-security-audit --phase 2`
+2. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-security-audit`
+Then print `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-security-audit/NEXT_PROMPT.md`.
+```

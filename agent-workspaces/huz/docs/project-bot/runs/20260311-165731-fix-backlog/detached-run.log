@@ -1,0 +1,10 @@
+Autopilot start
+Root: /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz
+Logs: /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260311-165731-fix-backlog/logs/20260311-165827
+Mode: dangerous
+Codex: /Applications/Codex.app/Contents/Resources/codex
+Model: <config-default>
+Effort: high
+Quiet agent output: 1
+Max cycles: 6
+Run summary: /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260311-165731-fix-backlog/RUN_SUMMARY.md

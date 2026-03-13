@@ -1,0 +1,223 @@
+{
+  "version": 1,
+  "id": "team-1773319436379-md2hi3",
+  "name": "Huz Backend Backend-Only Audit and Fix",
+  "summary": "Coordinated multi-agent campaign for Huz-Backend.",
+  "workspaceRoot": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend",
+  "projectPath": "/Users/macbook/Desktop/Huz/Huz-Backend",
+  "scope": "/Users/macbook/Desktop/Huz/Huz-Backend",
+  "scopeLevel": "panel-fullstack",
+  "scopeTargets": [],
+  "masterRequest": "Audit the entire Huz-Backend project deeply. Act as a project manager, backend architect, backend performance specialist, security reviewer, QA engineer, and implementation engineer. First perform a full backend audit for performance bottlenecks, optimization issues, N+1 queries, inefficient loops, unnecessary DB/API work, security loopholes, dead code, risky patterns, maintainability issues, and anything wrong. Then create a prioritized remediation plan and implement the safe backend fixes in parallel. Important constraint: only document and fix issues that can be resolved entirely within the backend. If an issue would require any frontend change, contract/consumer update, UI change, or downstream frontend work, do not implement that part. Document it clearly as frontend-impacting and skip code changes for it. Keep all changes scoped to the backend repo, verify each batch, and finish with a final summary of issues found, fixes implemented, skipped frontend-impacting items, and verification results.",
+  "notes": [
+    "Report-only discovery and audit waves may run in parallel once the atlas wave finishes.",
+    "Implementation lanes use distinct ownership paths when available to reduce collisions.",
+    "Planned implementation lanes: Huz-Backend Lane"
+  ],
+  "createdAt": "2026-03-12T12:43:56.378Z",
+  "updatedAt": "2026-03-12T12:43:56.689Z",
+  "agents": [
+    {
+      "id": "pm-atlas",
+      "title": "Project Manager Atlas",
+      "role": "Project Manager",
+      "phase": "discovery",
+      "lane": "Global coordination",
+      "summary": "Map the repo, establish safe work lanes, and refresh the system memory before any parallel work starts.",
+      "mode": "full-system-atlas",
+      "scope": "/Users/macbook/Desktop/Huz/Huz-Backend",
+      "scopeLevel": "full-system",
+      "scopeTargets": [
+        "system-atlas"
+      ],
+      "ownershipPaths": [],
+      "ownershipKeys": [
+        "coordination:global"
+      ],
+      "reportOnly": true,
+      "mutatesCode": false,
+      "dependsOn": [],
+      "runDir": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174356-full-system-atlas",
+      "runRequest": "Team mission: Audit the entire Huz-Backend project deeply. Act as a project manager, backend architect, backend performance specialist, security reviewer, QA engineer, and implementation engineer. First perform a full backend audit for performance bottlenecks, optimization issues, N+1 queries, inefficient loops, unnecessary DB/API work, security loopholes, dead code, risky patterns, maintainability issues, and anything wrong. Then create a prioritized remediation plan and implement the safe backend fixes in parallel. Important constraint: only document and fix issues that can be resolved entirely within the backend. If an issue would require any frontend change, contract/consumer update, UI change, or downstream frontend work, do not implement that part. Document it clearly as frontend-impacting and skip code changes for it. Keep all changes scoped to the backend repo, verify each batch, and finish with a final summary of issues found, fixes implemented, skipped frontend-impacting items, and verification results.\n\nYou are the Project Manager in coordinated team \"Huz Backend Backend-Only Audit and Fix\".\nAssigned lane: Global coordination\nPrimary objective: Map the repo, establish safe work lanes, and refresh the system memory before any parallel work starts.\nExecution phase: discovery\nMode: full-system-atlas\nScope level: full-system\nScope: /Users/macbook/Desktop/Huz/Huz-Backend\nScope targets: system-atlas\n\nTeam coordination contract:\n- Work only inside your assigned lane.\n- Ownership boundaries: coordination:global\n- This is a report-only run. Do not modify product code; workspace docs and reports are allowed.\n- Read atlas docs, QA reports, and BUG_BACKLOG before making major decisions.\n- If you discover issues outside your lane, document them clearly in RUN_SUMMARY or BUG_BACKLOG instead of implementing them here.\n- You are the first wave. Establish a clean foundation for downstream agents.\n\nDiscovery contract:\n- Build or refresh the atlas needed for downstream work.\n- Define safe implementation boundaries in the run summary so later agents can avoid collisions.\n- Name the recommended lanes, major risks, and the highest-risk files or flows.\n\nOriginal operator request:\nAudit the entire Huz-Backend project deeply. Act as a project manager, backend architect, backend performance specialist, security reviewer, QA engineer, and implementation engineer. First perform a full backend audit for performance bottlenecks, optimization issues, N+1 queries, inefficient loops, unnecessary DB/API work, security loopholes, dead code, risky patterns, maintainability issues, and anything wrong. Then create a prioritized remediation plan and implement the safe backend fixes in parallel. Important constraint: only document and fix issues that can be resolved entirely within the backend. If an issue would require any frontend change, contract/consumer update, UI change, or downstream frontend work, do not implement that part. Document it clearly as frontend-impacting and skip code changes for it. Keep all changes scoped to the backend repo, verify each batch, and finish with a final summary of issues found, fixes implemented, skipped frontend-impacting items, and verification results.",
+      "materializeError": ""
+    },
+    {
+      "id": "qa-audit",
+      "title": "QA Audit",
+      "role": "QA Engineer",
+      "phase": "audit",
+      "lane": "Cross-repo quality audit",
+      "summary": "Audit for loopholes, risks, dead code, optimization issues, and anything clearly wrong.",
+      "mode": "full-system-deep-audit",
+      "scope": "/Users/macbook/Desktop/Huz/Huz-Backend",
+      "scopeLevel": "full-system",
+      "scopeTargets": [],
+      "ownershipPaths": [],
+      "ownershipKeys": [
+        "audit:qa"
+      ],
+      "reportOnly": true,
+      "mutatesCode": false,
+      "dependsOn": [
+        "pm-atlas"
+      ],
+      "runDir": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174356-full-system-deep-audit",
+      "runRequest": "Team mission: Audit the entire Huz-Backend project deeply. Act as a project manager, backend architect, backend performance specialist, security reviewer, QA engineer, and implementation engineer. First perform a full backend audit for performance bottlenecks, optimization issues, N+1 queries, inefficient loops, unnecessary DB/API work, security loopholes, dead code, risky patterns, maintainability issues, and anything wrong. Then create a prioritized remediation plan and implement the safe backend fixes in parallel. Important constraint: only document and fix issues that can be resolved entirely within the backend. If an issue would require any frontend change, contract/consumer update, UI change, or downstream frontend work, do not implement that part. Document it clearly as frontend-impacting and skip code changes for it. Keep all changes scoped to the backend repo, verify each batch, and finish with a final summary of issues found, fixes implemented, skipped frontend-impacting items, and verification results.\n\nYou are the QA Engineer in coordinated team \"Huz Backend Backend-Only Audit and Fix\".\nAssigned lane: Cross-repo quality audit\nPrimary objective: Audit for loopholes, risks, dead code, optimization issues, and anything clearly wrong.\nExecution phase: audit\nMode: full-system-deep-audit\nScope level: full-system\nScope: /Users/macbook/Desktop/Huz/Huz-Backend\nScope targets: [Not specified]\n\nTeam coordination contract:\n- Work only inside your assigned lane.\n- Ownership boundaries: audit:qa\n- This is a report-only run. Do not modify product code; workspace docs and reports are allowed.\n- Read atlas docs, QA reports, and BUG_BACKLOG before making major decisions.\n- If you discover issues outside your lane, document them clearly in RUN_SUMMARY or BUG_BACKLOG instead of implementing them here.\n- Upstream dependencies that should already be complete: Project Manager Atlas\n\nAudit contract:\n- Find loopholes, optimization issues, efficiency problems, dead code, threats, regressions, and anything clearly wrong.\n- Provide concrete, prioritized findings with file or module references when possible.\n- Update DEEP_SCAN_REPORT and BUG_BACKLOG with lane-aware findings and recommended fixes.\n\nOriginal operator request:\nAudit the entire Huz-Backend project deeply. Act as a project manager, backend architect, backend performance specialist, security reviewer, QA engineer, and implementation engineer. First perform a full backend audit for performance bottlenecks, optimization issues, N+1 queries, inefficient loops, unnecessary DB/API work, security loopholes, dead code, risky patterns, maintainability issues, and anything wrong. Then create a prioritized remediation plan and implement the safe backend fixes in parallel. Important constraint: only document and fix issues that can be resolved entirely within the backend. If an issue would require any frontend change, contract/consumer update, UI change, or downstream frontend work, do not implement that part. Document it clearly as frontend-impacting and skip code changes for it. Keep all changes scoped to the backend repo, verify each batch, and finish with a final summary of issues found, fixes implemented, skipped frontend-impacting items, and verification results.",
+      "materializeError": ""
+    },
+    {
+      "id": "security-audit",
+      "title": "Security Audit",
+      "role": "Security Reviewer",
+      "phase": "audit",
+      "lane": "Threat and permission review",
+      "summary": "Inspect auth, permissions, inputs, configs, and risky flows for concrete threats.",
+      "mode": "security-audit",
+      "scope": "/Users/macbook/Desktop/Huz/Huz-Backend",
+      "scopeLevel": "panel-fullstack",
+      "scopeTargets": [],
+      "ownershipPaths": [],
+      "ownershipKeys": [
+        "audit:security"
+      ],
+      "reportOnly": true,
+      "mutatesCode": false,
+      "dependsOn": [
+        "pm-atlas"
+      ],
+      "runDir": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174356-security-audit",
+      "runRequest": "Team mission: Audit the entire Huz-Backend project deeply. Act as a project manager, backend architect, backend performance specialist, security reviewer, QA engineer, and implementation engineer. First perform a full backend audit for performance bottlenecks, optimization issues, N+1 queries, inefficient loops, unnecessary DB/API work, security loopholes, dead code, risky patterns, maintainability issues, and anything wrong. Then create a prioritized remediation plan and implement the safe backend fixes in parallel. Important constraint: only document and fix issues that can be resolved entirely within the backend. If an issue would require any frontend change, contract/consumer update, UI change, or downstream frontend work, do not implement that part. Document it clearly as frontend-impacting and skip code changes for it. Keep all changes scoped to the backend repo, verify each batch, and finish with a final summary of issues found, fixes implemented, skipped frontend-impacting items, and verification results.\n\nYou are the Security Reviewer in coordinated team \"Huz Backend Backend-Only Audit and Fix\".\nAssigned lane: Threat and permission review\nPrimary objective: Inspect auth, permissions, inputs, configs, and risky flows for concrete threats.\nExecution phase: audit\nMode: security-audit\nScope level: panel-fullstack\nScope: /Users/macbook/Desktop/Huz/Huz-Backend\nScope targets: [Not specified]\n\nTeam coordination contract:\n- Work only inside your assigned lane.\n- Ownership boundaries: audit:security\n- This is a report-only run. Do not modify product code; workspace docs and reports are allowed.\n- Read atlas docs, QA reports, and BUG_BACKLOG before making major decisions.\n- If you discover issues outside your lane, document them clearly in RUN_SUMMARY or BUG_BACKLOG instead of implementing them here.\n- Upstream dependencies that should already be complete: Project Manager Atlas\n\nAudit contract:\n- Find loopholes, optimization issues, efficiency problems, dead code, threats, regressions, and anything clearly wrong.\n- Provide concrete, prioritized findings with file or module references when possible.\n- Update DEEP_SCAN_REPORT and BUG_BACKLOG with lane-aware findings and recommended fixes.\n\nOriginal operator request:\nAudit the entire Huz-Backend project deeply. Act as a project manager, backend architect, backend performance specialist, security reviewer, QA engineer, and implementation engineer. First perform a full backend audit for performance bottlenecks, optimization issues, N+1 queries, inefficient loops, unnecessary DB/API work, security loopholes, dead code, risky patterns, maintainability issues, and anything wrong. Then create a prioritized remediation plan and implement the safe backend fixes in parallel. Important constraint: only document and fix issues that can be resolved entirely within the backend. If an issue would require any frontend change, contract/consumer update, UI change, or downstream frontend work, do not implement that part. Document it clearly as frontend-impacting and skip code changes for it. Keep all changes scoped to the backend repo, verify each batch, and finish with a final summary of issues found, fixes implemented, skipped frontend-impacting items, and verification results.",
+      "materializeError": ""
+    },
+    {
+      "id": "react-audit",
+      "title": "React Runtime and JS Audit",
+      "role": "React / JavaScript Specialist",
+      "phase": "audit",
+      "lane": "Frontend runtime and architecture review",
+      "summary": "Inspect render flow, state usage, effects, dead UI code, and frontend efficiency issues.",
+      "mode": "improvement-report",
+      "scope": "/Users/macbook/Desktop/Huz/Huz-Backend",
+      "scopeLevel": "panel-fe",
+      "scopeTargets": [
+        "huz-backend"
+      ],
+      "ownershipPaths": [],
+      "ownershipKeys": [
+        "audit:frontend"
+      ],
+      "reportOnly": true,
+      "mutatesCode": false,
+      "dependsOn": [
+        "pm-atlas"
+      ],
+      "runDir": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174356-improvement-report",
+      "runRequest": "Team mission: Audit the entire Huz-Backend project deeply. Act as a project manager, backend architect, backend performance specialist, security reviewer, QA engineer, and implementation engineer. First perform a full backend audit for performance bottlenecks, optimization issues, N+1 queries, inefficient loops, unnecessary DB/API work, security loopholes, dead code, risky patterns, maintainability issues, and anything wrong. Then create a prioritized remediation plan and implement the safe backend fixes in parallel. Important constraint: only document and fix issues that can be resolved entirely within the backend. If an issue would require any frontend change, contract/consumer update, UI change, or downstream frontend work, do not implement that part. Document it clearly as frontend-impacting and skip code changes for it. Keep all changes scoped to the backend repo, verify each batch, and finish with a final summary of issues found, fixes implemented, skipped frontend-impacting items, and verification results.\n\nYou are the React / JavaScript Specialist in coordinated team \"Huz Backend Backend-Only Audit and Fix\".\nAssigned lane: Frontend runtime and architecture review\nPrimary objective: Inspect render flow, state usage, effects, dead UI code, and frontend efficiency issues.\nExecution phase: audit\nMode: improvement-report\nScope level: panel-fe\nScope: /Users/macbook/Desktop/Huz/Huz-Backend\nScope targets: huz-backend\n\nTeam coordination contract:\n- Work only inside your assigned lane.\n- Ownership boundaries: audit:frontend\n- This is a report-only run. Do not modify product code; workspace docs and reports are allowed.\n- Read atlas docs, QA reports, and BUG_BACKLOG before making major decisions.\n- If you discover issues outside your lane, document them clearly in RUN_SUMMARY or BUG_BACKLOG instead of implementing them here.\n- Upstream dependencies that should already be complete: Project Manager Atlas\n\nAudit contract:\n- Find loopholes, optimization issues, efficiency problems, dead code, threats, regressions, and anything clearly wrong.\n- Provide concrete, prioritized findings with file or module references when possible.\n- Update DEEP_SCAN_REPORT and BUG_BACKLOG with lane-aware findings and recommended fixes.\n\nOriginal operator request:\nAudit the entire Huz-Backend project deeply. Act as a project manager, backend architect, backend performance specialist, security reviewer, QA engineer, and implementation engineer. First perform a full backend audit for performance bottlenecks, optimization issues, N+1 queries, inefficient loops, unnecessary DB/API work, security loopholes, dead code, risky patterns, maintainability issues, and anything wrong. Then create a prioritized remediation plan and implement the safe backend fixes in parallel. Important constraint: only document and fix issues that can be resolved entirely within the backend. If an issue would require any frontend change, contract/consumer update, UI change, or downstream frontend work, do not implement that part. Document it clearly as frontend-impacting and skip code changes for it. Keep all changes scoped to the backend repo, verify each batch, and finish with a final summary of issues found, fixes implemented, skipped frontend-impacting items, and verification results.",
+      "materializeError": ""
+    },
+    {
+      "id": "pm-plan",
+      "title": "Project Manager Remediation Plan",
+      "role": "Project Manager",
+      "phase": "planning",
+      "lane": "Backlog triage and batching",
+      "summary": "Turn audit findings into lane-specific implementation batches with clear ownership and priorities.",
+      "mode": "plan-batch",
+      "scope": "/Users/macbook/Desktop/Huz/Huz-Backend",
+      "scopeLevel": "panel-fullstack",
+      "scopeTargets": [],
+      "ownershipPaths": [],
+      "ownershipKeys": [
+        "coordination:plan"
+      ],
+      "reportOnly": true,
+      "mutatesCode": false,
+      "dependsOn": [
+        "qa-audit",
+        "security-audit",
+        "react-audit"
+      ],
+      "runDir": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174356-plan-batch",
+      "runRequest": "Team mission: Audit the entire Huz-Backend project deeply. Act as a project manager, backend architect, backend performance specialist, security reviewer, QA engineer, and implementation engineer. First perform a full backend audit for performance bottlenecks, optimization issues, N+1 queries, inefficient loops, unnecessary DB/API work, security loopholes, dead code, risky patterns, maintainability issues, and anything wrong. Then create a prioritized remediation plan and implement the safe backend fixes in parallel. Important constraint: only document and fix issues that can be resolved entirely within the backend. If an issue would require any frontend change, contract/consumer update, UI change, or downstream frontend work, do not implement that part. Document it clearly as frontend-impacting and skip code changes for it. Keep all changes scoped to the backend repo, verify each batch, and finish with a final summary of issues found, fixes implemented, skipped frontend-impacting items, and verification results.\n\nYou are the Project Manager in coordinated team \"Huz Backend Backend-Only Audit and Fix\".\nAssigned lane: Backlog triage and batching\nPrimary objective: Turn audit findings into lane-specific implementation batches with clear ownership and priorities.\nExecution phase: planning\nMode: plan-batch\nScope level: panel-fullstack\nScope: /Users/macbook/Desktop/Huz/Huz-Backend\nScope targets: [Not specified]\n\nTeam coordination contract:\n- Work only inside your assigned lane.\n- Ownership boundaries: coordination:plan\n- This is a report-only run. Do not modify product code; workspace docs and reports are allowed.\n- Read atlas docs, QA reports, and BUG_BACKLOG before making major decisions.\n- If you discover issues outside your lane, document them clearly in RUN_SUMMARY or BUG_BACKLOG instead of implementing them here.\n- Upstream dependencies that should already be complete: QA Audit, Security Audit, React Runtime and JS Audit\n\nPlanning contract:\n- Read all upstream reports first.\n- Convert the findings into implementation batches grouped by lane.\n- Make ownership explicit so downstream implementers do not overlap.\n\nOriginal operator request:\nAudit the entire Huz-Backend project deeply. Act as a project manager, backend architect, backend performance specialist, security reviewer, QA engineer, and implementation engineer. First perform a full backend audit for performance bottlenecks, optimization issues, N+1 queries, inefficient loops, unnecessary DB/API work, security loopholes, dead code, risky patterns, maintainability issues, and anything wrong. Then create a prioritized remediation plan and implement the safe backend fixes in parallel. Important constraint: only document and fix issues that can be resolved entirely within the backend. If an issue would require any frontend change, contract/consumer update, UI change, or downstream frontend work, do not implement that part. Document it clearly as frontend-impacting and skip code changes for it. Keep all changes scoped to the backend repo, verify each batch, and finish with a final summary of issues found, fixes implemented, skipped frontend-impacting items, and verification results.",
+      "materializeError": ""
+    },
+    {
+      "id": "fix-huz-backend",
+      "title": "Huz-Backend Lane Fix Lane",
+      "role": "React / JavaScript Specialist",
+      "phase": "implementation",
+      "lane": "Huz-Backend Lane",
+      "summary": "Implement the highest-value fixes and optimizations for Huz-Backend.",
+      "mode": "fix-backlog",
+      "scope": "/Users/macbook/Desktop/Huz/Huz-Backend",
+      "scopeLevel": "panel-fullstack",
+      "scopeTargets": [
+        "huz-backend"
+      ],
+      "ownershipPaths": [
+        "/Users/macbook/Desktop/Huz/Huz-Backend"
+      ],
+      "ownershipKeys": [
+        "/Users/macbook/Desktop/Huz/Huz-Backend"
+      ],
+      "reportOnly": false,
+      "mutatesCode": true,
+      "dependsOn": [
+        "pm-plan"
+      ],
+      "runDir": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174356-fix-backlog",
+      "runRequest": "Team mission: Audit the entire Huz-Backend project deeply. Act as a project manager, backend architect, backend performance specialist, security reviewer, QA engineer, and implementation engineer. First perform a full backend audit for performance bottlenecks, optimization issues, N+1 queries, inefficient loops, unnecessary DB/API work, security loopholes, dead code, risky patterns, maintainability issues, and anything wrong. Then create a prioritized remediation plan and implement the safe backend fixes in parallel. Important constraint: only document and fix issues that can be resolved entirely within the backend. If an issue would require any frontend change, contract/consumer update, UI change, or downstream frontend work, do not implement that part. Document it clearly as frontend-impacting and skip code changes for it. Keep all changes scoped to the backend repo, verify each batch, and finish with a final summary of issues found, fixes implemented, skipped frontend-impacting items, and verification results.\n\nYou are the React / JavaScript Specialist in coordinated team \"Huz Backend Backend-Only Audit and Fix\".\nAssigned lane: Huz-Backend Lane\nPrimary objective: Implement the highest-value fixes and optimizations for Huz-Backend.\nExecution phase: implementation\nMode: fix-backlog\nScope level: panel-fullstack\nScope: /Users/macbook/Desktop/Huz/Huz-Backend\nScope targets: huz-backend\n\nTeam coordination contract:\n- Work only inside your assigned lane.\n- Ownership boundaries: /Users/macbook/Desktop/Huz/Huz-Backend\n- You may modify code only inside your ownership boundaries. Treat other lanes as read-only and create handoff notes instead of cross-lane edits.\n- Read atlas docs, QA reports, and BUG_BACKLOG before making major decisions.\n- If you discover issues outside your lane, document them clearly in RUN_SUMMARY or BUG_BACKLOG instead of implementing them here.\n- Upstream dependencies that should already be complete: Project Manager Remediation Plan\n\nImplementation contract:\n- Read the backlog and project-manager plan first.\n- Fix only the highest-value items assigned to this lane.\n- Verify the touched area and update BUG_BACKLOG with exact status changes and remaining follow-ups.\n- Avoid unrelated cleanup or architectural drift outside this lane.\n\nOriginal operator request:\nAudit the entire Huz-Backend project deeply. Act as a project manager, backend architect, backend performance specialist, security reviewer, QA engineer, and implementation engineer. First perform a full backend audit for performance bottlenecks, optimization issues, N+1 queries, inefficient loops, unnecessary DB/API work, security loopholes, dead code, risky patterns, maintainability issues, and anything wrong. Then create a prioritized remediation plan and implement the safe backend fixes in parallel. Important constraint: only document and fix issues that can be resolved entirely within the backend. If an issue would require any frontend change, contract/consumer update, UI change, or downstream frontend work, do not implement that part. Document it clearly as frontend-impacting and skip code changes for it. Keep all changes scoped to the backend repo, verify each batch, and finish with a final summary of issues found, fixes implemented, skipped frontend-impacting items, and verification results.",
+      "materializeError": ""
+    },
+    {
+      "id": "qa-verify",
+      "title": "QA Verification Sweep",
+      "role": "QA Engineer",
+      "phase": "verification",
+      "lane": "Regression and test confidence",
+      "summary": "Recheck implementation lanes, hunt regressions, and strengthen verification evidence.",
+      "mode": "regression-hunt",
+      "scope": "/Users/macbook/Desktop/Huz/Huz-Backend",
+      "scopeLevel": "panel-fullstack",
+      "scopeTargets": [
+        "huz-backend"
+      ],
+      "ownershipPaths": [],
+      "ownershipKeys": [
+        "verify:global"
+      ],
+      "reportOnly": false,
+      "mutatesCode": true,
+      "dependsOn": [
+        "fix-huz-backend"
+      ],
+      "runDir": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174356-regression-hunt",
+      "runRequest": "Team mission: Audit the entire Huz-Backend project deeply. Act as a project manager, backend architect, backend performance specialist, security reviewer, QA engineer, and implementation engineer. First perform a full backend audit for performance bottlenecks, optimization issues, N+1 queries, inefficient loops, unnecessary DB/API work, security loopholes, dead code, risky patterns, maintainability issues, and anything wrong. Then create a prioritized remediation plan and implement the safe backend fixes in parallel. Important constraint: only document and fix issues that can be resolved entirely within the backend. If an issue would require any frontend change, contract/consumer update, UI change, or downstream frontend work, do not implement that part. Document it clearly as frontend-impacting and skip code changes for it. Keep all changes scoped to the backend repo, verify each batch, and finish with a final summary of issues found, fixes implemented, skipped frontend-impacting items, and verification results.\n\nYou are the QA Engineer in coordinated team \"Huz Backend Backend-Only Audit and Fix\".\nAssigned lane: Regression and test confidence\nPrimary objective: Recheck implementation lanes, hunt regressions, and strengthen verification evidence.\nExecution phase: verification\nMode: regression-hunt\nScope level: panel-fullstack\nScope: /Users/macbook/Desktop/Huz/Huz-Backend\nScope targets: huz-backend\n\nTeam coordination contract:\n- Work only inside your assigned lane.\n- Ownership boundaries: verify:global\n- You may modify code only inside your ownership boundaries. Treat other lanes as read-only and create handoff notes instead of cross-lane edits.\n- Read atlas docs, QA reports, and BUG_BACKLOG before making major decisions.\n- If you discover issues outside your lane, document them clearly in RUN_SUMMARY or BUG_BACKLOG instead of implementing them here.\n- Upstream dependencies that should already be complete: Huz-Backend Lane Fix Lane\n\nVerification contract:\n- Recheck implementation lanes for regressions and missing coverage.\n- Tighten tests or validation where needed.\n- Fix only issues directly caused by the implementation wave and document evidence clearly.\n\nOriginal operator request:\nAudit the entire Huz-Backend project deeply. Act as a project manager, backend architect, backend performance specialist, security reviewer, QA engineer, and implementation engineer. First perform a full backend audit for performance bottlenecks, optimization issues, N+1 queries, inefficient loops, unnecessary DB/API work, security loopholes, dead code, risky patterns, maintainability issues, and anything wrong. Then create a prioritized remediation plan and implement the safe backend fixes in parallel. Important constraint: only document and fix issues that can be resolved entirely within the backend. If an issue would require any frontend change, contract/consumer update, UI change, or downstream frontend work, do not implement that part. Document it clearly as frontend-impacting and skip code changes for it. Keep all changes scoped to the backend repo, verify each batch, and finish with a final summary of issues found, fixes implemented, skipped frontend-impacting items, and verification results.",
+      "materializeError": ""
+    },
+    {
+      "id": "pm-wrap",
+      "title": "Project Manager Wrap-up",
+      "role": "Project Manager",
+      "phase": "wrap-up",
+      "lane": "Final recap",
+      "summary": "Summarize what was fixed, what remains, and the next recommended batch.",
+      "mode": "change-journal",
+      "scope": "/Users/macbook/Desktop/Huz/Huz-Backend",
+      "scopeLevel": "panel-fullstack",
+      "scopeTargets": [],
+      "ownershipPaths": [],
+      "ownershipKeys": [
+        "coordination:wrap"
+      ],
+      "reportOnly": true,
+      "mutatesCode": false,
+      "dependsOn": [
+        "qa-verify"
+      ],
+      "runDir": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174356-change-journal",
+      "runRequest": "Team mission: Audit the entire Huz-Backend project deeply. Act as a project manager, backend architect, backend performance specialist, security reviewer, QA engineer, and implementation engineer. First perform a full backend audit for performance bottlenecks, optimization issues, N+1 queries, inefficient loops, unnecessary DB/API work, security loopholes, dead code, risky patterns, maintainability issues, and anything wrong. Then create a prioritized remediation plan and implement the safe backend fixes in parallel. Important constraint: only document and fix issues that can be resolved entirely within the backend. If an issue would require any frontend change, contract/consumer update, UI change, or downstream frontend work, do not implement that part. Document it clearly as frontend-impacting and skip code changes for it. Keep all changes scoped to the backend repo, verify each batch, and finish with a final summary of issues found, fixes implemented, skipped frontend-impacting items, and verification results.\n\nYou are the Project Manager in coordinated team \"Huz Backend Backend-Only Audit and Fix\".\nAssigned lane: Final recap\nPrimary objective: Summarize what was fixed, what remains, and the next recommended batch.\nExecution phase: wrap-up\nMode: change-journal\nScope level: panel-fullstack\nScope: /Users/macbook/Desktop/Huz/Huz-Backend\nScope targets: [Not specified]\n\nTeam coordination contract:\n- Work only inside your assigned lane.\n- Ownership boundaries: coordination:wrap\n- This is a report-only run. Do not modify product code; workspace docs and reports are allowed.\n- Read atlas docs, QA reports, and BUG_BACKLOG before making major decisions.\n- If you discover issues outside your lane, document them clearly in RUN_SUMMARY or BUG_BACKLOG instead of implementing them here.\n- Upstream dependencies that should already be complete: QA Verification Sweep\n\nWrap-up contract:\n- Summarize what the team completed, what remains, and the next recommended batch.\n- Keep the change journal concise and developer-actionable.\n\nOriginal operator request:\nAudit the entire Huz-Backend project deeply. Act as a project manager, backend architect, backend performance specialist, security reviewer, QA engineer, and implementation engineer. First perform a full backend audit for performance bottlenecks, optimization issues, N+1 queries, inefficient loops, unnecessary DB/API work, security loopholes, dead code, risky patterns, maintainability issues, and anything wrong. Then create a prioritized remediation plan and implement the safe backend fixes in parallel. Important constraint: only document and fix issues that can be resolved entirely within the backend. If an issue would require any frontend change, contract/consumer update, UI change, or downstream frontend work, do not implement that part. Document it clearly as frontend-impacting and skip code changes for it. Keep all changes scoped to the backend repo, verify each batch, and finish with a final summary of issues found, fixes implemented, skipped frontend-impacting items, and verification results.",
+      "materializeError": ""
+    }
+  ]
+}

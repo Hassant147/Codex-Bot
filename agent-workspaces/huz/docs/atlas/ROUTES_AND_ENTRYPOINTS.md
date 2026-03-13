@@ -1,0 +1,135 @@
+# Routes and Entrypoints
+
+Track frontend routes, backend route groups, entry components, and bootstrap paths here.
+
+## Routes
+- Booking audit scope refresh (2026-03-11):
+  - Workspace surfaces in scope:
+    - `Huz-Web-Frontend` customer routes from `src/routes/AppRoutes.jsx`
+    - `Huz-Admin-Frontend` partner and super-admin routes from `src/App.js`
+    - `Huz-Operator-Frontend` shell routes from `src/routes/index.jsx`, `src/pages/Dashboard/DashboardRoutes.jsx`, and `src/pages/Dashboard/BookingsModule/BookingRoutes.jsx`
+    - `Huz-Backend` booking/common/management URL roots from `Huz-Backend/huz/urls.py`
+  - Web customer booking and support routes:
+    - `/bookings`
+    - `/package-booking`
+    - `/payment-methods`
+    - `/booking-status`
+    - `/remaining-payment`
+    - `/help`
+    - `/operator-response`
+  - Operator routes:
+    - `/*` -> `DashboardRoutes`
+    - `/booking-module/booking`
+    - `/booking-module/booking/:bookingNumber`
+    - `/booking-module/booking/:bookingNumber/upload-evisa`
+    - `/booking-module/booking/:bookingNumber/airline-tickets`
+    - `/booking-module/booking/:bookingNumber/transport-arrangement`
+    - `/booking-module/booking/:bookingNumber/hotel-arrangement`
+    - `/complaints`
+    - `/reviews-ratings`
+  - Admin partner routes:
+    - `/dashboard` and `/partner-dashboard` (booking summary cards)
+    - `/booking`
+    - `/booking/:bookingNumber`
+    - `/booking/:bookingNumber/upload-evisa`
+    - `/booking/:bookingNumber/airline-tickets`
+    - `/booking/:bookingNumber/transport-arrangement`
+    - `/booking/:bookingNumber/hotel-arrangement`
+    - legacy redirects: `/bookingdetails`, `/package/upload-evisa`, `/package/airline-tickets`, `/package/transport-arrangement`, `/package/hotel-arrangement`
+    - `/all-payments`
+    - `/complaints`
+    - `/reviews-ratings`
+  - Admin super-admin routes:
+    - `/approve-amounts`
+    - `/booking-details`
+    - `/approve-partners-amounts`
+    - `/booking-details-for-partners`
+  - Backend route groups in scope:
+    - `path('api/v1/', include('booking.api_urls'))`
+    - `path('api/v1/', include('common.api_urls'))`
+    - `path('bookings/', include('booking.urls'))`
+    - `path('management/', include('management.urls'))`
+  - Contract note:
+    - customer web flows use `/api/v1/...`
+    - operator and admin flows remain on `/bookings/...` and `/management/...`
+    - dashboard, complaint, review, and receivable screens are indirect booking consumers because they derive counts or payment state from booking records
+  - Phase 3 verification note:
+    - `/all-payments` and the admin receivable card consume `/bookings/get_receivable_payment_statistics/`, whose live backend contract is paginated.
+    - `/booking-details-for-partners` renders settlement review after a management-queue handoff and now hydrates payment proofs from `/management/fetch_all_paid_bookings/` instead of trusting the hidden `payment_detail` branch of `/bookings/get_booking_detail_by_booking_number/`.
+    - the operator dashboard "Recent Bookings" card depends on `VITE_DASHBOARD_SUMMARY_ENDPOINT`; without it, `src/api/DashboardApi.js` falls back to `/bookings/get_all_booking_detail_for_partner/` with `workflow_bucket=READY`.
+    - admin booking detail and fulfillment subflows now own booking identity under `/booking/:bookingNumber/*`; legacy `/bookingdetails` and `/package/*` entrypoints only redirect into the route-owned paths.
+    - Phase 2 verification confirmed the booking detail, visa, airline, transport, and hotel routed entrypoints all load through the shared route-param loader instead of shared `localStorage`.
+    - admin pending-action controls now consume backend `operator_can_act` before rendering a decision form, matching the stricter workflow contract already enforced server-side.
+    - admin `/booking` now forwards `workflow_bucket`, `booking_number`, `page`, and `page_size` to `/bookings/get_all_booking_detail_for_partner/` and paginates from backend metadata.
+    - admin `/complaints` now forwards `complaint_status`, `search`, `from_date`, `to_date`, `page`, and `page_size` to `/bookings/get_all_complaints_for_partner/` and paginates from backend metadata.
+  - Phase 1 implementation note for Batch 03:
+    - completed-booking detail cards in both partner panels now hide fulfillment edit/delete affordances once `booking_status=COMPLETED`, while the routed fulfillment subflow pages themselves refuse entry outside `IN_FULFILLMENT` and `READY_FOR_TRAVEL`.
+    - admin `/booking/:bookingNumber` now includes a reported-travelers UI branch for `issue_status=REPORTED`; Release Gate Phase 1 closed the remaining contract gap by exposing an additive `traveller_detail[]` alias on the legacy detail/report payload and reloading the booking after report updates so the admin surface no longer depends on operator-only normalization.
+    - `/bookings/delete_booking_documents/` now matches the create/update fulfillment-state gate and returns `409` outside the same manageable statuses.
+  - Phase 1 implementation note for Batch 04:
+    - when the operator dashboard cannot use `VITE_DASHBOARD_SUMMARY_ENDPOINT`, the recent-bookings card still falls back to `/bookings/get_all_booking_detail_for_partner/` with `workflow_bucket=READY`, but the UI now labels that feed as a ready-queue fallback and reports ready-scope totals instead of generic recent-bookings totals.
+    - operator `/booking-module/booking` search copy now matches the live backend filter contract by advertising booking-number-only search.
+    - web `/help` now resolves relative complaint/request attachment links and complaint audio links against `REACT_APP_API_BASE_URL` before rendering them as external links.
+  - Phase 2 verification note for Batch 04:
+    - `npm run build` passed in `Huz-Operator-Frontend`.
+    - `npm run build` passed in `Huz-Web-Frontend` with unrelated existing warnings only.
+    - source smoke confirmed the checked-in operator `.env` still leaves `VITE_DASHBOARD_SUMMARY_ENDPOINT` unset, operator `/booking-module/booking` still forwards booking-number-only search to `/bookings/get_all_booking_detail_for_partner/`, and web `/help` renders support media links through API-origin resolution.
+- Backend route group: `partner` public package discovery
+  - `GET /partner/get_package_short_detail_for_web/`
+  - `GET /partner/get_featured_packages/`
+  - `GET /partner/get_package_detail_by_city_and_date/`
+  - `GET /partner/get_package_detail_by_package_id_for_web/`
+  - Phase 1 note: queryset optimization was applied without endpoint signature changes.
+- Backend route group: `common` OTP
+  - `POST /common/send_otp_sms/`
+  - `POST/DELETE /common/manage_user_account/` (OTP send path inside create flow)
+  - Phase 1 note: outbound SMS call strategy now uses explicit timeout + retry behavior.
+- Backend route group: `bookings` detail/list serializers
+  - Multiple booking endpoints that use `DetailBookingSerializer` / `ShortBookingSerializer`
+  - Phase 1 note: serializer relation fallback behavior changed internally (prefetched-empty aware), with unchanged route contracts.
+- Verification gate note (Phase 2):
+  - Focused route-level regression checks passed through app test modules covering OTP send flow, partner package management flow, and booking user list/detail flow.
+
+## Web Panel Refactor Notes (2026-03-09)
+- Frontend booking flows now use canonical `v1` routes only:
+  - `POST /api/v1/bookings/`
+  - `GET /api/v1/users/me/bookings/`
+  - `GET /api/v1/bookings/{booking_number}/`
+  - `DELETE /api/v1/bookings/{booking_number}/`
+  - `POST|PUT /api/v1/bookings/{booking_number}/passports/`
+  - `POST|PUT /api/v1/bookings/{booking_number}/payments/`
+- Frontend self-service profile and wallet flows now use dedicated `users/me` `v1` routes:
+  - `GET|PUT /api/v1/users/me/profile/`
+  - `GET|POST|PUT /api/v1/users/me/address/`
+  - `GET|POST|DELETE /api/v1/users/me/wallet/banks/`
+  - `GET|POST /api/v1/users/me/wallet/withdrawals/`
+  - `GET /api/v1/users/me/wallet/transactions/`
+- Frontend support contract now has canonical `v1` endpoints:
+  - `POST /api/v1/bookings/{booking_number}/reviews/`
+  - `POST /api/v1/bookings/{booking_number}/complaints/`
+  - `GET /api/v1/users/me/complaints/`
+  - `POST /api/v1/bookings/{booking_number}/requests/`
+  - `GET /api/v1/users/me/requests/`
+  - `PUT /api/v1/bookings/{booking_number}/objections/{objection_id}/response/`
+- Public package/catalog routes remain intentionally on `/partner/...`, but the frontend now centralizes them in `src/api/publicPackagesApi.js` instead of spreading ownership across multiple wrappers.
+- `src/api/apiService.js` was deleted in the March 11 dead-code prune after reference scan confirmed no active web-panel entrypoint still imported it.
+
+## User-Setting Module Notes (2026-03-09)
+- The protected sidebar-backed routes below now share one frontend module shell:
+  - `/personal-details`
+  - `/booking-status`
+  - `/wishlist`
+  - `/payment-wallet`
+  - `/help`
+  - `/messages`
+  - `/remaining-payment`
+- Shared entry components for that module now live under:
+  - `Huz-Web-Frontend/src/features/accountModule/components/AccountPageShell.jsx`
+  - `Huz-Web-Frontend/src/features/accountModule/components/AccountPageHero.jsx`
+  - `Huz-Web-Frontend/src/features/accountModule/components/AccountSectionCard.jsx`
+  - `Huz-Web-Frontend/src/features/accountModule/components/AccountSidebarMenu.jsx`
+- Shared navigation state for the module now lives in:
+  - `Huz-Web-Frontend/src/features/accountModule/accountNavigation.js`
+- Legacy note:
+  - the older page-local `Huz-Web-Frontend/src/pages/UserSetting/sidebar.jsx` file was removed in the March 11 dead-code prune; active sidebar rendering now comes from the account-module shell/menu only.
+- No route-path changes were introduced in the migration; existing protected route entries in `src/routes/AppRoutes.jsx` remain stable.

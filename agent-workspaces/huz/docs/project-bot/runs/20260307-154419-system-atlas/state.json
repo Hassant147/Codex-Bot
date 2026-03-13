@@ -1,0 +1,107 @@
+{
+  "version": 1,
+  "workspaceRoot": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz",
+  "projectPath": "/Users/macbook/Desktop/Huz",
+  "mode": "system-atlas",
+  "modeTitle": "System Atlas",
+  "description": "Build or refresh the master project blueprint, module map, routes, APIs, flows, and change map so future work can rely on durable project memory.",
+  "scopeLevel": "panel-fullstack",
+  "scope": "",
+  "scopeTargets": [],
+  "request": "Refresh the full system atlas for this project. Update the blueprint, module map, routes, API surface, and change map only.\n\nCompiled automation contract:\n- Scope level: panel-fullstack\n- Scope: [Not explicitly specified]\n- Scope targets: [Not explicitly specified]\n- Keep atlas, maps, and audit files synchronized with any implementation changes.\n\nOriginal user request: Please run a complete blueprint run for backend and all frontends.\nInside the document, i want onyl these things:\nAPI LIST From backend,\nand On frontend which page or module is connected with that API.\nif an API is created on backend side but not connected to any FE then show those APIS in a seperate list.\n\nGlobal Instructions (always apply):\nAlways maintain full-system project memory in docs for the selected scope level.\nExclude non-dev and non-required files from deep mapping and auditing.\nWhen code changes touch modules/routes/APIs/contracts/schema/security/state, refresh relevant atlas docs in the same run.\nKeep audit findings traceable with status updates (open, fixed, verified) when remediation occurs.\nFor full-system or multi-panel fullstack scope, ensure frontend panels and backend structure/contracts are mapped together.",
+  "projectSurfaces": [
+    {
+      "id": "primary-project",
+      "label": "Huz-Web-Frontend",
+      "path": "/Users/macbook/Desktop/Huz/Huz-Web-Frontend",
+      "kind": "panel-fe"
+    }
+  ],
+  "devIgnorePatterns": [
+    "node_modules/**",
+    "dist/**",
+    "build/**",
+    "coverage/**",
+    ".git/**",
+    ".cache/**",
+    ".next/**",
+    ".turbo/**",
+    ".idea/**",
+    ".vscode/**",
+    "logs/**",
+    "tmp/**",
+    "temp/**",
+    "*.min.js",
+    "*.map",
+    "*.log",
+    "*.lock"
+  ],
+  "fullSystemRequiredDocs": true,
+  "requiredAtlasDocs": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/PROJECT_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/MODULE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/ROUTES_AND_ENTRYPOINTS.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/API_SURFACE.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/CHANGE_MAP.md"
+  ],
+  "designGuides": [
+    "/Users/macbook/Desktop/Huz/UI_DESIGN_SYSTEM_GUIDE.md",
+    "/Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md"
+  ],
+  "referenceDocs": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/PROJECT_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/MODULE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/ROUTES_AND_ENTRYPOINTS.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/API_SURFACE.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md"
+  ],
+  "forceExternalDocs": true,
+  "reportFiles": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md"
+  ],
+  "createdAt": "2026-03-07T10:44:19.803Z",
+  "updatedAt": "2026-03-07T11:05:28.099Z",
+  "phaseCursor": 3,
+  "phases": [
+    {
+      "id": 0,
+      "title": "Inventory Scope",
+      "status": "completed",
+      "completedAt": "2026-03-07T10:50:10.987Z",
+      "note": "",
+      "goal": "Scan the requested project scope and identify the major modules, entrypoints, routes, APIs, and ownership boundaries.",
+      "required": [
+        "Inspect only the directories and files needed to map the requested scope accurately.",
+        "Capture major modules, routes, service layers, data flows, and integration boundaries.",
+        "Collect evidence for stale docs, missing map sections, or structural ambiguity."
+      ]
+    },
+    {
+      "id": 1,
+      "title": "Refresh Atlas Docs",
+      "status": "completed",
+      "completedAt": "2026-03-07T11:00:28.235Z",
+      "note": "",
+      "goal": "Update every core atlas document so the project map is current and reusable.",
+      "required": [
+        "Update the project blueprint, module map, routes and entrypoints, API surface, and change map docs.",
+        "Document critical flows, ownership boundaries, and known implementation constraints.",
+        "Preserve useful historical context instead of overwriting it blindly."
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Validate Atlas Coverage",
+      "status": "completed",
+      "completedAt": "2026-03-07T11:05:28.086Z",
+      "note": "",
+      "goal": "Recheck the refreshed atlas against the codebase and record remaining blind spots.",
+      "required": [
+        "Reopen the highest-risk files referenced by the atlas and confirm the docs match reality.",
+        "Record assumptions, unknowns, and the next recommended atlas refresh targets.",
+        "Summarize what changed and how the atlas was verified."
+      ]
+    }
+  ]
+}

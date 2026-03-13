@@ -1,0 +1,14 @@
+Phase 4 is complete. I verified the Phase 3 public/static batch, found no blockers, and updated the workspace docs in [RUN_SUMMARY.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-062131-full-enhance/RUN_SUMMARY.md), [BUG_BACKLOG.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md), [DEEP_SCAN_REPORT.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md), and the atlas docs. `FE-REV-001` and `FE-REV-002` are now marked verified; `FE-REV-003` remains the next batch. Static checks passed via route tracing, import tracing, placeholder/content-key tracing, `@babel/parser`, and scoped `eslint`; the only lint output was the existing Browserslist `caniuse-lite is 13 months old` warning. No build ran, no `npm install` ran, no lockfiles changed, and no target-project code changed.
+
+`project_orchestrate.mjs complete --phase 4` and `project_orchestrate.mjs next` both succeeded.
+
+`NEXT_PROMPT.md`:
+```md
+Use $project-autopilot-manager in `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz`.
+Read `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-062131-full-enhance/state.json` and `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-062131-full-enhance/prompts/phase-05.md`.
+Execute only Phase 5 (Finalize Docs and Summary) against target project `/Users/macbook/Desktop/Huz`.
+At the end, run:
+1. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-062131-full-enhance --phase 5`
+2. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-062131-full-enhance`
+Then print `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-062131-full-enhance/NEXT_PROMPT.md`.
+```

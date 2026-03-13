@@ -1,0 +1,171 @@
+{
+  "version": 1,
+  "workspaceRoot": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz",
+  "projectPath": "/Users/macbook/Desktop/Huz",
+  "mode": "fix-backlog",
+  "modeTitle": "Fix Backlog",
+  "description": "Read the bug/improvement backlog, pick the next highest-priority item or module batch, implement it, verify it, and keep the backlog and atlas in sync.",
+  "scopeLevel": "multi-panel-fullstack",
+  "scope": "/Users/macbook/Desktop/Huz",
+  "scopeTargets": [
+    "/Users/macbook/Desktop/Huz/Huz-Admin-Frontend",
+    "/Users/macbook/Desktop/Huz/Huz-Operator-Frontend",
+    "/Users/macbook/Desktop/Huz/Huz-Backend"
+  ],
+  "request": "Implement Booking Contract Batch 03 only.\n\nCampaign context:\n- /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/BOOKING_CONTRACT_REMEDIATION_MASTER_REQUEST_2026-03-11.md\n\nTarget this bounded batch only:\n- BOOKING-008: completed-state edit/update entrypoints must align with backend fulfillment rules\n- BOOKING-009: admin booking detail must surface reported-traveler state for `issue_status=REPORTED`\n\nHard boundaries:\n- Do not implement operator dashboard/search truthfulness or web support-origin fixes in this run unless a blocker forces a directly adjacent fix.\n- Keep the admin access-operator-profile module excluded.\n- If completed-state mutation remains possible through delete/document side paths, close that gap in this same batch.\n\nRequired outcomes:\n- Admin and operator completed-booking screens no longer advertise or route into illegal create/update mutations when backend rules reject those actions.\n- Any completed-state delete/document mutation path that bypasses the intended workflow guard is removed or status-gated.\n- Admin booking detail surfaces reported-traveler context when `issue_status=REPORTED` and keeps that flow aligned with the backend and operator detail behavior.\n- Admin/operator workflow screens stay consistent with backend `booking_status` and `issue_status` semantics.\n\nVerification minimum:\n- `npm run build` or equivalent scoped verification for `Huz-Admin-Frontend`\n- `npm run build` or equivalent scoped verification for `Huz-Operator-Frontend`\n- Backend verification for touched booking workflow endpoints and guards\n\nDocs:\n- Update workspace backlog, deep scan, route/module docs, API surface if needed, and change map.\n- If project-local booking docs materially change state because of this batch, update them too.",
+  "projectSurfaces": [
+    {
+      "id": "web-panel",
+      "label": "Huz-Web-Frontend",
+      "path": "/Users/macbook/Desktop/Huz/Huz-Web-Frontend",
+      "kind": "panel-fe"
+    },
+    {
+      "id": "admin-panel",
+      "label": "Huz-Admin-Frontend",
+      "path": "/Users/macbook/Desktop/Huz/Huz-Admin-Frontend",
+      "kind": "panel-fe"
+    },
+    {
+      "id": "operator-panel",
+      "label": "Huz-Operator-Frontend",
+      "path": "/Users/macbook/Desktop/Huz/Huz-Operator-Frontend",
+      "kind": "panel-fe"
+    },
+    {
+      "id": "backend-api",
+      "label": "Huz-Backend",
+      "path": "/Users/macbook/Desktop/Huz/Huz-Backend",
+      "kind": "panel-be"
+    }
+  ],
+  "devIgnorePatterns": [
+    "node_modules/**",
+    "dist/**",
+    "build/**",
+    "coverage/**",
+    ".git/**",
+    ".cache/**",
+    ".next/**",
+    ".turbo/**",
+    ".idea/**",
+    ".vscode/**",
+    "logs/**",
+    "tmp/**",
+    "temp/**",
+    "*.min.js",
+    "*.map",
+    "*.log",
+    "*.lock"
+  ],
+  "fullSystemRequiredDocs": true,
+  "requiredAtlasDocs": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/SYSTEM_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/FILE_MAP_DEV_ONLY.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/PANEL_MODULE_INDEX.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/FRONTEND_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/BACKEND_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/PROJECT_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/MODULE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/ROUTES_AND_ENTRYPOINTS.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/ROUTE_MATRIX.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/STATE_MANAGEMENT_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/API_SURFACE.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/API_CONTRACT_REGISTRY.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/BACKEND_SCHEMA_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/DEPENDENCY_GRAPH.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/SECURITY_THREAT_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/TRACEABILITY_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/CHANGE_MAP.md"
+  ],
+  "designGuides": [
+    "/Users/macbook/Desktop/Huz/UI_DESIGN_SYSTEM_GUIDE.md",
+    "/Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md"
+  ],
+  "referenceDocs": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/PROJECT_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/SYSTEM_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/FILE_MAP_DEV_ONLY.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/PANEL_MODULE_INDEX.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/FRONTEND_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/BACKEND_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/MODULE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/ROUTES_AND_ENTRYPOINTS.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/ROUTE_MATRIX.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/STATE_MANAGEMENT_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/API_SURFACE.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/API_CONTRACT_REGISTRY.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/BACKEND_SCHEMA_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/DEPENDENCY_GRAPH.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/SECURITY_THREAT_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/TRACEABILITY_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/FULL_AUDIT_REPORT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/BOOKING_CONTRACT_REMEDIATION_MASTER_REQUEST_2026-03-11.md",
+    "/Users/macbook/Desktop/Huz/docs/codex_reports/BOOKING_FRONTEND_BACKEND_AUDIT_2026-03-11.md",
+    "/Users/macbook/Desktop/Huz/docs/codex_reports/BOOKING_CONTRACT_AUDIT_2026-03-11.md"
+  ],
+  "forceExternalDocs": true,
+  "reportFiles": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md"
+  ],
+  "createdAt": "2026-03-11T13:47:16.657Z",
+  "updatedAt": "2026-03-11T14:22:47.707Z",
+  "phaseCursor": 4,
+  "phases": [
+    {
+      "id": 0,
+      "title": "Select Backlog Target",
+      "status": "completed",
+      "completedAt": "2026-03-11T13:51:57.562Z",
+      "note": "",
+      "goal": "Pick the next backlog item or safe batch to implement.",
+      "required": [
+        "Read the backlog and current atlas docs first.",
+        "Choose the highest-priority item or the requested module-specific batch.",
+        "Confirm the scope, expected behavior, and required verification before editing code."
+      ]
+    },
+    {
+      "id": 1,
+      "title": "Implement the Fix",
+      "status": "completed",
+      "completedAt": "2026-03-11T14:10:07.981Z",
+      "note": "",
+      "goal": "Apply the selected backlog fix across the necessary modules.",
+      "required": [
+        "Implement the minimum coherent code changes required to resolve the selected backlog target.",
+        "Keep diffs scoped to the chosen item or batch.",
+        "If new adjacent bugs are discovered, fix them only if they block the selected work or record them in the backlog."
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Verify and Update Backlog",
+      "status": "completed",
+      "completedAt": "2026-03-11T14:19:11.651Z",
+      "note": "",
+      "goal": "Run validations, confirm the fix, and update the backlog state.",
+      "required": [
+        "Run the relevant build, test, lint, typecheck, or smoke commands for the affected scope.",
+        "Update the backlog status, verification notes, and any residual risk.",
+        "Refresh the atlas docs if routes, APIs, structure, or ownership changed."
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Summarize and Queue Next",
+      "status": "completed",
+      "completedAt": "2026-03-11T14:22:47.701Z",
+      "note": "",
+      "goal": "Leave the backlog ready for the next fix run.",
+      "required": [
+        "Append a detailed summary of the implemented fix and how it was verified.",
+        "Record the next recommended backlog target.",
+        "Ensure future runs can continue without rescanning the entire project."
+      ]
+    }
+  ]
+}

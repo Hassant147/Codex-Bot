@@ -1,0 +1,13 @@
+Phase 4 is complete. `FE-REV-003` is now verified, the durable docs were refreshed, and the next batch remains `FE-REV-005` for `VisaServices`, `ContactUs`, `HajjUmrahBusiness`, and `ListPackagePage`. Verification passed via route tracing, wrapper/shared-module tracing, no new API-side-effect hits, `parser-ok 12`, and scoped eslint with only the existing `Browserslist` age warning. No build, `npm install`, lockfile, or target-project code changes were made in this phase.
+
+`NEXT_PROMPT.md`:
+
+```md
+Use $project-autopilot-manager in `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz`.
+Read `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-145701-full-enhance/state.json` and `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-145701-full-enhance/prompts/phase-05.md`.
+Execute only Phase 5 (Finalize Docs and Summary) against target project `/Users/macbook/Desktop/Huz`.
+At the end, run:
+1. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-145701-full-enhance --phase 5`
+2. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-145701-full-enhance`
+Then print `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-145701-full-enhance/NEXT_PROMPT.md`.
+```

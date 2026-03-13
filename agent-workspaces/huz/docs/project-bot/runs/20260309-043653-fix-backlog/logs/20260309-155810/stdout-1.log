@@ -1,0 +1,512 @@
+OpenAI Codex v0.108.0-alpha.12 (research preview)
+--------
+workdir: /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR, /Users/macbook/.codex/memories, /Users/macbook/Desktop/Huz]
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019cd23f-4f48-7481-a18c-bed4a0b0c2b0
+--------
+user
+Use $project-autopilot-manager in `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz`.
+Read `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-043653-fix-backlog/state.json` and `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-043653-fix-backlog/prompts/phase-03.md`.
+Execute only Phase 3 (Summarize and Queue Next) against target project `/Users/macbook/Desktop/Huz`.
+At the end, run:
+1. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-043653-fix-backlog --phase 3`
+2. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-043653-fix-backlog`
+Then print `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-043653-fix-backlog/NEXT_PROMPT.md`.
+
+mcp: playwright starting
+2026-03-09T10:58:12.138285Z  WARN codex_core::shell_snapshot: Failed to delete shell snapshot at "/Users/macbook/.codex/shell_snapshots/019cd23f-4f48-7481-a18c-bed4a0b0c2b0.tmp-1773053891065667000": Os { code: 2, kind: NotFound, message: "No such file or directory" }
+mcp: playwright ready
+mcp startup: ready: playwright
+codex
+Using `project-autopilot-manager` for this run. I’ll read the run state and Phase 3 prompt first, then execute only the summarize/queue step and run the two orchestration commands you specified.
+exec
+/bin/zsh -lc "cat /Users/macbook/.codex/skills/project-autopilot-manager/SKILL.md && echo '
+---
+' && cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-043653-fix-backlog/state.json && echo '
+---
+' && cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-043653-fix-backlog/prompts/phase-03.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+---
+name: project-autopilot-manager
+description: General-purpose Codex project bot for initializing persistent atlas docs, creating bounded multi-phase task runs, keeping blueprint/map files updated after code changes, and automating fresh-session execution for scans, cleanup, revamps, feature work, and full project enhancement. Use when Codex should manage a project end-to-end instead of relying on repeated manual prompt transfer.
+---
+
+# Project Autopilot Manager
+
+## Purpose
+
+Run large project tasks through durable docs and bounded fresh-session phases so Codex can keep working without rescanning the entire codebase every time.
+
+## Core Guarantees
+
+- Keep atlas docs current after code changes.
+- Store project memory in files, not chat memory.
+- Split large work into bounded phases.
+- Generate fresh-session prompts automatically.
+- Work across different local projects by changing the target project path.
+
+## Main Script
+2026-03-09T10:58:26.830503Z  WARN codex_core::analytics_client: events failed with status 403 Forbidden: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style global>body{font-family:Arial,Helvetica,sans-serif}.container{align-items:center;display:flex;flex-direction:column;gap:2rem;height:100%;justify-content:center;width:100%}@keyframes enlarge-appear{0%{opacity:0;transform:scale(75%) rotate(-90deg)}to{opacity:1;transform:scale(100%) rotate(0deg)}}.logo{color:#8e8ea0}.scale-appear{animation:enlarge-appear .4s ease-out}@media (min-width:768px){.scale-appear{height:48px;width:48px}}.data:empty{display:none}.data{border-radius:5px;color:#8e8ea0;text-align:center}@media (prefers-color-scheme:dark){body{background-color:#343541}.logo{color:#acacbe}}</style>
+  <meta http-equiv="refresh" content="360"></head>
+  <body>
+    <div class="container">
+      <div class="logo">
+        <svg
+          width="41"
+          height="41"
+          viewBox="0 0 41 41"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          strokeWidth="2"
+          class="scale-appear"
+        >
+          <path
+            d="M37.5324 16.8707C37.9808 15.5241 38.1363 14.0974 37.9886 12.6859C37.8409 11.2744 37.3934 9.91076 36.676 8.68622C35.6126 6.83404 33.9882 5.3676 32.0373 4.4985C30.0864 3.62941 27.9098 3.40259 25.8215 3.85078C24.8796 2.7893 23.7219 1.94125 22.4257 1.36341C21.1295 0.785575 19.7249 0.491269 18.3058 0.500197C16.1708 0.495044 14.0893 1.16803 12.3614 2.42214C10.6335 3.67624 9.34853 5.44666 8.6917 7.47815C7.30085 7.76286 5.98686 8.3414 4.8377 9.17505C3.68854 10.0087 2.73073 11.0782 2.02839 12.312C0.956464 14.1591 0.498905 16.2988 0.721698 18.4228C0.944492 20.5467 1.83612 22.5449 3.268 24.1293C2.81966 25.4759 2.66413 26.9026 2.81182 28.3141C2.95951 29.7256 3.40701 31.0892 4.12437 32.3138C5.18791 34.1659 6.8123 35.6322 8.76321 36.5013C10.7141 37.3704 12.8907 37.5973 14.9789 37.1492C15.9208 38.2107 17.0786 39.0587 18.3747 39.6366C19.6709 40.2144 21.0755 40.5087 22.4946 40.4998C24.6307 40.5054 26.7133 39.8321 28.4418 38.5772C30.1704 37.3223 31.4556 35.5506 32.1119 33.5179C33.5027 33.2332 34.8167 32.6547 35.9659 31.821C37.115 30.9874 38.0728 29.9178 38.7752 28.684C39.8458 26.8371 40.3023 24.6979 40.0789 22.5748C39.8556 20.4517 38.9639 18.4544 37.5324 16.8707ZM22.4978 37.8849C20.7443 37.8874 19.0459 37.2733 17.6994 36.1501C17.7601 36.117 17.8666 36.0586 17.936 36.0161L25.9004 31.4156C26.1003 31.3019 26.2663 31.137 26.3813 30.9378C26.4964 30.7386 26.5563 30.5124 26.5549 30.2825V19.0542L29.9213 20.998C29.9389 21.0068 29.9541 21.0198 29.9656 21.0359C29.977 21.052 29.9842 21.0707 29.9867 21.0902V30.3889C29.9842 32.375 29.1946 34.2791 27.7909 35.6841C26.3872 37.0892 24.4838 37.8806 22.4978 37.8849ZM6.39227 31.0064C5.51397 29.4888 5.19742 27.7107 5.49804 25.9832C5.55718 26.0187 5.66048 26.0818 5.73461 26.1244L13.699 30.7248C13.8975 30.8408 14.1233 30.902 14.3532 30.902C14.583 30.902 14.8088 30.8408 15.0073 30.7248L24.731 25.1103V28.9979C24.7321 29.0177 24.7283 29.0376 24.7199 29.0556C24.7115 29.0736 24.6988 29.0893 24.6829 29.1012L16.6317 33.7497C14.9096 34.7416 12.8643 35.0097 10.9447 34.4954C9.02506 33.9811 7.38785 32.7263 6.39227 31.0064ZM4.29707 13.6194C5.17156 12.0998 6.55279 10.9364 8.19885 10.3327C8.19885 10.4013 8.19491 10.5228 8.19491 10.6071V19.808C8.19351 20.0378 8.25334 20.2638 8.36823 20.4629C8.48312 20.6619 8.64893 20.8267 8.84863 20.9404L18.5723 26.5542L15.206 28.4979C15.1894 28.5089 15.1703 28.5155 15.1505 28.5173C15.1307 28.5191 15.1107 28.516 15.0924 28.5082L7.04046 23.8557C5.32135 22.8601 4.06716 21.2235 3.55289 19.3046C3.03862 17.3858 3.30624 15.3413 4.29707 13.6194ZM31.955 20.0556L22.2312 14.4411L25.5976 12.4981C25.6142 12.4872 25.6333 12.4805 25.6531 12.4787C25.6729 12.4769 25.6928 12.4801 25.7111 12.4879L33.7631 17.1364C34.9967 17.849 36.0017 18.8982 36.6606 20.1613C37.3194 21.4244 37.6047 22.849 37.4832 24.2684C37.3617 25.6878 36.8382 27.0432 35.9743 28.1759C35.1103 29.3086 33.9415 30.1717 32.6047 30.6641C32.6047 30.5947 32.6047 30.4733 32.6047 30.3889V21.188C32.6066 20.9586 32.5474 20.7328 32.4332 20.5338C32.319 20.3348 32.154 20.1698 31.955 20.0556ZM35.3055 15.0128C35.2464 14.9765 35.1431 14.9142 35.069 14.8717L27.1045 10.2712C26.906 10.1554 26.6803 10.0943 26.4504 10.0943C26.2206 10.0943 25.9948 10.1554 25.7963 10.2712L16.0726 15.8858V11.9982C16.0715 11.9783 16.0753 11.9585 16.0837 11.9405C16.0921 11.9225 16.1048 11.9068 16.1207 11.8949L24.1719 7.25025C25.4053 6.53903 26.8158 6.19376 28.2383 6.25482C29.6608 6.31589 31.0364 6.78077 32.2044 7.59508C33.3723 8.40939 34.2842 9.53945 34.8334 10.8531C35.3826 12.1667 35.5464 13.6095 35.3055 15.0128ZM14.2424 21.9419L10.8752 19.9981C10.8576 19.9893 10.8423 19.9763 10.8309 19.9602C10.8195 19.9441 10.8122 19.9254 10.8098 19.9058V10.6071C10.8107 9.18295 11.2173 7.78848 11.9819 6.58696C12.7466 5.38544 13.8377 4.42659 15.1275 3.82264C16.4173 3.21869 17.8524 2.99464 19.2649 3.1767C20.6775 3.35876 22.0089 3.93941 23.1034 4.85067C23.0427 4.88379 22.937 4.94215 22.8668 4.98473L14.9024 9.58517C14.7025 9.69878 14.5366 9.86356 14.4215 10.0626C14.3065 10.2616 14.2466 10.4877 14.2479 10.7175L14.2424 21.9419ZM16.071 17.9991L20.4018 15.4978L24.7325 17.9975V22.9985L20.4018 25.4983L16.071 22.9985V17.9991Z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+      <div class="data"><div class="main-wrapper" role="main"><div class="main-content"><noscript><div class="h2"><span id="challenge-error-text">Enable JavaScript and cookies to continue</span></div></noscript></div></div><script>(function(){window._cf_chl_opt = {cvId: '3',cZone: 'chatgpt.com',cType: 'managed',cRay: '9d99908788aa95b6',cH: '.u00CEMBokp20iLJXozOo550PEsrgvGioBBgIv4_Q.U-1773053907-1.2.1.1-AqzAYfnmzAZI2.8_0UaBks5xQIUXHLRVKV8No02v8it6YqrA5WO_Xvxe3h1R3auq',cUPMDTk:"/backend-api/codex/analytics-events/events?__cf_chl_tk=x1lgCNHHrQUm8hHUn3PTFxZzUOQejfYL_tqDoSMtPmI-1773053907-1.0.1.1-EeHpkG2xJ9y3JAjPVph1Njpb7ORKuJRzmBq5Moo8CsA",cFPWv: 'g',cITimeS: '1773053907',cTplC:1,cTplV:5,cTplB: '0',fa:"/backend-api/codex/analytics-events/events?__cf_chl_f_tk=x1lgCNHHrQUm8hHUn3PTFxZzUOQejfYL_tqDoSMtPmI-1773053907-1.0.1.1-EeHpkG2xJ9y3JAjPVph1Njpb7ORKuJRzmBq5Moo8CsA",md: 'U1pZu4IFJt04YQlZP89e_rcmmC.7A4tQ.cF.LolO7Zo-1773053907-1.2.1.1-K7Vg65ka3e19TCqh8vpMWoeXgSAB7QM_QJ7H.554owky6ZRAajAroJyJn0DhJK2vob6g_vyxoezzlfiAe0kTTKWUKK_otqbjQUelgvmSyhyEkiGgGvqrF7MdpynVdWso2fXuXJV8Mwb7sqDG1U6i40P9SiAWOa6l4ZFgUeDtVPFr6ltkSSipJTlKDyEVA7g16wt2f5kRQ9kBqKi9ua1NWaq4E1bKK2.lb5C0KQlBhT2rniaIfbI4pmR0189TzLU1EKBHb2bZPuL1dT4LImm320lbi1RcUPF_i0IpVjG7NIaa.c7kDopMZ5YSU9N9VR5td7o5aajWPgdqwrpmhYNRZBTBOxDBqqXNjFNtypHXbVIYLArpfY8LNETN2f3MNdSx7XIKctP5uBqlmKP347x2dUqM2YEopmbY05Po7o0RbZkRPo0gipSDdpJytBaleTgW41zE1QK7crJNwKKiLf4zIgym3IGCeOf.aNhRIX4eoSzEjVAzc2hNIVH_JOrwv5tOGUL3w0CQjhGXnAZCDk3o1t5XyuQxK8rMrVvFqscXfnF60D1.c1BoBbMd4X7lwfXyAqG.MYSlQtSBv4bVUqyOBSiebHuYb0ZIM7dIa5CQHnTevUZRT.mds.gxqIXqYF0NPwQxaPI.DPObNzDtO82mPG9m6X2rgTZqXJ8NfhJ2gM9Ch.IwYFI.fBvon55g36ORn0CvFbP9gSH7yWm9PpRuJ.0LvgZfd7z9W18k87EaqPnv0mlrNXnN5d8QWlc2fExZkJtpM7k8Xifz1s2rKwW_07L0216QPwhevZX8OyQHTHvqJcrBjZlZnJMPNSD_onZXO_S9H20KVYDhCrmabqeTRY.Wid6utrm.Nhk_mfQ4OKy3yEMkDrwaSm4A32lpARcMS9HZiMhYzWOnH.TvBW_0HzQk4kWx6hjQLm3E6h8I7sL7yQoqQ5HUBKqOFpaQX21M9pfIPxBpY3czhdRDRldWShhyF5W4aGB7DV3zSAdkZGBjWbpjjhtIGkOpx9WdyNKFzXPnQn0_j00DC9C_CptauA',mdrd: 'h5gBbb54ybM8EX78lgHD7H8JSA13Lwu4eWWy0rQGsf4-1773053907-1.2.1.1-FzNpD_D9..r3.chtnTFzWqUjfwQ7zMP4MoAhEG721DUIiwBPXjnY.hTvVtvvVORfKo_RcnwxqR6e2IRx4VKTLNrAZi_n8c4AZx5xTjYrpT9q_DryZTNN0_rjV2tKNPZ3w17vvk76DGRuernQra7dPSOZz4UX5kk_g.KZMi4Dltao4rWVJ8Rw79DmClNac._OVTyx8ocEce8CH3DX01enx8cpCJNnqhWTWg30flXGOsxEKlvZvmwGBgCADW.ghlBjRp66FRnX3XiHrNKFO2TCqt6Q1Zc5ponkSOrUibFBHheJBoUebCwrhVh7ebr47SnYsAzSeRy09SHiVqq9sWVcQSVtDJjntYIOVqX_jCl1L0Ez7XryxYcl1ZqJ0DGg5_ju7UysSessGhKH3B9I8_B7LWsB_8UmrzxDtDEy5Y3Mcu7qWTREbsSlTlDvLEoUn2hQeZXc4kj4X80ZkZY4b9Y2L.psbmZDvub78OZYfu8I2pHGDkus8DfHMzEorbciGEnDKmM5y4sAD8FmEJhZ2WTd3T2VjLScfqohJqVThtqr.llURZ96AfujJRdyxr259AH5gQlOPI19hFjfXDr9Hcoj_w8aic9Fq3hMQgQM.1BplFSLJUTvhjsctA8EECFdwORxfV2D2NX3gHYSN.sInPMBcJdhApCD0.qIx_Ls.uuN.ac3F6jGQnchklBZm1aaCow4a6nQP_afYVp_e1ELYFVTh.yhIUT8y1nkJibRAGnSW6NYtR06wSKslkndnuQRk8DpUc3Q.iRi4hAlQZWN9aDLbgHVy.esOefnQuCCher2GNsK01jzIfGN7.gJ.xj_52ILcdFt3zPgIkPmpG7Y8q5nBNjnggm8z4we9SizjZMpw6IifY8XlgI3yWHjW2B3FYyaTEPJuf_gW1Du6vtBUGBRd3Yg_iiUlPEY4mJ4uZud.dECtJmdlieJ2Aw2EiITnNwCpEOITxLk4ZLJ0M.Ra_67nBXkNBwO3DFcYMiPrxmc2QW9RdSl4IsoqEZ4LsdwKCJRrnfHs9_hOozakhVXimuYnCRD140bBrMLjJza_TRi3vD1AqeZbEfsRtXoYntbOoaQUtIUyV_qB9PAfRqfD9sR.JH4Z3D7wUYy4jVBVnHQLSya9GfUvSgLyNSZ3KEXqXu3APEwGD7FIh6TDyT_UfcUxBGs0YrwGLLSTiXveYytJ_V7gMy4tDwvRTFZFhKe1HkVcp_MHK7uwGU8k63RdYoXhx38a7vhf_wg78NFVcYqPFZWG3P2vKEVjQ9Ss8Y.iV50Em701tpV7JpoUwLidT.G8BgJqU8aDm26a8rctBdJP1Q4INENxX2D1NMh_1hgCQ5CDHHt1j3bhhfdQw2H98wex0omMntqZ7iwQEku7SYjEadFiqmXM9QFM8hl3RxCc89Rqd3gWZodIEY7gwDN729yLfH_BgaKSgM59d6OFQLH3Wf5a7jYcpFIxAqxJYAAK28RPop31BndmsIYDYZw6VKTEorYcC5yifhRC7IYDmybyJN2wOVhDn5tlSoHSgZ7kcmbTLQQrkTmLgXiBWs7jwPNrJvS6R63nQQALfPQ3aBF9rmfLCV4Dy7aMr8NnvDSPDpJaueR_WBpMDMn.c9TQfWrC3k24z6AMCtQYIGYuWIU3JPC.Oaw10ixg5QQLBImoKY7G24HKltjRUoxGaX4vQ6H8AbXqqIqJdHAFPKRtIZJDWqrLL3dTILjKkH0MhqhpyywRV1v_X18EyoTlj8rvVO1ynS8X1WHZFjYBvXWjT.FZ2.zRIv29idrRJ_zpSQjTOigCrJa.aQ.cpHqt37U3ObVg5VUnZmqdVSPlfji1Eb3qgvUzgdQen9XrFktMPuuH_VuCeXS_4QP6h1Mh_iaddPpBYdDN1AKFyMKWtqDFCnJquzvkUVY0cyRhPNYmfTBUToqIyo6By8l4O.KXh29senGmS5LduAVZbFXyO7X90FLpiLolZ1E7j61Lds8Nb_ZO5NiYjN7Yyyx4AX.QBUlDZNrGeBYHfulbJxgBlFVJXrFCm_IdGV4p4UUhYuD2D3u_q_NA1.PSHG92rGlfXoJwK.GMa1XA81OTUeGPCPnbvYiym2MWKjn2lDnBnQp5EvqZSTSkOtKaA8dGZt7M2IqVUMFMrfm7IdxcGsv.u3wHOyjTXJ0tbgNNbp84WnIo2d_2v4NwrAzBSo5Fw7K24NvYyMJXL2Yl8YefTDOhbxESD8OFqjdxmiI3K7PtdsyOp46O4AMnzlOkFJOjsgKnAqWKfsi1oczi0DvFrYptRAJkHrrfA7TiWsp6k6uBpvYT2B6QadKcbLzUeUasoWXyzFlu8aWJN7CQyJflcDzJkVyOPf0xYSrMUtca0JBlCswgY9LuXZR1H4Kr.OVQJMZXq7DM00c7kkvKGTEPGFGirNAgN3.2OqmuWER7h_OFmoI9ifQGFZAE_Hy.TBdcOYmdU_gtDTNyK15LvQFbTMrTdg5N18AhSvW87iDFk_MBhxoHtwJcVaYG5PcpnYwFgb6SdV5sL.oktS874b1O6.5O_uu.wP3f_eQ7wlZ82ivfFlkMfk86Wplg875jDpH5Ml9nHQiaiLgCkCPq9rEB4IPSpfzC5y6qhP_zGoni.gWzqj5Oj50GCQOhuNR13xgIYeXlatdYCMgWbEojASYRwvxtPoU04qs6LwLWWFDGg70iMsfmFGdra8Q',};var a = document.createElement('script');a.src = '/cdn-cgi/challenge-platform/h/g/orchestrate/chl_page/v1?ray=9d99908788aa95b6';window._cf_chl_opt.cOgUHash = location.hash === '' && location.href.indexOf('#') !== -1 ? '#' : location.hash;window._cf_chl_opt.cOgUQuery = location.search === '' && location.href.slice(0, location.href.length - window._cf_chl_opt.cOgUHash.length).indexOf('?') !== -1 ? '?' : location.search;if (window.history && window.history.replaceState) {var ogU = location.pathname + window._cf_chl_opt.cOgUQuery + window._cf_chl_opt.cOgUHash;history.replaceState(null, null,"/backend-api/codex/analytics-events/events?__cf_chl_rt_tk=x1lgCNHHrQUm8hHUn3PTFxZzUOQejfYL_tqDoSMtPmI-1773053907-1.0.1.1-EeHpkG2xJ9y3JAjPVph1Njpb7ORKuJRzmBq5Moo8CsA"+ window._cf_chl_opt.cOgUHash);a.onload = function() {history.replaceState(null, null, ogU);}}document.getElementsByTagName('head')[0].appendChild(a);}());</script></div>
+    </div>
+  </body>
+</html>
+
+codex
+I’ve loaded the phase instructions and state. Next I’m reading the required context docs (`config`, `OPERATOR_PROFILE`, atlas docs, and `TASK.md`) and then I’ll append the Phase 3 summary plus next-target backlog notes before running `complete` and `next`.
+exec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/OPERATOR_PROFILE.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/config.json' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+# Operator Profile
+
+This file captures the default working style for the project bot. Every run should read this file before planning or changing code.
+
+## Working Style
+- Work in clearly scoped phases with durable written outputs.
+- Prefer module-by-module execution instead of scattered random fixes.
+- Treat frontend and backend as one connected system map when integration is involved.
+- Use existing atlas docs first, then read only the extra code needed for accuracy.
+
+## Scope Rules
+- The target project is the only place code changes should happen unless the task explicitly requires a related supporting change.
+- Keep the bot workspace as the long-term memory layer. Store reports, atlas docs, backlogs, summaries, and run state here instead of inside the target repo when possible.
+- Match frontend to backend contracts when drift is found, unless the task explicitly says to refactor the backend contract itself.
+
+## Quality Rules
+- Reduce duplication, stale logic, dead code, and brittle state flows.
+- Prefer modern modular patterns, reusable primitives, and clear ownership boundaries.
+- Keep routes stable unless the task explicitly requires a migration.
+- If code changes affect structure, routes, APIs, or ownership, refresh the relevant atlas docs in the same phase.
+ succeeded in 52ms:
+{
+  "version": 1,
+  "workspaceRoot": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz",
+  "projectPath": "/Users/macbook/Desktop/Huz",
+  "designGuides": [
+    "/Users/macbook/Desktop/Huz/UI_DESIGN_SYSTEM_GUIDE.md",
+    "/Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md"
+  ],
+  "blueprintSources": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/PROJECT_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/MODULE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/ROUTES_AND_ENTRYPOINTS.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/API_SURFACE.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md"
+  ],
+  "projectSurfaces": [
+    {
+      "id": "primary-project",
+      "label": "Huz-Web-Frontend",
+exec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-043653-fix-backlog/TASK.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+Implement FE-REV-005 as one bounded single-agent batch.
+
+Target backlog item:
+- FE-REV-005 | Lead-gen and partner pages
+
+Scope:
+- /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/VisaServices/VisaServices.jsx
+- /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ContactUs/ContactUs.jsx
+- /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HajjUmrahBusiness/HajjUmrahBusiness.jsx
+- /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ListPackagePage/ListPackagePage.js
+
+Required outcomes:
+- Align these pages to the Huz design system and shared shell patterns.
+- Preserve intentional CTA destinations and outbound partner links.
+- Replace placeholder local-submit behavior and inert CTA behavior only with deliberate, documented behavior changes.
+- Do not introduce accidental new network side effects.
+- Keep the batch single-agent and bounded to this scope only.
+
+Verification requirements:
+- Route tracing for touched paths.
+codex
+I’ve finished the mandatory run context and now I’m loading the atlas/backlog/run-summary docs to extract exact outcomes from phases 1–2 so Phase 3 can be appended without guessing.
+exec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/MODULE_MAP.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/PROJECT_BLUEPRINT.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/ROUTES_AND_ENTRYPOINTS.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+# Module Map
+
+Last refreshed: 2026-03-09 (Phase 2 verify, fix-backlog run `20260309-043653-fix-backlog`).
+
+| Module | Path | Responsibility | Notes |
+| --- | --- | --- | --- |
+| Backend Core Config | `Huz-Backend/huz` | Django settings, root URL routing, ASGI/WSGI bootstrapping | Root URL includes `/api/v1`, `/common`, `/partner`, `/bookings`, `/management`, `/chat` |
+| Common Domain | `Huz-Backend/common` | End-user auth/profile, OTP, address, firebase token, user wallet/account primitives | 17 backend endpoints; 10 currently consumed by FE |
+| Partner Domain | `Huz-Backend/partners` | Partner auth/profile, package lifecycle, website listing APIs, partner wallet ops | 37 backend endpoints; 36 consumed by FE |
+| Booking Domain | `Huz-Backend/booking` | Booking creation/payment/passport, partner booking operations, complaints/reviews/requests | 34 legacy booking endpoints; 31 consumed by FE; shared traveler-count helper now lives in `booking/flow_utils.py` for reuse from `services.py` and `management/approval_task.py` |
+| Booking v1 API | `Huz-Backend/booking/api_urls.py`, `Huz-Backend/booking/views/api_v1.py` | DRF booking endpoints under `/api/v1` | 5 v1 endpoints; 3 consumed by FE |
+| Management Domain | `Huz-Backend/management` | Super-admin approvals, payment transfer, reporting/KPI, hotel master catalog | 24 endpoints; 9 consumed by FE |
+| Chat Domain | `Huz-Backend/chat` | REST chat inbox/message endpoints + websocket routing | 5 REST endpoints; 0 consumed by current FE API literals |
+| Web App Shell | `Huz-Web-Frontend/src` | Public site, booking flow, user settings UI | Routing in `src/routes/AppRoutes.jsx`; current route tree exposes 43 routes (`28` public/auth, `12` canonical protected, `3` protected aliases) |
+| Web Shared Layout System | `Huz-Web-Frontend/src/shared/layout`, `Huz-Web-Frontend/src/pages/HomePage/homepageLayout.js`, `Huz-Web-Frontend/src/styles/globals.css` | Shared shell, width/rhythm tokens, branded surfaces, ambient background contract | Primary page-system contract for the revamp; used by Home, Listing, Package Detail, Hajj Guidance, Booking, Payment Methods, Personal Details, and AuthLayout |
+| Web Static Content System | `Huz-Web-Frontend/src/features/staticPages`, `Huz-Web-Frontend/src/features/staticPages/content` | Shared branded content shell plus route-driven content modules for public info/legal pages | Powers `HowWeWork`, `AboutUs`, `CoreValues`, `ComingSoon`, `FrequentlyAskedQuestions`, `PolicyPages`, `GenericPages`, `PrivacyPolicy`, and `TermsServices`; this earlier public/static batch remains verified, and the lead-gen routes are now the remaining public pages still outside the shared branded systems |
+| Web Pilgrimage Guide System | `Huz-Web-Frontend/src/features/pilgrimageGuides`, `Huz-Web-Frontend/src/features/pilgrimageGuides/content` | Shared branded guide/article and holy-site city templates plus route-content modules | Powers `PreparationTips`, `TravelEssentials`, `UmrahGuide`, `MakkahHolySites`, `MadinahHolySites`, `JeddahHolySites`, and `TaifHolySites`; centralizes `BrandPageShell`, routed `CityNavbar`, related-article cards, `react-slick` settings, and shared promo placement |
+| Web Guide and Holy-Site Pages | `Huz-Web-Frontend/src/pages/PreparationTips`, `TravelEssentials`, `UmrahGuide`, `MakkahHolySites`, `MadinahHolySites`, `JeddahHolySites`, `TaifHolySites` | Route-owner wrappers for pilgrimage content pages | The 7 route files are now thin wrappers over the shared pilgrimage guide system, so the duplicated `Header`/`Footer`, hero, related-article, and city-carousel layout logic no longer lives in each route owner |
+| Web Lead and Partner Pages | `Huz-Web-Frontend/src/pages/VisaServices`, `ContactUs`, `HajjUmrahBusiness`, `ListPackagePage` | Acquisition, contact, and partner-onboarding routes now aligned to shared static/marketing systems | `VisaServices` and `ContactUs` now persist browser-local lead drafts via `features/marketingPages/leadCaptureDrafts.js` (no API calls), `HajjUmrahBusiness` keeps intentional CTA routing to `/list-your-packages` and `operator.hajjumrah.co`, and `ListPackagePage` preserves intentional outbound operator links |
+| Web Auth Surface | `Huz-Web-Frontend/src/features/auth`, `Huz-Web-Frontend/src/pages/Login`, `Huz-Web-Frontend/src/pages/Signup`, `Huz-Web-Frontend/src/pages/Otp` | OTP-driven traveler signup/login/verification flow | All auth routes now funnel through `AuthLayout` |
+ succeeded in 52ms:
+# Routes and Entrypoints
+
+Last refreshed: 2026-03-09 (Phase 2 verify, fix-backlog run `20260309-043653-fix-backlog`).
+
+## Backend Entrypoints
+- Root URL config: `Huz-Backend/huz/urls.py`
+- API group modules:
+  - `/api/v1/` -> `Huz-Backend/booking/api_urls.py`
+  - `/common/` -> `Huz-Backend/common/urls.py`
+  - `/partner/` -> `Huz-Backend/partners/urls.py`
+  - `/bookings/` -> `Huz-Backend/booking/urls.py`
+  - `/management/` -> `Huz-Backend/management/urls.py`
+  - `/chat/` -> `Huz-Backend/chat/urls.py`
+
+## Backend Route Group Coverage
+| Route Group | URL File | Endpoint Count | FE-Connected Count | Notes |
+| --- | --- | --- | --- | --- |
+| `/api/v1/` | `Huz-Backend/booking/api_urls.py` + `booking/views/api_v1.py` | 5 | 3 | DRF booking list/create + payment/passport actions |
+| `/common/` | `Huz-Backend/common/urls.py` | 17 | 10 | User profile/auth + account/wallet primitives |
+| `/partner/` | `Huz-Backend/partners/urls.py` | 37 | 36 | Partner auth/profile/package + website package listing |
+ succeeded in 52ms:
+# Project Blueprint
+
+Last refreshed: 2026-03-09 (Phase 2 verify, fix-backlog run `20260309-043653-fix-backlog`).
+
+## Scope
+- Target project: `/Users/macbook/Desktop/Huz`
+- Scope level: `panel-fullstack`
+- Surfaces mapped in this refresh:
+  - `Huz-Backend` (Django 5 monolith)
+  - `Huz-Web-Frontend` (public/user React app)
+  - `Huz-Admin-Frontend` (super-admin + partner panel React app)
+  - `Huz-Operator-Frontend` (operator React app)
+
+## Architecture Overview
+- Backend is a modular Django monolith exposing REST endpoints across six route groups: `/api/v1`, `/common`, `/partner`, `/bookings`, `/management`, `/chat`.
+- Frontend surfaces are split by audience:
+  - `Huz-Web-Frontend`: website discovery and user booking lifecycle.
+  - `Huz-Admin-Frontend`: super-admin approvals and partner/admin panel flows.
+  - `Huz-Operator-Frontend`: partner/operator operational dashboard flows.
+- API contracts are currently anchored in FE-side API utility modules (`src/api/*` and `src/utility/*`) instead of a shared typed contract package.
+codex
+I’m now checking `RUN_SUMMARY`, `BUG_BACKLOG`, `DEEP_SCAN_REPORT`, `API_SURFACE`, and `CHANGE_MAP` to make Phase 3 updates consistent with the existing run history and backlog ordering.
+exec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/CHANGE_MAP.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/API_SURFACE.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 51ms:
+# Change Map
+
+Every code-changing or atlas-refresh run should append what changed and which docs were refreshed.
+
+## Entries
+
+### 2026-03-07 - Phase 0 - Inventory Scope (`system-atlas`)
+- Scope: Full project inventory for backend + web/admin/operator frontends.
+- Files changed:
+  - `docs/qa/DEEP_SCAN_REPORT.md`
+  - `docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md`
+- Atlas docs refreshed: None (inventory-only phase).
+- Notes:
+  - Established baseline route/API/module inventory.
+  - Identified stale atlas docs and FE/backend contract drift candidates.
+
+### 2026-03-07 - Phase 1 - Refresh Atlas Docs (`system-atlas`)
+- Scope: Refresh atlas documentation with full backend API list and frontend module connections.
+- Files changed:
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+ succeeded in 51ms:
+# API Surface
+
+Last refreshed: 2026-03-09 (Phase 2 verify, fix-backlog run `20260309-043653-fix-backlog`).
+
+## Coverage Summary
+- Backend endpoints discovered from live URL configs: **122**
+- Backend endpoints consumed by frontend modules: **89**
+- Backend endpoints with no frontend consumer: **33**
+- Frontend endpoint literals not present in backend URL map: **10**
+- FE unique endpoint literals by panel: Web **29**, Admin **64**, Operator **48**
+
+## 2026-03-09 Cleanup Notes
+- This cleanup batch removed dead route-owner files, admin CRA scaffolding, unused admin assets, and duplicate helper/UI code only.
+- No backend routes, frontend endpoint literals, client ownership boundaries, or FE/backend drift totals changed.
+- Coverage totals above remain unchanged after the cleanup batch.
+
+## 2026-03-09 Fix-Backlog Phase 1 Notes (`run 20260309-043653-fix-backlog`)
+- Implemented `FE-REV-005` lead-gen form behavior changes without introducing frontend API calls or backend route changes.
+- `VisaServices.jsx` and `ContactUs.jsx` now store browser-local lead drafts through `features/marketingPages/leadCaptureDrafts.js`, returning reference IDs while explicitly avoiding network requests.
+- `HajjUmrahBusiness.jsx` and `ListPackagePage.js` keep intentional CTA destinations (`/list-your-packages` and outbound `https://operator.hajjumrah.co/`) with no API ownership changes.
+exec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-043653-fix-backlog/RUN_SUMMARY.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+# Run Summary
+
+- Run mode: `fix-backlog`
+- Target project: `/Users/macbook/Desktop/Huz`
+- Workspace root: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz`
+- Scope level: `panel-fe`
+- Scope: `FE-REV-005 lead-gen and partner pages`
+- Scope targets: `/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/VisaServices/VisaServices.jsx`, `/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ContactUs/ContactUs.jsx`, `/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HajjUmrahBusiness/HajjUmrahBusiness.jsx`, `/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ListPackagePage/ListPackagePage.js`
+- Full-system required docs: `enabled`
+- Rule: append one section per completed phase. Do not overwrite prior phase sections.
+
+Expected section format:
+
+## Phase X - Title
+### Changes Made
+### How It Was Implemented
+### Files Touched
+### Verification
+
+## Phase 0 - Select Backlog Target
+exec
+/bin/zsh -lc 'rg -n "FE-REV-005|FE-REV-004|Next Recommended Batch|remaining ordered batch|Verified|Fix-Backlog|20260309-043653-fix-backlog" /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md:7:| MB-RESP-001 | High | Web booking flow | Unify `src/pages/UserSetting/MyApplication/Booking/booking.jsx` and `src/pages/UserSetting/MyApplication/Mobile/mobilebooking.jsx` around one shared responsive page owner; both files currently duplicate `useBookingLogic` and booking UI state. | Fixed | Verified by scoped eslint plus route tracing of `/package-booking`/`/bookings` -> `/payment-methods`; `mobilebooking.jsx` now resolves to the unified route owner. |
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md:8:| MB-RESP-002 | High | Wallet + operator response | Extract shared state modules for `Payment&Wallet` and `OperatorResponse` before deleting mobile files; both desktop/mobile pairs duplicate API fetches, modal state, and booking-status decisions. | Fixed | Verified by scoped eslint plus import tracing; `/payment-wallet-mobile` now redirects to `/payment-wallet`, and mobile wallet/operator-response files now resolve to the unified responsive owners. |
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md:9:| MB-RESP-003 | High | Wishlist + messages | Replace `window.innerWidth` routing in `Wishlist/index.jsx` and unify the separate desktop/mobile message trees; these surfaces still maintain duplicate local state and inconsistent route structure. | Fixed | Verified by scoped eslint and route tracing; `/messages-chat` now redirects into `/messages`, wishlist keeps `savedPackages` localStorage, and route owners no longer import mobile-only page trees. |
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md:10:| MB-RESP-004 | Medium | Flow wrappers | Collapse booking status, traveler details, and remaining payment around one responsive account shell; these pages already share feature hooks but still maintain breakpoint-specific wrappers and steppers. | Fixed | Verified by scoped eslint plus dependency tracing across `/booking-status` -> `/data-table` -> `/remaining-payment` -> `/operator-response`, preserving `booking_number` query/state handoff. |
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md:11:| MB-RESP-005 | Medium | Listing + Hajj Guidance + route aliases | Fold `ListingMobileScreen.jsx` and the inline Hajj Guidance mobile branch into single responsive page structures, then convert `/booking-page` and `/payment-wallet-mobile` into compatibility aliases to the unified routes. | Fixed | Verified by scoped eslint, import tracing, and route tracing; `ListingMobileScreen.jsx` is now a compatibility re-export, Hajj Guidance uses one responsive shell, and legacy alias routes now redirect to canonical pages. |
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md:12:| FE-REV-001 | High | Shared static page system | Consolidate the public static abstraction on top of `BrandPageShell` and homepage shell tokens so the data-driven public routes share one shell contract. | Verified | Revalidated in Phase 4 by import tracing across the static/public batch: `StaticContentPage.jsx` resolves through `BrandPageShell`, the scoped public route owners no longer import `Header` or `Footer` directly, and no placeholder route bodies remain in the policy/generic batch. |
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md:13:| FE-REV-002 | High | Public info and legal routes | Migrate `AboutUs`, `CoreValues`, `ComingSoon`, `FrequentlyAskedQuestions`, `TermsServices`, `PrivacyPolicy`, `PolicyPages`, and `GenericPages` onto the branded static/legal system while preserving route-driven behavior and legal copy intent. | Verified | Revalidated in Phase 4 by route tracing for the 10 public paths, content-key checks for `/refund-policy`, `/cancellation-policy`, `/Media`, and `/career`, parser-level JSX checks, and scoped eslint showing only the existing `caniuse-lite` age warning. |
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md:14:| FE-REV-003 | High | Guide and holy-site content family | Consolidate `PreparationTips`, `TravelEssentials`, `UmrahGuide`, `MakkahHolySites`, `MadinahHolySites`, `JeddahHolySites`, and `TaifHolySites` around reusable article and city-guide templates. These routes repeat the same hero, article, related-card, slider, and `AppDownload` structures. | Verified | Verified in Phase 4 of run `20260308-145701-full-enhance` with live route tracing for the 7 paths, wrapper/shared-module tracing, no-new-API-side-effect search returning no matches, parser validation across 12 touched files, and scoped eslint showing only the existing `caniuse-lite` age warning. |
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md:15:| FE-REV-004 | High | Protected account shell convergence | Move `bookingstatus.jsx`, `datatable.jsx`, `remainingPayment.jsx`, `operatorresponse.jsx`, `payment&wallet.jsx`, `messagePage.jsx`, and `wishlist.jsx` onto one responsive branded account shell while preserving the existing feature hooks and route-state handoff. | Open | Pending: route tracing across `/booking-status` -> `/data-table` -> `/remaining-payment` -> `/operator-response` plus `/messages` and `/wishlist`. |
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md:16:| FE-REV-005 | Medium | Lead-gen and partner pages | Align `VisaServices.jsx`, `ContactUs.jsx`, `HajjUmrahBusiness.jsx`, and `ListPackagePage.js` to the Huz design system with intentional lead/CTA behavior. `VisaServices.jsx` and `ContactUs.jsx` now persist browser-local lead drafts with generated reference IDs (no API calls), while partner CTA destinations remain preserved for `/list-your-packages` and `operator.hajjumrah.co`. | Verified | Verified in Phase 2 of run `20260309-043653-fix-backlog` via route tracing, import/behavior tracing, scoped eslint, and `npm run build`; only pre-existing warnings remained (`caniuse-lite` age warning plus unrelated unused imports in `PackageDetailPage/components/LeftColumn/Itinerary.js`). |
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md:17:| FE-REV-006 | Medium | Compatibility cleanup | Remove or convert the remaining dead compatibility surfaces after canonical routes are stable, especially `src/pages/UserSetting/Mobile/Message/messagepageview.jsx`, `src/pages/PackageDetailPage/Mobile/components/invoice.jsx`, and the old mobile re-export wrappers. | Verified | Verified in cleanup run `20260309-035509-full-enhance` by zero-consumer `rg` tracing, alias tracing for `/booking-page`, `/payment-wallet-mobile`, and `/messages-chat`, deletion of the 10 dead compatibility files, and successful web/admin production builds. |
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md:25:- Remaining bounded work order is now `FE-REV-005` -> `FE-REV-004`.
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md:67:  - Batch C: `FE-REV-005` lead-gen and partner pages (`VisaServices`, `ContactUs`, `HajjUmrahBusiness`, `ListPackagePage`)
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md:68:  - Batch D: `FE-REV-004` protected account shell convergence (`bookingstatus.jsx`, `datatable.jsx`, `remainingPayment.jsx`, `operatorresponse.jsx`, `payment&wallet.jsx`, `messagePage.jsx`, `wishlist.jsx`)
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md:83:  - Batch C: `FE-REV-005` lead-gen and partner pages (`VisaServices`, `ContactUs`, `HajjUmrahBusiness`, `ListPackagePage`)
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md:84:  - Batch D: `FE-REV-004` protected account shell convergence (`bookingstatus.jsx`, `datatable.jsx`, `remainingPayment.jsx`, `operatorresponse.jsx`, `payment&wallet.jsx`, `messagePage.jsx`, `wishlist.jsx`)
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md:102:  - Batch C / `FE-REV-005` lead-gen and partner pages
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md:103:  - Batch D / `FE-REV-004` protected account shell convergence
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md:117:- Verified backlog state remains:
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md:119:  - `FE-REV-003`, `FE-REV-004`, `FE-REV-005`, and `FE-REV-006` remain open
+exec
+/bin/zsh -lc "echo '--- BUG_BACKLOG tail ---' && tail -n 140 /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md && echo '
+--- DEEP_SCAN_REPORT tail ---' && tail -n 160 /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+--- BUG_BACKLOG tail ---
+
+## 2026-03-08 - Phase 3 Implementation Notes (`full-enhance`, run `20260308-145701-full-enhance`)
+
+- Implemented `FE-REV-003` by adding one shared article guide template (`GuideArticlePage.jsx`) and one shared holy-site city template (`HolySiteCityPage.jsx`) plus centralized content modules under `src/features/pilgrimageGuides/content`.
+- Converted `PreparationTips`, `TravelEssentials`, `UmrahGuide`, `MakkahHolySites`, `MadinahHolySites`, `JeddahHolySites`, and `TaifHolySites` into thin route wrappers over the shared pilgrimage modules.
+- Updated `CityNavbar.jsx` so all four city pages, including `MakkahHolySites`, now use the same routed city-navigation contract across breakpoints.
+- Preserved the existing route paths, back-to-home behavior, related-article links, branded promo placement, and the current inert `Read More` behavior on city cards.
+- Explicitly deferred after this batch:
+  - `FE-REV-005` lead-gen and partner pages (`VisaServices`, `ContactUs`, `HajjUmrahBusiness`, `ListPackagePage`)
+  - `FE-REV-004` protected account shell convergence (`bookingstatus.jsx`, `datatable.jsx`, `remainingPayment.jsx`, `operatorresponse.jsx`, `payment&wallet.jsx`, `messagePage.jsx`, `wishlist.jsx`)
+  - `FE-REV-006` compatibility cleanup after the canonical route owners remain stable
+- Exact next batch recommendation:
+  - `FE-REV-005` lead-gen and partner pages (`VisaServices`, `ContactUs`, `HajjUmrahBusiness`, `ListPackagePage`)
+  - Reason: next required execution-order batch after `FE-REV-003`, still bounded to 4 route owners, and the remaining highest-impact public work before the protected-shell and cleanup phases
+- Verification completed in this phase:
+  - Route tracing for `/Umrah-Guidance`, `/browse-tips`, `/travel-essential`, `/makkah-holy-sites`, `/madina-holy-sites`, `/jeddah-holy-sites`, and `/taif-holy-sites`
+  - Import tracing confirming the 7 route owners no longer import `Header` or `Footer` directly
+  - Shared-module tracing confirming the wrappers now resolve through `GuideArticlePage`, `HolySiteCityPage`, `BrandPageShell`, `CityNavbar`, and `AppPromoSection`
+  - Parser-level JSX validation across the new shared modules, content files, `CityNavbar.jsx`, and the 7 route owners
+codex
+I’m ready to apply Phase 3 doc-only updates now: append a Phase 3 section to this run’s `RUN_SUMMARY.md`, plus durable “next batch” handoff notes to `BUG_BACKLOG.md` and `DEEP_SCAN_REPORT.md` (and `CHANGE_MAP.md` for run-history continuity).
+exec
+/bin/zsh -lc "cat <<'EOF' >> /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-043653-fix-backlog/RUN_SUMMARY.md
+
+## Phase 3 - Summarize and Queue Next
+### Changes Made
+- Added the Phase 3 closeout summary for run "'`20260309-043653-fix-backlog` after the verified `FE-REV-005` implementation and verification phases.
+- Recorded the next exact bounded backlog target as `FE-REV-004` (protected account shell convergence) with explicit scoped route-owner files for the next run.
+- Persisted durable handoff notes in workspace memory docs so the next run can begin from `FE-REV-004` without rescanning completed `FE-REV-005` work.
+
+### How It Was Implemented
+- Re-read this run'"'s Phase 1 and Phase 2 summaries plus backlog/deep-scan status notes to confirm the verified closure state for "'`FE-REV-005`.
+- Appended Phase 3 handoff notes to `BUG_BACKLOG.md` and `DEEP_SCAN_REPORT.md` to keep the next-target recommendation synchronized across workspace memory.
+- Appended a docs-only Phase 3 entry in `CHANGE_MAP.md` for durable run-history continuity.
+
+### Files Touched
+- `docs/project-bot/runs/20260309-043653-fix-backlog/RUN_SUMMARY.md`
+- `docs/qa/BUG_BACKLOG.md`
+- `docs/qa/DEEP_SCAN_REPORT.md`
+- `docs/atlas/CHANGE_MAP.md`
+
+### Verification
+- `rg -n '"'## Phase 3 - Summarize and Queue Next' /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-043653-fix-backlog/RUN_SUMMARY.md"'`
+- `rg -n '"'Phase 3 Summary and Next Queue|FE-REV-004|FE-REV-005' /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md"'`
+- `rg -n '"'Phase 3 Summarize and Queue Next|FE-REV-004|FE-REV-005' /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md"'`
+- `rg -n '"'Phase 3 - Summarize and Queue Next \\("'`fix-backlog`, run `20260309-043653-fix-backlog`'"\\)' /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/CHANGE_MAP.md"'`
+- No target-project code changed in this phase. No build was run in this phase. No `npm install` was run. No lockfiles were modified.
+EOF
+
+cat <<'"'EOF' >> /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md
+
+## 2026-03-09 - Phase 3 Summary and Next Queue ("'`fix-backlog`, run `20260309-043653-fix-backlog`)
+
+- Phase 3 is a docs-only closeout for this run after Phase 2 verified `FE-REV-005`.
+- Durable closure state for the completed batch:
+  - `FE-REV-005` remains `Verified`.
+  - Route and behavior verification for `/visa-services`, `/contact`, `/hajjUmrah-partner`, and `/list-your-packages` remains the closure basis from Phase 2.
+- Next exact bounded backlog target for the next fix run:
+  - `FE-REV-004` protected account shell convergence
+  - Scope files: `bookingstatus.jsx`, `datatable.jsx`, `remainingPayment.jsx`, `operatorresponse.jsx`, `payment&wallet.jsx`, `messagePage.jsx`, `wishlist.jsx`
+- Run handoff state:
+  - The next run can start directly from `FE-REV-004` without rescanning `FE-REV-005`.
+  - No additional code or contract changes were introduced in Phase 3.
+EOF
+
+cat <<'"'EOF' >> /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
+
+### 2026-03-09 - Phase 3 Summarize and Queue Next ("'`fix-backlog`, run `20260309-043653-fix-backlog`)
+
+#### Findings
+- Phase 3 performed docs-only closeout and queueing after Phase 2 verification for `FE-REV-005`.
+- `FE-REV-005` stays closed as verified with no additional route-path, route-owner, frontend API, backend endpoint, or FE/backend drift changes.
+- Workspace memory remains synchronized (`RUN_SUMMARY`, `BUG_BACKLOG`, `DEEP_SCAN_REPORT`, `CHANGE_MAP`) for direct continuation.
+
+#### Remaining Order
+- `FE-REV-004`
+
+#### Exact Next Batch Recommendation
+- Execute `FE-REV-004` next:
+  - `bookingstatus.jsx`
+  - `datatable.jsx`
+  - `remainingPayment.jsx`
+  - `operatorresponse.jsx`
+  - `payment&wallet.jsx`
+  - `messagePage.jsx`
+  - `wishlist.jsx`
+- Reason:
+  - `FE-REV-005` is already verified and does not require additional implementation.
+  - `FE-REV-004` is now the only remaining high-priority protected-shell convergence batch in this sequence.
+
+#### Verification
+- `rg -n '"'FE-REV-005|FE-REV-004|Phase 2 Verify and Update Backlog' /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-043653-fix-backlog/RUN_SUMMARY.md"'`
+- `rg -n '"'Phase 3 Summarize and Queue Next|FE-REV-004' /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md"'`
+- No target-project code changed in this phase. No build was run in this phase.
+EOF
+
+cat <<'"'EOF' >> /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/CHANGE_MAP.md
+
+### 2026-03-09 - Phase 3 - Summarize and Queue Next ("'`fix-backlog`, run `20260309-043653-fix-backlog`)
+- Scope: Docs-only run closeout and next-batch queueing after verified `FE-REV-005` completion.
+- Files changed:
+  - `docs/project-bot/runs/20260309-043653-fix-backlog/RUN_SUMMARY.md`
+  - `docs/qa/BUG_BACKLOG.md`
+  - `docs/qa/DEEP_SCAN_REPORT.md`
+  - `docs/atlas/CHANGE_MAP.md`
+- Atlas docs refreshed: None (no code, route, API, or ownership changes in this phase).
+- Notes:
+  - Confirmed `FE-REV-005` remains verified and closed based on Phase 2 verification.
+  - Queued `FE-REV-004` as the exact next bounded fix-backlog target.
+  - No target-project code changes, builds, installs, or lockfile changes occurred in this phase.
+EOF' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+
+exec
+/bin/zsh -lc 'rg -n "Phase 3 - Summarize and Queue Next|Phase 3 Summary and Next Queue|Phase 3 Summarize and Queue Next|20260309-043653-fix-backlog" /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-043653-fix-backlog/RUN_SUMMARY.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/CHANGE_MAP.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md:1003:### 2026-03-09 - Phase 0 Select Backlog Target (`fix-backlog`, run `20260309-043653-fix-backlog`)
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md:1006:- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-043653-fix-backlog/state.json`
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md:1007:- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-043653-fix-backlog/prompts/phase-00.md`
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md:1057:### 2026-03-09 - Phase 1 Implement the Fix (`fix-backlog`, run `20260309-043653-fix-backlog`)
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md:1081:### 2026-03-09 - Phase 2 Verify and Update Backlog (`fix-backlog`, run `20260309-043653-fix-backlog`)
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md:1120:### 2026-03-09 - Phase 3 Summarize and Queue Next (`fix-backlog`, run `20260309-043653-fix-backlog`)
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md:1144:- `rg -n 'FE-REV-005|FE-REV-004|Phase 2 Verify and Update Backlog' /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-043653-fix-backlog/RUN_SUMMARY.md`
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md:1145:- `rg -n 'Phase 3 Summarize and Queue Next|FE-REV-004' /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md`
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/CHANGE_MAP.md:315:### 2026-03-09 - Phase 1 - Implement the Fix (`fix-backlog`, run `20260309-043653-fix-backlog`)
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/CHANGE_MAP.md:329:  - `docs/project-bot/runs/20260309-043653-fix-backlog/RUN_SUMMARY.md`
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/CHANGE_MAP.md:341:### 2026-03-09 - Phase 2 - Verify and Update Backlog (`fix-backlog`, run `20260309-043653-fix-backlog`)
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/CHANGE_MAP.md:351:  - `docs/project-bot/runs/20260309-043653-fix-backlog/RUN_SUMMARY.md`
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/CHANGE_MAP.md:364:### 2026-03-09 - Phase 3 - Summarize and Queue Next (`fix-backlog`, run `20260309-043653-fix-backlog`)
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/CHANGE_MAP.md:367:  - `docs/project-bot/runs/20260309-043653-fix-backlog/RUN_SUMMARY.md`
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-043653-fix-backlog/RUN_SUMMARY.md:36:- `docs/project-bot/runs/20260309-043653-fix-backlog/RUN_SUMMARY.md`
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-043653-fix-backlog/RUN_SUMMARY.md:73:- `docs/project-bot/runs/20260309-043653-fix-backlog/RUN_SUMMARY.md`
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-043653-fix-backlog/RUN_SUMMARY.md:107:- `docs/project-bot/runs/20260309-043653-fix-backlog/RUN_SUMMARY.md`
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-043653-fix-backlog/RUN_SUMMARY.md:117:## Phase 3 - Summarize and Queue Next
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-043653-fix-backlog/RUN_SUMMARY.md:119:- Added the Phase 3 closeout summary for run `20260309-043653-fix-backlog` after the verified `FE-REV-005` implementation and verification phases.
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-043653-fix-backlog/RUN_SUMMARY.md:129:- `docs/project-bot/runs/20260309-043653-fix-backlog/RUN_SUMMARY.md`
+codex
+Phase 3 notes are appended and validated in the run docs. I’m now executing the required `complete --phase 3` and `next` commands, then I’ll print `NEXT_PROMPT.md`.
+exec
+/bin/zsh -lc 'node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-043653-fix-backlog --phase 3 && node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-043653-fix-backlog' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+Marked phase 3 as completed.
+Project bot run complete for target `/Users/macbook/Desktop/Huz`.
+
+No remaining phases.
+Final validation checklist:
+- Ensure the requested build/test/lint commands were run for the changed scope.
+- Ensure the atlas docs under `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas` were refreshed for touched modules.
+- Ensure `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-043653-fix-backlog/RUN_SUMMARY.md` contains the full cumulative summary of changes and implementation details.
+- Ensure any mode-specific report docs were updated.
+exec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-043653-fix-backlog/NEXT_PROMPT.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+Project bot run complete for target `/Users/macbook/Desktop/Huz`.
+
+No remaining phases.
+Final validation checklist:
+- Ensure the requested build/test/lint commands were run for the changed scope.
+- Ensure the atlas docs under `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas` were refreshed for touched modules.
+- Ensure `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-043653-fix-backlog/RUN_SUMMARY.md` contains the full cumulative summary of changes and implementation details.
+- Ensure any mode-specific report docs were updated.
+exec
+/bin/zsh -lc 'git -C /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz status --short' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz exited 128 in 52ms:
+fatal: not a git repository (or any of the parent directories): .git
+2026-03-09T11:00:49.566325Z  WARN sqlx::query: slow statement: execution time exceeded alert threshold summary="INSERT INTO threads ( …" db.statement="\n\n\nINSERT INTO threads (\n    id,\n    rollout_path,\n    created_at,\n    updated_at,\n    source,\n    agent_nickname,\n    agent_role,\n    model_provider,\n    cwd,\n    cli_version,\n    title,\n    sandbox_policy,\n    approval_mode,\n    tokens_used,\n    first_user_message,\n    archived,\n    archived_at,\n    git_sha,\n    git_branch,\n    git_origin_url,\n    memory_mode\n) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\nON CONFLICT(id) DO UPDATE SET\n    rollout_path = excluded.rollout_path,\n    created_at = excluded.created_at,\n    updated_at = excluded.updated_at,\n    source = excluded.source,\n    agent_nickname = excluded.agent_nickname,\n    agent_role = excluded.agent_role,\n    model_provider = excluded.model_provider,\n    cwd = excluded.cwd,\n    cli_version = excluded.cli_version,\n    title = excluded.title,\n    sandbox_policy = excluded.sandbox_policy,\n    approval_mode = excluded.approval_mode,\n    tokens_used = excluded.tokens_used,\n    first_user_message = excluded.first_user_message,\n    archived = excluded.archived,\n    archived_at = excluded.archived_at,\n    git_sha = excluded.git_sha,\n    git_branch = excluded.git_branch,\n    git_origin_url = excluded.git_origin_url\n            \n" rows_affected=1 rows_returned=0 elapsed=2.050224s elapsed_secs=2.050224 slow_threshold=1s
+codex
+Phase 3 (`Summarize and Queue Next`) is complete for run `20260309-043653-fix-backlog` against `/Users/macbook/Desktop/Huz`.
+
+I ran:
+
+1. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-043653-fix-backlog --phase 3`
+2. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-043653-fix-backlog`
+
+`NEXT_PROMPT.md` contents from [NEXT_PROMPT.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-043653-fix-backlog/NEXT_PROMPT.md):
+
+```md
+Project bot run complete for target `/Users/macbook/Desktop/Huz`.
+
+No remaining phases.
+Final validation checklist:
+- Ensure the requested build/test/lint commands were run for the changed scope.
+- Ensure the atlas docs under `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas` were refreshed for touched modules.
+- Ensure `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-043653-fix-backlog/RUN_SUMMARY.md` contains the full cumulative summary of changes and implementation details.
+- Ensure any mode-specific report docs were updated.
+```
+tokens used
+58,495
+Phase 3 (`Summarize and Queue Next`) is complete for run `20260309-043653-fix-backlog` against `/Users/macbook/Desktop/Huz`.
+
+I ran:
+
+1. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-043653-fix-backlog --phase 3`
+2. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-043653-fix-backlog`
+
+`NEXT_PROMPT.md` contents from [NEXT_PROMPT.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-043653-fix-backlog/NEXT_PROMPT.md):
+
+```md
+Project bot run complete for target `/Users/macbook/Desktop/Huz`.
+
+No remaining phases.
+Final validation checklist:
+- Ensure the requested build/test/lint commands were run for the changed scope.
+- Ensure the atlas docs under `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas` were refreshed for touched modules.
+- Ensure `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260309-043653-fix-backlog/RUN_SUMMARY.md` contains the full cumulative summary of changes and implementation details.
+- Ensure any mode-specific report docs were updated.
+```

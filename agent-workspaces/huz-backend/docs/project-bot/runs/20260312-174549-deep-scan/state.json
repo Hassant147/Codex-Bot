@@ -1,0 +1,124 @@
+{
+  "version": 1,
+  "workspaceRoot": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend",
+  "projectPath": "/Users/macbook/Desktop/Huz/Huz-Backend",
+  "mode": "deep-scan",
+  "modeTitle": "Deep Scan",
+  "description": "Perform a code-level analysis of the requested scope, document logic, routes, contracts, structures, and risks, and produce a report plus backlog.",
+  "scopeLevel": "panel-be",
+  "scope": "/Users/macbook/Desktop/Huz/Huz-Backend",
+  "scopeTargets": [],
+  "request": "Team mission: Audit the entire Huz-Backend repository deeply. Act as a project manager, Django architect, Python performance specialist, security reviewer, QA engineer, and implementation engineer. First perform a full backend audit for performance bottlenecks, optimization issues, N+1 queries, ORM misuse, inefficient loops, unnecessary database or network work, cache gaps, slow request paths, dead code, risky patterns, security flaws, and anything clearly wrong. Then create a prioritized remediation plan and implement the safe backend fixes in parallel. Important constraint: only document and fix issues that can be resolved entirely inside Huz-Backend. If an issue requires edits in any other repository, consumer application, or downstream client, do not implement that part. Document it clearly as out-of-scope and skip code changes. Keep all changes scoped to Huz-Backend, verify each batch, and finish with a final summary of issues found, fixes implemented, skipped out-of-scope items, and verification results.\n\nYou are the QA Engineer in coordinated team \"Huz Backend Strict Backend Audit and Fix\".\nAssigned lane: Cross-repo quality audit\nPrimary objective: Audit for loopholes, risks, dead code, optimization issues, and anything clearly wrong.\nExecution phase: audit\nMode: deep-scan\nScope level: panel-be\nScope: /Users/macbook/Desktop/Huz/Huz-Backend\nScope targets: [Not specified]\n\nTeam coordination contract:\n- Work only inside your assigned lane.\n- Ownership boundaries: audit:qa\n- This is a report-only run. Do not modify product code; workspace docs and reports are allowed.\n- Read atlas docs, QA reports, and BUG_BACKLOG before making major decisions.\n- If you discover issues outside your lane, document them clearly in RUN_SUMMARY or BUG_BACKLOG instead of implementing them here.\n- Upstream dependencies that should already be complete: Project Manager Atlas\n\nAudit contract:\n- Find loopholes, optimization issues, efficiency problems, dead code, threats, regressions, and anything clearly wrong.\n- Provide concrete, prioritized findings with file or module references when possible.\n- Update DEEP_SCAN_REPORT and BUG_BACKLOG with lane-aware findings and recommended fixes.\n\nOriginal operator request:\nAudit the entire Huz-Backend repository deeply. Act as a project manager, Django architect, Python performance specialist, security reviewer, QA engineer, and implementation engineer. First perform a full backend audit for performance bottlenecks, optimization issues, N+1 queries, ORM misuse, inefficient loops, unnecessary database or network work, cache gaps, slow request paths, dead code, risky patterns, security flaws, and anything clearly wrong. Then create a prioritized remediation plan and implement the safe backend fixes in parallel. Important constraint: only document and fix issues that can be resolved entirely inside Huz-Backend. If an issue requires edits in any other repository, consumer application, or downstream client, do not implement that part. Document it clearly as out-of-scope and skip code changes. Keep all changes scoped to Huz-Backend, verify each batch, and finish with a final summary of issues found, fixes implemented, skipped out-of-scope items, and verification results.\n\nGlobal Instructions (always apply):\nAlways maintain full-system project memory in docs for the selected scope level.\nExclude non-dev and non-required files from deep mapping and auditing.\nWhen code changes touch modules/routes/APIs/contracts/schema/security/state, refresh relevant atlas docs in the same run.\nKeep audit findings traceable with status updates (open, fixed, verified) when remediation occurs.\nFor full-system or multi-panel fullstack scope, ensure frontend panels and backend structure/contracts are mapped together.",
+  "projectSurfaces": [
+    {
+      "id": "huz-backend",
+      "label": "Huz-Backend",
+      "path": "/Users/macbook/Desktop/Huz/Huz-Backend",
+      "kind": "panel-be"
+    }
+  ],
+  "devIgnorePatterns": [
+    "node_modules/**",
+    "dist/**",
+    "build/**",
+    "coverage/**",
+    ".git/**",
+    "*.log"
+  ],
+  "fullSystemRequiredDocs": false,
+  "requiredAtlasDocs": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/PROJECT_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/MODULE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/ROUTES_AND_ENTRYPOINTS.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/API_SURFACE.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/CHANGE_MAP.md"
+  ],
+  "designGuides": [
+    "/Users/macbook/Desktop/Huz/UI_DESIGN_SYSTEM_GUIDE.md",
+    "/Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md"
+  ],
+  "referenceDocs": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/SYSTEM_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/FILE_MAP_DEV_ONLY.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/PANEL_MODULE_INDEX.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/FRONTEND_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/BACKEND_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/PROJECT_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/MODULE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/ROUTES_AND_ENTRYPOINTS.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/API_SURFACE.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/CHANGE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/ROUTE_MATRIX.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/STATE_MANAGEMENT_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/API_CONTRACT_REGISTRY.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/BACKEND_SCHEMA_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/DEPENDENCY_GRAPH.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/SECURITY_THREAT_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/TRACEABILITY_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/FULL_AUDIT_REPORT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md"
+  ],
+  "forceExternalDocs": true,
+  "reportFiles": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md"
+  ],
+  "createdAt": "2026-03-12T12:45:49.364Z",
+  "updatedAt": "2026-03-12T12:45:49.364Z",
+  "phaseCursor": 0,
+  "phases": [
+    {
+      "id": 0,
+      "title": "Refresh Atlas Context",
+      "status": "pending",
+      "completedAt": null,
+      "note": "",
+      "goal": "Load the existing atlas docs, validate the scoped modules, and refresh stale context needed for a reliable scan.",
+      "required": [
+        "Read the current atlas docs before diving into code.",
+        "Confirm the exact directories, routes, APIs, or modules covered by the request.",
+        "Refresh atlas docs when stale context blocks an accurate scan."
+      ]
+    },
+    {
+      "id": 1,
+      "title": "Analyze Code Paths",
+      "status": "pending",
+      "completedAt": null,
+      "note": "",
+      "goal": "Inspect the requested scope deeply and capture logic flows, route structures, contracts, state handling, and mismatch risks.",
+      "required": [
+        "Trace important execution paths, data transformations, route definitions, and module boundaries in the scoped area.",
+        "Identify mismatches, bug risks, dead paths, duplicated logic, or weak assumptions.",
+        "Keep findings evidence-based with exact files and commands used to verify them."
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Write Findings and Backlog",
+      "status": "pending",
+      "completedAt": null,
+      "note": "",
+      "goal": "Produce durable reports and backlog entries so future work can execute without rescanning the full codebase.",
+      "required": [
+        "Update the deep scan report with findings grouped by module or concern.",
+        "Update the bug backlog with prioritized, actionable items and verification steps.",
+        "Capture the scope scanned, files examined, and remaining blind spots."
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Verify and Summarize",
+      "status": "pending",
+      "completedAt": null,
+      "note": "",
+      "goal": "Check the scan quality and ensure the atlas reflects newly clarified relationships.",
+      "required": [
+        "Sanity-check the report and backlog against the code reviewed.",
+        "Update atlas docs for any clarified structure or contract information.",
+        "Append a concise final summary of the scan and its evidence."
+      ]
+    }
+  ]
+}

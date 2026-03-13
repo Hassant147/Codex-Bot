@@ -1,0 +1,2119 @@
+OpenAI Codex v0.108.0-alpha.12 (research preview)
+--------
+workdir: /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend
+model: gpt-5.4
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR, /Users/macbook/.codex/memories, /Users/macbook/Desktop/Huz/Huz-Backend]
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019ce228-a31d-7a63-98d7-38732def59c0
+--------
+user
+Use $project-autopilot-manager in `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend`.
+Read `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/state.json` and `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/prompts/phase-02.md`.
+Execute only Phase 2 (Validate Atlas Coverage) against target project `/Users/macbook/Desktop/Huz/Huz-Backend`.
+At the end, run:
+1. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas --phase 2`
+2. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas`
+Then print `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/NEXT_PROMPT.md`.
+
+mcp: playwright starting
+mcp: playwright ready
+mcp startup: ready: playwright
+2026-03-12T13:07:21.421393Z  WARN codex_core::shell_snapshot: Failed to delete shell snapshot at "/Users/macbook/.codex/shell_snapshots/019ce228-a31d-7a63-98d7-38732def59c0.tmp-1773320840067285000": Os { code: 2, kind: NotFound, message: "No such file or directory" }
+codex
+Using `project-autopilot-manager` because this is a bounded run-phase task. I’m reading the run state, the Phase 2 prompt, and the skill instructions first so I can execute only the requested validation phase against `/Users/macbook/Desktop/Huz/Huz-Backend`.
+exec
+/bin/zsh -lc "sed -n '1,260p' /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/state.json" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc "sed -n '1,220p' /Users/macbook/.codex/skills/project-autopilot-manager/SKILL.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 51ms:
+---
+name: project-autopilot-manager
+description: General-purpose Codex project bot for initializing persistent atlas docs, creating bounded multi-phase task runs, keeping blueprint/map files updated after code changes, and automating fresh-session execution for scans, cleanup, revamps, feature work, and full project enhancement. Use when Codex should manage a project end-to-end instead of relying on repeated manual prompt transfer.
+---
+
+# Project Autopilot Manager
+
+## Purpose
+
+Run large project tasks through durable docs and bounded fresh-session phases so Codex can keep working without rescanning the entire codebase every time.
+
+## Core Guarantees
+
+- Keep atlas docs current after code changes.
+- Store project memory in files, not chat memory.
+- Split large work into bounded phases.
+- Generate fresh-session prompts automatically.
+- Work across different local projects by changing the target project path.
+
+## Main Script
+ succeeded in 51ms:
+{
+  "version": 1,
+  "workspaceRoot": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend",
+  "projectPath": "/Users/macbook/Desktop/Huz/Huz-Backend",
+  "mode": "system-atlas",
+  "modeTitle": "System Atlas",
+  "description": "Build or refresh the master project blueprint, module map, routes, APIs, flows, and change map so future work can rely on durable project memory.",
+  "scopeLevel": "panel-be",
+  "scope": "/Users/macbook/Desktop/Huz/Huz-Backend",
+  "scopeTargets": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/system-atlas"
+  ],
+  "request": "Team mission: Audit the entire Huz-Backend repository deeply. Act as a project manager, Django architect, Python performance specialist, security reviewer, QA engineer, and implementation engineer. First perform a full backend audit for performance bottlenecks, optimization issues, N+1 queries, ORM misuse, inefficient loops, unnecessary database or network work, cache gaps, slow request paths, dead code, risky patterns, security flaws, and anything clearly wrong. Then create a prioritized remediation plan and implement the safe backend fixes in parallel. Important constraint: only document and fix issues that can be resolved entirely inside Huz-Backend. If an issue requires edits in any other repository, consumer application, or downstream client, do not implement that part. Document it clearly as out-of-scope and skip code changes. Keep all changes scoped to Huz-Backend, verify each batch, and finish with a final summary of issues found, fixes implemented, skipped out-of-scope items, and verification results.\n\nYou are the Project Manager in coordinated team \"Huz Backend Strict Backend Audit and Fix Active\".\nAssigned lane: Global coordination\nPrimary objective: Map the repo, establish safe work lanes, and refresh the system memory before any parallel work starts.\nExecution phase: discovery\nMode: system-atlas\nScope level: panel-be\nScope: /Users/macbook/Desktop/Huz/Huz-Backend\nScope targets: system-atlas\n\nTeam coordination contract:\n- Work only inside your assigned lane.\n- Ownership boundaries: coordination:global\n- This is a report-only run. Do not modify product code; workspace docs and reports are allowed.\n- Read atlas docs, QA reports, and BUG_BACKLOG before making major decisions.\n- If you discover issues outside your lane, document them clearly in RUN_SUMMARY or BUG_BACKLOG instead of implementing them here.\n- You are the first wave. Establish a clean foundation for downstream agents.\n\nDiscovery contract:\n- Build or refresh the atlas needed for downstream work.\n- Define safe implementation boundaries in the run summary so later agents can avoid collisions.\n- Name the recommended lanes, major risks, and the highest-risk files or flows.\n\nOriginal operator request:\nAudit the entire Huz-Backend repository deeply. Act as a project manager, Django architect, Python performance specialist, security reviewer, QA engineer, and implementation engineer. First perform a full backend audit for performance bottlenecks, optimization issues, N+1 queries, ORM misuse, inefficient loops, unnecessary database or network work, cache gaps, slow request paths, dead code, risky patterns, security flaws, and anything clearly wrong. Then create a prioritized remediation plan and implement the safe backend fixes in parallel. Important constraint: only document and fix issues that can be resolved entirely inside Huz-Backend. If an issue requires edits in any other repository, consumer application, or downstream client, do not implement that part. Document it clearly as out-of-scope and skip code changes. Keep all changes scoped to Huz-Backend, verify each batch, and finish with a final summary of issues found, fixes implemented, skipped out-of-scope items, and verification results.\n\nGlobal Instructions (always apply):\nAlways maintain full-system project memory in docs for the selected scope level.\nExclude non-dev and non-required files from deep mapping and auditing.\nWhen code changes touch modules/routes/APIs/contracts/schema/security/state, refresh relevant atlas docs in the same run.\nKeep audit findings traceable with status updates (open, fixed, verified) when remediation occurs.\nFor full-system or multi-panel fullstack scope, ensure frontend panels and backend structure/contracts are mapped together.",
+  "projectSurfaces": [
+    {
+      "id": "huz-backend",
+      "label": "Huz-Backend",
+      "path": "/Users/macbook/Desktop/Huz/Huz-Backend",
+      "kind": "panel-be"
+    }
+exec
+/bin/zsh -lc "sed -n '1,260p' /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/prompts/phase-02.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 52ms:
+# Phase 2: Validate Atlas Coverage
+
+Run Mode: `system-atlas`
+Run Directory: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas`
+Workspace Root: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend`
+Target Project: `/Users/macbook/Desktop/Huz/Huz-Backend`
+Scoped Directory/Module: `/Users/macbook/Desktop/Huz/Huz-Backend`
+
+## Original Request
+Team mission: Audit the entire Huz-Backend repository deeply. Act as a project manager, Django architect, Python performance specialist, security reviewer, QA engineer, and implementation engineer. First perform a full backend audit for performance bottlenecks, optimization issues, N+1 queries, ORM misuse, inefficient loops, unnecessary database or network work, cache gaps, slow request paths, dead code, risky patterns, security flaws, and anything clearly wrong. Then create a prioritized remediation plan and implement the safe backend fixes in parallel. Important constraint: only document and fix issues that can be resolved entirely inside Huz-Backend. If an issue requires edits in any other repository, consumer application, or downstream client, do not implement that part. Document it clearly as out-of-scope and skip code changes. Keep all changes scoped to Huz-Backend, verify each batch, and finish with a final summary of issues found, fixes implemented, skipped out-of-scope items, and verification results.
+
+You are the Project Manager in coordinated team "Huz Backend Strict Backend Audit and Fix Active".
+Assigned lane: Global coordination
+Primary objective: Map the repo, establish safe work lanes, and refresh the system memory before any parallel work starts.
+Execution phase: discovery
+Mode: system-atlas
+Scope level: panel-be
+Scope: /Users/macbook/Desktop/Huz/Huz-Backend
+Scope targets: system-atlas
+
+codex
+I have the phase contract. Next I’m loading the required workspace context and the current atlas docs, then I’ll re-open the highest-risk backend files those docs point to and verify the docs against the repository.
+exec
+/bin/zsh -lc "sed -n '1,220p' docs/project-bot/config.json" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc "sed -n '1,260p' docs/project-bot/runs/20260312-174754-system-atlas/TASK.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc "sed -n '1,260p' docs/project-bot/OPERATOR_PROFILE.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 52ms:
+Team mission: Audit the entire Huz-Backend repository deeply. Act as a project manager, Django architect, Python performance specialist, security reviewer, QA engineer, and implementation engineer. First perform a full backend audit for performance bottlenecks, optimization issues, N+1 queries, ORM misuse, inefficient loops, unnecessary database or network work, cache gaps, slow request paths, dead code, risky patterns, security flaws, and anything clearly wrong. Then create a prioritized remediation plan and implement the safe backend fixes in parallel. Important constraint: only document and fix issues that can be resolved entirely inside Huz-Backend. If an issue requires edits in any other repository, consumer application, or downstream client, do not implement that part. Document it clearly as out-of-scope and skip code changes. Keep all changes scoped to Huz-Backend, verify each batch, and finish with a final summary of issues found, fixes implemented, skipped out-of-scope items, and verification results.
+
+You are the Project Manager in coordinated team "Huz Backend Strict Backend Audit and Fix Active".
+Assigned lane: Global coordination
+Primary objective: Map the repo, establish safe work lanes, and refresh the system memory before any parallel work starts.
+Execution phase: discovery
+Mode: system-atlas
+Scope level: panel-be
+Scope: /Users/macbook/Desktop/Huz/Huz-Backend
+Scope targets: system-atlas
+
+Team coordination contract:
+- Work only inside your assigned lane.
+- Ownership boundaries: coordination:global
+- This is a report-only run. Do not modify product code; workspace docs and reports are allowed.
+- Read atlas docs, QA reports, and BUG_BACKLOG before making major decisions.
+- If you discover issues outside your lane, document them clearly in RUN_SUMMARY or BUG_BACKLOG instead of implementing them here.
+- You are the first wave. Establish a clean foundation for downstream agents.
+
+Discovery contract:
+ succeeded in 52ms:
+# Operator Profile
+
+This file captures the default working style for the project bot. Every run should read this file before planning or changing code.
+
+## Working Style
+- Work in clearly scoped phases with durable written outputs.
+- Prefer module-by-module execution instead of scattered random fixes.
+- Treat frontend and backend as one connected system map when integration is involved.
+- Use existing atlas docs first, then read only the extra code needed for accuracy.
+
+## Scope Rules
+- The target project is the only place code changes should happen unless the task explicitly requires a related supporting change.
+- Keep the bot workspace as the long-term memory layer. Store reports, atlas docs, backlogs, summaries, and run state here instead of inside the target repo when possible.
+- Match frontend to backend contracts when drift is found, unless the task explicitly says to refactor the backend contract itself.
+
+## Quality Rules
+- Reduce duplication, stale logic, dead code, and brittle state flows.
+- Prefer modern modular patterns, reusable primitives, and clear ownership boundaries.
+- Keep routes stable unless the task explicitly requires a migration.
+- If code changes affect structure, routes, APIs, or ownership, refresh the relevant atlas docs in the same phase.
+ succeeded in 52ms:
+{
+  "version": 1,
+  "workspaceRoot": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend",
+  "projectPath": "/Users/macbook/Desktop/Huz/Huz-Backend",
+  "designGuides": [
+    "/Users/macbook/Desktop/Huz/UI_DESIGN_SYSTEM_GUIDE.md",
+    "/Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md"
+  ],
+  "blueprintSources": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/SYSTEM_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/FILE_MAP_DEV_ONLY.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/PANEL_MODULE_INDEX.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/FRONTEND_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/BACKEND_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/PROJECT_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/MODULE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/ROUTES_AND_ENTRYPOINTS.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/API_SURFACE.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/CHANGE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/ROUTE_MATRIX.md",
+exec
+/bin/zsh -lc "sed -n '1,260p' docs/atlas/ROUTES_AND_ENTRYPOINTS.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc "sed -n '1,260p' docs/qa/DEEP_SCAN_REPORT.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc "sed -n '1,260p' docs/atlas/API_SURFACE.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc "sed -n '1,260p' docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc "sed -n '1,260p' docs/atlas/PROJECT_BLUEPRINT.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc "sed -n '1,260p' docs/atlas/CHANGE_MAP.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc "sed -n '1,260p' docs/atlas/MODULE_MAP.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 50ms:
+# API Surface
+
+Track endpoints, service modules, request/response contracts, and important integration notes here.
+
+## Auth and Session Contract
+| Surface | Auth contract | Primary modules | Notes |
+| --- | --- | --- | --- |
+| Modern customer and operator API | `Authorization: Bearer <session token>` or `Authorization: Token <session token>` | `common/authentication.py`, `common/auth_utils.py`, `common/permissions.py` | Preferred path for `/api/v1/` and routed operator package endpoints. |
+| Legacy compatibility auth | `session_token` or `partner_session_token` in query params or request payload | `common/authentication.py`, legacy views across `partners/*`, `common/user_profile.py`, `booking/manage_partner_booking.py` | Still accepted; responses may include `X-Auth-Deprecated`. |
+| Django admin auth | Standard Django staff session/auth backend | `django.contrib.auth`, `management/approval_task.py` | Used for `/management/` and `/admin/`. |
+
+## Customer Identity and Wallet APIs
+| Surface | Endpoints | Request contract | Response contract | Service/modules | Notes |
+| --- | --- | --- | --- | --- | --- |
+| Legacy phone OTP | `/common/send_otp_sms/`, `/common/verify_otp/` | Phone number and OTP fields; SMS send restricted to `+92`; admin-authenticated | Success/error message payloads | `common/user_profile.py`, `common/throttling.py` | OTP send uses external SMS gateway and optional dev bypass. |
+| Legacy customer existence and creation | `/common/is_user_exist/`, `/common/manage_user_account/` | Phone number lookup or profile-creation payload | Serialized `UserProfile` or status message | `common/user_profile.py`, `common/serializers.py` | Create flow provisions wallet state and sends outbound side effects. |
+| Current user profile | `/api/v1/users/me/profile/` | Optional `name`, `email`, `user_gender` on update | `UserProfileSerializer` with `wallet_amount` | `common/api_v1.py`, `common/serializers.py` | Modern read/update contract. |
+| Current user address | `/api/v1/users/me/address/` | `street_address`, `city`, `state`, `country`, `postal_code`, optional lat/long and `address_id` on update | `MailingDetailSerializer` with `full_address` | `common/api_v1.py`, `common/models.py` | Toggles `UserProfile.is_address_exist`. |
+| Current user bank accounts | `/api/v1/users/me/wallet/banks/` | Create: `account_title`, `account_number`, `bank_name`, `branch_code`; delete: `account_id` | `UserBankAccountSerializer[]` or message | `common/api_v1.py` | Duplicate bank records are rejected. |
+| Current user withdrawals | `/api/v1/users/me/wallet/withdrawals/` | `account_id`, `withdraw_amount` | `UserWithdrawSerializer[]` or created withdrawal | `common/api_v1.py`, `common/models.py` | Uses wallet-balance checks and atomic decrement. |
+ succeeded in 50ms:
+# Deep Scan Report
+
+Use this report for on-demand deep analysis of logic, structures, routes, contracts, and mismatch risks.
+
+## Findings
+### 2026-03-12 Phase 0 Inventory Scope
+- Scope inventoried: `/Users/macbook/Desktop/Huz/Huz-Backend` for the `system-atlas` run. This phase was report-only and did not modify product code.
+- Runtime shape: Django 5 + DRF project rooted in `huz/`, with installed apps `common`, `partners`, `management`, and `booking`; `huz/settings_test.py` swaps the default MySQL database for SQLite during non-interactive test runs.
+- Route surface snapshot: `huz/urls.py` mounts newer `/api/v1/` user/customer routes from `common/api_urls.py` and `booking/api_urls.py`, plus legacy or back-office groups at `/common/`, `/partner/`, `/bookings/`, and `/management/`.
+- Route density evidence from direct source inspection: `common/urls.py` exposes 6 legacy endpoints, `common/api_urls.py` exposes 5 current-user endpoints, `partners/urls.py` exposes 36 partner/package/account endpoints, `booking/urls.py` exposes 18 partner-booking endpoints, `booking/api_urls.py` exposes a booking resource plus custom booking actions, and `management/urls.py` exposes 8 admin endpoints.
+- Domain ownership boundary: `common` owns user identity, OTP, wallets, address state, notification records, auth bridge helpers, and outbound SMS/email/Firebase utilities.
+- Domain ownership boundary: `partners` owns partner identity, company and individual profiles, package catalog models, hotel catalog edges, partner wallet and withdrawal state, and website package read endpoints.
+- Domain ownership boundary: `booking` owns booking lifecycle state, capacity checks, payment submission, traveller passport/document state, complaints/requests, partner-facing booking fulfillment, and payout records.
+- Domain ownership boundary: `management` owns admin approvals, payment review decisions, master hotel catalog management, and partner receivable release.
+- High-risk files for downstream work: `booking/manage_partner_booking.py` (~1800 LOC), `booking/services.py` (~1000 LOC), `partners/package_management_operator.py` (~1700 LOC), `partners/package_management.py` (~1700 LOC), `partners/partner_profile.py` (~1300 LOC), and `management/approval_task.py` (~1500 LOC).
+- High-risk flows for downstream work: partner onboarding and company approval, package creation and publication, user booking creation with capacity locks, payment review and rejection/approval state changes, partner document fulfillment, complaint/objection handling, and partner receivable transfer to wallets.
+- Structural ambiguity: the workspace atlas docs are still placeholder stubs and currently do not describe the live module map, route groups, or API contracts for this repository.
+- Structural ambiguity: `partners/package_management.py` still contains legacy operator package views, but the routed operator package endpoints now flow through `partners/package_management_operator.py` via `partners/views/operator_packages.py`; this creates a duplicate-implementation seam that Phase 1 should document explicitly.
+- Structural ambiguity: `management/approval_task.py` defines `GetAllApprovedCompaniesView` and `ManageFeaturedPackageView`, but `management/urls.py` does not route them.
+- Security-sensitive boundary for later audit phases: many legacy partner and partner-wallet endpoints use `AllowAny` or token-in-payload/query compatibility, while the newer `/api/v1/` surface uses the auth bridge in `common/authentication.py`.
+ succeeded in 51ms:
+# Routes and Entrypoints
+
+Track frontend routes, backend route groups, entry components, and bootstrap paths here.
+
+## Bootstrap Entrypoints
+| Entrypoint | Path | Purpose | Notes |
+| --- | --- | --- | --- |
+| Django CLI | `/Users/macbook/Desktop/Huz/Huz-Backend/manage.py` | Standard management-command bootstrap | Uses `huz.settings` by default. |
+| WSGI app | `/Users/macbook/Desktop/Huz/Huz-Backend/huz/wsgi.py` | Deployment WSGI entrypoint | Standard synchronous deployment path. |
+| ASGI app | `/Users/macbook/Desktop/Huz/Huz-Backend/huz/asgi.py` | ASGI entrypoint | Present even though `ASGI_APPLICATION` is commented in `huz/settings.py`. |
+| Root router | `/Users/macbook/Desktop/Huz/Huz-Backend/huz/urls.py` | Mounts all HTTP route groups | Also conditionally exposes Swagger/Redoc and Django static/media serving. |
+| Booking lifecycle timer | `/Users/macbook/Desktop/Huz/Huz-Backend/booking/management/commands/process_booking_timers.py` | Scheduled reconciler for booking expiry and completion | Must be run out-of-band by ops/cron; there is no Celery worker in the inspected tree. |
+
+## Root Route Mounts
+| Prefix | Mounted module | Auth model | Purpose | Notes |
+| --- | --- | --- | --- | --- |
+| `/api/v1/` | `booking.api_urls` and `common.api_urls` | Modern session-token auth bridge | Current authenticated customer API surface | `Authorization: Bearer/Token <session token>` preferred. |
+| `/common/` | `common.urls` | Mostly admin or legacy public | Legacy customer onboarding and utility endpoints | Still uses manual token payloads for some writes. |
+| `/partner/` | `partners.urls` | Mixed legacy public and newer authenticated operator routes | Partner onboarding, catalog, website reads, and partner account operations | Security posture varies endpoint-by-endpoint. |
+| `/bookings/` | `booking.urls` | Partner auth bridge alias + admin override | Partner booking operations and stats | Bucketed by booking state and issue state. |
+ succeeded in 50ms:
+# Run Summary
+
+- Run mode: `system-atlas`
+- Target project: `/Users/macbook/Desktop/Huz/Huz-Backend`
+- Workspace root: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend`
+- Scope level: `panel-be`
+- Scope: `/Users/macbook/Desktop/Huz/Huz-Backend`
+- Scope targets: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/system-atlas`
+- Full-system required docs: `disabled`
+- Rule: append one section per completed phase. Do not overwrite prior phase sections.
+
+Expected section format:
+
+## Phase X - Title
+### Changes Made
+### How It Was Implemented
+### Files Touched
+### Verification
+
+## Phase 0 - Inventory Scope
+ succeeded in 50ms:
+# Project Blueprint
+
+Keep this file current whenever code changes touch architecture, flows, or module boundaries.
+
+## Scope
+- Target project: `/Users/macbook/Desktop/Huz/Huz-Backend`
+- Runtime: Django 5.0.6 + Django REST Framework 3.15 + drf-yasg
+- Primary domains: customer identity and wallets, partner onboarding and package catalog, booking lifecycle, admin approvals and payouts
+- Refresh basis: live working tree as inspected on 2026-03-12 during `system-atlas` Phase 1
+
+## System Purpose
+Huz-Backend is the backend for a Hajj and Umrah marketplace. It supports:
+
+- Customer onboarding, profile management, addresses, wallets, and withdrawals
+- Partner onboarding for individual and company operators
+- Package enrollment and website package discovery
+- Customer booking creation, staged payment submission, traveller passport capture, post-booking support, and review flows
+- Partner booking fulfillment, operator document uploads, complaints handling, and receivable tracking
+- Admin approval of partner companies, payment review, master hotel catalog maintenance, and partner payout release
+
+ succeeded in 51ms:
+# Change Map
+
+Every code-changing run should append what changed and which atlas docs were refreshed.
+
+## Entries
+### 2026-03-12 - System Atlas Phase 1 refresh
+- Scope: `/Users/macbook/Desktop/Huz/Huz-Backend`
+- Files changed:
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+  - `docs/atlas/MODULE_MAP.md`
+  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
+  - `docs/atlas/API_SURFACE.md`
+  - `docs/atlas/CHANGE_MAP.md`
+  - `docs/qa/DEEP_SCAN_REPORT.md`
+  - `docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md`
+- Atlas docs refreshed:
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+  - `docs/atlas/MODULE_MAP.md`
+  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
+  - `docs/atlas/API_SURFACE.md`
+ succeeded in 51ms:
+# Module Map
+
+Update this file whenever modules, folders, or responsibilities change.
+
+## Top-Level Modules
+| Module | Path | Responsibility | Notes |
+| --- | --- | --- | --- |
+| Django project shell | `/Users/macbook/Desktop/Huz/Huz-Backend/huz` | Settings, root URL mounts, WSGI/ASGI bootstraps, optional docs/static serving | `huz/settings.py` is production-first; `huz/settings_test.py` swaps to SQLite for verification runs. |
+| Shared user domain | `/Users/macbook/Desktop/Huz/Huz-Backend/common` | Customer identity, OTP, wallets, addresses, notifications, auth bridge, email/SMS/Firebase helpers | Mixed legacy and modern APIs; contains the session-token authentication bridge used by `/api/v1/`. |
+| Partner domain | `/Users/macbook/Desktop/Huz/Huz-Backend/partners` | Partner onboarding, identity, services, package catalog, website package reads, partner wallets and withdrawals | Write path is split between modern operator views and older legacy modules. |
+| Booking domain | `/Users/macbook/Desktop/Huz/Huz-Backend/booking` | Booking creation, payment/passport lifecycle, support flows, partner fulfillment, receivable tracking | Contains the current state machine and the largest cross-module coupling. |
+| Back-office domain | `/Users/macbook/Desktop/Huz/Huz-Backend/management` | Company approvals, payment review, master hotel catalog, partner payout transfer | All routed views currently live in `approval_task.py`. |
+| Email templates | `/Users/macbook/Desktop/Huz/Huz-Backend/huz/templates/emails` | Transactional email rendering for approval, booking, objection, complaint, payment, and verification flows | Driven through helper functions in `common/utility.py`. |
+
+## Shared Platform and Auth
+| Module | Path | Responsibility | Notes |
+| --- | --- | --- | --- |
+| Session-token auth bridge | `/Users/macbook/Desktop/Huz/Huz-Backend/common/authentication.py` | Resolves Bearer/Token headers and legacy query/payload session tokens to customer or partner principals | Sets request auth context and drives `X-Auth-Deprecated` header when legacy token transport is used. |
+| Auth helpers | `/Users/macbook/Desktop/Huz/Huz-Backend/common/auth_utils.py` | Resolves authenticated user/partner principals and admin checks | Used by the modern `/api/v1/` and newer operator views. |
+| Custom permissions | `/Users/macbook/Desktop/Huz/Huz-Backend/common/permissions.py` | DRF permission classes for authenticated user and partner profile access | Keeps admin override behavior intact. |
+codex
+The atlas refresh is loaded. I’m now validating it against the live backend sources, starting with the backlog and the highest-risk modules the atlas itself flagged so I can confirm whether the docs are accurate or need corrections.
+exec
+/bin/zsh -lc "sed -n '1,240p' docs/qa/BUG_BACKLOG.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc "rg --files /Users/macbook/Desktop/Huz/Huz-Backend | sed -n '1,240p'" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 51ms:
+# Bug and Improvement Backlog
+
+Use this backlog for prioritized follow-up work discovered during scans or implementation.
+
+| ID | Priority | Module | Summary | Status | Verification |
+| --- | --- | --- | --- | --- | --- |
+ succeeded in 51ms:
+Total output lines: 240
+
+/Users/macbook/Desktop/Huz/Huz-Backend/media/objection-response_psPDx4F.pdf
+/Users/macbook/Desktop/Huz/Huz-Backend/media/objection-response_sXvpvJ4.pdf
+/Users/macbook/Desktop/Huz/Huz-Backend/media/traveler-passport_HULerNw.jpg
+/Users/macbook/Desktop/Huz/Huz-Backend/media/traveler-photo.jpg
+/Users/macbook/Desktop/Huz/Huz-Backend/media/traveler-passport_IYutjqA.jpg
+/Users/macbook/Desktop/Huz/Huz-Backend/media/traveler-photo_LUaP1Rc.jpg
+/Users/macbook/Desktop/Huz/Huz-Backend/media/traveler-photo_oKveGlm.jpg
+/Users/macbook/Desktop/Huz/Huz-Backend/media/logo_FqaoN83.png
+/Users/macbook/Desktop/Huz/Huz-Backend/media/objection-response_JGul7Z7.pdf
+/Users/macbook/Desktop/Huz/Huz-Backend/media/traveler-photo_wFlVlVs.jpg
+/Users/macbook/Desktop/Huz/Huz-Backend/media/user_images/partner-passport-1_MAIz9er.jpg
+/Users/macbook/Desktop/Huz/Huz-Backend/media/objection-response_EuYnwxO.pdf
+/Users/macbook/Desktop/Huz/Huz-Backend/media/user_images/partner-photo-1_R8wJkPU.jpg
+/Users/macbook/Desktop/Huz/Huz-Backend/media/user_images/partner-passport-2_1nx8AuY.jpg
+/Users/macbook/Desktop/Huz/Huz-Backend/media/user_images/partner-photo-2_OZ2c7TF.jpg
+/Users/macbook/Desktop/Huz/Huz-Backend/media/traveler-passport_6N24aeI.jpg
+/Users/macbook/Desktop/Huz/Huz-Backend/media/objection-response_KTX8N4t.pdf
+/Users/macbook/Desktop/Huz/Huz-Backend/media/traveler-passport_9vhHmok.jpg
+exec
+/bin/zsh -lc 'wc -l /Users/macbook/Desktop/Huz/Huz-Backend/booking/manage_partner_booking.py /Users/macbook/Desktop/Huz/Huz-Backend/booking/services.py /Users/macbook/Desktop/Huz/Huz-Backend/partners/package_management_operator.py /Users/macbook/Desktop/Huz/Huz-Backend/partners/package_management.py /Users/macbook/Desktop/Huz/Huz-Backend/partners/partner_profile.py /Users/macbook/Desktop/Huz/Huz-Backend/management/approval_task.py' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc 'rg -n "GetAllApprovedCompaniesView|ManageFeaturedPackageView|__system_master_hotel_package__|Authorization: Bearer|LegacySessionTokenAuthentication|SessionTokenHeaderAuthentication|IsAdminOrAuthenticatedPartnerProfile|IsAdminOrPartnerSessionToken|AllowAny|router.register|urlpatterns|process_booking_timers|OPERATOR_PANEL_BASE_URL|X-Auth-Deprecated|ENABLE_API_DOCS|SERVE_MEDIA_AND_STATIC_FROM_DJANGO" /Users/macbook/Desktop/Huz/Huz-Backend/huz /Users/macbook/Desktop/Huz/Huz-Backend/common /Users/macbook/Desktop/Huz/Huz-Backend/partners /Users/macbook/Desktop/Huz/Huz-Backend/booking /Users/macbook/Desktop/Huz/Huz-Backend/management' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 51ms:
+    1800 /Users/macbook/Desktop/Huz/Huz-Backend/booking/manage_partner_booking.py
+    1004 /Users/macbook/Desktop/Huz/Huz-Backend/booking/services.py
+    1699 /Users/macbook/Desktop/Huz/Huz-Backend/partners/package_management_operator.py
+    1698 /Users/macbook/Desktop/Huz/Huz-Backend/partners/package_management.py
+    1313 /Users/macbook/Desktop/Huz/Huz-Backend/partners/partner_profile.py
+    1513 /Users/macbook/Desktop/Huz/Huz-Backend/management/approval_task.py
+    9027 total
+ succeeded in 51ms:
+/Users/macbook/Desktop/Huz/Huz-Backend/common/user_profile.py:2:from rest_framework.permissions import IsAdminUser, AllowAny
+/Users/macbook/Desktop/Huz/Huz-Backend/common/user_profile.py:228:    permission_classes = [AllowAny]
+/Users/macbook/Desktop/Huz/Huz-Backend/management/urls.py:6:urlpatterns = [
+/Users/macbook/Desktop/Huz/Huz-Backend/management/approval_task.py:71:MASTER_HOTEL_PACKAGE_TOKEN = "__system_master_hotel_package__"
+/Users/macbook/Desktop/Huz/Huz-Backend/management/approval_task.py:907:class GetAllApprovedCompaniesView(APIView):
+/Users/macbook/Desktop/Huz/Huz-Backend/management/approval_task.py:988:            logger.error(f"Error in GetAllApprovedCompaniesView: {str(e)}")
+/Users/macbook/Desktop/Huz/Huz-Backend/management/approval_task.py:1282:class ManageFeaturedPackageView(APIView):
+/Users/macbook/Desktop/Huz/Huz-Backend/management/approval_task.py:1332:            logger.error(f"ManageFeaturedPackageView - Put: {str(e)}")
+/Users/macbook/Desktop/Huz/Huz-Backend/partners/views/__init__.py:51:    permission_classes=[permissions.AllowAny],
+/Users/macbook/Desktop/Huz/Huz-Backend/booking/api_urls.py:10:router.register("bookings", BookingViewSet, basename="v1-bookings")
+/Users/macbook/Desktop/Huz/Huz-Backend/booking/api_urls.py:15:urlpatterns = [
+/Users/macbook/Desktop/Huz/Huz-Backend/booking/api_urls.py:34:urlpatterns += router.urls
+/Users/macbook/Desktop/Huz/Huz-Backend/huz/urls.py:7:urlpatterns = [
+/Users/macbook/Desktop/Huz/Huz-Backend/huz/urls.py:18:if settings.ENABLE_API_DOCS:
+/Users/macbook/Desktop/Huz/Huz-Backend/huz/urls.py:33:        permission_classes=(permissions.AllowAny,),
+/Users/macbook/Desktop/Huz/Huz-Backend/huz/urls.py:36:    urlpatterns += [
+/Users/macbook/Desktop/Huz/Huz-Backend/huz/urls.py:41:if settings.SERVE_MEDIA_AND_STATIC_FROM_DJANGO:
+/Users/macbook/Desktop/Huz/Huz-Backend/huz/urls.py:42:    urlpatterns += [
+/Users/macbook/Desktop/Huz/Huz-Backend/partners/urls.py:11:urlpatterns = [
+/Users/macbook/Desktop/Huz/Huz-Backend/common/api_urls.py:12:urlpatterns = [
+codex
+I’ve confirmed the broad seams the atlas called out: mixed auth models, the unmounted admin views, and the large high-risk files are real. Next I’m validating the more specific claims in the atlas against the source so I can decide whether Phase 2 needs doc corrections or only verification notes.
+exec
+/bin/zsh -lc "rg --files /Users/macbook/Desktop/Huz/Huz-Backend -g '"'!media/**'"' -g '"'!static/**'"' -g '"'!node_modules/**'"' -g '"'!dist/**'"' -g '"'!build/**'"' -g '"'!coverage/**'"' | sed -n '1,220p'" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc 'git -C /Users/macbook/Desktop/Huz/Huz-Backend status --short' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 52ms:
+Total output lines: 220
+
+/Users/macbook/Desktop/Huz/Huz-Backend/media/objection-response_psPDx4F.pdf
+/Users/macbook/Desktop/Huz/Huz-Backend/media/objection-response_sXvpvJ4.pdf
+/Users/macbook/Desktop/Huz/Huz-Backend/media/traveler-passport_HULerNw.jpg
+/Users/macbook/Desktop/Huz/Huz-Backend/media/traveler-photo.jpg
+/Users/macbook/Desktop/Huz/Huz-Backend/media/traveler-passport_IYutjqA.jpg
+/Users/macbook/Desktop/Huz/Huz-Backend/media/traveler-photo_LUaP1Rc.jpg
+/Users/macbook/Desktop/Huz/Huz-Backend/media/traveler-photo_oKveGlm.jpg
+/Users/macbook/Desktop/Huz/Huz-Backend/media/objection-response.pdf
+/Users/macbook/Desktop/Huz/Huz-Backend/media/traveler-passport_qfYepEE.jpg
+/Users/macbook/Desktop/Huz/Huz-Backend/media/hassan.jpg
+/Users/macbook/Desktop/Huz/Huz-Backend/media/traveler-photo_MnGw8GF.jpg
+/Users/macbook/Desktop/Huz/Huz-Backend/media/traveler-photo_11R6V3i.jpg
+/Users/macbook/Desktop/Huz/Huz-Backend/media/logo_r9GD2O4.png
+/Users/macbook/Desktop/Huz/Huz-Backend/media/objection-response_GMPrpbT.pdf
+/Users/macbook/Desktop/Huz/Huz-Backend/media/traveler-passport_kTplDUV.jpg
+/Users/macbook/Desktop/Huz/Huz-Backend/media/logo.png
+/Users/macbook/Desktop/Huz/Huz-Backend/media/traveler-photo_NffKVgY.jpg
+/Users/macbook/Desktop/Huz/Huz-Backend/media/objection-response_gzLGSrk.pdf
+ succeeded in 52ms:
+Total output lines: 318
+
+ D booking/custom_request.py
+ D booking/manage_bookings.py
+ M booking/manage_partner_booking.py
+ M booking/models.py
+ M booking/serializers.py
+ M booking/services.py
+ M booking/tests.py
+ M booking/urls.py
+ M booking/views/bookings.py
+ D booking/views/passports.py
+ D booking/views/payments.py
+ M booking/views/support.py
+ D chat/__init__.py
+ D chat/admin.py
+ D chat/apps.py
+ D chat/consumers.py
+ D chat/encoders.py
+ D chat/migrations/0001_initial.py
+exec
+/bin/zsh -lc "sed -n '1,220p' /Users/macbook/Desktop/Huz/Huz-Backend/huz/settings.py" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc "sed -n '1,120p' /Users/macbook/Desktop/Huz/Huz-Backend/common/middleware.py" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc "sed -n '1,220p' /Users/macbook/Desktop/Huz/Huz-Backend/huz/urls.py" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc "sed -n '1,240p' /Users/macbook/Desktop/Huz/Huz-Backend/common/authentication.py" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 51ms:
+from django.conf import settings
+from django.contrib import admin
+from django.urls import path, include, re_path
+from django.views.static import serve
+
+
+urlpatterns = [
+    path('api/v1/', include('booking.api_urls')),
+    path('api/v1/', include('common.api_urls')),
+    path('common/', include('common.urls')),
+    path('partner/', include('partners.urls')),
+    path('bookings/', include('booking.urls')),
+    # path('huz_team/', include('team.urls')),
+    path('management/', include('management.urls')),
+    path('admin/', admin.site.urls),
+]
+
+if settings.ENABLE_API_DOCS:
+    from drf_yasg import openapi
+    from drf_yasg.views import get_schema_view
+ succeeded in 51ms:
+class LegacyAuthDeprecationHeaderMiddleware:
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        response = self.get_response(request)
+
+        legacy_source = getattr(request, "_legacy_token_used", "")
+        if legacy_source:
+            response["X-Auth-Deprecated"] = legacy_source
+
+        return response
+ succeeded in 51ms:
+"""
+Django settings for huz project.
+
+Generated by 'django-admin startproject' using Django 5.0.6.
+
+For more information on this file, see
+https://docs.djangoproject.com/en/5.0/topics/settings/
+
+For the full list of settings and their values, see
+https://docs.djangoproject.com/en/5.0/ref/settings/
+"""
+
+from pathlib import Path
+import os
+from decouple import config, Csv
+from corsheaders.defaults import default_headers
+
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+ succeeded in 51ms:
+from dataclasses import dataclass
+
+from rest_framework.authentication import BaseAuthentication, get_authorization_header
+
+from common.models import UserProfile
+from partners.models import PartnerProfile
+
+
+EMPTY_TOKEN_VALUES = {"", "null", "none", "undefined"}
+
+
+@dataclass(frozen=True)
+class SessionTokenAuthContext:
+    principal: object
+    principal_type: str
+    token: str
+    source: str
+
+    @property
+    def legacy(self):
+codex
+The backend state confirms the atlas is mapping a dirty working tree, not a clean historical commit. I’m switching into a tighter validation pass now: route mounts, auth bridge behavior, and the six high-risk files the atlas names.
+Plan update
+Phase 2 is a report-only validation pass. I have the run contract and current atlas docs loaded, and I’ve confirmed the repo state and major route/auth seams from source.
+  → Validate root mounts, auth bridge behavior, and test/module coverage claims against live source
+  • Re-open highest-risk backend files and compare their responsibilities with atlas descriptions
+  • Patch workspace docs with any corrections, blind spots, and durable Phase 2 verification notes
+  • Mark Phase 2 complete, generate the next prompt, and print NEXT_PROMPT.md
+exec
+/bin/zsh -lc "sed -n '1,220p' common/api_urls.py" in /Users/macbook/Desktop/Huz/Huz-Backendexec
+/bin/zsh -lc "sed -n '1,220p' booking/urls.py" in /Users/macbook/Desktop/Huz/Huz-Backendexec
+/bin/zsh -lc "sed -n '1,220p' common/urls.py" in /Users/macbook/Desktop/Huz/Huz-Backendexec
+/bin/zsh -lc "sed -n '1,260p' partners/urls.py" in /Users/macbook/Desktop/Huz/Huz-Backend succeeded in 50ms:
+from django.urls import path
+from . import (
+    forgot_password,
+    package_management,
+    partner_accounts_and_transactions,
+    partner_profile,
+)
+from .views import operator_packages
+
+
+urlpatterns = [
+    path('forgot_password_request/', forgot_password.ForgotEmail.as_view()),
+    path('update_forgot_password_request/', forgot_password.UpdatePassword.as_view()),
+
+    path('partner_login/', partner_profile.PartnerLoginView.as_view()),
+    path('is_user_exist/', partner_profile.IsPartnerExistView.as_view()),
+    path('create_partner_profile/', partner_profile.CreatePartnerProfileView.as_view()),
+    path('get_partner_profile/', partner_profile.GetPartnerProfileView.as_view()),
+    path('resend_otp/', partner_profile.SendEmailOTPView.as_view()),
+    path('verify_otp/', partner_profile.MatchEmailOTPView.as_view()),
+ succeeded in 50ms:
+from django.urls import path
+
+from . import user_profile
+
+urlpatterns = [
+    path('send_otp_sms/', user_profile.SendOTPSMSAPIView.as_view()),
+    path('verify_otp/', user_profile.MatchOTPSMSAPIView.as_view()),
+    path('is_user_exist/', user_profile.IsUserExistView.as_view()),
+    path('manage_user_account/', user_profile.CreateMemberProfileView.as_view()),
+    path('upload_user_photo/', user_profile.UploadUserImageView.as_view()),
+    path('update_firebase_token/', user_profile.UpdateFirebaseTokenView.as_view()),
+]
+ succeeded in 50ms:
+from django.urls import path
+
+from .api_v1 import (
+    CurrentUserAddressView,
+    CurrentUserProfileView,
+    CurrentUserWalletBankAccountsView,
+    CurrentUserWalletTransactionsView,
+    CurrentUserWalletWithdrawalsView,
+)
+
+
+urlpatterns = [
+    path("users/me/profile/", CurrentUserProfileView.as_view(), name="v1-user-profile"),
+    path("users/me/address/", CurrentUserAddressView.as_view(), name="v1-user-address"),
+    path(
+        "users/me/wallet/banks/",
+        CurrentUserWalletBankAccountsView.as_view(),
+        name="v1-user-wallet-banks",
+    ),
+    path(
+ succeeded in 50ms:
+from django.urls import path
+
+from . import manage_partner_booking
+
+urlpatterns = [
+    # Partner Section
+    path('get_all_booking_detail_for_partner/', manage_partner_booking.GetBookingShortDetailForPartnersView.as_view()),
+    path('get_booking_detail_by_booking_number/', manage_partner_booking.GetBookingDetailByBookingNumberForPartnerView.as_view()),
+    path('partner_action_for_booking/', manage_partner_booking.TakeActionView.as_view()),
+    path('manage_booking_documents/', manage_partner_booking.ManageBookingDocumentsView.as_view()),
+    path('delete_booking_documents/', manage_partner_booking.DeleteBookingDocumentsView.as_view()),
+    path('manage_booking_airline_details/', manage_partner_booking.BookingAirlineDetailsView.as_view()),
+    path('manage_booking_hotel_or_transport_details/', manage_partner_booking.BookingHotelAndTransportDetailsView.as_view()),
+    path('get_overall_partner_rating/', manage_partner_booking.GetOverallRatingView.as_view()),
+    path('get_rating_and_review_package_wise/', manage_partner_booking.GetRatingPackageWiseView.as_view()),
+    path('get_overall_rating_package_wise/', manage_partner_booking.GetPackageOverallRatingView.as_view()),
+    path('get_overall_complaints_counts/', manage_partner_booking.GetOverallPartnerComplaintsView.as_view()),
+    path('get_all_complaints_for_partner/', manage_partner_booking.GetPartnerComplaintsView.as_view()),
+    path('give_feedback_on_complaints/', manage_partner_booking.GiveUpdateOnComplaintsView.as_view()),
+    path('get_overall_booking_statistics/', manage_partner_booking.GetPartnersOverallBookingStatisticsView.as_view()),
+exec
+/bin/zsh -lc "printf 'management/tests.py: '; if [ -f management/tests.py ]; then echo present; else echo missing; fi
+printf 'common/tests.py: '; if [ -f common/tests.py ]; then echo present; else echo missing; fi
+printf 'partners/tests.py: '; if [ -f partners/tests.py ]; then echo present; else echo missing; fi
+printf 'booking/tests.py: '; if [ -f booking/tests.py ]; then echo present; else echo missing; fi" in /Users/macbook/Desktop/Huz/Huz-Backendexec
+/bin/zsh -lc "sed -n '1,220p' booking/api_urls.py" in /Users/macbook/Desktop/Huz/Huz-Backendexec
+/bin/zsh -lc "sed -n '1,220p' management/urls.py" in /Users/macbook/Desktop/Huz/Huz-Backend succeeded in 50ms:
+from django.urls import path
+
+from . import approval_task
+
+
+urlpatterns = [
+    path('approved_or_reject_company/', approval_task.ApprovedORRejectCompanyView.as_view()),
+    path('fetch_all_pending_companies/', approval_task.GetAllPendingApprovalsView.as_view()),
+    path('fetch_all_sale_directors/', approval_task.GetAllSaleDirectorsView.as_view()),
+    path('approve_booking_payment/', approval_task.ApproveBookingPaymentView.as_view()),
+    path('fetch_all_paid_bookings/', approval_task.FetchPaidBookingView.as_view()),
+    path('fetch_all_partner_receive_able_payments_details/', approval_task.GetPartnerReceiveAblePaymentsView.as_view()),
+    path('transfer_partner_receive_able_payments/', approval_task.ManagePartnerReceiveAblePaymentView.as_view()),
+    path('manage_master_hotels/', approval_task.ManageMasterHotelsCatalogView.as_view()),
+]
+ succeeded in 50ms:
+from django.urls import path
+from rest_framework.routers import DefaultRouter
+
+from .views.api_v1 import BookingViewSet
+from .views.bookings import CurrentUserExistingBookingView
+from .views.support import CurrentUserComplaintListView, CurrentUserRequestListView
+
+
+router = DefaultRouter()
+router.register("bookings", BookingViewSet, basename="v1-bookings")
+
+current_user_booking_list = BookingViewSet.as_view({"get": "list"})
+
+
+urlpatterns = [
+    path("users/me/bookings/", current_user_booking_list, name="v1-user-bookings"),
+    path(
+        "users/me/bookings/existing/",
+        CurrentUserExistingBookingView.as_view(),
+        name="v1-user-bookings-existing",
+ succeeded in 52ms:
+management/tests.py: missing
+common/tests.py: present
+partners/tests.py: present
+booking/tests.py: present
+exec
+/bin/zsh -lc "sed -n '1,220p' partners/views/operator_packages.py" in /Users/macbook/Desktop/Huz/Huz-Backendexec
+/bin/zsh -lc 'rg -n "''^class |''^def " management/approval_task.py' in /Users/macbook/Desktop/Huz/Huz-Backendexec
+/bin/zsh -lc 'rg -n "''^class |''^def " booking/manage_partner_booking.py' in /Users/macbook/Desktop/Huz/Huz-Backendexec
+/bin/zsh -lc 'rg -n "''^class |''^def " booking/services.py booking/workflow.py booking/querysets.py' in /Users/macbook/Desktop/Huz/Huz-Backendexec
+/bin/zsh -lc 'rg -n "''^class |''^def " partners/package_management_operator.py partners/package_management.py partners/partner_profile.py partners/partner_accounts_and_transactions.py partners/views/operator_packages.py' in /Users/macbook/Desktop/Huz/Huz-Backend succeeded in 52ms:
+from ..package_management_operator import (
+    CreateHuzAirlineView,
+    CreateHuzHotelView,
+    CreateHuzPackageView,
+    CreateHuzTransportView,
+    CreateHuzZiyarahView,
+    GetAllHotelsWithImagesView,
+    GetHuzPackageDetailByTokenView,
+    GetHuzShortPackageByTokenView,
+    GetPartnersOverallPackagesStatisticsView,
+    ManageHuzPackageStatusView,
+)
+
+__all__ = [
+    "CreateHuzAirlineView",
+    "CreateHuzHotelView",
+    "CreateHuzPackageView",
+    "CreateHuzTransportView",
+    "CreateHuzZiyarahView",
+    "GetAllHotelsWithImagesView",
+ succeeded in 51ms:
+58:def extract_partner_session_token(request):
+80:class IsAdminOrPartnerSessionToken(IsAdminOrAuthenticatedPartnerProfile):
+168:def get_partner_bookings_queryset(include_detail_relations=False):
+178:def request_has_partner_visibility_override(request):
+182:def partner_booking_is_accessible(booking, *, allow_hidden=False):
+193:def get_partner_booking_detail(partner, booking_number, *, allow_hidden=False):
+204:def get_request_partner_booking_detail(request, partner, booking_number):
+212:def normalize_document_type(document_for):
+217:def normalize_arrangement_detail_type(detail_for):
+222:def can_update_booking_documents(booking_detail):
+227:def normalize_complaint_status(value):
+234:def normalize_star_bucket(value):
+247:def build_star_distribution(queryset, key_prefix):
+259:def finalize_booking_if_all_documents_completed(booking_detail, doc, package_detail, partner):
+275:class GetBookingShortDetailForPartnersView(APIView):
+348:class GetBookingDetailByBookingNumberForPartnerView(APIView):
+394:class TakeActionView(APIView):
+477:class ManageBookingDocumentsView(APIView):
+583:class DeleteBookingDocumentsView(APIView):
+646:class BookingAirlineDetailsView(APIView):
+ succeeded in 51ms:
+105:def _invalidate_management_cache():
+109:def _normalize_payment_review_decision(value):
+118:def _collect_user_notification_tokens(user):
+130:def _notify_user_about_payment_update(user, booking_number, title, message):
+160:def _parse_optional_management_date(raw_value, *, field_name):
+175:def _build_payment_review_queue_filters(*, now=None):
+209:def _combine_queue_filters(queue_filters):
+216:def _build_paginated_response(request, queryset, serializer_class, *, meta=None):
+226:def _has_approved_payment_for_stage(booking, transaction_type):
+234:def _coerce_bool(value):
+246:def _serialize_master_hotel(hotel):
+255:def _contains_admin_managed_amenities(payload):
+262:def _extract_list_values(data, key):
+286:def _extract_uploaded_hotel_images(request):
+317:def _sync_master_hotel_images(hotel, add_files=None, delete_image_ids=None):
+351:def _get_or_create_master_hotel_package():
+420:def _normalize_master_hotel_payload(payload, *, create=False):
+441:class ManageMasterHotelsCatalogView(APIView):
+709:class ApprovedORRejectCompanyView(APIView):
+797:class GetAllPendingApprovalsView(APIView):
+ succeeded in 50ms:
+partners/partner_accounts_and_transactions.py:15:class ManagePartnerBankAccountView(APIView):
+partners/partner_accounts_and_transactions.py:154:class ManagePartnerWithdrawView(APIView):
+partners/partner_accounts_and_transactions.py:279:class GetPartnerAllTransactionHistoryView(APIView):
+partners/partner_accounts_and_transactions.py:322:class GetPartnerTransactionOverallSummaryView(APIView):
+partners/partner_profile.py:20:def build_unique_partner_session_token(email):
+partners/partner_profile.py:29:def normalize_legacy_review_status(user):
+partners/partner_profile.py:36:class PartnerLoginView(APIView):
+partners/partner_profile.py:101:class IsPartnerExistView(APIView):
+partners/partner_profile.py:174:class CreatePartnerProfileView(APIView):
+partners/partner_profile.py:334:class GetPartnerProfileView(APIView):
+partners/partner_profile.py:372:class SendEmailOTPView(APIView):
+partners/partner_profile.py:413:class MatchEmailOTPView(APIView):
+partners/partner_profile.py:471:class PartnerServicesView(APIView):
+partners/partner_profile.py:559:class IndividualPartnerView(APIView):
+partners/partner_profile.py:666:class UpdatePartnerIndividualProfileView(APIView):
+partners/partner_profile.py:741:class BusinessPartnerView(APIView):
+partners/partner_profile.py:877:class UpdateBusinessProfileView(APIView):
+partners/partner_profile.py:983:class CheckPartnerUsernameAvailabilityView(APIView):
+partners/partner_profile.py:1038:class GetPartnerAddressView(APIView):
+partners/partner_profile.py:1082:class UpdatePartnerAddressView(APIView):
+ succeeded in 50ms:
+booking/workflow.py:42:def normalize_booking_status(value):
+booking/workflow.py:49:def normalize_payment_status(value):
+booking/workflow.py:60:def _payment_sort_key(payment):
+booking/workflow.py:69:def _as_local_date(value):
+booking/workflow.py:77:def get_booking_payments(booking):
+booking/workflow.py:95:def _normalize_payment_stage(value):
+booking/workflow.py:104:def get_latest_payment_for_stage(booking, stage):
+booking/workflow.py:114:def get_payment_stage_status(booking, stage):
+booking/workflow.py:131:def booking_has_any_submitted_payment(booking):
+booking/workflow.py:138:def booking_has_under_review_payment(booking):
+booking/workflow.py:145:def booking_has_minimum_approval(booking):
+booking/workflow.py:152:def booking_has_full_approval(booking):
+booking/workflow.py:156:def get_total_approved_payment_amount(booking):
+booking/workflow.py:164:def get_remaining_amount_due(booking):
+booking/workflow.py:168:def _get_related_items(booking, relation_name):
+booking/workflow.py:196:def booking_passports_are_complete(booking):
+booking/workflow.py:215:def booking_operator_documents_are_complete(booking):
+booking/workflow.py:233:def booking_has_operator_visibility(booking):
+booking/workflow.py:239:def booking_allows_operator_action(booking):
+booking/workflow.py:243:def booking_allows_client_traveller_updates(booking):
+codex
+I’ve confirmed the atlas’s structural claims: the operator package routes really are a shim into `package_management_operator.py`, the admin task hub holds both routed and unrouted views, and the booking/partner modules have the density the atlas described. I’m reading targeted code paths now to validate the contract-level details, especially workflow, identifier resolution, and auth behavior.
+exec
+/bin/zsh -lc "sed -n '1,260p' booking/views/bookings.py" in /Users/macbook/Desktop/Huz/Huz-Backendexec
+/bin/zsh -lc "sed -n '1,260p' booking/views/api_v1.py" in /Users/macbook/Desktop/Huz/Huz-Backend succeeded in 50ms:
+from datetime import datetime, time
+
+from django.utils import timezone
+from django.utils.dateparse import parse_date, parse_datetime
+from rest_framework import status, viewsets
+from rest_framework.exceptions import AuthenticationFailed
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
+from common.auth_utils import is_admin_request, require_user_profile
+from common.models import UserProfile
+from common.pagination import CustomPagination
+from common.permissions import IsAdminOrAuthenticatedUserProfile
+
+from ..querysets import USER_BOOKING_STATUS_BUCKETS, normalize_user_booking_status_bucket
+from ..request_serializers import BookingCreateRequestSerializer, validate_serializer_or_raise
+from ..serializers import CurrentUserBookingListSerializer, DetailBookingSerializer
+from ..services import (
+    create_booking,
+    find_existing_user_booking,
+ succeeded in 50ms:
+from decimal import Decimal, InvalidOperation, ROUND_HALF_UP
+from pathlib import Path
+from random import randint
+
+from django.db import transaction
+from rest_framework import status
+from rest_framework.decorators import action
+from rest_framework.parsers import FormParser, JSONParser, MultiPartParser
+from rest_framework.exceptions import ValidationError
+from rest_framework.response import Response
+
+from common.utility import check_file_format_and_size, save_file_in_directory, send_complaint_email
+
+from .bookings import _payload_with_user_session
+from ..request_serializers import (
+    BookingPaymentCreateRequestSerializer,
+    BookingPaymentUpdateRequestSerializer,
+    PassportValidityCreateRequestSerializer,
+    PassportValidityUpdateRequestSerializer,
+    validate_serializer_or_raise,
+exec
+/bin/zsh -lc "sed -n '1,260p' partners/package_management_operator.py" in /Users/macbook/Desktop/Huz/Huz-Backendexec
+/bin/zsh -lc "sed -n '330,470p' management/approval_task.py" in /Users/macbook/Desktop/Huz/Huz-Backendexec
+/bin/zsh -lc "sed -n '1,260p' partners/partner_profile.py" in /Users/macbook/Desktop/Huz/Huz-Backendexec
+/bin/zsh -lc "sed -n '520,760p' booking/services.py" in /Users/macbook/Desktop/Huz/Huz-Backendexec
+/bin/zsh -lc "sed -n '1,220p' booking/manage_partner_booking.py" in /Users/macbook/Desktop/Huz/Huz-Backendexec
+/bin/zsh -lc "sed -n '1170,1705p' partners/package_management.py" in /Users/macbook/Desktop/Huz/Huz-Backend succeeded in 51ms:
+from django.db.models import Sum, Count, Q
+from django.utils.dateparse import parse_date
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from rest_framework.parsers import MultiPartParser, FormParser
+from decimal import Decimal, InvalidOperation, ROUND_HALF_UP
+from common.authentication import (
+    get_authenticated_partner_profile,
+    is_authenticated_staff_user,
+    resolve_authenticated_partner_profile,
+)
+from common.pagination import CustomPagination
+from common.permissions import IsAdminOrAuthenticatedPartnerProfile
+from common.utility import validate_required_fields, check_file_format_and_size, save_file_in_directory, delete_file_from_directory, send_objection_email, send_booking_documents_email
+from common.logs_file import logger
+from partners.models import PartnerProfile, HuzBasicDetail
+from .models import Booking, BookingObjections, PassportValidity, DocumentsStatus, BookingDocuments, PartnersBookingPayment, BookingRatingAndReview, BookingComplaints, BookingAirlineDetail, BookingHotelAndTransport
+from .querysets import (
+    annotate_effective_booking_status,
+ succeeded in 51ms:
+
+    if not add_files:
+        return None
+
+    max_sort_order = (
+        HuzHotelImage.objects.filter(image_for_hotel=hotel).aggregate(max_order=Max("sort_order"))[
+            "max_order"
+        ]
+        or 0
+    )
+
+    for index, uploaded_file in enumerate(add_files, start=1):
+        HuzHotelImage.objects.create(
+            image_for_hotel=hotel,
+            hotel_image=uploaded_file,
+            sort_order=max_sort_order + index,
+        )
+
+    return None
+
+ succeeded in 51ms:
+from datetime import datetime, timedelta
+from uuid import UUID
+import json
+
+from django.db import transaction
+from django.db.models import Count, FloatField, Q, Sum, Value
+from django.db.models.functions import Coalesce
+from django.utils import timezone
+from django.utils.dateparse import parse_date, parse_datetime
+from rest_framework import serializers, status
+from rest_framework.exceptions import AuthenticationFailed
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
+from drf_yasg import openapi
+from drf_yasg.utils import swagger_auto_schema
+
+from booking.models import BookingRatingAndReview
+from common.auth_utils import is_admin_request, require_partner_profile
+from common.logs_file import logger
+ succeeded in 51ms:
+from rest_framework.views import APIView
+from rest_framework.permissions import IsAdminUser, AllowAny
+from rest_framework.response import Response
+from rest_framework import status, serializers
+from .models import PartnerProfile, IndividualProfile, BusinessProfile, PartnerServices, PartnerMailingDetail, Wallet
+from .serializers import PartnerProfileSerializer, PartnerMailingDetailSerializer
+from django.db import transaction
+import re
+from common.logs_file import logger
+from common.utility import generate_token, random_six_digits, send_verification_email, hash_password, check_password, validate_required_fields, check_photo_format_and_size, check_file_format_and_size, save_file_in_directory, delete_file_from_directory
+from rest_framework.parsers import MultiPartParser, FormParser, JSONParser
+from datetime import datetime
+from drf_yasg.utils import swagger_auto_schema
+from drf_yasg import openapi
+from django.utils import timezone
+from datetime import timedelta
+from django.conf import settings
+
+
+def build_unique_partner_session_token(email):
+ succeeded in 51ms:
+                status_code=status.HTTP_409_CONFLICT,
+            ) from exc
+        raise
+
+    return payment, has_existing_payment
+
+
+def get_booking_by_identifier_for_user(
+    user_profile,
+    identifier,
+    *,
+    must_be_future=False,
+    lock_for_update=False,
+    persist_state=False,
+):
+    lookup = Q(booking_number=str(identifier))
+    try:
+        lookup |= Q(booking_id=UUID(str(identifier)))
+    except (TypeError, ValueError):
+        pass
+ succeeded in 51ms:
+Total output lines: 529
+
+
+
+def _normalize_package_type(package_type):
+    if not package_type:
+        return None
+    return PACKAGE_TYPE_NORMALIZER.get(str(package_type).strip().lower())
+
+
+def _supported_package_queryset():
+    return HuzBasicDetail.objects.filter(package_type__in=SUPPORTED_PACKAGE_TYPES)
+
+
+def _parse_csv_values(raw_value):
+    if not raw_value:
+        return []
+
+    values = str(raw_value).split(",")
+    return [value.strip() for value in values if value and value.strip()]
+exec
+/bin/zsh -lc "sed -n '1,260p' booking/workflow.py" in /Users/macbook/Desktop/Huz/Huz-Backendexec
+/bin/zsh -lc "sed -n '1,280p' booking/querysets.py" in /Users/macbook/Desktop/Huz/Huz-Backend succeeded in 52ms:
+from django.db.models import Case, CharField, F, IntegerField, OuterRef, Q, Subquery, Value, When
+from django.db.models.functions import Coalesce
+from django.utils import timezone
+
+from .models import Payment
+from .statuses import (
+    BOOKING_STATUS_AWAITING_FINAL_PAYMENT,
+    BOOKING_STATUS_CANCELLED,
+    BOOKING_STATUS_CAPACITY_SET,
+    BOOKING_STATUS_COMPLETED,
+    BOOKING_STATUS_EXPIRED,
+    BOOKING_STATUS_HOLD,
+    BOOKING_STATUS_IN_FULFILLMENT,
+    BOOKING_STATUS_READY_FOR_OPERATOR,
+    BOOKING_STATUS_READY_FOR_TRAVEL,
+    BOOKING_STATUS_TRAVELER_DETAILS_PENDING,
+    ISSUE_STATUS_OPERATOR_OBJECTION,
+    ISSUE_STATUS_REPORTED,
+    PAYMENT_STATUS_NOT_SUBMITTED,
+    PAYMENT_STATUS_REJECTED,
+ succeeded in 52ms:
+from datetime import timedelta
+
+from django.utils import timezone
+
+from .flow_utils import get_expected_traveller_count
+from .statuses import (
+    BOOKING_STATUS_AWAITING_FINAL_PAYMENT,
+    BOOKING_STATUS_CANCELLED,
+    BOOKING_STATUS_CAPACITY_SET,
+    BOOKING_STATUS_COMPLETED,
+    BOOKING_STATUS_EXPIRED,
+    BOOKING_STATUS_HOLD,
+    BOOKING_STATUS_IN_FULFILLMENT,
+    BOOKING_STATUS_OPERATOR_VISIBLE_SET,
+    BOOKING_STATUS_READY_FOR_OPERATOR,
+    BOOKING_STATUS_READY_FOR_TRAVEL,
+    BOOKING_STATUS_SET,
+    BOOKING_STATUS_TERMINAL_SET,
+    BOOKING_STATUS_TRAVELER_DETAILS_PENDING,
+    ISSUE_STATUS_NONE,
+exec
+/bin/zsh -lc "sed -n '700,930p' partners/package_management_operator.py" in /Users/macbook/Desktop/Huz/Huz-Backendexec
+/bin/zsh -lc "sed -n '780,1345p' management/approval_task.py" in /Users/macbook/Desktop/Huz/Huz-Backendexec
+/bin/zsh -lc "sed -n '250,330p' common/tests.py" in /Users/macbook/Desktop/Huz/Huz-Backendexec
+/bin/zsh -lc "sed -n '1,260p' booking/management/commands/process_booking_timers.py" in /Users/macbook/Desktop/Huz/Huz-Backendexec
+/bin/zsh -lc "sed -n '280,380p' partners/tests.py" in /Users/macbook/Desktop/Huz/Huz-Backend succeeded in 51ms:
+        self.assertEqual(results[0].get("huz_token"), self.completed_package.huz_token)
+
+    def test_get_short_packages_preserves_paginated_shape_with_rating_summary(self):
+        BookingRatingAndReview.objects.create(
+            partner_total_stars=4,
+            partner_comment="Strong support",
+            rating_for_partner=self.partner,
+            rating_for_package=self.package,
+        )
+
+        response = self._request_short_packages(
+            partner_session_token=self.partner.partner_session_token,
+            package_type="Hajj",
+        )
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertIn("count", response.data)
+        self.assertIn("results", response.data)
+        self.assertGreaterEqual(response.data.get("count"), 2)
+        results_by_token = {
+ succeeded in 52ms:
+        )
+
+        response = self.client.post(
+            "/api/v1/users/me/wallet/withdrawals/",
+            {
+                "account_id": str(bank_account.account_id),
+                "withdraw_amount": 1200,
+            },
+            format="json",
+            HTTP_AUTHORIZATION=f"Bearer {self.user.session_token}",
+        )
+
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.wallet.refresh_from_db()
+        self.assertEqual(self.wallet.wallet_amount, 3800)
+
+
+class PublicUrlExposureTests(SimpleTestCase):
+    def _reload_urlconf(self):
+        clear_url_caches()
+ succeeded in 52ms:
+                continue
+            normalized[field_name] = field_value
+
+        if hotel_distance not in (None, ""):
+            normalized["hotel_distance"] = hotel_distance
+        if distance_type not in (None, ""):
+            normalized["distance_type"] = distance_type
+
+        for field in HOTEL_BOOL_FIELDS:
+            if payload.get(field) is not None:
+                normalized[field] = _to_bool(payload.get(field), default=False)
+            elif create:
+                normalized[field] = False
+
+        return normalized, None
+
+
+class CreateHuzPackageView(OperatorPackageBaseView):
+    @swagger_auto_schema(operation_description="Create a new package for the current partner.")
+    def post(self, request, *args, **kwargs):
+ succeeded in 52ms:
+Total output lines: 566
+
+            _invalidate_management_cache()
+
+            decision_label = "approved" if account_status == "Active" else "rejected"
+            return Response(
+                {
+                    "message": f"Company profile {decision_label} successfully.",
+                    "account_status": user.account_status
+                },
+                status=status.HTTP_200_OK
+            )
+
+        except Exception as e:
+            # add in Logs file
+            logger.error("Error updating company status: %s", str(e))
+            return Response({"message": "Failed to update user status. Internal server error."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+class GetAllPendingApprovalsView(APIView):
+ succeeded in 52ms:
+from django.core.management.base import BaseCommand
+from django.db import transaction
+
+from booking.models import Booking
+from booking.statuses import BOOKING_STATUS_CAPACITY_SET, BOOKING_STATUS_READY_FOR_TRAVEL
+from booking.workflow import sync_booking_state
+
+
+class Command(BaseCommand):
+    help = "Expire booking holds/payment corrections and finalize ready-for-travel bookings after trip end."
+
+    def handle(self, *args, **options):
+        queryset = Booking.objects.filter(
+            booking_status__in=list(BOOKING_STATUS_CAPACITY_SET | {BOOKING_STATUS_READY_FOR_TRAVEL})
+        ).order_by("order_time")
+
+        processed = 0
+        changed = 0
+
+        for booking in queryset.iterator():
+exec
+/bin/zsh -lc "sed -n '260,420p' booking/views/api_v1.py" in /Users/macbook/Desktop/Huz/Huz-Backendexec
+/bin/zsh -lc "rg -n \"objection_response|complaints\\(|requests\\(|reviews\\(\" booking/views/api_v1.py" in /Users/macbook/Desktop/Huz/Huz-Backend succeeded in 52ms:
+            complaint_title,
+        )
+        serializer = BookingComplaintsSerializer(complaint, context={"request": request})
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+    @action(detail=True, methods=["post"], url_path="requests")
+    def requests(self, request, pk=None):
+        payload, user_profile = _payload_with_user_session(request, request.data)
+        booking = get_booking_by_identifier_for_user(user_profile, pk, must_be_future=False)
+
+        request_title = str(payload.get("request_title") or "").strip()
+        request_message = str(payload.get("request_message") or "").strip()
+        if not request_title or not request_message:
+            return Response(
+                {"message": "Missing required fields."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        sync_booking_state(booking, save=True)
+        if booking.booking_status not in [
+ succeeded in 50ms:
+155:    def reviews(self, request, pk=None):
+202:    def complaints(self, request, pk=None):
+266:    def requests(self, request, pk=None):
+319:    def objection_response(self, request, pk=None, objection_id=None):
+exec
+/bin/zsh -lc "sed -n '1,260p' common/auth_utils.py" in /Users/macbook/Desktop/Huz/Huz-Backendexec
+/bin/zsh -lc "sed -n '1,220p' common/permissions.py" in /Users/macbook/Desktop/Huz/Huz-Backendexec
+/bin/zsh -lc 'rg -n "client_workflow_stage|client_workflow_step|operator_visible|operator_can_act|client_can_edit_travellers|client_can_submit_minimum_payment|client_can_submit_full_payment|remaining_amount_due|workflow_bucket" booking/serializers.py' in /Users/macbook/Desktop/Huz/Huz-Backend succeeded in 52ms:
+from rest_framework.exceptions import AuthenticationFailed
+
+from .authentication import (
+    get_authenticated_partner_profile,
+    get_authenticated_user_profile,
+    is_authenticated_staff_user,
+)
+
+
+def is_admin_request(request):
+    return is_authenticated_staff_user(request)
+
+
+def require_user_profile(request):
+    user_profile = get_authenticated_user_profile(request)
+    if user_profile is None:
+        raise AuthenticationFailed("Authenticated user profile is required.")
+    return user_profile
+
+
+ succeeded in 51ms:
+18:    get_remaining_amount_due,
+19:    resolve_client_workflow_stage,
+20:    resolve_client_workflow_step,
+21:    resolve_operator_workflow_bucket,
+163:    client_workflow_stage = serializers.SerializerMethodField()
+164:    client_workflow_step = serializers.SerializerMethodField()
+165:    operator_visible = serializers.SerializerMethodField()
+166:    operator_can_act = serializers.SerializerMethodField()
+167:    client_can_edit_travellers = serializers.SerializerMethodField()
+168:    client_can_submit_minimum_payment = serializers.SerializerMethodField()
+169:    client_can_submit_full_payment = serializers.SerializerMethodField()
+170:    remaining_amount_due = serializers.SerializerMethodField()
+171:    workflow_bucket = serializers.SerializerMethodField()
+185:    def get_client_workflow_stage(self, obj):
+187:        return resolve_client_workflow_stage(obj)
+189:    def get_client_workflow_step(self, obj):
+191:        return resolve_client_workflow_step(obj)
+193:    def get_operator_visible(self, obj):
+197:    def get_operator_can_act(self, obj):
+201:    def get_client_can_edit_travellers(self, obj):
+ succeeded in 52ms:
+from rest_framework.permissions import BasePermission
+
+from .authentication import (
+    get_authenticated_partner_profile,
+    get_authenticated_user_profile,
+    is_authenticated_staff_user,
+)
+
+
+class IsAdminOrAuthenticatedUserProfile(BasePermission):
+    message = "Authentication credentials were not provided."
+
+    def has_permission(self, request, view):
+        if is_authenticated_staff_user(request):
+            return True
+        return get_authenticated_user_profile(request) is not None
+
+
+class IsAdminOrAuthenticatedPartnerProfile(BasePermission):
+    message = "Authentication credentials were not provided."
+exec
+/bin/zsh -lc "sed -n '240,420p' booking/workflow.py" in /Users/macbook/Desktop/Huz/Huz-Backendexec
+/bin/zsh -lc "sed -n '130,260p' booking/serializers.py" in /Users/macbook/Desktop/Huz/Huz-Backendexec
+/bin/zsh -lc "sed -n '1,220p' huz/settings_test.py" in /Users/macbook/Desktop/Huz/Huz-Backend succeeded in 52ms:
+        return PartnerMailingDetailSerializer(prefetched_address).data
+
+    return None
+
+
+def get_booking_objections(obj):
+    objections_detail = _list_related_items(obj, 'objection_for_booking')
+    return BookingObjectionsSerializer(objections_detail, many=True).data
+
+
+def get_passport_validity(obj):
+    passport_validity = _list_related_items(obj, 'passport_for_booking_number')
+    return PassportValiditySerializer(passport_validity, many=True).data
+
+
+def get_payment_detail(obj):
+    _resolve_workflow_read_state(obj)
+    payment_paid = sorted(
+        _list_related_items(obj, 'booking_token'),
+        key=lambda payment: _get_datetime_sort_value(getattr(payment, 'transaction_time', None)),
+ succeeded in 52ms:
+    return normalize_booking_status(getattr(booking, "booking_status", "")) == BOOKING_STATUS_READY_FOR_OPERATOR
+
+
+def booking_allows_client_traveller_updates(booking):
+    return normalize_booking_status(getattr(booking, "booking_status", "")) == BOOKING_STATUS_TRAVELER_DETAILS_PENDING
+
+
+def booking_allows_minimum_payment_submission(booking):
+    if normalize_booking_status(getattr(booking, "booking_status", "")) in BOOKING_STATUS_TERMINAL_SET:
+        return False
+
+    minimum_status = get_payment_stage_status(booking, "Minimum")
+    full_status = get_payment_stage_status(booking, "Full")
+    if minimum_status == PAYMENT_STATUS_UNDER_REVIEW or full_status == PAYMENT_STATUS_UNDER_REVIEW:
+        return False
+    if minimum_status == PAYMENT_STATUS_APPROVED or full_status == PAYMENT_STATUS_APPROVED:
+        return False
+    return True
+
+
+ succeeded in 52ms:
+from .settings import *  # noqa: F401,F403
+
+
+# Force a local DB for non-interactive test runs so verification does not
+# depend on the remote MySQL instance declared in `.env`.
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "test.sqlite3",
+    }
+}
+
+PASSWORD_HASHERS = [
+    "django.contrib.auth.hashers.MD5PasswordHasher",
+]
+
+EMAIL_BACKEND = "django.core.mail.backends.locmem.EmailBackend"
+
+CHANNEL_LAYERS = {
+    "default": {
+exec
+/bin/zsh -lc "sed -n '260,720p' partners/package_management_operator.py" in /Users/macbook/Desktop/Huz/Huz-Backendexec
+/bin/zsh -lc 'rg -n "def _normalize_basic_payload|def _normalize_package_date_range_payload|package_date_range" partners/package_management_operator.py' in /Users/macbook/Desktop/Huz/Huz-Backend succeeded in 52ms:
+                    status=status.HTTP_401_UNAUTHORIZED,
+                )
+        elif not partner_token:
+            return None, Response(
+                {"message": "Missing user information."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        if partner is None:
+            partner = PartnerProfile.objects.filter(partner_session_token=partner_token).first()
+        if not partner:
+            return None, Response(
+                {"message": "User not found with the provided detail."},
+                status=status.HTTP_404_NOT_FOUND,
+            )
+
+        if require_active and partner.account_status != "Active":
+            return None, Response(
+                {
+                    "message": (
+ succeeded in 51ms:
+54:    "package_date_ranges",
+361:    def _normalize_basic_payload(payload, create=False):
+443:    def _normalize_package_date_range_payload(payload, basic_payload=None):
+444:        raw_ranges = payload.get("package_date_range")
+446:            raw_ranges = payload.get("package_date_ranges")
+460:                return None, "package_date_range: Invalid JSON list."
+466:            return None, "package_date_range must be an array."
+485:                    return None, f"package_date_range[{index}].range_id: Invalid UUID."
+489:                return None, f"package_date_range[{index}].start_date is required."
+492:                return None, f"package_date_range[{index}].start_date: Invalid datetime value."
+499:                return None, f"package_date_range[{index}].end_date must be after start_date."
+511:                    return None, f"package_date_range[{index}].group_capacity must be greater than 0."
+531:    def _sync_package_date_ranges(package, normalized_ranges):
+736:            normalized_ranges, range_error = self._normalize_package_date_range_payload(
+771:                self._sync_package_date_ranges(package, normalized_ranges)
+811:            normalized_ranges, range_error = self._normalize_package_date_range_payload(
+835:                    self._sync_package_date_ranges(package, normalized_ranges)
+exec
+/bin/zsh -lc "sed -n '1,180p' management/approval_task.py" in /Users/macbook/Desktop/Huz/Huz-Backendexec
+/bin/zsh -lc 'rg -n "CACHE_KEY_|MANAGEMENT_CACHE_TIMEOUT_SECONDS|MASTER_HOTEL_PROVIDER" management/approval_task.py' in /Users/macbook/Desktop/Huz/Huz-Backendexec
+/bin/zsh -lc 'rg -n "ENABLE_API_DOCS|SERVE_MEDIA_AND_STATIC_FROM_DJANGO|SessionTokenHeaderAuthentication|LegacySessionTokenAuthentication|LegacyAuthDeprecationHeaderMiddleware|DEFAULT_AUTHENTICATION_CLASSES|DEFAULT_PERMISSION_CLASSES|OPERATOR_PANEL_BASE_URL" huz/settings.py partners/forgot_password.py common/tests.py partners/tests.py' in /Users/macbook/Desktop/Huz/Huz-Backend succeeded in 51ms:
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from drf_yasg.utils import swagger_auto_schema
+from drf_yasg import openapi
+from rest_framework.permissions import IsAdminUser
+from django.db import transaction
+from django.db.models import Max, Prefetch, Q, Sum
+from django.core.cache import cache
+from datetime import timedelta
+from django.utils.dateparse import parse_date
+from common.models import UserProfile
+from common.pagination import CustomPagination
+from common.serializers import UserProfileSerializer
+from partners.models import (
+    PartnerProfile,
+    HuzBasicDetail,
+    HuzHotelDetail,
+    HuzHotelImage,
+    Wallet,
+ succeeded in 51ms:
+55:CACHE_KEY_PENDING_COMPANIES = "management:pending_companies:v1"
+56:CACHE_KEY_APPROVED_COMPANIES = "management:approved_companies:v1"
+57:CACHE_KEY_PAID_BOOKINGS = "management:paid_bookings:v1"
+58:CACHE_KEY_PARTNER_RECEIVABLES = "management:partner_receivables:v1"
+59:CACHE_KEY_MASTER_HOTELS = "management:master_hotels:v1"
+60:MANAGEMENT_CACHE_TIMEOUT_SECONDS = 30
+62:    CACHE_KEY_PENDING_COMPANIES,
+63:    CACHE_KEY_APPROVED_COMPANIES,
+64:    CACHE_KEY_PAID_BOOKINGS,
+65:    CACHE_KEY_PARTNER_RECEIVABLES,
+66:    CACHE_KEY_MASTER_HOTELS,
+69:MASTER_HOTEL_PROVIDER_SESSION_TOKEN = "__system_master_hotel_provider__"
+70:MASTER_HOTEL_PROVIDER_USERNAME = "__system_master_hotel_provider__"
+353:        partner_session_token=MASTER_HOTEL_PROVIDER_SESSION_TOKEN
+356:        partner = PartnerProfile.objects.filter(user_name=MASTER_HOTEL_PROVIDER_USERNAME).first()
+360:            partner_session_token=MASTER_HOTEL_PROVIDER_SESSION_TOKEN,
+361:            user_name=MASTER_HOTEL_PROVIDER_USERNAME,
+370:        if partner.partner_session_token != MASTER_HOTEL_PROVIDER_SESSION_TOKEN:
+371:            partner.partner_session_token = MASTER_HOTEL_PROVIDER_SESSION_TOKEN
+373:        if partner.user_name != MASTER_HOTEL_PROVIDER_USERNAME:
+ succeeded in 51ms:
+common/tests.py:272:    @override_settings(ENABLE_API_DOCS=False, SERVE_MEDIA_AND_STATIC_FROM_DJANGO=False)
+common/tests.py:283:    @override_settings(ENABLE_API_DOCS=True, SERVE_MEDIA_AND_STATIC_FROM_DJANGO=True)
+huz/settings.py:31:ENABLE_API_DOCS = config('ENABLE_API_DOCS', cast=bool, default=False)
+huz/settings.py:32:SERVE_MEDIA_AND_STATIC_FROM_DJANGO = config(
+huz/settings.py:33:    'SERVE_MEDIA_AND_STATIC_FROM_DJANGO',
+huz/settings.py:78:    'DEFAULT_AUTHENTICATION_CLASSES': (
+huz/settings.py:79:        'common.authentication.SessionTokenHeaderAuthentication',
+huz/settings.py:82:        'common.authentication.LegacySessionTokenAuthentication',
+huz/settings.py:84:    'DEFAULT_PERMISSION_CLASSES': (
+huz/settings.py:103:    'common.middleware.LegacyAuthDeprecationHeaderMiddleware',
+huz/settings.py:255:OPERATOR_PANEL_BASE_URL = config('OPERATOR_PANEL_BASE_URL', default='http://localhost:3000')
+partners/forgot_password.py:56:                base_url = settings.OPERATOR_PANEL_BASE_URL.rstrip('/')
+codex
+The source-level validation is strong enough that I don’t need to rescan the whole repo. I’m adding one extra verification layer now by running a small targeted test slice for atlas claims that already have test coverage, then I’ll write the Phase 2 notes and close the run.
+exec
+/bin/zsh -lc 'rg -n "class .*PublicUrlExposureTests|class .*Package.*Tests|def test_get_short_packages_accept_bearer_authorization|def test_public_docs_and_asset_routes_can_be_enabled_explicitly|def test_public_docs_and_asset_routes_are_disabled_by_default" common/tests.py partners/tests.py' in /Users/macbook/Desktop/Huz/Huz-Backend succeeded in 52ms:
+common/tests.py:267:class PublicUrlExposureTests(SimpleTestCase):
+common/tests.py:273:    def test_public_docs_and_asset_routes_are_disabled_by_default(self):
+common/tests.py:284:    def test_public_docs_and_asset_routes_can_be_enabled_explicitly(self):
+partners/tests.py:71:class PackageManagementOperatorViewTests(APITransactionTestCase):
+partners/tests.py:307:    def test_get_short_packages_accept_bearer_authorization(self):
+partners/tests.py:412:class PackageManagementWebsiteViewTests(APITransactionTestCase):
+exec
+/bin/zsh -lc 'python3 manage.py test common.tests.PublicUrlExposureTests partners.tests.OperatorPackageReadTests.test_get_short_packages_accept_bearer_authorization --settings=huz.settings_test' in /Users/macbook/Desktop/Huz/Huz-Backend exited 1 in 52ms:
+Traceback (most recent call last):
+  File "/Users/macbook/Desktop/Huz/Huz-Backend/manage.py", line 11, in main
+    from django.core.management import execute_from_command_line
+ModuleNotFoundError: No module named 'django'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/macbook/Desktop/Huz/Huz-Backend/manage.py", line 22, in <module>
+    main()
+    ~~~~^^
+  File "/Users/macbook/Desktop/Huz/Huz-Backend/manage.py", line 13, in main
+    raise ImportError(
+    ...<3 lines>...
+    ) from exc
+ImportError: Couldn't import Django. Are you sure it's installed and available on your PYTHONPATH environment variable? Did you forget to activate a virtual environment?
+exec
+/bin/zsh -lc 'ls -1' in /Users/macbook/Desktop/Huz/Huz-Backendexec
+/bin/zsh -lc "rg --files -g 'requirements*.txt' -g 'pyproject.toml' -g 'Pipfile' -g 'Pipfile.lock' -g 'poetry.lock' -g '.python-version' -g '.venv/**' -g 'venv/**'" in /Users/macbook/Desktop/Huz/Huz-Backend succeeded in 52ms:
+README.md
+booking
+common
+huz
+manage.py
+management
+media
+partners
+requirements.txt
+static
+view_logs.txt
+ succeeded in 52ms:
+requirements.txt
+exec
+/bin/zsh -lc "python3 - <<'PY'
+from pathlib import Path
+for path in ['common/urls.py','common/api_urls.py','partners/urls.py','booking/urls.py','management/urls.py']:
+    text=Path(path).read_text()
+    count=text.count('path(')
+    print(path, count)
+PY" in /Users/macbook/Desktop/Huz/Huz-Backend succeeded in 52ms:
+common/urls.py 6
+common/api_urls.py 5
+partners/urls.py 36
+booking/urls.py 18
+management/urls.py 8
+codex
+I’ve finished the validation pass. The atlas still matches the live codebase, so I’m not rewriting the core atlas docs; I’m appending durable Phase 2 verification notes to `DEEP_SCAN_REPORT.md` and the run summary, including the remaining blind spots and the failed test attempt caused by missing Django in the current shell.
+file update
+M /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+@@ -33 +33,19 @@
+ - Verification for this phase was source-based only: the refreshed atlas was cross-checked against `huz/urls.py`, each app `urls.py` and `api_urls.py`, core model files, booking workflow/service/query modules, partner package modules, and the existing test modules. No product code was edited.
++
++### 2026-03-12 Phase 2 Validate Atlas Coverage
++- Reopened the highest-risk files named by the atlas and confirmed their documented responsibilities still match the live working tree: `booking/manage_partner_booking.py`, `booking/services.py`, `partners/package_management_operator.py`, `partners/package_management.py`, `partners/partner_profile.py`, and `management/approval_task.py`.
++- Re-verified the root route surfaces from source: `huz/urls.py` still mounts `/api/v1/`, `/common/`, `/partner/`, `/bookings/`, `/management/`, and `/admin/`, with Swagger/Redoc and Django-served media/static still gated by `ENABLE_API_DOCS` and `SERVE_MEDIA_AND_STATIC_FROM_DJANGO`.
++- Confirmed the auth split described in the atlas is still accurate: `SessionTokenHeaderAuthentication` accepts `Bearer` and `Token` headers, `LegacySessionTokenAuthentication` still resolves `session_token` and `partner_session_token` from query params or payloads, and `LegacyAuthDeprecationHeaderMiddleware` still emits `X-Auth-Deprecated` when fallback auth is used.
++- Confirmed the operator package routing seam is still real: `partners/urls.py` points operator package endpoints through `partners/views/operator_packages.py`, which only re-exports classes from `partners/package_management_operator.py`, while public website package reads still come from `partners/package_management.py`.
++- Confirmed the booking workflow contract described in the atlas is still live: `booking/services.get_booking_by_identifier_for_user()` resolves both booking number and UUID, `booking/workflow.py` still derives the client and operator workflow stages, and `booking/serializers.py` still exposes the workflow-derived response fields documented in `API_SURFACE.md`.
++- Confirmed the management atlas notes still match source: `management/approval_task.py` still owns the routed admin task surface plus the unmounted `GetAllApprovedCompaniesView` and `ManageFeaturedPackageView`, and the master-hotel catalog still uses the synthetic provider/package tokens with 30-second cache keys.
++- Confirmed the repo-state assumptions in the atlas remain necessary: `git status --short` shows a dirty tree with live-file modifications plus deleted legacy files such as `chat/*`, `booking/manage_bookings.py`, `common/views.py`, and `management/tests.py`, so the atlas should continue to be treated as a map of the checked-out tree rather than repository history.
++- Remaining blind spots after validation:
++  - Atlas coverage is intentionally scoped to the live tree and dev-relevant sources; it does not attempt to map deleted legacy modules or the large `media/` artifact set.
++  - The management domain is still the least verified runtime area because there is no live `management/tests.py` module.
++  - Runtime verification is partially blocked in the current shell because Django is not installed; a targeted `manage.py test` attempt failed before test discovery.
++- Next recommended atlas refresh targets:
++  - Refresh the atlas again if route mounts or auth plumbing change in `huz/urls.py`, `common/authentication.py`, `common/permissions.py`, or `common/middleware.py`.
++  - Refresh immediately if the package seam changes again across `partners/urls.py`, `partners/views/operator_packages.py`, `partners/package_management_operator.py`, or `partners/package_management.py`.
++  - Refresh after any substantial audit/fix batch touching `booking/manage_partner_booking.py`, `booking/services.py`, or `management/approval_task.py`, because those files currently carry the highest coupling and churn risk.
++  - Refresh if dedicated management tests are added back or if currently deleted legacy modules are restored, because both would expand the live system surface.
+apply_patch(auto_approved=true) exited 0 in 72ms:
+Success. Updated the following files:
+M /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+index 4650dc4165a9cb909894800ee50a4e95599b0b42..eabb4b749f80afa71e57dd5a16494d1951dd8774
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+@@ -31,3 +31,21 @@
+ - Confirmed a second structural seam: `management/approval_task.py` contains `GetAllApprovedCompaniesView` and `ManageFeaturedPackageView`, but `management/urls.py` does not currently mount them.
+ - Captured an operational constraint for later audit work: the target repository is already in a dirty working tree with significant in-progress refactors and deleted legacy files, so future audit or implementation batches should treat the current checked-out tree as the source of truth and avoid assuming clean-commit history.
+ - Verification for this phase was source-based only: the refreshed atlas was cross-checked against `huz/urls.py`, each app `urls.py` and `api_urls.py`, core model files, booking workflow/service/query modules, partner package modules, and the existing test modules. No product code was edited.
++
++### 2026-03-12 Phase 2 Validate Atlas Coverage
++- Reopened the highest-risk files named by the atlas and confirmed their documented responsibilities still match the live working tree: `booking/manage_partner_booking.py`, `booking/services.py`, `partners/package_management_operator.py`, `partners/package_management.py`, `partners/partner_profile.py`, and `management/approval_task.py`.
++- Re-verified the root route surfaces from source: `huz/urls.py` still mounts `/api/v1/`, `/common/`, `/partner/`, `/bookings/`, `/management/`, and `/admin/`, with Swagger/Redoc and Django-served media/static still gated by `ENABLE_API_DOCS` and `SERVE_MEDIA_AND_STATIC_FROM_DJANGO`.
++- Confirmed the auth split described in the atlas is still accurate: `SessionTokenHeaderAuthentication` accepts `Bearer` and `Token` headers, `LegacySessionTokenAuthentication` still resolves `session_token` and `partner_session_token` from query params or payloads, and `LegacyAuthDeprecationHeaderMiddleware` still emits `X-Auth-Deprecated` when fallback auth is used.
++- Confirmed the operator package routing seam is still real: `partners/urls.py` points operator package endpoints through `partners/views/operator_packages.py`, which only re-exports classes from `partners/package_management_operator.py`, while public website package reads still come from `partners/package_management.py`.
++- Confirmed the booking workflow contract described in the atlas is still live: `booking/services.get_booking_by_identifier_for_user()` resolves both booking number and UUID, `booking/workflow.py` still derives the client and operator workflow stages, and `booking/serializers.py` still exposes the workflow-derived response fields documented in `API_SURFACE.md`.
++- Confirmed the management atlas notes still match source: `management/approval_task.py` still owns the routed admin task surface plus the unmounted `GetAllApprovedCompaniesView` and `ManageFeaturedPackageView`, and the master-hotel catalog still uses the synthetic provider/package tokens with 30-second cache keys.
++- Confirmed the repo-state assumptions in the atlas remain necessary: `git status --short` shows a dirty tree with live-file modifications plus deleted legacy files such as `chat/*`, `booking/manage_bookings.py`, `common/views.py`, and `management/tests.py`, so the atlas should continue to be treated as a map of the checked-out tree rather than repository history.
++- Remaining blind spots after validation:
++  - Atlas coverage is intentionally scoped to the live tree and dev-relevant sources; it does not attempt to map deleted legacy modules or the large `media/` artifact set.
++  - The management domain is still the least verified runtime area because there is no live `management/tests.py` module.
++  - Runtime verification is partially blocked in the current shell because Django is not installed; a targeted `manage.py test` attempt failed before test discovery.
++- Next recommended atlas refresh targets:
++  - Refresh the atlas again if route mounts or auth plumbing change in `huz/urls.py`, `common/authentication.py`, `common/permissions.py`, or `common/middleware.py`.
++  - Refresh immediately if the package seam changes again across `partners/urls.py`, `partners/views/operator_packages.py`, `partners/package_management_operator.py`, or `partners/package_management.py`.
++  - Refresh after any substantial audit/fix batch touching `booking/manage_partner_booking.py`, `booking/services.py`, or `management/approval_task.py`, because those files currently carry the highest coupling and churn risk.
++  - Refresh if dedicated management tests are added back or if currently deleted legacy modules are restored, because both would expand the live system surface.
+
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+index 4650dc4165a9cb909894800ee50a4e95599b0b42..eabb4b749f80afa71e57dd5a16494d1951dd8774
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+@@ -31,3 +31,21 @@
+ - Confirmed a second structural seam: `management/approval_task.py` contains `GetAllApprovedCompaniesView` and `ManageFeaturedPackageView`, but `management/urls.py` does not currently mount them.
+ - Captured an operational constraint for later audit work: the target repository is already in a dirty working tree with significant in-progress refactors and deleted legacy files, so future audit or implementation batches should treat the current checked-out tree as the source of truth and avoid assuming clean-commit history.
+ - Verification for this phase was source-based only: the refreshed atlas was cross-checked against `huz/urls.py`, each app `urls.py` and `api_urls.py`, core model files, booking workflow/service/query modules, partner package modules, and the existing test modules. No product code was edited.
++
++### 2026-03-12 Phase 2 Validate Atlas Coverage
++- Reopened the highest-risk files named by the atlas and confirmed their documented responsibilities still match the live working tree: `booking/manage_partner_booking.py`, `booking/services.py`, `partners/package_management_operator.py`, `partners/package_management.py`, `partners/partner_profile.py`, and `management/approval_task.py`.
++- Re-verified the root route surfaces from source: `huz/urls.py` still mounts `/api/v1/`, `/common/`, `/partner/`, `/bookings/`, `/management/`, and `/admin/`, with Swagger/Redoc and Django-served media/static still gated by `ENABLE_API_DOCS` and `SERVE_MEDIA_AND_STATIC_FROM_DJANGO`.
++- Confirmed the auth split described in the atlas is still accurate: `SessionTokenHeaderAuthentication` accepts `Bearer` and `Token` headers, `LegacySessionTokenAuthentication` still resolves `session_token` and `partner_session_token` from query params or payloads, and `LegacyAuthDeprecationHeaderMiddleware` still emits `X-Auth-Deprecated` when fallback auth is used.
++- Confirmed the operator package routing seam is still real: `partners/urls.py` points operator package endpoints through `partners/views/operator_packages.py`, which only re-exports classes from `partners/package_management_operator.py`, while public website package reads still come from `partners/package_management.py`.
++- Confirmed the booking workflow contract described in the atlas is still live: `booking/services.get_booking_by_identifier_for_user()` resolves both booking number and UUID, `booking/workflow.py` still derives the client and operator workflow stages, and `booking/serializers.py` still exposes the workflow-derived response fields documented in `API_SURFACE.md`.
++- Confirmed the management atlas notes still match source: `management/approval_task.py` still owns the routed admin task surface plus the unmounted `GetAllApprovedCompaniesView` and `ManageFeaturedPackageView`, and the master-hotel catalog still uses the synthetic provider/package tokens with 30-second cache keys.
++- Confirmed the repo-state assumptions in the atlas remain necessary: `git status --short` shows a dirty tree with live-file modifications plus deleted legacy files such as `chat/*`, `booking/manage_bookings.py`, `common/views.py`, and `management/tests.py`, so the atlas should continue to be treated as a map of the checked-out tree rather than repository history.
++- Remaining blind spots after validation:
++  - Atlas coverage is intentionally scoped to the live tree and dev-relevant sources; it does not attempt to map deleted legacy modules or the large `media/` artifact set.
++  - The management domain is still the least verified runtime area because there is no live `management/tests.py` module.
++  - Runtime verification is partially blocked in the current shell because Django is not installed; a targeted `manage.py test` attempt failed before test discovery.
++- Next recommended atlas refresh targets:
++  - Refresh the atlas again if route mounts or auth plumbing change in `huz/urls.py`, `common/authentication.py`, `common/permissions.py`, or `common/middleware.py`.
++  - Refresh immediately if the package seam changes again across `partners/urls.py`, `partners/views/operator_packages.py`, `partners/package_management_operator.py`, or `partners/package_management.py`.
++  - Refresh after any substantial audit/fix batch touching `booking/manage_partner_booking.py`, `booking/services.py`, or `management/approval_task.py`, because those files currently carry the highest coupling and churn risk.
++  - Refresh if dedicated management tests are added back or if currently deleted legacy modules are restored, because both would expand the live system surface.
+
+file update
+M /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md
+@@ -72 +72,20 @@
+ - Confirmed this phase stayed report-only: no product code under `/Users/macbook/Desktop/Huz/Huz-Backend` was edited.
++
++## Phase 2 - Validate Atlas Coverage
++### Changes Made
++- Revalidated the Phase 1 atlas against the live backend source instead of updating product code.
++- Confirmed the atlas still matches the current route mounts, auth bridge behavior, workflow-derived booking contract, operator package routing shim, and routed versus unrouted management views.
++- Recorded the remaining blind spots and next atlas refresh triggers in `docs/qa/DEEP_SCAN_REPORT.md`.
++- Determined that no core atlas doc corrections were required in this phase because the documented backend surfaces still align with the current working tree.
++### How It Was Implemented
++- Re-read the run contract, operator profile, refreshed atlas docs, QA report, and backlog, then reopened the highest-risk files named by the atlas: `booking/manage_partner_booking.py`, `booking/services.py`, `partners/package_management_operator.py`, `partners/package_management.py`, `partners/partner_profile.py`, and `management/approval_task.py`.
++- Rechecked the supporting source-of-truth files behind the atlas claims: `huz/settings.py`, `huz/settings_test.py`, `huz/urls.py`, `common/authentication.py`, `common/auth_utils.py`, `common/permissions.py`, `common/middleware.py`, each app `urls.py`/`api_urls.py`, `booking/workflow.py`, `booking/querysets.py`, `booking/serializers.py`, `booking/management/commands/process_booking_timers.py`, and the existing `common/tests.py` and `partners/tests.py` coverage around public route toggles and Bearer auth.
++- Verified the repo-state assumption directly with `git status --short`, which still shows a dirty tree with active modifications and deleted legacy files, confirming that the atlas should keep mapping the checked-out live tree rather than repository history.
++- Attempted a small targeted test slice with `python3 manage.py test ... --settings=huz.settings_test`, but the shell does not have Django installed, so runtime verification stopped with `ModuleNotFoundError: No module named 'django'` before test discovery.
++### Files Touched
++- `docs/qa/DEEP_SCAN_REPORT.md`
++- `docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md`
++### Verification
++- Source-verified the root mounts, optional public docs/static toggles, auth bridge classes, `X-Auth-Deprecated` middleware, operator package routing shim, booking identifier resolver, workflow-derived serializer fields, timer command, unmounted management views, missing `management/tests.py`, and the dirty working tree assumption against the live files in `/Users/macbook/Desktop/Huz/Huz-Backend`.
++- Confirmed this phase stayed report-only: no product code under `/Users/macbook/Desktop/Huz/Huz-Backend` was edited.
++- Runtime test execution was attempted but could not run in the current shell because Django is not installed.
+apply_patch(auto_approved=true) exited 0 in 39ms:
+Success. Updated the following files:
+M /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md
+index b5b13389725e4ce2b95a2fc4bb6fd80c0f7646f3..38ce873f1b3002a7167d4d26df282701f399cdb6
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md
+@@ -70,3 +70,22 @@
+ - Confirmed the route map reflects the currently mounted surfaces and notes the defined-but-unmounted admin views in `management/approval_task.py`.
+ - Confirmed the API surface reflects both the modern Bearer/Token session bridge and the still-active legacy token transport patterns.
+ - Confirmed this phase stayed report-only: no product code under `/Users/macbook/Desktop/Huz/Huz-Backend` was edited.
++
++## Phase 2 - Validate Atlas Coverage
++### Changes Made
++- Revalidated the Phase 1 atlas against the live backend source instead of updating product code.
++- Confirmed the atlas still matches the current route mounts, auth bridge behavior, workflow-derived booking contract, operator package routing shim, and routed versus unrouted management views.
++- Recorded the remaining blind spots and next atlas refresh triggers in `docs/qa/DEEP_SCAN_REPORT.md`.
++- Determined that no core atlas doc corrections were required in this phase because the documented backend surfaces still align with the current working tree.
++### How It Was Implemented
++- Re-read the run contract, operator profile, refreshed atlas docs, QA report, and backlog, then reopened the highest-risk files named by the atlas: `booking/manage_partner_booking.py`, `booking/services.py`, `partners/package_management_operator.py`, `partners/package_management.py`, `partners/partner_profile.py`, and `management/approval_task.py`.
++- Rechecked the supporting source-of-truth files behind the atlas claims: `huz/settings.py`, `huz/settings_test.py`, `huz/urls.py`, `common/authentication.py`, `common/auth_utils.py`, `common/permissions.py`, `common/middleware.py`, each app `urls.py`/`api_urls.py`, `booking/workflow.py`, `booking/querysets.py`, `booking/serializers.py`, `booking/management/commands/process_booking_timers.py`, and the existing `common/tests.py` and `partners/tests.py` coverage around public route toggles and Bearer auth.
++- Verified the repo-state assumption directly with `git status --short`, which still shows a dirty tree with active modifications and deleted legacy files, confirming that the atlas should keep mapping the checked-out live tree rather than repository history.
++- Attempted a small targeted test slice with `python3 manage.py test ... --settings=huz.settings_test`, but the shell does not have Django installed, so runtime verification stopped with `ModuleNotFoundError: No module named 'django'` before test discovery.
++### Files Touched
++- `docs/qa/DEEP_SCAN_REPORT.md`
++- `docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md`
++### Verification
++- Source-verified the root mounts, optional public docs/static toggles, auth bridge classes, `X-Auth-Deprecated` middleware, operator package routing shim, booking identifier resolver, workflow-derived serializer fields, timer command, unmounted management views, missing `management/tests.py`, and the dirty working tree assumption against the live files in `/Users/macbook/Desktop/Huz/Huz-Backend`.
++- Confirmed this phase stayed report-only: no product code under `/Users/macbook/Desktop/Huz/Huz-Backend` was edited.
++- Runtime test execution was attempted but could not run in the current shell because Django is not installed.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+index 4650dc4165a9cb909894800ee50a4e95599b0b42..eabb4b749f80afa71e57dd5a16494d1951dd8774
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+@@ -31,3 +31,21 @@
+ - Confirmed a second structural seam: `management/approval_task.py` contains `GetAllApprovedCompaniesView` and `ManageFeaturedPackageView`, but `management/urls.py` does not currently mount them.
+ - Captured an operational constraint for later audit work: the target repository is already in a dirty working tree with significant in-progress refactors and deleted legacy files, so future audit or implementation batches should treat the current checked-out tree as the source of truth and avoid assuming clean-commit history.
+ - Verification for this phase was source-based only: the refreshed atlas was cross-checked against `huz/urls.py`, each app `urls.py` and `api_urls.py`, core model files, booking workflow/service/query modules, partner package modules, and the existing test modules. No product code was edited.
++
++### 2026-03-12 Phase 2 Validate Atlas Coverage
++- Reopened the highest-risk files named by the atlas and confirmed their documented responsibilities still match the live working tree: `booking/manage_partner_booking.py`, `booking/services.py`, `partners/package_management_operator.py`, `partners/package_management.py`, `partners/partner_profile.py`, and `management/approval_task.py`.
++- Re-verified the root route surfaces from source: `huz/urls.py` still mounts `/api/v1/`, `/common/`, `/partner/`, `/bookings/`, `/management/`, and `/admin/`, with Swagger/Redoc and Django-served media/static still gated by `ENABLE_API_DOCS` and `SERVE_MEDIA_AND_STATIC_FROM_DJANGO`.
++- Confirmed the auth split described in the atlas is still accurate: `SessionTokenHeaderAuthentication` accepts `Bearer` and `Token` headers, `LegacySessionTokenAuthentication` still resolves `session_token` and `partner_session_token` from query params or payloads, and `LegacyAuthDeprecationHeaderMiddleware` still emits `X-Auth-Deprecated` when fallback auth is used.
++- Confirmed the operator package routing seam is still real: `partners/urls.py` points operator package endpoints through `partners/views/operator_packages.py`, which only re-exports classes from `partners/package_management_operator.py`, while public website package reads still come from `partners/package_management.py`.
++- Confirmed the booking workflow contract described in the atlas is still live: `booking/services.get_booking_by_identifier_for_user()` resolves both booking number and UUID, `booking/workflow.py` still derives the client and operator workflow stages, and `booking/serializers.py` still exposes the workflow-derived response fields documented in `API_SURFACE.md`.
++- Confirmed the management atlas notes still match source: `management/approval_task.py` still owns the routed admin task surface plus the unmounted `GetAllApprovedCompaniesView` and `ManageFeaturedPackageView`, and the master-hotel catalog still uses the synthetic provider/package tokens with 30-second cache keys.
++- Confirmed the repo-state assumptions in the atlas remain necessary: `git status --short` shows a dirty tree with live-file modifications plus deleted legacy files such as `chat/*`, `booking/manage_bookings.py`, `common/views.py`, and `management/tests.py`, so the atlas should continue to be treated as a map of the checked-out tree rather than repository history.
++- Remaining blind spots after validation:
++  - Atlas coverage is intentionally scoped to the live tree and dev-relevant sources; it does not attempt to map deleted legacy modules or the large `media/` artifact set.
++  - The management domain is still the least verified runtime area because there is no live `management/tests.py` module.
++  - Runtime verification is partially blocked in the current shell because Django is not installed; a targeted `manage.py test` attempt failed before test discovery.
++- Next recommended atlas refresh targets:
++  - Refresh the atlas again if route mounts or auth plumbing change in `huz/urls.py`, `common/authentication.py`, `common/permissions.py`, or `common/middleware.py`.
++  - Refresh immediately if the package seam changes again across `partners/urls.py`, `partners/views/operator_packages.py`, `partners/package_management_operator.py`, or `partners/package_management.py`.
++  - Refresh after any substantial audit/fix batch touching `booking/manage_partner_booking.py`, `booking/services.py`, or `management/approval_task.py`, because those files currently carry the highest coupling and churn risk.
++  - Refresh if dedicated management tests are added back or if currently deleted legacy modules are restored, because both would expand the live system surface.
+
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md
+index b5b13389725e4ce2b95a2fc4bb6fd80c0f7646f3..38ce873f1b3002a7167d4d26df282701f399cdb6
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md
+@@ -70,3 +70,22 @@
+ - Confirmed the route map reflects the currently mounted surfaces and notes the defined-but-unmounted admin views in `management/approval_task.py`.
+ - Confirmed the API surface reflects both the modern Bearer/Token session bridge and the still-active legacy token transport patterns.
+ - Confirmed this phase stayed report-only: no product code under `/Users/macbook/Desktop/Huz/Huz-Backend` was edited.
++
++## Phase 2 - Validate Atlas Coverage
++### Changes Made
++- Revalidated the Phase 1 atlas against the live backend source instead of updating product code.
++- Confirmed the atlas still matches the current route mounts, auth bridge behavior, workflow-derived booking contract, operator package routing shim, and routed versus unrouted management views.
++- Recorded the remaining blind spots and next atlas refresh triggers in `docs/qa/DEEP_SCAN_REPORT.md`.
++- Determined that no core atlas doc corrections were required in this phase because the documented backend surfaces still align with the current working tree.
++### How It Was Implemented
++- Re-read the run contract, operator profile, refreshed atlas docs, QA report, and backlog, then reopened the highest-risk files named by the atlas: `booking/manage_partner_booking.py`, `booking/services.py`, `partners/package_management_operator.py`, `partners/package_management.py`, `partners/partner_profile.py`, and `management/approval_task.py`.
++- Rechecked the supporting source-of-truth files behind the atlas claims: `huz/settings.py`, `huz/settings_test.py`, `huz/urls.py`, `common/authentication.py`, `common/auth_utils.py`, `common/permissions.py`, `common/middleware.py`, each app `urls.py`/`api_urls.py`, `booking/workflow.py`, `booking/querysets.py`, `booking/serializers.py`, `booking/management/commands/process_booking_timers.py`, and the existing `common/tests.py` and `partners/tests.py` coverage around public route toggles and Bearer auth.
++- Verified the repo-state assumption directly with `git status --short`, which still shows a dirty tree with active modifications and deleted legacy files, confirming that the atlas should keep mapping the checked-out live tree rather than repository history.
++- Attempted a small targeted test slice with `python3 manage.py test ... --settings=huz.settings_test`, but the shell does not have Django installed, so runtime verification stopped with `ModuleNotFoundError: No module named 'django'` before test discovery.
++### Files Touched
++- `docs/qa/DEEP_SCAN_REPORT.md`
++- `docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md`
++### Verification
++- Source-verified the root mounts, optional public docs/static toggles, auth bridge classes, `X-Auth-Deprecated` middleware, operator package routing shim, booking identifier resolver, workflow-derived serializer fields, timer command, unmounted management views, missing `management/tests.py`, and the dirty working tree assumption against the live files in `/Users/macbook/Desktop/Huz/Huz-Backend`.
++- Confirmed this phase stayed report-only: no product code under `/Users/macbook/Desktop/Huz/Huz-Backend` was edited.
++- Runtime test execution was attempted but could not run in the current shell because Django is not installed.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+index 4650dc4165a9cb909894800ee50a4e95599b0b42..eabb4b749f80afa71e57dd5a16494d1951dd8774
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+@@ -31,3 +31,21 @@
+ - Confirmed a second structural seam: `management/approval_task.py` contains `GetAllApprovedCompaniesView` and `ManageFeaturedPackageView`, but `management/urls.py` does not currently mount them.
+ - Captured an operational constraint for later audit work: the target repository is already in a dirty working tree with significant in-progress refactors and deleted legacy files, so future audit or implementation batches should treat the current checked-out tree as the source of truth and avoid assuming clean-commit history.
+ - Verification for this phase was source-based only: the refreshed atlas was cross-checked against `huz/urls.py`, each app `urls.py` and `api_urls.py`, core model files, booking workflow/service/query modules, partner package modules, and the existing test modules. No product code was edited.
++
++### 2026-03-12 Phase 2 Validate Atlas Coverage
++- Reopened the highest-risk files named by the atlas and confirmed their documented responsibilities still match the live working tree: `booking/manage_partner_booking.py`, `booking/services.py`, `partners/package_management_operator.py`, `partners/package_management.py`, `partners/partner_profile.py`, and `management/approval_task.py`.
++- Re-verified the root route surfaces from source: `huz/urls.py` still mounts `/api/v1/`, `/common/`, `/partner/`, `/bookings/`, `/management/`, and `/admin/`, with Swagger/Redoc and Django-served media/static still gated by `ENABLE_API_DOCS` and `SERVE_MEDIA_AND_STATIC_FROM_DJANGO`.
++- Confirmed the auth split described in the atlas is still accurate: `SessionTokenHeaderAuthentication` accepts `Bearer` and `Token` headers, `LegacySessionTokenAuthentication` still resolves `session_token` and `partner_session_token` from query params or payloads, and `LegacyAuthDeprecationHeaderMiddleware` still emits `X-Auth-Deprecated` when fallback auth is used.
++- Confirmed the operator package routing seam is still real: `partners/urls.py` points operator package endpoints through `partners/views/operator_packages.py`, which only re-exports classes from `partners/package_management_operator.py`, while public website package reads still come from `partners/package_management.py`.
++- Confirmed the booking workflow contract described in the atlas is still live: `booking/services.get_booking_by_identifier_for_user()` resolves both booking number and UUID, `booking/workflow.py` still derives the client and operator workflow stages, and `booking/serializers.py` still exposes the workflow-derived response fields documented in `API_SURFACE.md`.
++- Confirmed the management atlas notes still match source: `management/approval_task.py` still owns the routed admin task surface plus the unmounted `GetAllApprovedCompaniesView` and `ManageFeaturedPackageView`, and the master-hotel catalog still uses the synthetic provider/package tokens with 30-second cache keys.
++- Confirmed the repo-state assumptions in the atlas remain necessary: `git status --short` shows a dirty tree with live-file modifications plus deleted legacy files such as `chat/*`, `booking/manage_bookings.py`, `common/views.py`, and `management/tests.py`, so the atlas should continue to be treated as a map of the checked-out tree rather than repository history.
++- Remaining blind spots after validation:
++  - Atlas coverage is intentionally scoped to the live tree and dev-relevant sources; it does not attempt to map deleted legacy modules or the large `media/` artifact set.
++  - The management domain is still the least verified runtime area because there is no live `management/tests.py` module.
++  - Runtime verification is partially blocked in the current shell because Django is not installed; a targeted `manage.py test` attempt failed before test discovery.
++- Next recommended atlas refresh targets:
++  - Refresh the atlas again if route mounts or auth plumbing change in `huz/urls.py`, `common/authentication.py`, `common/permissions.py`, or `common/middleware.py`.
++  - Refresh immediately if the package seam changes again across `partners/urls.py`, `partners/views/operator_packages.py`, `partners/package_management_operator.py`, or `partners/package_management.py`.
++  - Refresh after any substantial audit/fix batch touching `booking/manage_partner_booking.py`, `booking/services.py`, or `management/approval_task.py`, because those files currently carry the highest coupling and churn risk.
++  - Refresh if dedicated management tests are added back or if currently deleted legacy modules are restored, because both would expand the live system surface.
+
+codex
+The Phase 2 notes are written. I’m checking the appended sections now, then I’ll mark the phase complete, generate the next prompt, and print `NEXT_PROMPT.md` exactly as requested.
+exec
+/bin/zsh -lc 'tail -n 60 /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc 'tail -n 70 /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 52ms:
+- Mapped the live backend surface across `huz`, `common`, `partners`, `booking`, and `management`.
+- Identified the active route groups: `/api/v1/` for newer authenticated user/customer flows, `/common/` for legacy user utilities, `/partner/` for partner auth/catalog/account flows, `/bookings/` for partner booking operations, and `/management/` for admin approval and payout flows.
+- Established safe downstream lanes for shared auth/platform, partner lifecycle and package catalog, customer booking workflow, partner booking operations, and admin approval/payout work.
+- Captured the main inventory gaps for Phase 1: atlas docs are still placeholder stubs, `partners/package_management.py` duplicates routed operator-package logic now served from `partners/package_management_operator.py`, and `management/approval_task.py` contains view classes that are not mounted in `management/urls.py`.
+- Flagged the highest-risk surfaces for later audit work: large transaction-heavy booking and management modules, plus legacy partner/account routes that still rely on permissive `AllowAny` or token-in-payload/query compatibility.
+### How It Was Implemented
+- Read the run state, Phase 0 prompt, project-bot config, operator profile, current atlas docs, QA report stubs, and run task before scanning source files.
+- Inspected `huz/settings.py` and `huz/urls.py` to confirm installed apps, middleware, authentication flow, route mounts, and optional public docs/static toggles.
+- Scanned each app `urls.py` and `api_urls.py`, the core model files, the booking service/queryset/workflow modules, the largest legacy APIView modules, shared auth/utility helpers, and the existing test files to map ownership boundaries and critical flows.
+- Verified route density directly from source: `common/urls.py` has 6 legacy endpoints, `common/api_urls.py` has 5 current-user endpoints, `partners/urls.py` has 36 partner/package/account endpoints, `booking/urls.py` has 18 partner-booking endpoints, `booking/api_urls.py` exposes a booking resource plus custom booking actions, and `management/urls.py` has 8 admin endpoints.
+### Files Touched
+- `docs/qa/DEEP_SCAN_REPORT.md`
+- `docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md`
+### Verification
+- Verified the inventory against the source-of-truth files in `huz/settings.py`, `huz/urls.py`, each app `urls.py` and `api_urls.py`, and the related model/view/service modules.
+- Confirmed this phase stayed report-only: no product code under `/Users/macbook/Desktop/Huz/Huz-Backend` was edited.
+- Confirmed the current atlas docs are placeholder stubs, which justifies Phase 1 as a full atlas refresh instead of an incremental patch.
+
+## Phase 1 - Refresh Atlas Docs
+### Changes Made
+ succeeded in 52ms:
+# Deep Scan Report
+
+Use this report for on-demand deep analysis of logic, structures, routes, contracts, and mismatch risks.
+
+## Findings
+### 2026-03-12 Phase 0 Inventory Scope
+- Scope inventoried: `/Users/macbook/Desktop/Huz/Huz-Backend` for the `system-atlas` run. This phase was report-only and did not modify product code.
+- Runtime shape: Django 5 + DRF project rooted in `huz/`, with installed apps `common`, `partners`, `management`, and `booking`; `huz/settings_test.py` swaps the default MySQL database for SQLite during non-interactive test runs.
+- Route surface snapshot: `huz/urls.py` mounts newer `/api/v1/` user/customer routes from `common/api_urls.py` and `booking/api_urls.py`, plus legacy or back-office groups at `/common/`, `/partner/`, `/bookings/`, and `/management/`.
+- Route density evidence from direct source inspection: `common/urls.py` exposes 6 legacy endpoints, `common/api_urls.py` exposes 5 current-user endpoints, `partners/urls.py` exposes 36 partner/package/account endpoints, `booking/urls.py` exposes 18 partner-booking endpoints, `booking/api_urls.py` exposes a booking resource plus custom booking actions, and `management/urls.py` exposes 8 admin endpoints.
+- Domain ownership boundary: `common` owns user identity, OTP, wallets, address state, notification records, auth bridge helpers, and outbound SMS/email/Firebase utilities.
+- Domain ownership boundary: `partners` owns partner identity, company and individual profiles, package catalog models, hotel catalog edges, partner wallet and withdrawal state, and website package read endpoints.
+- Domain ownership boundary: `booking` owns booking lifecycle state, capacity checks, payment submission, traveller passport/document state, complaints/requests, partner-facing booking fulfillment, and payout records.
+- Domain ownership boundary: `management` owns admin approvals, payment review decisions, master hotel catalog management, and partner receivable release.
+- High-risk files for downstream work: `booking/manage_partner_booking.py` (~1800 LOC), `booking/services.py` (~1000 LOC), `partners/package_management_operator.py` (~1700 LOC), `partners/package_management.py` (~1700 LOC), `partners/partner_profile.py` (~1300 LOC), and `management/approval_task.py` (~1500 LOC).
+- High-risk flows for downstream work: partner onboarding and company approval, package creation and publication, user booking creation with capacity locks, payment review and rejection/approval state changes, partner document fulfillment, complaint/objection handling, and partner receivable transfer to wallets.
+- Structural ambiguity: the workspace atlas docs are still placeholder stubs and currently do not describe the live module map, route groups, or API contracts for this repository.
+- Structural ambiguity: `partners/package_management.py` still contains legacy operator package views, but the routed operator package endpoints now flow through `partners/package_management_operator.py` via `partners/views/operator_packages.py`; this creates a duplicate-implementation seam that Phase 1 should document explicitly.
+- Structural ambiguity: `management/approval_task.py` defines `GetAllApprovedCompaniesView` and `ManageFeaturedPackageView`, but `management/urls.py` does not route them.
+- Security-sensitive boundary for later audit phases: many legacy partner and partner-wallet endpoints use `AllowAny` or token-in-payload/query compatibility, while the newer `/api/v1/` surface uses the auth bridge in `common/authentication.py`.
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md
+index b5b13389725e4ce2b95a2fc4bb6fd80c0f7646f3..38ce873f1b3002a7167d4d26df282701f399cdb6
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md
+@@ -70,3 +70,22 @@
+ - Confirmed the route map reflects the currently mounted surfaces and notes the defined-but-unmounted admin views in `management/approval_task.py`.
+ - Confirmed the API surface reflects both the modern Bearer/Token session bridge and the still-active legacy token transport patterns.
+ - Confirmed this phase stayed report-only: no product code under `/Users/macbook/Desktop/Huz/Huz-Backend` was edited.
++
++## Phase 2 - Validate Atlas Coverage
++### Changes Made
++- Revalidated the Phase 1 atlas against the live backend source instead of updating product code.
++- Confirmed the atlas still matches the current route mounts, auth bridge behavior, workflow-derived booking contract, operator package routing shim, and routed versus unrouted management views.
++- Recorded the remaining blind spots and next atlas refresh triggers in `docs/qa/DEEP_SCAN_REPORT.md`.
++- Determined that no core atlas doc corrections were required in this phase because the documented backend surfaces still align with the current working tree.
++### How It Was Implemented
++- Re-read the run contract, operator profile, refreshed atlas docs, QA report, and backlog, then reopened the highest-risk files named by the atlas: `booking/manage_partner_booking.py`, `booking/services.py`, `partners/package_management_operator.py`, `partners/package_management.py`, `partners/partner_profile.py`, and `management/approval_task.py`.
++- Rechecked the supporting source-of-truth files behind the atlas claims: `huz/settings.py`, `huz/settings_test.py`, `huz/urls.py`, `common/authentication.py`, `common/auth_utils.py`, `common/permissions.py`, `common/middleware.py`, each app `urls.py`/`api_urls.py`, `booking/workflow.py`, `booking/querysets.py`, `booking/serializers.py`, `booking/management/commands/process_booking_timers.py`, and the existing `common/tests.py` and `partners/tests.py` coverage around public route toggles and Bearer auth.
++- Verified the repo-state assumption directly with `git status --short`, which still shows a dirty tree with active modifications and deleted legacy files, confirming that the atlas should keep mapping the checked-out live tree rather than repository history.
++- Attempted a small targeted test slice with `python3 manage.py test ... --settings=huz.settings_test`, but the shell does not have Django installed, so runtime verification stopped with `ModuleNotFoundError: No module named 'django'` before test discovery.
++### Files Touched
++- `docs/qa/DEEP_SCAN_REPORT.md`
++- `docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md`
++### Verification
++- Source-verified the root mounts, optional public docs/static toggles, auth bridge classes, `X-Auth-Deprecated` middleware, operator package routing shim, booking identifier resolver, workflow-derived serializer fields, timer command, unmounted management views, missing `management/tests.py`, and the dirty working tree assumption against the live files in `/Users/macbook/Desktop/Huz/Huz-Backend`.
++- Confirmed this phase stayed report-only: no product code under `/Users/macbook/Desktop/Huz/Huz-Backend` was edited.
++- Runtime test execution was attempted but could not run in the current shell because Django is not installed.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+index 4650dc4165a9cb909894800ee50a4e95599b0b42..eabb4b749f80afa71e57dd5a16494d1951dd8774
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+@@ -31,3 +31,21 @@
+ - Confirmed a second structural seam: `management/approval_task.py` contains `GetAllApprovedCompaniesView` and `ManageFeaturedPackageView`, but `management/urls.py` does not currently mount them.
+ - Captured an operational constraint for later audit work: the target repository is already in a dirty working tree with significant in-progress refactors and deleted legacy files, so future audit or implementation batches should treat the current checked-out tree as the source of truth and avoid assuming clean-commit history.
+ - Verification for this phase was source-based only: the refreshed atlas was cross-checked against `huz/urls.py`, each app `urls.py` and `api_urls.py`, core model files, booking workflow/service/query modules, partner package modules, and the existing test modules. No product code was edited.
++
++### 2026-03-12 Phase 2 Validate Atlas Coverage
++- Reopened the highest-risk files named by the atlas and confirmed their documented responsibilities still match the live working tree: `booking/manage_partner_booking.py`, `booking/services.py`, `partners/package_management_operator.py`, `partners/package_management.py`, `partners/partner_profile.py`, and `management/approval_task.py`.
++- Re-verified the root route surfaces from source: `huz/urls.py` still mounts `/api/v1/`, `/common/`, `/partner/`, `/bookings/`, `/management/`, and `/admin/`, with Swagger/Redoc and Django-served media/static still gated by `ENABLE_API_DOCS` and `SERVE_MEDIA_AND_STATIC_FROM_DJANGO`.
++- Confirmed the auth split described in the atlas is still accurate: `SessionTokenHeaderAuthentication` accepts `Bearer` and `Token` headers, `LegacySessionTokenAuthentication` still resolves `session_token` and `partner_session_token` from query params or payloads, and `LegacyAuthDeprecationHeaderMiddleware` still emits `X-Auth-Deprecated` when fallback auth is used.
++- Confirmed the operator package routing seam is still real: `partners/urls.py` points operator package endpoints through `partners/views/operator_packages.py`, which only re-exports classes from `partners/package_management_operator.py`, while public website package reads still come from `partners/package_management.py`.
++- Confirmed the booking workflow contract described in the atlas is still live: `booking/services.get_booking_by_identifier_for_user()` resolves both booking number and UUID, `booking/workflow.py` still derives the client and operator workflow stages, and `booking/serializers.py` still exposes the workflow-derived response fields documented in `API_SURFACE.md`.
++- Confirmed the management atlas notes still match source: `management/approval_task.py` still owns the routed admin task surface plus the unmounted `GetAllApprovedCompaniesView` and `ManageFeaturedPackageView`, and the master-hotel catalog still uses the synthetic provider/package tokens with 30-second cache keys.
++- Confirmed the repo-state assumptions in the atlas remain necessary: `git status --short` shows a dirty tree with live-file modifications plus deleted legacy files such as `chat/*`, `booking/manage_bookings.py`, `common/views.py`, and `management/tests.py`, so the atlas should continue to be treated as a map of the checked-out tree rather than repository history.
++- Remaining blind spots after validation:
++  - Atlas coverage is intentionally scoped to the live tree and dev-relevant sources; it does not attempt to map deleted legacy modules or the large `media/` artifact set.
++  - The management domain is still the least verified runtime area because there is no live `management/tests.py` module.
++  - Runtime verification is partially blocked in the current shell because Django is not installed; a targeted `manage.py test` attempt failed before test discovery.
++- Next recommended atlas refresh targets:
++  - Refresh the atlas again if route mounts or auth plumbing change in `huz/urls.py`, `common/authentication.py`, `common/permissions.py`, or `common/middleware.py`.
++  - Refresh immediately if the package seam changes again across `partners/urls.py`, `partners/views/operator_packages.py`, `partners/package_management_operator.py`, or `partners/package_management.py`.
++  - Refresh after any substantial audit/fix batch touching `booking/manage_partner_booking.py`, `booking/services.py`, or `management/approval_task.py`, because those files currently carry the highest coupling and churn risk.
++  - Refresh if dedicated management tests are added back or if currently deleted legacy modules are restored, because both would expand the live system surface.
+
+Plan update
+Phase 2 validation notes are appended and verified. I’m at the completion/generation step now.
+  ✓ Validate root mounts, auth bridge behavior, and test/module coverage claims against live source
+  ✓ Re-open highest-risk backend files and compare their responsibilities with atlas descriptions
+  ✓ Patch workspace docs with any corrections, blind spots, and durable Phase 2 verification notes
+  → Mark Phase 2 complete, generate the next prompt, and print NEXT_PROMPT.md
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md
+index b5b13389725e4ce2b95a2fc4bb6fd80c0f7646f3..38ce873f1b3002a7167d4d26df282701f399cdb6
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md
+@@ -70,3 +70,22 @@
+ - Confirmed the route map reflects the currently mounted surfaces and notes the defined-but-unmounted admin views in `management/approval_task.py`.
+ - Confirmed the API surface reflects both the modern Bearer/Token session bridge and the still-active legacy token transport patterns.
+ - Confirmed this phase stayed report-only: no product code under `/Users/macbook/Desktop/Huz/Huz-Backend` was edited.
++
++## Phase 2 - Validate Atlas Coverage
++### Changes Made
++- Revalidated the Phase 1 atlas against the live backend source instead of updating product code.
++- Confirmed the atlas still matches the current route mounts, auth bridge behavior, workflow-derived booking contract, operator package routing shim, and routed versus unrouted management views.
++- Recorded the remaining blind spots and next atlas refresh triggers in `docs/qa/DEEP_SCAN_REPORT.md`.
++- Determined that no core atlas doc corrections were required in this phase because the documented backend surfaces still align with the current working tree.
++### How It Was Implemented
++- Re-read the run contract, operator profile, refreshed atlas docs, QA report, and backlog, then reopened the highest-risk files named by the atlas: `booking/manage_partner_booking.py`, `booking/services.py`, `partners/package_management_operator.py`, `partners/package_management.py`, `partners/partner_profile.py`, and `management/approval_task.py`.
++- Rechecked the supporting source-of-truth files behind the atlas claims: `huz/settings.py`, `huz/settings_test.py`, `huz/urls.py`, `common/authentication.py`, `common/auth_utils.py`, `common/permissions.py`, `common/middleware.py`, each app `urls.py`/`api_urls.py`, `booking/workflow.py`, `booking/querysets.py`, `booking/serializers.py`, `booking/management/commands/process_booking_timers.py`, and the existing `common/tests.py` and `partners/tests.py` coverage around public route toggles and Bearer auth.
++- Verified the repo-state assumption directly with `git status --short`, which still shows a dirty tree with active modifications and deleted legacy files, confirming that the atlas should keep mapping the checked-out live tree rather than repository history.
++- Attempted a small targeted test slice with `python3 manage.py test ... --settings=huz.settings_test`, but the shell does not have Django installed, so runtime verification stopped with `ModuleNotFoundError: No module named 'django'` before test discovery.
++### Files Touched
++- `docs/qa/DEEP_SCAN_REPORT.md`
++- `docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md`
++### Verification
++- Source-verified the root mounts, optional public docs/static toggles, auth bridge classes, `X-Auth-Deprecated` middleware, operator package routing shim, booking identifier resolver, workflow-derived serializer fields, timer command, unmounted management views, missing `management/tests.py`, and the dirty working tree assumption against the live files in `/Users/macbook/Desktop/Huz/Huz-Backend`.
++- Confirmed this phase stayed report-only: no product code under `/Users/macbook/Desktop/Huz/Huz-Backend` was edited.
++- Runtime test execution was attempted but could not run in the current shell because Django is not installed.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+index 4650dc4165a9cb909894800ee50a4e95599b0b42..eabb4b749f80afa71e57dd5a16494d1951dd8774
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+@@ -31,3 +31,21 @@
+ - Confirmed a second structural seam: `management/approval_task.py` contains `GetAllApprovedCompaniesView` and `ManageFeaturedPackageView`, but `management/urls.py` does not currently mount them.
+ - Captured an operational constraint for later audit work: the target repository is already in a dirty working tree with significant in-progress refactors and deleted legacy files, so future audit or implementation batches should treat the current checked-out tree as the source of truth and avoid assuming clean-commit history.
+ - Verification for this phase was source-based only: the refreshed atlas was cross-checked against `huz/urls.py`, each app `urls.py` and `api_urls.py`, core model files, booking workflow/service/query modules, partner package modules, and the existing test modules. No product code was edited.
++
++### 2026-03-12 Phase 2 Validate Atlas Coverage
++- Reopened the highest-risk files named by the atlas and confirmed their documented responsibilities still match the live working tree: `booking/manage_partner_booking.py`, `booking/services.py`, `partners/package_management_operator.py`, `partners/package_management.py`, `partners/partner_profile.py`, and `management/approval_task.py`.
++- Re-verified the root route surfaces from source: `huz/urls.py` still mounts `/api/v1/`, `/common/`, `/partner/`, `/bookings/`, `/management/`, and `/admin/`, with Swagger/Redoc and Django-served media/static still gated by `ENABLE_API_DOCS` and `SERVE_MEDIA_AND_STATIC_FROM_DJANGO`.
++- Confirmed the auth split described in the atlas is still accurate: `SessionTokenHeaderAuthentication` accepts `Bearer` and `Token` headers, `LegacySessionTokenAuthentication` still resolves `session_token` and `partner_session_token` from query params or payloads, and `LegacyAuthDeprecationHeaderMiddleware` still emits `X-Auth-Deprecated` when fallback auth is used.
++- Confirmed the operator package routing seam is still real: `partners/urls.py` points operator package endpoints through `partners/views/operator_packages.py`, which only re-exports classes from `partners/package_management_operator.py`, while public website package reads still come from `partners/package_management.py`.
++- Confirmed the booking workflow contract described in the atlas is still live: `booking/services.get_booking_by_identifier_for_user()` resolves both booking number and UUID, `booking/workflow.py` still derives the client and operator workflow stages, and `booking/serializers.py` still exposes the workflow-derived response fields documented in `API_SURFACE.md`.
++- Confirmed the management atlas notes still match source: `management/approval_task.py` still owns the routed admin task surface plus the unmounted `GetAllApprovedCompaniesView` and `ManageFeaturedPackageView`, and the master-hotel catalog still uses the synthetic provider/package tokens with 30-second cache keys.
++- Confirmed the repo-state assumptions in the atlas remain necessary: `git status --short` shows a dirty tree with live-file modifications plus deleted legacy files such as `chat/*`, `booking/manage_bookings.py`, `common/views.py`, and `management/tests.py`, so the atlas should continue to be treated as a map of the checked-out tree rather than repository history.
++- Remaining blind spots after validation:
++  - Atlas coverage is intentionally scoped to the live tree and dev-relevant sources; it does not attempt to map deleted legacy modules or the large `media/` artifact set.
++  - The management domain is still the least verified runtime area because there is no live `management/tests.py` module.
++  - Runtime verification is partially blocked in the current shell because Django is not installed; a targeted `manage.py test` attempt failed before test discovery.
++- Next recommended atlas refresh targets:
++  - Refresh the atlas again if route mounts or auth plumbing change in `huz/urls.py`, `common/authentication.py`, `common/permissions.py`, or `common/middleware.py`.
++  - Refresh immediately if the package seam changes again across `partners/urls.py`, `partners/views/operator_packages.py`, `partners/package_management_operator.py`, or `partners/package_management.py`.
++  - Refresh after any substantial audit/fix batch touching `booking/manage_partner_booking.py`, `booking/services.py`, or `management/approval_task.py`, because those files currently carry the highest coupling and churn risk.
++  - Refresh if dedicated management tests are added back or if currently deleted legacy modules are restored, because both would expand the live system surface.
+
+codex
+The durable notes are in place. I’m running the orchestrator completion step now, then generating the next prompt and loading `NEXT_PROMPT.md` for the final response.
+exec
+/bin/zsh -lc 'node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas --phase 2' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 133ms:
+Marked phase 2 as completed.
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md
+index b5b13389725e4ce2b95a2fc4bb6fd80c0f7646f3..38ce873f1b3002a7167d4d26df282701f399cdb6
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md
+@@ -70,3 +70,22 @@
+ - Confirmed the route map reflects the currently mounted surfaces and notes the defined-but-unmounted admin views in `management/approval_task.py`.
+ - Confirmed the API surface reflects both the modern Bearer/Token session bridge and the still-active legacy token transport patterns.
+ - Confirmed this phase stayed report-only: no product code under `/Users/macbook/Desktop/Huz/Huz-Backend` was edited.
++
++## Phase 2 - Validate Atlas Coverage
++### Changes Made
++- Revalidated the Phase 1 atlas against the live backend source instead of updating product code.
++- Confirmed the atlas still matches the current route mounts, auth bridge behavior, workflow-derived booking contract, operator package routing shim, and routed versus unrouted management views.
++- Recorded the remaining blind spots and next atlas refresh triggers in `docs/qa/DEEP_SCAN_REPORT.md`.
++- Determined that no core atlas doc corrections were required in this phase because the documented backend surfaces still align with the current working tree.
++### How It Was Implemented
++- Re-read the run contract, operator profile, refreshed atlas docs, QA report, and backlog, then reopened the highest-risk files named by the atlas: `booking/manage_partner_booking.py`, `booking/services.py`, `partners/package_management_operator.py`, `partners/package_management.py`, `partners/partner_profile.py`, and `management/approval_task.py`.
++- Rechecked the supporting source-of-truth files behind the atlas claims: `huz/settings.py`, `huz/settings_test.py`, `huz/urls.py`, `common/authentication.py`, `common/auth_utils.py`, `common/permissions.py`, `common/middleware.py`, each app `urls.py`/`api_urls.py`, `booking/workflow.py`, `booking/querysets.py`, `booking/serializers.py`, `booking/management/commands/process_booking_timers.py`, and the existing `common/tests.py` and `partners/tests.py` coverage around public route toggles and Bearer auth.
++- Verified the repo-state assumption directly with `git status --short`, which still shows a dirty tree with active modifications and deleted legacy files, confirming that the atlas should keep mapping the checked-out live tree rather than repository history.
++- Attempted a small targeted test slice with `python3 manage.py test ... --settings=huz.settings_test`, but the shell does not have Django installed, so runtime verification stopped with `ModuleNotFoundError: No module named 'django'` before test discovery.
++### Files Touched
++- `docs/qa/DEEP_SCAN_REPORT.md`
++- `docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md`
++### Verification
++- Source-verified the root mounts, optional public docs/static toggles, auth bridge classes, `X-Auth-Deprecated` middleware, operator package routing shim, booking identifier resolver, workflow-derived serializer fields, timer command, unmounted management views, missing `management/tests.py`, and the dirty working tree assumption against the live files in `/Users/macbook/Desktop/Huz/Huz-Backend`.
++- Confirmed this phase stayed report-only: no product code under `/Users/macbook/Desktop/Huz/Huz-Backend` was edited.
++- Runtime test execution was attempted but could not run in the current shell because Django is not installed.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+index 4650dc4165a9cb909894800ee50a4e95599b0b42..eabb4b749f80afa71e57dd5a16494d1951dd8774
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+@@ -31,3 +31,21 @@
+ - Confirmed a second structural seam: `management/approval_task.py` contains `GetAllApprovedCompaniesView` and `ManageFeaturedPackageView`, but `management/urls.py` does not currently mount them.
+ - Captured an operational constraint for later audit work: the target repository is already in a dirty working tree with significant in-progress refactors and deleted legacy files, so future audit or implementation batches should treat the current checked-out tree as the source of truth and avoid assuming clean-commit history.
+ - Verification for this phase was source-based only: the refreshed atlas was cross-checked against `huz/urls.py`, each app `urls.py` and `api_urls.py`, core model files, booking workflow/service/query modules, partner package modules, and the existing test modules. No product code was edited.
++
++### 2026-03-12 Phase 2 Validate Atlas Coverage
++- Reopened the highest-risk files named by the atlas and confirmed their documented responsibilities still match the live working tree: `booking/manage_partner_booking.py`, `booking/services.py`, `partners/package_management_operator.py`, `partners/package_management.py`, `partners/partner_profile.py`, and `management/approval_task.py`.
++- Re-verified the root route surfaces from source: `huz/urls.py` still mounts `/api/v1/`, `/common/`, `/partner/`, `/bookings/`, `/management/`, and `/admin/`, with Swagger/Redoc and Django-served media/static still gated by `ENABLE_API_DOCS` and `SERVE_MEDIA_AND_STATIC_FROM_DJANGO`.
++- Confirmed the auth split described in the atlas is still accurate: `SessionTokenHeaderAuthentication` accepts `Bearer` and `Token` headers, `LegacySessionTokenAuthentication` still resolves `session_token` and `partner_session_token` from query params or payloads, and `LegacyAuthDeprecationHeaderMiddleware` still emits `X-Auth-Deprecated` when fallback auth is used.
++- Confirmed the operator package routing seam is still real: `partners/urls.py` points operator package endpoints through `partners/views/operator_packages.py`, which only re-exports classes from `partners/package_management_operator.py`, while public website package reads still come from `partners/package_management.py`.
++- Confirmed the booking workflow contract described in the atlas is still live: `booking/services.get_booking_by_identifier_for_user()` resolves both booking number and UUID, `booking/workflow.py` still derives the client and operator workflow stages, and `booking/serializers.py` still exposes the workflow-derived response fields documented in `API_SURFACE.md`.
++- Confirmed the management atlas notes still match source: `management/approval_task.py` still owns the routed admin task surface plus the unmounted `GetAllApprovedCompaniesView` and `ManageFeaturedPackageView`, and the master-hotel catalog still uses the synthetic provider/package tokens with 30-second cache keys.
++- Confirmed the repo-state assumptions in the atlas remain necessary: `git status --short` shows a dirty tree with live-file modifications plus deleted legacy files such as `chat/*`, `booking/manage_bookings.py`, `common/views.py`, and `management/tests.py`, so the atlas should continue to be treated as a map of the checked-out tree rather than repository history.
++- Remaining blind spots after validation:
++  - Atlas coverage is intentionally scoped to the live tree and dev-relevant sources; it does not attempt to map deleted legacy modules or the large `media/` artifact set.
++  - The management domain is still the least verified runtime area because there is no live `management/tests.py` module.
++  - Runtime verification is partially blocked in the current shell because Django is not installed; a targeted `manage.py test` attempt failed before test discovery.
++- Next recommended atlas refresh targets:
++  - Refresh the atlas again if route mounts or auth plumbing change in `huz/urls.py`, `common/authentication.py`, `common/permissions.py`, or `common/middleware.py`.
++  - Refresh immediately if the package seam changes again across `partners/urls.py`, `partners/views/operator_packages.py`, `partners/package_management_operator.py`, or `partners/package_management.py`.
++  - Refresh after any substantial audit/fix batch touching `booking/manage_partner_booking.py`, `booking/services.py`, or `management/approval_task.py`, because those files currently carry the highest coupling and churn risk.
++  - Refresh if dedicated management tests are added back or if currently deleted legacy modules are restored, because both would expand the live system surface.
+
+exec
+/bin/zsh -lc 'node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 52ms:
+Project bot run complete for target `/Users/macbook/Desktop/Huz/Huz-Backend`.
+
+No remaining phases.
+Final validation checklist:
+- Ensure the requested build/test/lint commands were run for the changed scope.
+- Ensure the atlas docs under `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas` were refreshed for touched modules.
+- Ensure `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md` contains the full cumulative summary of changes and implementation details.
+- Ensure any mode-specific report docs were updated.
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md
+index b5b13389725e4ce2b95a2fc4bb6fd80c0f7646f3..38ce873f1b3002a7167d4d26df282701f399cdb6
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md
+@@ -70,3 +70,22 @@
+ - Confirmed the route map reflects the currently mounted surfaces and notes the defined-but-unmounted admin views in `management/approval_task.py`.
+ - Confirmed the API surface reflects both the modern Bearer/Token session bridge and the still-active legacy token transport patterns.
+ - Confirmed this phase stayed report-only: no product code under `/Users/macbook/Desktop/Huz/Huz-Backend` was edited.
++
++## Phase 2 - Validate Atlas Coverage
++### Changes Made
++- Revalidated the Phase 1 atlas against the live backend source instead of updating product code.
++- Confirmed the atlas still matches the current route mounts, auth bridge behavior, workflow-derived booking contract, operator package routing shim, and routed versus unrouted management views.
++- Recorded the remaining blind spots and next atlas refresh triggers in `docs/qa/DEEP_SCAN_REPORT.md`.
++- Determined that no core atlas doc corrections were required in this phase because the documented backend surfaces still align with the current working tree.
++### How It Was Implemented
++- Re-read the run contract, operator profile, refreshed atlas docs, QA report, and backlog, then reopened the highest-risk files named by the atlas: `booking/manage_partner_booking.py`, `booking/services.py`, `partners/package_management_operator.py`, `partners/package_management.py`, `partners/partner_profile.py`, and `management/approval_task.py`.
++- Rechecked the supporting source-of-truth files behind the atlas claims: `huz/settings.py`, `huz/settings_test.py`, `huz/urls.py`, `common/authentication.py`, `common/auth_utils.py`, `common/permissions.py`, `common/middleware.py`, each app `urls.py`/`api_urls.py`, `booking/workflow.py`, `booking/querysets.py`, `booking/serializers.py`, `booking/management/commands/process_booking_timers.py`, and the existing `common/tests.py` and `partners/tests.py` coverage around public route toggles and Bearer auth.
++- Verified the repo-state assumption directly with `git status --short`, which still shows a dirty tree with active modifications and deleted legacy files, confirming that the atlas should keep mapping the checked-out live tree rather than repository history.
++- Attempted a small targeted test slice with `python3 manage.py test ... --settings=huz.settings_test`, but the shell does not have Django installed, so runtime verification stopped with `ModuleNotFoundError: No module named 'django'` before test discovery.
++### Files Touched
++- `docs/qa/DEEP_SCAN_REPORT.md`
++- `docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md`
++### Verification
++- Source-verified the root mounts, optional public docs/static toggles, auth bridge classes, `X-Auth-Deprecated` middleware, operator package routing shim, booking identifier resolver, workflow-derived serializer fields, timer command, unmounted management views, missing `management/tests.py`, and the dirty working tree assumption against the live files in `/Users/macbook/Desktop/Huz/Huz-Backend`.
++- Confirmed this phase stayed report-only: no product code under `/Users/macbook/Desktop/Huz/Huz-Backend` was edited.
++- Runtime test execution was attempted but could not run in the current shell because Django is not installed.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+index 4650dc4165a9cb909894800ee50a4e95599b0b42..eabb4b749f80afa71e57dd5a16494d1951dd8774
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+@@ -31,3 +31,21 @@
+ - Confirmed a second structural seam: `management/approval_task.py` contains `GetAllApprovedCompaniesView` and `ManageFeaturedPackageView`, but `management/urls.py` does not currently mount them.
+ - Captured an operational constraint for later audit work: the target repository is already in a dirty working tree with significant in-progress refactors and deleted legacy files, so future audit or implementation batches should treat the current checked-out tree as the source of truth and avoid assuming clean-commit history.
+ - Verification for this phase was source-based only: the refreshed atlas was cross-checked against `huz/urls.py`, each app `urls.py` and `api_urls.py`, core model files, booking workflow/service/query modules, partner package modules, and the existing test modules. No product code was edited.
++
++### 2026-03-12 Phase 2 Validate Atlas Coverage
++- Reopened the highest-risk files named by the atlas and confirmed their documented responsibilities still match the live working tree: `booking/manage_partner_booking.py`, `booking/services.py`, `partners/package_management_operator.py`, `partners/package_management.py`, `partners/partner_profile.py`, and `management/approval_task.py`.
++- Re-verified the root route surfaces from source: `huz/urls.py` still mounts `/api/v1/`, `/common/`, `/partner/`, `/bookings/`, `/management/`, and `/admin/`, with Swagger/Redoc and Django-served media/static still gated by `ENABLE_API_DOCS` and `SERVE_MEDIA_AND_STATIC_FROM_DJANGO`.
++- Confirmed the auth split described in the atlas is still accurate: `SessionTokenHeaderAuthentication` accepts `Bearer` and `Token` headers, `LegacySessionTokenAuthentication` still resolves `session_token` and `partner_session_token` from query params or payloads, and `LegacyAuthDeprecationHeaderMiddleware` still emits `X-Auth-Deprecated` when fallback auth is used.
++- Confirmed the operator package routing seam is still real: `partners/urls.py` points operator package endpoints through `partners/views/operator_packages.py`, which only re-exports classes from `partners/package_management_operator.py`, while public website package reads still come from `partners/package_management.py`.
++- Confirmed the booking workflow contract described in the atlas is still live: `booking/services.get_booking_by_identifier_for_user()` resolves both booking number and UUID, `booking/workflow.py` still derives the client and operator workflow stages, and `booking/serializers.py` still exposes the workflow-derived response fields documented in `API_SURFACE.md`.
++- Confirmed the management atlas notes still match source: `management/approval_task.py` still owns the routed admin task surface plus the unmounted `GetAllApprovedCompaniesView` and `ManageFeaturedPackageView`, and the master-hotel catalog still uses the synthetic provider/package tokens with 30-second cache keys.
++- Confirmed the repo-state assumptions in the atlas remain necessary: `git status --short` shows a dirty tree with live-file modifications plus deleted legacy files such as `chat/*`, `booking/manage_bookings.py`, `common/views.py`, and `management/tests.py`, so the atlas should continue to be treated as a map of the checked-out tree rather than repository history.
++- Remaining blind spots after validation:
++  - Atlas coverage is intentionally scoped to the live tree and dev-relevant sources; it does not attempt to map deleted legacy modules or the large `media/` artifact set.
++  - The management domain is still the least verified runtime area because there is no live `management/tests.py` module.
++  - Runtime verification is partially blocked in the current shell because Django is not installed; a targeted `manage.py test` attempt failed before test discovery.
++- Next recommended atlas refresh targets:
++  - Refresh the atlas again if route mounts or auth plumbing change in `huz/urls.py`, `common/authentication.py`, `common/permissions.py`, or `common/middleware.py`.
++  - Refresh immediately if the package seam changes again across `partners/urls.py`, `partners/views/operator_packages.py`, `partners/package_management_operator.py`, or `partners/package_management.py`.
++  - Refresh after any substantial audit/fix batch touching `booking/manage_partner_booking.py`, `booking/services.py`, or `management/approval_task.py`, because those files currently carry the highest coupling and churn risk.
++  - Refresh if dedicated management tests are added back or if currently deleted legacy modules are restored, because both would expand the live system surface.
+
+exec
+/bin/zsh -lc "sed -n '1,260p' /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/NEXT_PROMPT.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 53ms:
+Project bot run complete for target `/Users/macbook/Desktop/Huz/Huz-Backend`.
+
+No remaining phases.
+Final validation checklist:
+- Ensure the requested build/test/lint commands were run for the changed scope.
+- Ensure the atlas docs under `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas` were refreshed for touched modules.
+- Ensure `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md` contains the full cumulative summary of changes and implementation details.
+- Ensure any mode-specific report docs were updated.
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md
+index b5b13389725e4ce2b95a2fc4bb6fd80c0f7646f3..38ce873f1b3002a7167d4d26df282701f399cdb6
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md
+@@ -70,3 +70,22 @@
+ - Confirmed the route map reflects the currently mounted surfaces and notes the defined-but-unmounted admin views in `management/approval_task.py`.
+ - Confirmed the API surface reflects both the modern Bearer/Token session bridge and the still-active legacy token transport patterns.
+ - Confirmed this phase stayed report-only: no product code under `/Users/macbook/Desktop/Huz/Huz-Backend` was edited.
++
++## Phase 2 - Validate Atlas Coverage
++### Changes Made
++- Revalidated the Phase 1 atlas against the live backend source instead of updating product code.
++- Confirmed the atlas still matches the current route mounts, auth bridge behavior, workflow-derived booking contract, operator package routing shim, and routed versus unrouted management views.
++- Recorded the remaining blind spots and next atlas refresh triggers in `docs/qa/DEEP_SCAN_REPORT.md`.
++- Determined that no core atlas doc corrections were required in this phase because the documented backend surfaces still align with the current working tree.
++### How It Was Implemented
++- Re-read the run contract, operator profile, refreshed atlas docs, QA report, and backlog, then reopened the highest-risk files named by the atlas: `booking/manage_partner_booking.py`, `booking/services.py`, `partners/package_management_operator.py`, `partners/package_management.py`, `partners/partner_profile.py`, and `management/approval_task.py`.
++- Rechecked the supporting source-of-truth files behind the atlas claims: `huz/settings.py`, `huz/settings_test.py`, `huz/urls.py`, `common/authentication.py`, `common/auth_utils.py`, `common/permissions.py`, `common/middleware.py`, each app `urls.py`/`api_urls.py`, `booking/workflow.py`, `booking/querysets.py`, `booking/serializers.py`, `booking/management/commands/process_booking_timers.py`, and the existing `common/tests.py` and `partners/tests.py` coverage around public route toggles and Bearer auth.
++- Verified the repo-state assumption directly with `git status --short`, which still shows a dirty tree with active modifications and deleted legacy files, confirming that the atlas should keep mapping the checked-out live tree rather than repository history.
++- Attempted a small targeted test slice with `python3 manage.py test ... --settings=huz.settings_test`, but the shell does not have Django installed, so runtime verification stopped with `ModuleNotFoundError: No module named 'django'` before test discovery.
++### Files Touched
++- `docs/qa/DEEP_SCAN_REPORT.md`
++- `docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md`
++### Verification
++- Source-verified the root mounts, optional public docs/static toggles, auth bridge classes, `X-Auth-Deprecated` middleware, operator package routing shim, booking identifier resolver, workflow-derived serializer fields, timer command, unmounted management views, missing `management/tests.py`, and the dirty working tree assumption against the live files in `/Users/macbook/Desktop/Huz/Huz-Backend`.
++- Confirmed this phase stayed report-only: no product code under `/Users/macbook/Desktop/Huz/Huz-Backend` was edited.
++- Runtime test execution was attempted but could not run in the current shell because Django is not installed.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+index 4650dc4165a9cb909894800ee50a4e95599b0b42..eabb4b749f80afa71e57dd5a16494d1951dd8774
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+@@ -31,3 +31,21 @@
+ - Confirmed a second structural seam: `management/approval_task.py` contains `GetAllApprovedCompaniesView` and `ManageFeaturedPackageView`, but `management/urls.py` does not currently mount them.
+ - Captured an operational constraint for later audit work: the target repository is already in a dirty working tree with significant in-progress refactors and deleted legacy files, so future audit or implementation batches should treat the current checked-out tree as the source of truth and avoid assuming clean-commit history.
+ - Verification for this phase was source-based only: the refreshed atlas was cross-checked against `huz/urls.py`, each app `urls.py` and `api_urls.py`, core model files, booking workflow/service/query modules, partner package modules, and the existing test modules. No product code was edited.
++
++### 2026-03-12 Phase 2 Validate Atlas Coverage
++- Reopened the highest-risk files named by the atlas and confirmed their documented responsibilities still match the live working tree: `booking/manage_partner_booking.py`, `booking/services.py`, `partners/package_management_operator.py`, `partners/package_management.py`, `partners/partner_profile.py`, and `management/approval_task.py`.
++- Re-verified the root route surfaces from source: `huz/urls.py` still mounts `/api/v1/`, `/common/`, `/partner/`, `/bookings/`, `/management/`, and `/admin/`, with Swagger/Redoc and Django-served media/static still gated by `ENABLE_API_DOCS` and `SERVE_MEDIA_AND_STATIC_FROM_DJANGO`.
++- Confirmed the auth split described in the atlas is still accurate: `SessionTokenHeaderAuthentication` accepts `Bearer` and `Token` headers, `LegacySessionTokenAuthentication` still resolves `session_token` and `partner_session_token` from query params or payloads, and `LegacyAuthDeprecationHeaderMiddleware` still emits `X-Auth-Deprecated` when fallback auth is used.
++- Confirmed the operator package routing seam is still real: `partners/urls.py` points operator package endpoints through `partners/views/operator_packages.py`, which only re-exports classes from `partners/package_management_operator.py`, while public website package reads still come from `partners/package_management.py`.
++- Confirmed the booking workflow contract described in the atlas is still live: `booking/services.get_booking_by_identifier_for_user()` resolves both booking number and UUID, `booking/workflow.py` still derives the client and operator workflow stages, and `booking/serializers.py` still exposes the workflow-derived response fields documented in `API_SURFACE.md`.
++- Confirmed the management atlas notes still match source: `management/approval_task.py` still owns the routed admin task surface plus the unmounted `GetAllApprovedCompaniesView` and `ManageFeaturedPackageView`, and the master-hotel catalog still uses the synthetic provider/package tokens with 30-second cache keys.
++- Confirmed the repo-state assumptions in the atlas remain necessary: `git status --short` shows a dirty tree with live-file modifications plus deleted legacy files such as `chat/*`, `booking/manage_bookings.py`, `common/views.py`, and `management/tests.py`, so the atlas should continue to be treated as a map of the checked-out tree rather than repository history.
++- Remaining blind spots after validation:
++  - Atlas coverage is intentionally scoped to the live tree and dev-relevant sources; it does not attempt to map deleted legacy modules or the large `media/` artifact set.
++  - The management domain is still the least verified runtime area because there is no live `management/tests.py` module.
++  - Runtime verification is partially blocked in the current shell because Django is not installed; a targeted `manage.py test` attempt failed before test discovery.
++- Next recommended atlas refresh targets:
++  - Refresh the atlas again if route mounts or auth plumbing change in `huz/urls.py`, `common/authentication.py`, `common/permissions.py`, or `common/middleware.py`.
++  - Refresh immediately if the package seam changes again across `partners/urls.py`, `partners/views/operator_packages.py`, `partners/package_management_operator.py`, or `partners/package_management.py`.
++  - Refresh after any substantial audit/fix batch touching `booking/manage_partner_booking.py`, `booking/services.py`, or `management/approval_task.py`, because those files currently carry the highest coupling and churn risk.
++  - Refresh if dedicated management tests are added back or if currently deleted legacy modules are restored, because both would expand the live system surface.
+
+Plan update
+Phase 2 is complete and the run has no remaining phases. NEXT_PROMPT.md is loaded for the final response.
+  ✓ Validate root mounts, auth bridge behavior, and test/module coverage claims against live source
+  ✓ Re-open highest-risk backend files and compare their responsibilities with atlas descriptions
+  ✓ Patch workspace docs with any corrections, blind spots, and durable Phase 2 verification notes
+  ✓ Mark Phase 2 complete, generate the next prompt, and print NEXT_PROMPT.md
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md
+index b5b13389725e4ce2b95a2fc4bb6fd80c0f7646f3..38ce873f1b3002a7167d4d26df282701f399cdb6
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md
+@@ -70,3 +70,22 @@
+ - Confirmed the route map reflects the currently mounted surfaces and notes the defined-but-unmounted admin views in `management/approval_task.py`.
+ - Confirmed the API surface reflects both the modern Bearer/Token session bridge and the still-active legacy token transport patterns.
+ - Confirmed this phase stayed report-only: no product code under `/Users/macbook/Desktop/Huz/Huz-Backend` was edited.
++
++## Phase 2 - Validate Atlas Coverage
++### Changes Made
++- Revalidated the Phase 1 atlas against the live backend source instead of updating product code.
++- Confirmed the atlas still matches the current route mounts, auth bridge behavior, workflow-derived booking contract, operator package routing shim, and routed versus unrouted management views.
++- Recorded the remaining blind spots and next atlas refresh triggers in `docs/qa/DEEP_SCAN_REPORT.md`.
++- Determined that no core atlas doc corrections were required in this phase because the documented backend surfaces still align with the current working tree.
++### How It Was Implemented
++- Re-read the run contract, operator profile, refreshed atlas docs, QA report, and backlog, then reopened the highest-risk files named by the atlas: `booking/manage_partner_booking.py`, `booking/services.py`, `partners/package_management_operator.py`, `partners/package_management.py`, `partners/partner_profile.py`, and `management/approval_task.py`.
++- Rechecked the supporting source-of-truth files behind the atlas claims: `huz/settings.py`, `huz/settings_test.py`, `huz/urls.py`, `common/authentication.py`, `common/auth_utils.py`, `common/permissions.py`, `common/middleware.py`, each app `urls.py`/`api_urls.py`, `booking/workflow.py`, `booking/querysets.py`, `booking/serializers.py`, `booking/management/commands/process_booking_timers.py`, and the existing `common/tests.py` and `partners/tests.py` coverage around public route toggles and Bearer auth.
++- Verified the repo-state assumption directly with `git status --short`, which still shows a dirty tree with active modifications and deleted legacy files, confirming that the atlas should keep mapping the checked-out live tree rather than repository history.
++- Attempted a small targeted test slice with `python3 manage.py test ... --settings=huz.settings_test`, but the shell does not have Django installed, so runtime verification stopped with `ModuleNotFoundError: No module named 'django'` before test discovery.
++### Files Touched
++- `docs/qa/DEEP_SCAN_REPORT.md`
++- `docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md`
++### Verification
++- Source-verified the root mounts, optional public docs/static toggles, auth bridge classes, `X-Auth-Deprecated` middleware, operator package routing shim, booking identifier resolver, workflow-derived serializer fields, timer command, unmounted management views, missing `management/tests.py`, and the dirty working tree assumption against the live files in `/Users/macbook/Desktop/Huz/Huz-Backend`.
++- Confirmed this phase stayed report-only: no product code under `/Users/macbook/Desktop/Huz/Huz-Backend` was edited.
++- Runtime test execution was attempted but could not run in the current shell because Django is not installed.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+index 4650dc4165a9cb909894800ee50a4e95599b0b42..eabb4b749f80afa71e57dd5a16494d1951dd8774
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+@@ -31,3 +31,21 @@
+ - Confirmed a second structural seam: `management/approval_task.py` contains `GetAllApprovedCompaniesView` and `ManageFeaturedPackageView`, but `management/urls.py` does not currently mount them.
+ - Captured an operational constraint for later audit work: the target repository is already in a dirty working tree with significant in-progress refactors and deleted legacy files, so future audit or implementation batches should treat the current checked-out tree as the source of truth and avoid assuming clean-commit history.
+ - Verification for this phase was source-based only: the refreshed atlas was cross-checked against `huz/urls.py`, each app `urls.py` and `api_urls.py`, core model files, booking workflow/service/query modules, partner package modules, and the existing test modules. No product code was edited.
++
++### 2026-03-12 Phase 2 Validate Atlas Coverage
++- Reopened the highest-risk files named by the atlas and confirmed their documented responsibilities still match the live working tree: `booking/manage_partner_booking.py`, `booking/services.py`, `partners/package_management_operator.py`, `partners/package_management.py`, `partners/partner_profile.py`, and `management/approval_task.py`.
++- Re-verified the root route surfaces from source: `huz/urls.py` still mounts `/api/v1/`, `/common/`, `/partner/`, `/bookings/`, `/management/`, and `/admin/`, with Swagger/Redoc and Django-served media/static still gated by `ENABLE_API_DOCS` and `SERVE_MEDIA_AND_STATIC_FROM_DJANGO`.
++- Confirmed the auth split described in the atlas is still accurate: `SessionTokenHeaderAuthentication` accepts `Bearer` and `Token` headers, `LegacySessionTokenAuthentication` still resolves `session_token` and `partner_session_token` from query params or payloads, and `LegacyAuthDeprecationHeaderMiddleware` still emits `X-Auth-Deprecated` when fallback auth is used.
++- Confirmed the operator package routing seam is still real: `partners/urls.py` points operator package endpoints through `partners/views/operator_packages.py`, which only re-exports classes from `partners/package_management_operator.py`, while public website package reads still come from `partners/package_management.py`.
++- Confirmed the booking workflow contract described in the atlas is still live: `booking/services.get_booking_by_identifier_for_user()` resolves both booking number and UUID, `booking/workflow.py` still derives the client and operator workflow stages, and `booking/serializers.py` still exposes the workflow-derived response fields documented in `API_SURFACE.md`.
++- Confirmed the management atlas notes still match source: `management/approval_task.py` still owns the routed admin task surface plus the unmounted `GetAllApprovedCompaniesView` and `ManageFeaturedPackageView`, and the master-hotel catalog still uses the synthetic provider/package tokens with 30-second cache keys.
++- Confirmed the repo-state assumptions in the atlas remain necessary: `git status --short` shows a dirty tree with live-file modifications plus deleted legacy files such as `chat/*`, `booking/manage_bookings.py`, `common/views.py`, and `management/tests.py`, so the atlas should continue to be treated as a map of the checked-out tree rather than repository history.
++- Remaining blind spots after validation:
++  - Atlas coverage is intentionally scoped to the live tree and dev-relevant sources; it does not attempt to map deleted legacy modules or the large `media/` artifact set.
++  - The management domain is still the least verified runtime area because there is no live `management/tests.py` module.
++  - Runtime verification is partially blocked in the current shell because Django is not installed; a targeted `manage.py test` attempt failed before test discovery.
++- Next recommended atlas refresh targets:
++  - Refresh the atlas again if route mounts or auth plumbing change in `huz/urls.py`, `common/authentication.py`, `common/permissions.py`, or `common/middleware.py`.
++  - Refresh immediately if the package seam changes again across `partners/urls.py`, `partners/views/operator_packages.py`, `partners/package_management_operator.py`, or `partners/package_management.py`.
++  - Refresh after any substantial audit/fix batch touching `booking/manage_partner_booking.py`, `booking/services.py`, or `management/approval_task.py`, because those files currently carry the highest coupling and churn risk.
++  - Refresh if dedicated management tests are added back or if currently deleted legacy modules are restored, because both would expand the live system surface.
+
+codex
+Phase 2 is complete. I validated the refreshed atlas against the live backend source, appended durable verification notes to [DEEP_SCAN_REPORT.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md) and [RUN_SUMMARY.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md), and confirmed no core atlas doc corrections were needed. I also ran the requested `complete` and `next` orchestration commands for Phase 2.
+
+I attempted a targeted Django test slice for route/auth verification, but the current shell does not have Django installed, so runtime verification stopped with `ModuleNotFoundError: No module named 'django'`.
+
+`[NEXT_PROMPT.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/NEXT_PROMPT.md)`:
+
+```text
+Project bot run complete for target `/Users/macbook/Desktop/Huz/Huz-Backend`.
+
+No remaining phases.
+Final validation checklist:
+- Ensure the requested build/test/lint commands were run for the changed scope.
+- Ensure the atlas docs under `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas` were refreshed for touched modules.
+- Ensure `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md` contains the full cumulative summary of changes and implementation details.
+- Ensure any mode-specific report docs were updated.
+```
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md
+index b5b13389725e4ce2b95a2fc4bb6fd80c0f7646f3..38ce873f1b3002a7167d4d26df282701f399cdb6
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md
+@@ -70,3 +70,22 @@
+ - Confirmed the route map reflects the currently mounted surfaces and notes the defined-but-unmounted admin views in `management/approval_task.py`.
+ - Confirmed the API surface reflects both the modern Bearer/Token session bridge and the still-active legacy token transport patterns.
+ - Confirmed this phase stayed report-only: no product code under `/Users/macbook/Desktop/Huz/Huz-Backend` was edited.
++
++## Phase 2 - Validate Atlas Coverage
++### Changes Made
++- Revalidated the Phase 1 atlas against the live backend source instead of updating product code.
++- Confirmed the atlas still matches the current route mounts, auth bridge behavior, workflow-derived booking contract, operator package routing shim, and routed versus unrouted management views.
++- Recorded the remaining blind spots and next atlas refresh triggers in `docs/qa/DEEP_SCAN_REPORT.md`.
++- Determined that no core atlas doc corrections were required in this phase because the documented backend surfaces still align with the current working tree.
++### How It Was Implemented
++- Re-read the run contract, operator profile, refreshed atlas docs, QA report, and backlog, then reopened the highest-risk files named by the atlas: `booking/manage_partner_booking.py`, `booking/services.py`, `partners/package_management_operator.py`, `partners/package_management.py`, `partners/partner_profile.py`, and `management/approval_task.py`.
++- Rechecked the supporting source-of-truth files behind the atlas claims: `huz/settings.py`, `huz/settings_test.py`, `huz/urls.py`, `common/authentication.py`, `common/auth_utils.py`, `common/permissions.py`, `common/middleware.py`, each app `urls.py`/`api_urls.py`, `booking/workflow.py`, `booking/querysets.py`, `booking/serializers.py`, `booking/management/commands/process_booking_timers.py`, and the existing `common/tests.py` and `partners/tests.py` coverage around public route toggles and Bearer auth.
++- Verified the repo-state assumption directly with `git status --short`, which still shows a dirty tree with active modifications and deleted legacy files, confirming that the atlas should keep mapping the checked-out live tree rather than repository history.
++- Attempted a small targeted test slice with `python3 manage.py test ... --settings=huz.settings_test`, but the shell does not have Django installed, so runtime verification stopped with `ModuleNotFoundError: No module named 'django'` before test discovery.
++### Files Touched
++- `docs/qa/DEEP_SCAN_REPORT.md`
++- `docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md`
++### Verification
++- Source-verified the root mounts, optional public docs/static toggles, auth bridge classes, `X-Auth-Deprecated` middleware, operator package routing shim, booking identifier resolver, workflow-derived serializer fields, timer command, unmounted management views, missing `management/tests.py`, and the dirty working tree assumption against the live files in `/Users/macbook/Desktop/Huz/Huz-Backend`.
++- Confirmed this phase stayed report-only: no product code under `/Users/macbook/Desktop/Huz/Huz-Backend` was edited.
++- Runtime test execution was attempted but could not run in the current shell because Django is not installed.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+index 4650dc4165a9cb909894800ee50a4e95599b0b42..eabb4b749f80afa71e57dd5a16494d1951dd8774
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+@@ -31,3 +31,21 @@
+ - Confirmed a second structural seam: `management/approval_task.py` contains `GetAllApprovedCompaniesView` and `ManageFeaturedPackageView`, but `management/urls.py` does not currently mount them.
+ - Captured an operational constraint for later audit work: the target repository is already in a dirty working tree with significant in-progress refactors and deleted legacy files, so future audit or implementation batches should treat the current checked-out tree as the source of truth and avoid assuming clean-commit history.
+ - Verification for this phase was source-based only: the refreshed atlas was cross-checked against `huz/urls.py`, each app `urls.py` and `api_urls.py`, core model files, booking workflow/service/query modules, partner package modules, and the existing test modules. No product code was edited.
++
++### 2026-03-12 Phase 2 Validate Atlas Coverage
++- Reopened the highest-risk files named by the atlas and confirmed their documented responsibilities still match the live working tree: `booking/manage_partner_booking.py`, `booking/services.py`, `partners/package_management_operator.py`, `partners/package_management.py`, `partners/partner_profile.py`, and `management/approval_task.py`.
++- Re-verified the root route surfaces from source: `huz/urls.py` still mounts `/api/v1/`, `/common/`, `/partner/`, `/bookings/`, `/management/`, and `/admin/`, with Swagger/Redoc and Django-served media/static still gated by `ENABLE_API_DOCS` and `SERVE_MEDIA_AND_STATIC_FROM_DJANGO`.
++- Confirmed the auth split described in the atlas is still accurate: `SessionTokenHeaderAuthentication` accepts `Bearer` and `Token` headers, `LegacySessionTokenAuthentication` still resolves `session_token` and `partner_session_token` from query params or payloads, and `LegacyAuthDeprecationHeaderMiddleware` still emits `X-Auth-Deprecated` when fallback auth is used.
++- Confirmed the operator package routing seam is still real: `partners/urls.py` points operator package endpoints through `partners/views/operator_packages.py`, which only re-exports classes from `partners/package_management_operator.py`, while public website package reads still come from `partners/package_management.py`.
++- Confirmed the booking workflow contract described in the atlas is still live: `booking/services.get_booking_by_identifier_for_user()` resolves both booking number and UUID, `booking/workflow.py` still derives the client and operator workflow stages, and `booking/serializers.py` still exposes the workflow-derived response fields documented in `API_SURFACE.md`.
++- Confirmed the management atlas notes still match source: `management/approval_task.py` still owns the routed admin task surface plus the unmounted `GetAllApprovedCompaniesView` and `ManageFeaturedPackageView`, and the master-hotel catalog still uses the synthetic provider/package tokens with 30-second cache keys.
++- Confirmed the repo-state assumptions in the atlas remain necessary: `git status --short` shows a dirty tree with live-file modifications plus deleted legacy files such as `chat/*`, `booking/manage_bookings.py`, `common/views.py`, and `management/tests.py`, so the atlas should continue to be treated as a map of the checked-out tree rather than repository history.
++- Remaining blind spots after validation:
++  - Atlas coverage is intentionally scoped to the live tree and dev-relevant sources; it does not attempt to map deleted legacy modules or the large `media/` artifact set.
++  - The management domain is still the least verified runtime area because there is no live `management/tests.py` module.
++  - Runtime verification is partially blocked in the current shell because Django is not installed; a targeted `manage.py test` attempt failed before test discovery.
++- Next recommended atlas refresh targets:
++  - Refresh the atlas again if route mounts or auth plumbing change in `huz/urls.py`, `common/authentication.py`, `common/permissions.py`, or `common/middleware.py`.
++  - Refresh immediately if the package seam changes again across `partners/urls.py`, `partners/views/operator_packages.py`, `partners/package_management_operator.py`, or `partners/package_management.py`.
++  - Refresh after any substantial audit/fix batch touching `booking/manage_partner_booking.py`, `booking/services.py`, or `management/approval_task.py`, because those files currently carry the highest coupling and churn risk.
++  - Refresh if dedicated management tests are added back or if currently deleted legacy modules are restored, because both would expand the live system surface.
+
+tokens used
+122,262
+Phase 2 is complete. I validated the refreshed atlas against the live backend source, appended durable verification notes to [DEEP_SCAN_REPORT.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md) and [RUN_SUMMARY.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md), and confirmed no core atlas doc corrections were needed. I also ran the requested `complete` and `next` orchestration commands for Phase 2.
+
+I attempted a targeted Django test slice for route/auth verification, but the current shell does not have Django installed, so runtime verification stopped with `ModuleNotFoundError: No module named 'django'`.
+
+`[NEXT_PROMPT.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/NEXT_PROMPT.md)`:
+
+```text
+Project bot run complete for target `/Users/macbook/Desktop/Huz/Huz-Backend`.
+
+No remaining phases.
+Final validation checklist:
+- Ensure the requested build/test/lint commands were run for the changed scope.
+- Ensure the atlas docs under `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas` were refreshed for touched modules.
+- Ensure `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-system-atlas/RUN_SUMMARY.md` contains the full cumulative summary of changes and implementation details.
+- Ensure any mode-specific report docs were updated.
+```

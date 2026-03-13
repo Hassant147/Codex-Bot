@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "workspaceRoot": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz",
+  "projectPath": "/Users/macbook/Desktop/Huz",
+  "mode": "migration-batch",
+  "modeTitle": "Migration Batch",
+  "description": "Handle a structured refactor or contract migration across multiple modules safely, with explicit planning, implementation, and verification boundaries.",
+  "scopeLevel": "module",
+  "scope": "/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src",
+  "scopeTargets": [],
+  "request": "Convert the remaining desktop/mobile split pages in Huz-Web-Frontend into single responsive implementations that follow the one-page, one-responsive-design rule.\n\nPrimary target: /Users/macbook/Desktop/Huz/Huz-Web-Frontend\nScoped code area: /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src\n\nRequired migration targets:\n- Listing: src/pages/ListingPage/ListingPage.js + src/pages/ListingPage/ListingMobileScreen.jsx\n- Booking setup: src/pages/UserSetting/MyApplication/Booking/booking.jsx + src/pages/UserSetting/MyApplication/Mobile/mobilebooking.jsx\n- Booking status: src/pages/UserSetting/MyApplication/Booking/bookingstatus.jsx + src/pages/UserSetting/MyApplication/Mobile/bookingstatus.jsx\n- Payment methods: src/pages/UserSetting/PaymentMethods/paymentMethods.jsx + src/pages/UserSetting/PaymentMethods/Mobile/paymentmethod.jsx\n- Remaining payment: src/pages/UserSetting/RemainingPayment/remainingPayment.jsx + src/pages/UserSetting/RemainingPayment/Mobile/remainingPayment.jsx\n- Traveler details: src/pages/UserSetting/Datatable/datatable.jsx + src/pages/UserSetting/Datatable/Mobile/datatable.jsx\n- Messages: src/pages/UserSetting/Message/messagePage.jsx + src/pages/UserSetting/Mobile/Message/messagepageview.jsx\n- Payment & Wallet: src/pages/UserSetting/Payment&Wallet/payment&wallet.jsx + src/pages/UserSetting/Payment&Wallet/Mobile/paymentwallet.jsx\n- Operator response: src/pages/UserSetting/OperatorResponse/operatorresponse.jsx + src/pages/UserSetting/OperatorResponse/Mobile/operatorresponse.jsx\n- Wishlist switcher: src/pages/UserSetting/Wishlist/index.jsx, src/pages/UserSetting/Wishlist/wishlist.jsx, src/pages/UserSetting/Wishlist/wishlistMobile.jsx\n- Route-level mobile-only cases in src/routes/AppRoutes.jsx, including /payment-wallet-mobile and /booking-page pointing at a mobile-oriented invoice page\n- Inline mobile branch inside src/pages/HajjGuidance/HajjGuidance.jsx\n\nMigration rules:\n- Keep routes, business logic, API usage, and user-facing flows stable unless a route must become a compatibility alias to the unified responsive page.\n- Replace duplicated mobile-only page implementations with shared responsive pages/components wherever safe.\n- Preserve feature parity across desktop and mobile; do not drop fields, actions, status states, payment steps, or message capabilities.\n- Prefer one source of truth per page. Temporary wrappers are acceptable only when needed to preserve route compatibility during the migration.\n- Remove dead mobile-only branches/files only when proven safe after the shared responsive page is in place.\n- Do not broaden into unrelated visual redesign. This is a responsive unification and duplication-reduction pass.\n- Use existing design guides and current Huz visual language; keep UI direction stable while fixing structure.\n\nExecution priority:\n1. Booking and payment flow pages first.\n2. Remaining user-setting pages next.\n3. Listing, wishlist, and HajjGuidance cleanup after the flow-critical pages.\n\nVerification requirements:\n- Run the relevant frontend build and any scoped validation available.\n- Smoke-check the affected routes/components at mobile, tablet, and desktop assumptions.\n- Update backlog/report status for each migrated page group.\n- Refresh atlas/change docs for any route, ownership, or module-structure changes.\n\nCompletion standard:\nThis migration is only complete when the listed split pages no longer depend on separate mobile page implementations for normal rendering, and the responsive behavior is handled by a shared page structure instead.",
+  "projectSurfaces": [
+    {
+      "id": "primary-project",
+      "label": "Huz-Web-Frontend",
+      "path": "/Users/macbook/Desktop/Huz/Huz-Web-Frontend",
+      "kind": "panel-fe"
+    }
+  ],
+  "devIgnorePatterns": [
+    "node_modules/**",
+    "dist/**",
+    "build/**",
+    "coverage/**",
+    ".git/**",
+    ".cache/**",
+    ".next/**",
+    ".turbo/**",
+    ".idea/**",
+    ".vscode/**",
+    "logs/**",
+    "tmp/**",
+    "temp/**",
+    "*.min.js",
+    "*.map",
+    "*.log",
+    "*.lock"
+  ],
+  "fullSystemRequiredDocs": true,
+  "requiredAtlasDocs": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/PROJECT_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/MODULE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/ROUTES_AND_ENTRYPOINTS.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/API_SURFACE.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/CHANGE_MAP.md"
+  ],
+  "designGuides": [
+    "/Users/macbook/Desktop/Huz/UI_DESIGN_SYSTEM_GUIDE.md",
+    "/Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md"
+  ],
+  "referenceDocs": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/PROJECT_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/MODULE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/ROUTES_AND_ENTRYPOINTS.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/API_SURFACE.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md",
+    "/Users/macbook/Desktop/Huz/docs/codex_reports/PACKAGE_FLOW_AUDIT_2026-03-07.md",
+    "/Users/macbook/Desktop/Huz/docs/codex_reports/API_ALIGNMENT_BLUEPRINT_2026-03-07.md",
+    "/Users/macbook/Desktop/Huz/Huz-Web-Frontend/docs/CLEANUP_SUMMARY.md"
+  ],
+  "forceExternalDocs": true,
+  "reportFiles": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md"
+  ],
+  "createdAt": "2026-03-07T23:07:21.005Z",
+  "updatedAt": "2026-03-07T23:07:21.007Z",
+  "phaseCursor": 0,
+  "phases": [
+    {
+      "id": 0,
+      "title": "Map Migration Surface",
+      "status": "pending",
+      "completedAt": null,
+      "note": "",
+      "goal": "Identify every module, contract, and dependency touched by the migration.",
+      "required": [
+        "Read the atlas docs and inspect the current implementation surface of the migration target.",
+        "Map the current pattern, the desired pattern, and the modules that must move together.",
+        "Call out compatibility risks and rollback requirements before editing code."
+      ]
+    },
+    {
+      "id": 1,
+      "title": "Plan Migration Steps",
+      "status": "pending",
+      "completedAt": null,
+      "note": "",
+      "goal": "Create a bounded migration sequence that avoids half-finished drift.",
+      "required": [
+        "Define the exact sequence of changes for the migration batch.",
+        "Keep the batch small enough to verify coherently.",
+        "Document temporary compatibility bridges only if they are required."
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Execute and Verify Migration",
+      "status": "pending",
+      "completedAt": null,
+      "note": "",
+      "goal": "Apply the migration batch and confirm the new pattern is stable.",
+      "required": [
+        "Implement the migration changes across the scoped modules.",
+        "Run the relevant build, test, lint, and contract checks.",
+        "Refresh atlas and change map docs to reflect the migrated structure."
+      ]
+    }
+  ]
+}

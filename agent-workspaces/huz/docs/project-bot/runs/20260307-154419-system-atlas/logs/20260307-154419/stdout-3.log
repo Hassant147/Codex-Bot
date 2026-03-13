@@ -1,0 +1,727 @@
+OpenAI Codex v0.108.0-alpha.12 (research preview)
+--------
+workdir: /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR, /Users/macbook/.codex/memories]
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019cc7f5-12d8-7081-9e68-57457c944d11
+--------
+user
+Use $project-autopilot-manager in `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz`.
+Read `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/state.json` and `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/prompts/phase-02.md`.
+Execute only Phase 2 (Validate Atlas Coverage) against target project `/Users/macbook/Desktop/Huz`.
+At the end, run:
+1. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas --phase 2`
+2. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas`
+Then print `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/NEXT_PROMPT.md`.
+
+mcp: playwright starting
+mcp: playwright ready
+mcp startup: ready: playwright
+codex
+Using `project-autopilot-manager` for this run. I’ll read the run state and Phase 2 prompt first, then execute only the Phase 2 atlas coverage validation against `/Users/macbook/Desktop/Huz` and finalize with the two orchestration commands plus `NEXT_PROMPT.md` output.
+exec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/state.json' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/prompts/phase-02.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 51ms:
+{
+  "version": 1,
+  "workspaceRoot": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz",
+  "projectPath": "/Users/macbook/Desktop/Huz",
+  "mode": "system-atlas",
+  "modeTitle": "System Atlas",
+  "description": "Build or refresh the master project blueprint, module map, routes, APIs, flows, and change map so future work can rely on durable project memory.",
+  "scopeLevel": "panel-fullstack",
+  "scope": "",
+  "scopeTargets": [],
+  "request": "Refresh the full system atlas for this project. Update the blueprint, module map, routes, API surface, and change map only.\n\nCompiled automation contract:\n- Scope level: panel-fullstack\n- Scope: [Not explicitly specified]\n- Scope targets: [Not explicitly specified]\n- Keep atlas, maps, and audit files synchronized with any implementation changes.\n\nOriginal user request: Please run a complete blueprint run for backend and all frontends.\nInside the document, i want onyl these things:\nAPI LIST From backend,\nand On frontend which page or module is connected with that API.\nif an API is created on backend side but not connected to any FE then show those APIS in a seperate list.\n\nGlobal Instructions (always apply):\nAlways maintain full-system project memory in docs for the selected scope level.\nExclude non-dev and non-required files from deep mapping and auditing.\nWhen code changes touch modules/routes/APIs/contracts/schema/security/state, refresh relevant atlas docs in the same run.\nKeep audit findings traceable with status updates (open, fixed, verified) when remediation occurs.\nFor full-system or multi-panel fullstack scope, ensure frontend panels and backend structure/contracts are mapped together.",
+  "projectSurfaces": [
+    {
+      "id": "primary-project",
+      "label": "Huz-Web-Frontend",
+      "path": "/Users/macbook/Desktop/Huz/Huz-Web-Frontend",
+      "kind": "panel-fe"
+    }
+  ],
+  "devIgnorePatterns": [
+ succeeded in 51ms:
+# Phase 2: Validate Atlas Coverage
+
+Run Mode: `system-atlas`
+Run Directory: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas`
+Workspace Root: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz`
+Target Project: `/Users/macbook/Desktop/Huz`
+Scoped Directory/Module: use the request and target project path to determine scope.
+
+## Original Request
+Refresh the full system atlas for this project. Update the blueprint, module map, routes, API surface, and change map only.
+
+Compiled automation contract:
+- Scope level: panel-fullstack
+- Scope: [Not explicitly specified]
+- Scope targets: [Not explicitly specified]
+- Keep atlas, maps, and audit files synchronized with any implementation changes.
+
+Original user request: Please run a complete blueprint run for backend and all frontends.
+Inside the document, i want onyl these things:
+API LIST From backend,
+codex
+I’ve loaded the phase instructions and will now read the required context docs (`config`, operator profile, atlas docs, task file) and then validate the highest-risk backend/frontend API mapping files against those atlas entries.
+exec
+/bin/zsh -lc 'wc -l /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/config.json /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/OPERATOR_PROFILE.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/PROJECT_BLUEPRINT.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/MODULE_MAP.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/ROUTES_AND_ENTRYPOINTS.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/API_SURFACE.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/CHANGE_MAP.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/TASK.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 50ms:
+      56 /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/config.json
+      33 /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/OPERATOR_PROFILE.md
+      79 /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/PROJECT_BLUEPRINT.md
+      34 /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/MODULE_MAP.md
+      70 /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/ROUTES_AND_ENTRYPOINTS.md
+     213 /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/API_SURFACE.md
+      36 /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/CHANGE_MAP.md
+      20 /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/TASK.md
+     138 /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
+       6 /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md
+      82 /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md
+     767 total
+exec
+/bin/zsh -lc 'for f in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/config.json /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/OPERATOR_PROFILE.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/TASK.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/PROJECT_BLUEPRINT.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/MODULE_MAP.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/ROUTES_AND_ENTRYPOINTS.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/API_SURFACE.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/CHANGE_MAP.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md; do echo "===== $f ====="; cat "$f"; echo; done' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+Total output lines: 789
+
+===== /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/config.json =====
+{
+  "version": 1,
+  "workspaceRoot": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz",
+  "projectPath": "/Users/macbook/Desktop/Huz",
+  "designGuides": [
+    "/Users/macbook/Desktop/Huz/UI_DESIGN_SYSTEM_GUIDE.md",
+    "/Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md"
+  ],
+  "blueprintSources": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/PROJECT_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/MODULE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/ROUTES_AND_ENTRYPOINTS.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/API_SURFACE.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md"
+  ],
+  "projectSurfaces": [
+codex
+I’ve loaded the required context docs. Next I’m validating atlas accuracy directly against source by rechecking backend URL files and frontend API client files, then I’ll append Phase 2 verification notes to `DEEP_SCAN_REPORT.md` and `RUN_SUMMARY.md`.
+exec
+/bin/zsh -lc 'ls -1 /Users/macbook/Desktop/Huz' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+FIXES_SUMMARY.md
+HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md
+Huz-Admin-Frontend
+Huz-Backend
+Huz-Operator-Frontend
+Huz-Web-Frontend
+UI_DESIGN_SYSTEM_GUIDE.md
+docs
+scripts
+exec
+/bin/zsh -lc 'find /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas -maxdepth 2 -type f | sort' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/NEXT_PROMPT.md
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/README.md
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/TASK.md
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/prompts/phase-00.md
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/prompts/phase-01.md
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/prompts/phase-02.md
+/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/state.json
+codex
+I’m now reopening the concrete “risk” files (backend URL maps + frontend API clients) and recomputing endpoint coverage counts to confirm whether Phase 1 atlas numbers still hold or need correction.
+exec
+/bin/zsh -lc 'for f in /Users/macbook/Desktop/Huz/Huz-Backend/huz/urls.py /Users/macbook/Desktop/Huz/Huz-Backend/common/urls.py /Users/macbook/Desktop/Huz/Huz-Backend/partners/urls.py /Users/macbook/Desktop/Huz/Huz-Backend/booking/urls.py /Users/macbook/Desktop/Huz/Huz-Backend/booking/api_urls.py /Users/macbook/Desktop/Huz/Huz-Backend/management/urls.py /Users/macbook/Desktop/Huz/Huz-Backend/chat/urls.py /Users/macbook/Desktop/Huz/Huz-Backend/booking/views/api_v1.py; do echo "===== $f ====="; nl -ba "$f"; echo; done' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 51ms:
+===== /Users/macbook/Desktop/Huz/Huz-Backend/huz/urls.py =====
+     1	from django.contrib import admin
+     2	from django.urls import path, include, re_path
+     3	from django.views.static import serve
+     4	from . import settings
+     5	from drf_yasg.views import get_schema_view
+     6	from drf_yasg import openapi
+     7	from rest_framework import permissions
+     8	
+     9	schema_view = get_schema_view(
+    10	    openapi.Info(
+    11	        title="Your API",
+    12	        default_version='v1',
+    13	        description="API documentation",
+    14	        terms_of_service="https://www.google.com/policies/terms/",
+    15	        contact=openapi.Contact(email="contact@yourapi.local"),
+    16	        license=openapi.License(name="BSD License"),
+    17	    ),
+    18	    public=True,
+    19	    permission_classes=(permissions.AllowAny,),
+exec
+/bin/zsh -lc "rg --files /Users/macbook/Desktop/Huz/scripts | sed -n '1,200p'" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 51ms:
+zsh:1: command not found: rg
+codex
+`rg` isn’t available in this environment, so I’m switching to `find`/`grep` equivalents for the coverage re-scan and verification.
+exec
+/bin/zsh -lc "find /Users/macbook/Desktop/Huz/scripts -type f | sort | sed -n '1,200p'" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+/Users/macbook/Desktop/Huz/scripts/release-gate.sh
+exec
+/bin/zsh -lc "node <<'NODE'
+const fs = require('fs');
+const path = require('path');
+
+const projectRoot = '/Users/macbook/Desktop/Huz';
+
+function read(file){return fs.readFileSync(file,'utf8');}
+function normalizeEndpoint(raw){
+  let s = raw.trim();
+  if ("'!s) return null;
+  const idx = s.indexOf('"'/api/v1/');
+  if (idx > 0) s = s.slice(idx);
+  if ("'!s.startsWith('"'/')) {
+    const p = s.indexOf('/');
+    if (p === -1) return null;
+    s = s.slice(p);
+  }
+  if ("'!/''^'"\\/(api\\/v1|common|partner|bookings|management|chat)\\//.test(s)) return null;
+  s = s.replace(/<["'^>]+>/g, '"'{param}');
+  s = s.replace(/\\"'$'"\\{["'^}]+'"\\}/g, '{param}');
+  s = s.replace(/:[A-Za-z_][A-Za-z0-9_]*/g, '{param}');
+  s = s.replace(/\\{\\{["'^}]+'"\\}\\}/g, '{param}');
+  s = s.replace(/[A-Z]?\\{param\\}(?=\\/)/g, '{param}');
+  s = s.replace(/\\{param\\}(?=\\{param\\})/g, '{param}/');
+  s = s.replace(/\\/+/g, '/');
+  s = s.replace(/\\?["'^#]*$/, '"'');
+  if ("'!s.endsWith('"'/')) s += '/';
+  return s;
+}
+
+function parsePathEntries(file, prefix){
+  const txt = read(file);
+  const endpoints = [];
+  const regex = /path\\(\\s*['\"](["'^'"'\"]+)['\"]/g;
+  let m;
+  while ((m = regex.exec(txt))) {
+    const ep = normalizeEndpoint("'`/${prefix}${m[1]}`);
+    if (ep) endpoints.push(ep);
+  }
+  return endpoints;
+}
+
+const backend = new Set();
+for (const ep of parsePathEntries(path.join(projectRoot,'"'Huz-Backend/common/urls.py'), 'common/')) backend.add(ep);
+for (const ep of parsePathEntries(path.join(projectRoot,'Huz-Backend/partners/urls.py'), 'partner/')) backend.add(ep);
+for (const ep of parsePathEntries(path.join(projectRoot,'Huz-Backend/booking/urls.py'), 'bookings/')) backend.add(ep);
+for (const ep of parsePathEntries(path.join(projectRoot,'Huz-Backend/management/urls.py'), 'management/')) backend.add(ep);
+for (const ep of parsePathEntries(path.join(projectRoot,'Huz-Backend/chat/urls.py'), 'chat/')) backend.add(ep);
+
+const apiUrls = read(path.join(projectRoot,'Huz-Backend/booking/api_urls.py'));
+const reg = apiUrls.match(/router\\.register\\(\\s*['\"](["'^'"'\"]+)['\"]/);
+if (reg) {
+  const base = reg[1].replace(/"'^'"\\/+|\\/+"'$/g, '"'');
+  backend.add("'`/api/v1/${base}/`);
+  backend.add(`/api/v1/${base}/{param}/`);
+  const view = read(path.join(projectRoot,'"'Huz-Backend/booking/views/api_v1.py'));
+  const actionRegex = /@action\\(detail\\s*=\\s*true["'^'"\\)]*url_path\\s*=\\s*['\"](["'^'"'\"]+)['\"]/gmi;
+  let am;
+  while ((am = actionRegex.exec(view))) {
+    backend.add("'`/api/v1/${base}/{param}/${am[1].replace(/''^'"\\/+|\\/+"'$/g,'"'')}/"'`);
+  }
+}
+for (const ep of parsePathEntries(path.join(projectRoot,'"'Huz-Backend/booking/api_urls.py'), 'api/v1/')) backend.add(ep);
+
+const frontendRoots = [
+  { panel: 'web', root: path.join(projectRoot,'Huz-Web-Frontend/src') },
+  { panel: 'admin', root: path.join(projectRoot,'Huz-Admin-Frontend/src') },
+  { panel: 'operator', root: path.join(projectRoot,'Huz-Operator-Frontend/src') },
+];
+
+const fileExtOk = new Set(['.js','.jsx','.ts','.tsx','.mjs','.cjs']);
+function walk(dir, out){
+  for (const ent of fs.readdirSync(dir,{withFileTypes:true})) {
+    if (ent.name === 'node_modules' || ent.name.startsWith('.')) continue;
+    const full = path.join(dir, ent.name);
+    if (ent.isDirectory()) walk(full, out);
+    else if (fileExtOk.has(path.extname(ent.name))) out.push(full);
+  }
+}
+
+const feEndpointToRefs = new Map();
+const feByPanel = {web:new Set(),admin:new Set(),operator:new Set()};
+
+for (const {panel,root} of frontendRoots) {
+  const files=[];
+  if ("'!fs.existsSync(root)) continue;
+  walk(root, files);
+  for (const file of files) {
+    const txt = read(file);
+    const regex = /'"\\/(?:api\\/v1|common|partner|bookings|management|chat)\\/[A-Za-z0-9_\\-./"'${}:]*?/g;
+    const matches = txt.match(regex) || [];
+    for (const raw of matches) {
+      const ep = normalizeEndpoint(raw);
+      if (!ep) continue;
+      feByPanel[panel].add(ep);
+      if (!feEndpointToRefs.has(ep)) feEndpointToRefs.set(ep, new Set());
+      const rel = path.relative(root, file).replace(/'"\\\\/g,'/');
+      feEndpointToRefs.get(ep).add("'`${panel}:${rel}`);
+    }
+  }
+}
+
+const connected = [...backend].filter(ep => feEndpointToRefs.has(ep));
+const backendOnly = [...backend].filter(ep => !feEndpointToRefs.has(ep));
+const feOnly = [...feEndpointToRefs.keys()].filter(ep => !backend.has(ep));
+
+console.log(JSON.stringify({
+  backendCount: backend.size,
+  connectedCount: connected.length,
+  backendOnlyCount: backendOnly.length,
+  feOnlyCount: feOnly.length,
+  feByPanel: {
+    web: feByPanel.web.size,
+    admin: feByPanel.admin.size,
+    operator: feByPanel.operator.size,
+  },
+  feOnly: feOnly.sort(),
+  backendOnlySample: backendOnly.sort().slice(0,40),
+}, null, 2));
+NODE' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 180ms:
+{
+  "backendCount": 129,
+  "connectedCount": 0,
+  "backendOnlyCount": 129,
+  "feOnlyCount": 5,
+  "feByPanel": {
+    "web": 5,
+    "admin": 4,
+    "operator": 3
+  },
+  "feOnly": [
+    "/api/v1/",
+    "/bookings/",
+    "/common/",
+    "/management/",
+    "/partner/"
+  ],
+  "backendOnlySample": [
+    "/api/v1/bookings/",
+    "/api/v1/bookings/{param}/",
+exec
+/bin/zsh -lc "node <<'NODE'
+const fs = require('fs');
+const path = require('path');
+
+const projectRoot = '/Users/macbook/Desktop/Huz';
+
+function read(file){return fs.readFileSync(file,'utf8');}
+function normalizeEndpoint(raw){
+  let s = raw.trim();
+  if ("'!s) return null;
+  const idx = s.search(/'"\\/(api\\/v1|common|partner|bookings|management|chat)\\//);
+  if (idx === -1) return null;
+  s = s.slice(idx);
+  s = s.replace(/<["'^>]+>/g, '"'{param}');
+  s = s.replace(/\\"'$'"\\{["'^}]+'"\\}/g, '{param}');
+  s = s.replace(/:[A-Za-z_][A-Za-z0-9_]*/g, '{param}');
+  s = s.replace(/[A-Z]?\\{param\\}(?=\\/)/g, '{param}');
+  s = s.replace(/\\/+/g, '/');
+  s = s.replace(/[\"'"'`].*$/, '"'');
+  s = s.replace(/[?#].*"'$/, '"'');
+  if ("'!s.endsWith('"'/')) s += '/';
+  return s;
+}
+
+function parsePathEntries(file, prefix){
+  const txt = read(file);
+  const endpoints = [];
+  for (const line of txt.split('\\n')) {
+    if (/"'^'"\\s*#/.test(line)) continue;
+    const m = line.match(/"'^'"\\s*path\\(\\s*['\"](["'^'"'\"]+)['\"]/);
+    if ("'!m) continue;
+    const ep = normalizeEndpoint(`/${prefix}${m[1]}`);
+    if (ep) endpoints.push(ep);
+  }
+  return endpoints;
+}
+
+const backend = new Set();
+for (const ep of parsePathEntries(path.join(projectRoot,'"'Huz-Backend/common/urls.py'), 'common/')) backend.add(ep);
+for (const ep of parsePathEntries(path.join(projectRoot,'Huz-Backend/partners/urls.py'), 'partner/')) backend.add(ep);
+for (const ep of parsePathEntries(path.join(projectRoot,'Huz-Backend/booking/urls.py'), 'bookings/')) backend.add(ep);
+for (const ep of parsePathEntries(path.join(projectRoot,'Huz-Backend/management/urls.py'), 'management/')) backend.add(ep);
+for (const ep of parsePathEntries(path.join(projectRoot,'Huz-Backend/chat/urls.py'), 'chat/')) backend.add(ep);
+
+const apiUrls = read(path.join(projectRoot,'Huz-Backend/booking/api_urls.py'));
+const reg = apiUrls.match(/router\\.register\\(\\s*['\"](["'^'"'\"]+)['\"]/);
+if (reg) {
+  const base = reg[1].replace(/"'^'"\\/+|\\/+"'$/g, '"'');
+  backend.add("'`/api/v1/${base}/`);
+  backend.add(`/api/v1/${base}/{param}/`);
+  const view = read(path.join(projectRoot,'"'Huz-Backend/booking/views/api_v1.py'));
+  const actionRegex = /@action\\(detail\\s*=\\s*true["'^'"\\)]*url_path\\s*=\\s*['\"](["'^'"'\"]+)['\"]/gmi;
+  let am;
+  while ((am = actionRegex.exec(view))) {
+    backend.add("'`/api/v1/${base}/{param}/${am[1].replace(/''^'"\\/+|\\/+"'$/g,'"'')}/"'`);
+  }
+}
+for (const ep of parsePathEntries(path.join(projectRoot,'"'Huz-Backend/booking/api_urls.py'), 'api/v1/')) backend.add(ep);
+
+const frontendRoots = [
+  { panel: 'web', root: path.join(projectRoot,'Huz-Web-Frontend/src') },
+  { panel: 'admin', root: path.join(projectRoot,'Huz-Admin-Frontend/src') },
+  { panel: 'operator', root: path.join(projectRoot,'Huz-Operator-Frontend/src') },
+];
+
+const fileExtOk = new Set(['.js','.jsx','.ts','.tsx','.mjs','.cjs']);
+function walk(dir, out){
+  for (const ent of fs.readdirSync(dir,{withFileTypes:true})) {
+    if (ent.name === 'node_modules' || ent.name.startsWith('.')) continue;
+    const full = path.join(dir, ent.name);
+    if (ent.isDirectory()) walk(full, out);
+    else if (fileExtOk.has(path.extname(ent.name))) out.push(full);
+  }
+}
+
+const feEndpointToRefs = new Map();
+const feByPanel = {web:new Set(),admin:new Set(),operator:new Set()};
+const endpointRegex = /\\/(?:api\\/v1|common|partner|bookings|management|chat)\\/[A-Za-z0-9_\\-./"'${}:]*/g;
+
+for (const {panel,root} of frontendRoots) {
+  const files=[];
+  if (!fs.existsSync(root)) continue;
+  walk(root, files);
+  for (const file of files) {
+    const txt = read(file);
+    let m;
+    while ((m = endpointRegex.exec(txt))) {
+      const ep = normalizeEndpoint(m[0]);
+      if (!ep) continue;
+      feByPanel[panel].add(ep);
+      if (!feEndpointToRefs.has(ep)) feEndpointToRefs.set(ep, new Set());
+      const rel = path.relative(root, file).replace(/'"\\\\/g,'/');
+      feEndpointToRefs.get(ep).add("'`${panel}:${rel}`);
+    }
+  }
+}
+
+const connected = [...backend].filter(ep => feEndpointToRefs.has(ep));
+const backendOnly = [...backend].filter(ep => !feEndpointToRefs.has(ep));
+const feOnly = [...feEndpointToRefs.keys()].filter(ep => !backend.has(ep));
+
+console.log(JSON.stringify({
+  backendCount: backend.size,
+  connectedCount: connected.length,
+  backendOnlyCount: backendOnly.length,
+  feOnlyCount: feOnly.length,
+  feByPanel: {
+    web: feByPanel.web.size,
+    admin: feByPanel.admin.size,
+    operator: feByPanel.operator.size,
+  },
+  feOnly: feOnly.sort(),
+  backendOnly: backendOnly.sort(),
+}, null, 2));
+NODE' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 118ms:
+{
+  "backendCount": 122,
+  "connectedCount": 89,
+  "backendOnlyCount": 33,
+  "feOnlyCount": 10,
+  "feByPanel": {
+    "web": 29,
+    "admin": 64,
+    "operator": 48
+  },
+  "feOnly": [
+    "/management/apis/custom/manage/packages/",
+    "/partner/change_transport_package_status/",
+    "/partner/company_documents/",
+    "/partner/enroll_transport_package/",
+    "/partner/get_transport_package_by_token/",
+    "/partner/manage_partner_withdraw_request/F{param}/",
+    "/partner/update_partner_avatar/",
+    "/partner/update_transport_package_basic_detail/",
+    "/partner/update_transport_package_photo/",
+exec
+/bin/zsh -lc "for f in \\
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/AuthApi.js \\
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js \\
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/homepageApi.js \\
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/listingApi.js \\
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/packageDetailApi.js \\
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/utility/AuthApis.js \\
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/utility/Api.js \\
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/utility/Super-Admin-Api.js \\
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/pages/AccountSetup/CompanyForm/SubmitCompanyData.js \\
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src/api/authAPI.js \\
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src/api/companyAPI.js \\
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src/api/PackageAPI.js \\
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src/api/BookingApi.js \\
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src/api/DashboardApi.js \\
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src/api/WalletApi.js \\
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src/api/ReviewRatingAPI.js \\
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src/api/complaintsAPI.js; do
+  echo \"===== "'$f =====";
+  grep -nE "/(api/v1|common|partner|bookings|management|chat)/" "$f" || true;
+  echo;
+done' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 51ms:
+===== /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/AuthApi.js =====
+160:    const response = await publicClient.post("/common/is_user_exist/", {
+203:    const response = await authHeaderClient.post("/common/send_otp_sms/", {
+220:    const response = await authHeaderClient.post("/common/manage_user_account/", {
+299:      ? await authHeaderClient.put("/common/manage_user_address_detail/", requestPayload)
+300:      : await authHeaderClient.post("/common/manage_user_address_detail/", requestPayload);
+355:    const response = await authHeaderClient.get("/common/manage_user_address_detail/", {
+393:    authHeaderClient.put("/common/update_user_name/", {
+401:      authHeaderClient.put("/common/update_user_email/", {
+410:      authHeaderClient.put("/common/update_user_gender/", {
+445:    await authHeaderClient.put("/common/verify_otp/", {
+
+===== /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js =====
+138:  const result = await apiGet("/partner/get_featured_packages/", {
+160:  const result = await apiGet("/partner/get_package_short_detail_for_web/", {
+216:    "/partner/get_package_detail_by_city_and_date/",
+233:  const result = await apiGet("/partner/get_package_detail_by_package_id_for_web/", {
+349:    const response = await axiosInstance.post("/api/v1/bookings/", requestPayload);
+360:          "/bookings/create_booking_view/",
+412:      "/bookings/check_passport_validity/",
+exec
+/bin/zsh -lc "for f in \\
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/index.js \\
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/App.js \\
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx \\
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/index.js \\
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/App.js \\
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src/main.jsx \\
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src/App.jsx \\
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src/routes/index.jsx \\
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src/pages/Dashboard/DashboardRoutes.jsx \\
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src/pages/Dashboard/BookingsModule/BookingRoutes.jsx; do
+  echo \"===== "'$f =====";
+  grep -nE "path'"\\s*[:=]|<Route|createBrowserRouter|SUPER_ADMIN_ROUTES|PARTNER_ROUTES|DashboardRoutes|BookingRoutes|AppRoutes\" \""'$f" || true;
+  echo;
+done' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+===== /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/index.js =====
+
+===== /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/App.js =====
+9:import AppRoutes from "./routes/AppRoutes";
+17:          <Router>
+21:                <AppRoutes />
+
+===== /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx =====
+46:const AppRoutes = () => {
+48:    <Routes>
+49:      <Route path="/signup" element={<SignUpPage />} />
+50:      <Route path="/login" element={<LoginPage />} />
+51:      <Route path="/otp" element={<OtpPage />} />
+52:      <Route path="/" element={<HomePage />} />
+53:      <Route path="/listing-page" element={<ListingPage />} />
+54:      <Route path="/visa-services" element={<VisaServices />} />
+55:      <Route path="/Hajj-Guidance" element={<HajjGuidance />} />
+56:      <Route path="/Umrah-Guidance" element={<UmrahGuide />} />
+57:      <Route path="/browse-tips" element={<PreparationTips />} />
+58:      <Route path="/travel-essential" element={<TravelEssentials />} />
+exec
+/bin/zsh -lc "echo '===== huz/settings.py ====='; grep -nE 'ASGI_APPLICATION|CHANNEL|INSTALLED_APPS|django_channels' /Users/macbook/Desktop/Huz/Huz-Backend/huz/settings.py || true; echo; echo '===== huz/asgi.py ====='; nl -ba /Users/macbook/Desktop/Huz/Huz-Backend/huz/asgi.py | sed -n '1,140p'" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+===== huz/settings.py =====
+50:INSTALLED_APPS = [
+141:# CHANNEL_LAYERS = {
+166:# ASGI_APPLICATION = 'huz.asgi.application'
+
+===== huz/asgi.py =====
+     1	import os
+     2	from django.core.asgi import get_asgi_application
+     3	
+     4	os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'huz.settings')
+     5	django_asgi_app = get_asgi_application()  # Initialize Django
+     6	
+     7	from channels.auth import AuthMiddlewareStack
+     8	from channels.routing import ProtocolTypeRouter, URLRouter
+     9	import chat.routing
+    10	
+    11	application = ProtocolTypeRouter({
+    12	    "http": django_asgi_app,
+    13	    "websocket": AuthMiddlewareStack(
+    14	        URLRouter(
+codex
+Context is complete and the coverage re-scan matches the Phase 1 atlas totals exactly (`122` backend, `89` connected, `33` backend-only, `10` FE-only).  
+Next I’ll do this Phase 2 closeout:
+
+1. Append a Phase 2 verification block to `docs/qa/DEEP_SCAN_REPORT.md` with:
+- files rechecked (backend URL maps, v1 viewset, frontend API clients, route entrypoints),
+- confirmed parity against atlas totals/lists,
+- assumptions, unknowns, and recommended next atlas refresh targets.
+
+2. Append `## Phase 2 - Validate Atlas Coverage` to `RUN_SUMMARY.md` using the required section format.
+
+3. Run the required orchestrator commands:
+- `complete --phase 2`
+- `next`
+
+4. Print the resulting `NEXT_PROMPT.md` content.
+codex
+I’m about to append Phase 2 outputs to `DEEP_SCAN_REPORT.md` and `RUN_SUMMARY.md` only (no target-project code changes), including assumptions/unknowns and a verification trace tied to the files I just rechecked.
+exec
+/bin/zsh -lc "cat <<'EOF' >> /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
+
+### 2026-03-07 - Phase 2 Validate Atlas Coverage ("'`system-atlas`)
+
+#### Files Revalidated (Highest Risk)
+- Backend routing/contracts:
+  - `Huz-Backend/huz/urls.py`
+  - `Huz-Backend/common/urls.py`
+  - `Huz-Backend/partners/urls.py`
+  - `Huz-Backend/booking/urls.py`
+  - `Huz-Backend/booking/api_urls.py`
+  - `Huz-Backend/booking/views/api_v1.py`
+  - `Huz-Backend/management/urls.py`
+  - `Huz-Backend/chat/urls.py`
+- Frontend API client layers:
+  - Web: `src/api/AuthApi.js`, `src/api/apiService.js`, `src/api/homepageApi.js`, `src/api/listingApi.js`, `src/api/packageDetailApi.js`
+  - Admin: `src/utility/AuthApis.js`, `src/utility/Api.js`, `src/utility/Super-Admin-Api.js`, `src/pages/AccountSetup/CompanyForm/SubmitCompanyData.js`
+  - Operator: `src/api/authAPI.js`, `src/api/companyAPI.js`, `src/api/PackageAPI.js`, `src/api/BookingApi.js`, `src/api/DashboardApi.js`, `src/api/WalletApi.js`, `src/api/ReviewRatingAPI.js`, `src/api/complaintsAPI.js`
+- Frontend route entrypoints:
+  - Web: `src/index.js`, `src/App.js`, `src/routes/AppRoutes.jsx`
+  - Admin: `src/index.js`, `src/App.js`
+  - Operator: `src/main.jsx`, `src/App.jsx`, `src/routes/index.jsx`, `src/pages/Dashboard/DashboardRoutes.jsx`, `src/pages/Dashboard/BookingsModule/BookingRoutes.jsx`
+
+#### Coverage Verification Result
+- Re-ran endpoint extraction against live source (backend URL declarations + booking v1 router/actions + FE endpoint literals in all three `src` trees).
+- Verified atlas parity remains exact:
+  - Backend endpoints discovered: **122**
+  - Backend endpoints connected to FE: **89**
+  - Backend-only endpoints: **33**
+  - FE endpoint literals missing backend route: **10**
+  - FE unique endpoint literals by panel: Web **29**, Admin **64**, Operator **48**
+- Verified the atlas drift list remains unchanged (same 10 FE-only literals).
+- No atlas corrections were required in Phase 2.
+
+#### Assumptions, Unknowns, and Blind Spots
+- FE endpoint extraction is literal-based and can include non-runtime strings; `/partner/company_documents/` is currently present in a commented admin file line.
+- `docs/project-bot/config.json` `projectSurfaces` still lists only `Huz-Web-Frontend`, while this atlas run validated backend + web + admin + operator surfaces.
+- Chat websocket coverage exists in `huz/asgi.py`, but `ASGI_APPLICATION` remains commented in `huz/settings.py`; operational websocket status is outside this atlas-only phase.
+
+#### Next Recommended Atlas Refresh Targets
+- Run `contract-sync` to resolve the 10 FE-only endpoint literals or document intentional deprecations.
+- Update project-bot surface metadata to include all active surfaces so future scoped runs are auto-accurate.
+- On any backend routing change in `booking/api_urls.py` or `booking/views/api_v1.py`, immediately refresh `API_SURFACE.md` because v1 router/action changes shift both totals and drift status.
+EOF' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+
+exec
+/bin/zsh -lc "cat <<'EOF' >> /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md
+
+## Phase 2 - Validate Atlas Coverage
+### Changes Made
+- Revalidated the refreshed atlas against high-risk backend route definitions, booking v1 action routes, and frontend API client layers across web/admin/operator panels.
+- Confirmed no drift changes since Phase 1: atlas coverage totals and endpoint drift lists are still accurate.
+- Appended durable Phase 2 verification findings, assumptions, and next-target recommendations to "'`docs/qa/DEEP_SCAN_REPORT.md`.
+- No target-project code or atlas content changes were required.
+
+### How It Was Implemented
+- Reopened backend URL source files (`huz/urls.py`, app `urls.py`, and `booking/views/api_v1.py`) to validate route-group and v1 action coverage assumptions.
+- Reopened frontend API entry modules and route entrypoint files for all three frontends to confirm endpoint consumer mappings and route-boundary statements used by atlas docs.
+- Re-ran endpoint extraction directly from source to recompute backend totals, FE totals, connected coverage, backend-only endpoints, and FE-only drift literals.
+- Cross-checked recomputed results against `docs/atlas/API_SURFACE.md`, `PROJECT_BLUEPRINT.md`, `MODULE_MAP.md`, and `ROUTES_AND_ENTRYPOINTS.md` for parity.
+
+### Files Touched
+- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md`
+- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md`
+
+### Verification
+- Verified backend endpoint inventory remains `122`.
+- Verified FE-connected backend endpoints remain `89`.
+- Verified backend-only endpoint count remains `33`.
+- Verified FE endpoint literals missing backend route remain `10`.
+- Verified FE unique endpoint literals by panel remain: Web `29`, Admin `64`, Operator `48`.
+EOF' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+
+codex
+Phase 2 documentation updates are appended. I’ll now run the required `complete` and `next` orchestration commands for run `20260307-154419-system-atlas`, then print `NEXT_PROMPT.md`.
+exec
+/bin/zsh -lc 'node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas --phase 2 && node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 132ms:
+Marked phase 2 as completed.
+Project bot run complete for target `/Users/macbook/Desktop/Huz`.
+
+No remaining phases.
+Final validation checklist:
+- Ensure the requested build/test/lint commands were run for the changed scope.
+- Ensure the atlas docs under `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas` were refreshed for touched modules.
+- Ensure `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md` contains the full cumulative summary of changes and implementation details.
+- Ensure any mode-specific report docs were updated.
+exec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/NEXT_PROMPT.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+Project bot run complete for target `/Users/macbook/Desktop/Huz`.
+
+No remaining phases.
+Final validation checklist:
+- Ensure the requested build/test/lint commands were run for the changed scope.
+- Ensure the atlas docs under `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas` were refreshed for touched modules.
+- Ensure `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md` contains the full cumulative summary of changes and implementation details.
+- Ensure any mode-specific report docs were updated.
+exec
+/bin/zsh -lc 'git -C /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz status --short' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz exited 128 in 52ms:
+fatal: not a git repository (or any of the parent directories): .git
+exec
+/bin/zsh -lc "node -e \"const s=require('/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/state.json'); console.log(JSON.stringify({phaseCursor:s.phaseCursor, phases:s.phases.map(p=>({id:p.id,status:p.status,completedAt:p.completedAt}))},null,2));\"" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 51ms:
+{
+  "phaseCursor": 3,
+  "phases": [
+    {
+      "id": 0,
+      "status": "completed",
+      "completedAt": "2026-03-07T10:50:10.987Z"
+    },
+    {
+      "id": 1,
+      "status": "completed",
+      "completedAt": "2026-03-07T11:00:28.235Z"
+    },
+    {
+      "id": 2,
+      "status": "completed",
+      "completedAt": "2026-03-07T11:05:28.086Z"
+    }
+  ]
+}
+codex
+Phase 2 (`Validate Atlas Coverage`) is complete for target `/Users/macbook/Desktop/Huz`.
+
+Updated docs:
+- [DEEP_SCAN_REPORT.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md)
+- [RUN_SUMMARY.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md)
+
+Orchestration commands executed:
+1. `complete --phase 2` (success)
+2. `next` (run marked complete; no remaining phases)
+
+`NEXT_PROMPT.md` contents:
+
+```md
+Project bot run complete for target `/Users/macbook/Desktop/Huz`.
+
+No remaining phases.
+Final validation checklist:
+- Ensure the requested build/test/lint commands were run for the changed scope.
+- Ensure the atlas docs under `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas` were refreshed for touched modules.
+- Ensure `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md` contains the full cumulative summary of changes and implementation details.
+- Ensure any mode-specific report docs were updated.
+```
+tokens used
+48,301
+Phase 2 (`Validate Atlas Coverage`) is complete for target `/Users/macbook/Desktop/Huz`.
+
+Updated docs:
+- [DEEP_SCAN_REPORT.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md)
+- [RUN_SUMMARY.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md)
+
+Orchestration commands executed:
+1. `complete --phase 2` (success)
+2. `next` (run marked complete; no remaining phases)
+
+`NEXT_PROMPT.md` contents:
+
+```md
+Project bot run complete for target `/Users/macbook/Desktop/Huz`.
+
+No remaining phases.
+Final validation checklist:
+- Ensure the requested build/test/lint commands were run for the changed scope.
+- Ensure the atlas docs under `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas` were refreshed for touched modules.
+- Ensure `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md` contains the full cumulative summary of changes and implementation details.
+- Ensure any mode-specific report docs were updated.
+```

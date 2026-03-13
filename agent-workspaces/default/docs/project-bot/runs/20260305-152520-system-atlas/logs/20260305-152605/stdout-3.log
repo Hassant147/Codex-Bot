@@ -1,0 +1,1826 @@
+OpenAI Codex v0.107.0 (research preview)
+--------
+workdir: /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019cbd93-f8ee-7fa2-bbad-62e44e873d8e
+--------
+user
+Use $project-autopilot-manager in `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default`.
+Read `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/state.json` and `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/prompts/phase-02.md`.
+Execute only Phase 2 (Validate Atlas Coverage) against target project `/Users/macbook/Desktop/Huz/Huz-Web-Frontend`.
+At the end, run:
+1. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas --phase 2`
+2. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas`
+Then print `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/NEXT_PROMPT.md`.
+
+mcp: playwright starting
+mcp: playwright ready
+mcp startup: ready: playwright
+codex
+Using `project-autopilot-manager` for this run because you explicitly requested that workflow. I’ll first read the run `state.json` and `phase-02.md`, then execute only Phase 2 actions and finalize with the exact `complete`, `next`, and `NEXT_PROMPT.md` steps.
+exec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/state.json' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/defaultexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/prompts/phase-02.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default succeeded in 51ms:
+{
+  "version": 1,
+  "workspaceRoot": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default",
+  "projectPath": "/Users/macbook/Desktop/Huz/Huz-Web-Frontend",
+  "mode": "system-atlas",
+  "modeTitle": "System Atlas",
+  "description": "Build or refresh the master project blueprint, module map, routes, APIs, flows, and change map so future work can rely on durable project memory.",
+  "scope": "/Users/macbook/Desktop/Huz",
+  "request": "Refresh full system atlas and fill blueprint/module/routes/api/change map docs.",
+  "designGuides": [
+    "/Users/macbook/Desktop/Huz/UI_DESIGN_SYSTEM_GUIDE.md",
+    "/Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md"
+  ],
+  "referenceDocs": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/PROJECT_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/MODULE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/ROUTES_AND_ENTRYPOINTS.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/API_SURFACE.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/BUG_BACKLOG.md"
+ succeeded in 51ms:
+# Phase 2: Validate Atlas Coverage
+
+Run Mode: `system-atlas`
+Run Directory: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas`
+Workspace Root: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default`
+Target Project: `/Users/macbook/Desktop/Huz/Huz-Web-Frontend`
+Scoped Directory/Module: `/Users/macbook/Desktop/Huz`
+
+## Original Request
+Refresh full system atlas and fill blueprint/module/routes/api/change map docs.
+
+## Goal
+Recheck the refreshed atlas against the codebase and record remaining blind spots.
+
+## Already Completed Phases
+- Phase 0: Inventory Scope
+- Phase 1: Refresh Atlas Docs
+
+## Required Context Before You Start
+- Read `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/config.json`.
+codex
+I’ve loaded the phase requirements. Next I’m reading the required operator/config/atlas/task docs, then I’ll cross-check the highest-risk referenced source files in `Huz-Web-Frontend` and record validation results into the run docs.
+exec
+/bin/zsh -lc 'wc -l /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/config.json /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/OPERATOR_PROFILE.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/PROJECT_BLUEPRINT.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/MODULE_MAP.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/ROUTES_AND_ENTRYPOINTS.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/API_SURFACE.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/CHANGE_MAP.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/TASK.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default succeeded in 52ms:
+      20 /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/config.json
+      63 /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/OPERATOR_PROFILE.md
+      72 /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/PROJECT_BLUEPRINT.md
+      25 /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/MODULE_MAP.md
+      75 /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/ROUTES_AND_ENTRYPOINTS.md
+      95 /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/API_SURFACE.md
+      43 /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/CHANGE_MAP.md
+       1 /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/TASK.md
+      65 /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md
+     206 /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md
+     665 total
+codex
+I confirmed the docs are small enough to inspect directly. I’m now loading all required context files and then mapping their cited “high-risk” files back to the live project for validation.
+exec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/config.json' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default succeeded in 51ms:
+{
+  "version": 1,
+  "workspaceRoot": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default",
+  "projectPath": "/Users/macbook/Desktop/Huz/Huz-Web-Frontend",
+  "designGuides": [
+    "/Users/macbook/Desktop/Huz/UI_DESIGN_SYSTEM_GUIDE.md",
+    "/Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md"
+  ],
+  "blueprintSources": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/PROJECT_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/MODULE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/ROUTES_AND_ENTRYPOINTS.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/API_SURFACE.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/BUG_BACKLOG.md"
+  ],
+  "forceExternalDocs": true,
+  "updatedAt": "2026-03-05T09:35:18.383Z",
+  "globalRules": ""
+}
+exec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/OPERATOR_PROFILE.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/defaultexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/TASK.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/defaultexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/PROJECT_BLUEPRINT.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/defaultexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/MODULE_MAP.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default succeeded in 52ms:
+Refresh full system atlas and fill blueprint/module/routes/api/change map docs.
+ succeeded in 52ms:
+# Operator Profile
+
+This file defines the default working style for this bot. Every run should read this file before it plans, edits code, or writes reports.
+
+## Core Operating Style
+- Work in one explicitly scoped target project at a time.
+- Treat the platform as a connected system when frontend, backend, or contract work overlaps.
+- Execute in bounded phases with durable written outputs after each phase.
+- Prefer module-by-module work over random scattered fixes.
+- Reuse the existing atlas docs first, then read only the extra code needed for accuracy.
+
+## Scope Rules
+- The target project is the primary code-editing location.
+- Only touch related supporting code outside the target project when the task explicitly requires it for correctness.
+- Store bot memory, run state, reports, blueprints, and summaries in the agent workspace, not inside the target repo, unless a task explicitly demands project-local docs.
+- When frontend and backend drift, prefer matching the frontend to the real backend contract unless the task explicitly requires a backend migration.
+
+## Default Priorities
+- Correctness before cosmetics.
+- Consistent architecture before opportunistic micro-tweaks.
+ succeeded in 50ms:
+# Project Blueprint
+
+Keep this file current whenever code changes touch architecture, flows, or module boundaries.
+
+## Scope
+- Project goals
+- High-level architecture
+- Critical flows
+
+## Current Notes
+- Last refreshed: 2026-03-05 (Phase 1 - Refresh Atlas Docs, run `20260305-152520-system-atlas`)
+- Previous refresh: 2026-03-05 (Phase 0 - Refresh Atlas Context baseline)
+
+## Project Purpose
+- Frontend for HajjUmrah.co booking experience: package discovery, package details, booking creation, and authenticated user self-service flows.
+- Primary stack: React 18, `react-scripts` (CRA), React Router v6, Tailwind CSS, Axios, Context API.
+- Operates as a frontend client for backend APIs under auth, partner packages, booking, wallet, and profile domains.
+
+## High-Level Architecture
+- Bootstrap: `src/index.js` mounts `src/App.js` under `React.StrictMode`.
+ succeeded in 52ms:
+# Module Map
+
+Update this file whenever modules, folders, or responsibilities change.
+
+| Module | Path | Responsibility | Notes |
+| --- | --- | --- | --- |
+| App bootstrap | `src/index.js`, `src/App.js` | Root render, provider stacking, router mount, suspense fallback | App-level `Suspense` fallback uses `src/shared/ui/PageLoader` |
+| Route registry | `src/routes/AppRoutes.jsx` | All route declarations and lazy page imports | Includes both public and protected routes; `/listing-page` is declared twice |
+| Route guard | `src/components/ProtectedRoute/ProtectedRoute.js` | Enforces auth for protected routes and renders login prompt fallback | Reads `login` + `loading` from auth context |
+| Global navigation shell | `src/components/Header/*`, `src/components/Footer/*` | Main nav, account menu, global links, locale/currency controls | Header navigates to `/my-reviews`, but AppRoutes currently has no matching route |
+| Auth context | `src/context/AuthContext.js`, `src/context/AuthContextProvider.js` | Session bootstrap, profile hydration, login state | Refresh/token bootstrap uses cookies and `AuthApi` helpers |
+| Currency context | `src/context/CurrencyContext.js` | Currency selection and conversion helpers | Fetches exchange rates hourly via utility layer |
+| Modal + booking contexts | `src/context/ModalContext.js`, `src/context/BookingContext.jsx` | Global modal state + booking payload handoff | Booking context is lightweight and state-based |
+| HTTP transport | `src/services/api/httpClient.js` | Axios clients, auth headers, token refresh, cookie persistence | Supports app token profile and legacy token profile |
+| Auth API wrappers | `src/api/AuthApi.js`, `src/api/UserAuthApis.js` | Login/signup/OTP/profile/logout/address calls | Modern and legacy login wrappers coexist |
+| Discovery API wrappers | `src/api/homepageApi.js`, `src/api/listingApi.js` | Homepage/listing package fetch contracts and normalization | Listing uses query-param-aware endpoint switching |
+| Shared domain API service | `src/api/apiService.js` | Mixed-domain endpoints: packages, booking, traveler, complaints, wallet, custom package | High-volume file with mixed ownership and both modern/legacy endpoint groups |
+| Homepage domain | `src/pages/HomePage/*`, `src/hooks/useHomepageData.js` | Hero/search surface, package showcase, deferred section loading | Hook includes 5-minute in-memory cache for featured data |
+| Listing domain | `src/pages/ListingPage/*`, `src/features/listing/*` | Package listing UI, filter/sort/pagination state, route query sync | `useListingPageData` is the central listing orchestrator |
+| Package detail domain | `src/pages/PackageDetailPage/*`, `src/features/packageDetail/*` | Package detail fetching and desktop/mobile rendering | Uses `PackageId` query param and responsive view split |
+codex
+I’ve loaded the first half of context; next I’m reading routes/API/change/run-summary/deep-scan docs and then running direct file checks in the target frontend to verify atlas accuracy.
+exec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/API_SURFACE.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/defaultexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/CHANGE_MAP.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/defaultexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/ROUTES_AND_ENTRYPOINTS.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/defaultexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/defaultexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default succeeded in 51ms:
+# API Surface
+
+Track endpoints, service modules, request/response contracts, and important integration notes here.
+
+## APIs
+- Last refreshed: 2026-03-05 (Phase 1 - Refresh Atlas Docs, run `20260305-152520-system-atlas`)
+
+## Base Config
+- Base URL source: `process.env.REACT_APP_API_BASE_URL` (`src/services/api/httpClient.js`).
+- Static auth header source: `process.env.REACT_APP_AUTH_TOKEN`.
+- Current `.env` in target project:
+  - `REACT_APP_API_BASE_URL=http://127.0.0.1:8000`
+  - `REACT_APP_AUTH_TOKEN=Basic ...`
+
+## HTTP Client Modules
+| Client | Module | Auth Behavior |
+| --- | --- | --- |
+| `publicClient` | `src/services/api/httpClient.js` | No token interceptor |
+| `authHeaderClient` | `src/services/api/httpClient.js` | Adds static `Authorization` from env token |
+| `httpClient` | `src/services/api/httpClient.js` | Uses `accessToken`/`refreshToken`, auto-refreshes via `/api/token/refresh/` |
+ succeeded in 51ms:
+# Change Map
+
+Every code-changing run should append what changed and which atlas docs were refreshed.
+
+## Entries
+### Date: 2026-03-05
+- Scope: Phase 0 (`Refresh Atlas Context`) for run `20260305-152546-deep-scan` against `/Users/macbook/Desktop/Huz/Huz-Web-Frontend`.
+- Files changed:
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+  - `docs/atlas/MODULE_MAP.md`
+  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
+  - `docs/atlas/API_SURFACE.md`
+  - `docs/qa/DEEP_SCAN_REPORT.md`
+  - `docs/project-bot/runs/20260305-152546-deep-scan/RUN_SUMMARY.md`
+- Atlas docs refreshed:
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+  - `docs/atlas/MODULE_MAP.md`
+  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
+  - `docs/atlas/API_SURFACE.md`
+  - `docs/atlas/CHANGE_MAP.md`
+ succeeded in 50ms:
+# Routes and Entrypoints
+
+Track frontend routes, backend route groups, entry components, and bootstrap paths here.
+
+## Routes
+- Last refreshed: 2026-03-05 (Phase 1 - Refresh Atlas Docs, run `20260305-152520-system-atlas`)
+
+## Entrypoints
+- React bootstrap: `src/index.js`
+- App shell: `src/App.js`
+- Route registry: `src/routes/AppRoutes.jsx`
+
+## Public Routes
+| Route | Entry Component |
+| --- | --- |
+| `/` | `pages/HomePage/HomePage` |
+| `/signup` | `pages/Signup/Signup` |
+| `/login` | `pages/Login/Login` |
+| `/otp` | `pages/Otp/Otp` |
+| `/listing-page` | `pages/ListingPage/ListingPage` |
+ succeeded in 50ms:
+# Deep Scan Report
+
+Use this report for on-demand deep analysis of logic, structures, routes, contracts, and mismatch risks.
+
+## Findings
+### Phase 0 - Context Refresh (2026-03-05)
+- Atlas baseline was stale (template-only) and has been refreshed from live code in `/Users/macbook/Desktop/Huz/Huz-Web-Frontend`.
+- Confirmed primary deep-scan code surfaces for subsequent phases:
+  - Route registry: `src/routes/AppRoutes.jsx`
+  - App/bootstrap context: `src/index.js`, `src/App.js`, `src/context/*`
+  - API client and wrappers: `src/services/api/httpClient.js`, `src/api/*`
+  - Domain modules: `src/features/*`, `src/pages/*`
+- Confirmed run target is `Huz-Web-Frontend` while run-level scope value in state is `/Users/macbook/Desktop/Huz`; Phase 0 analysis was constrained to the target frontend project.
+- No backlog defects were triaged in Phase 0; defect/risk findings will be recorded in later analysis phases.
+
+### 2026-03-05 - System Atlas Run `20260305-152520-system-atlas` - Phase 0 (Inventory Scope)
+
+#### Scope Coverage
+- Target project scanned: `/Users/macbook/Desktop/Huz/Huz-Web-Frontend`
+- Scope root scanned: `/Users/macbook/Desktop/Huz`
+ succeeded in 50ms:
+# Run Summary
+
+- Run mode: `system-atlas`
+- Target project: `/Users/macbook/Desktop/Huz/Huz-Web-Frontend`
+- Workspace root: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default`
+- Scope: `/Users/macbook/Desktop/Huz`
+- Rule: append one section per completed phase. Do not overwrite prior phase sections.
+
+Expected section format:
+
+## Phase X - Title
+### Changes Made
+### How It Was Implemented
+### Files Touched
+### Verification
+
+## Phase 0 - Inventory Scope
+### Changes Made
+- Completed target-scope inventory for `/Users/macbook/Desktop/Huz/Huz-Web-Frontend` covering modules, entrypoints, routes, API/service layers, and flow boundaries.
+- Appended durable Phase 0 findings (including structural ambiguity and stale-atlas evidence) to `docs/qa/DEEP_SCAN_REPORT.md`.
+codex
+Context is loaded; I’m moving into Phase 2 execution with this plan:
+
+1. Re-open high-risk atlas references in code (`AppRoutes`, `ProtectedRoute`, `AuthContextProvider`, `httpClient`, `apiService`, `UserAuthApis`, header/sidebar route emitters) and verify current behavior against atlas claims.  
+2. Record any mismatches and blind spots; if atlas content is inaccurate, patch the specific atlas doc(s).  
+3. Append Phase 2 verification evidence and remaining unknowns to `docs/qa/DEEP_SCAN_REPORT.md`.  
+4. Append `Phase 2 - Validate Atlas Coverage` to run `RUN_SUMMARY.md`, then run the required `complete` and `next` orchestration commands and print `NEXT_PROMPT.md`.
+exec
+/bin/zsh -lc 'wc -l /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/index.js /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/App.js /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/components/ProtectedRoute/ProtectedRoute.js /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/context/AuthContextProvider.js /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/services/api/httpClient.js /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/AuthApi.js /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/UserAuthApis.js /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/homepageApi.js /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/listingApi.js /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/components/Header/Header.js /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/UserSetting/sidebar.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/hooks/useHomepageData.js' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default succeeded in 51ms:
+      15 /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/index.js
+      34 /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/App.js
+     193 /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx
+      29 /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/components/ProtectedRoute/ProtectedRoute.js
+      77 /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/context/AuthContextProvider.js
+     239 /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/services/api/httpClient.js
+     204 /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/AuthApi.js
+      49 /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/UserAuthApis.js
+      72 /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/homepageApi.js
+      71 /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/listingApi.js
+    1133 /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js
+     539 /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/components/Header/Header.js
+      80 /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/UserSetting/sidebar.jsx
+     101 /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/hooks/useHomepageData.js
+    2836 total
+codex
+I’m now validating atlas claims directly from the high-risk source files. I’ll capture exact evidence for route drift, auth guard/context behavior, and API contract split, then patch docs only where mismatches exist.
+exec
+/bin/zsh -lc "rg -n \"path=\\\"|ProtectedRoute\" /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/defaultexec
+/bin/zsh -lc "nl -ba /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/App.js && echo '---' && nl -ba /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/index.js" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/defaultexec
+/bin/zsh -lc "nl -ba /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/components/ProtectedRoute/ProtectedRoute.js && echo '---' && nl -ba /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/context/AuthContextProvider.js" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/defaultexec
+/bin/zsh -lc 'rg -n "my-reviews|/help|/reviews" /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/components/Header/Header.js /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/UserSetting/sidebar.jsx' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/defaultexec
+/bin/zsh -lc 'rg -n "REACT_APP_API_BASE_URL|REACT_APP_AUTH_TOKEN|accessToken|refreshToken|access_token|refresh_token|/api/token/refresh/" /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/services/api/httpClient.js' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default exited 127 in 52ms:
+zsh:1: command not found: rg
+ succeeded in 50ms:
+     1	import React, { useContext, useEffect } from 'react';
+     2	import { Navigate, useLocation } from 'react-router-dom';
+     3	import AuthContext from '../../context/AuthContext';
+     4	import LoginPrompt from '../LoginPrompt/LoginPrompt';
+     5	
+     6	const ProtectedRoute = ({ children, fallback = null }) => {
+     7	  const { login, loading } = useContext(AuthContext);
+     8	  const location = useLocation();
+     9	
+    10	  // Show loading state while checking authentication
+    11	  if (loading) {
+    12	    return (
+    13	      <div className="min-h-screen flex items-center justify-center">
+    14	        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-[#D1A554]"></div>
+    15	      </div>
+    16	    );
+    17	  }
+    18	
+    19	  // If user is not logged in, show login prompt with redirect
+    20	  if (!login) {
+ succeeded in 50ms:
+     1	// src/App.js
+     2	import React, { Suspense } from "react";
+     3	import { BrowserRouter as Router } from "react-router-dom";
+     4	import { ScrollToTop } from "./Utilities/UtilityFunctions.js";
+     5	import "./styles/globals.css";
+     6	import AuthContextProvider from "./context/AuthContextProvider.js";
+     7	import { ModalProvider } from "./context/ModalContext.js";
+     8	import { CurrencyProvider } from "./context/CurrencyContext";
+     9	import { BookingProvider } from "./context/BookingContext";
+    10	import AppRoutes from "./routes/AppRoutes";
+    11	import PageLoader from "./shared/ui/PageLoader";
+    12	
+    13	const App = () => {
+    14	  return (
+    15	    <AuthContextProvider>
+    16	      <CurrencyProvider>
+    17	        <ModalProvider>
+    18	          <BookingProvider>
+    19	            <Router>
+    20	              <ScrollToTop />
+ exited 127 in 50ms:
+zsh:1: command not found: rg
+ exited 127 in 51ms:
+zsh:1: command not found: rg
+codex
+`rg` isn’t available in this environment, so I’m switching to `grep`/`nl` for the same validation checks and continuing Phase 2 evidence collection.
+exec
+/bin/zsh -lc "grep -n \"my-reviews\\|/help\\|/reviews\" /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/components/Header/Header.js /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/UserSetting/sidebar.jsx" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/defaultexec
+/bin/zsh -lc "grep -n \"path=\\\"\" /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx && echo '---' && grep -n \"ProtectedRoute\" /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default succeeded in 51ms:
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/components/Header/Header.js:323:        navigate("/my-reviews");
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/UserSetting/sidebar.jsx:23:    { icon: HelpCircle, label: "Help & Complaints", id: "help", path: "/help" },
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/UserSetting/sidebar.jsx:24:    { icon: Star, label: "Reviews", id: "reviews", path: "/reviews" },
+ succeeded in 51ms:
+49:      <Route path="/signup" element={<SignUpPage />} />
+50:      <Route path="/login" element={<LoginPage />} />
+51:      <Route path="/otp" element={<OtpPage />} />
+52:      <Route path="/" element={<HomePage />} />
+53:      <Route path="/listing-page" element={<ListingPage />} />
+54:      <Route path="/visa-services" element={<VisaServices />} />
+55:      <Route path="/Hajj-Guidance" element={<HajjGuidance />} />
+56:      <Route path="/Umrah-Guidance" element={<UmrahGuide />} />
+57:      <Route path="/browse-tips" element={<PreparationTips />} />
+58:      <Route path="/travel-essential" element={<TravelEssentials />} />
+59:      <Route path="/makkah-holy-sites" element={<MakkahHolySites />} />
+60:      <Route path="/madina-holy-sites" element={<MadinahHolySites />} />
+61:      <Route path="/jeddah-holy-sites" element={<JeddahHolySites />} />
+62:      <Route path="/taif-holy-sites" element={<TaifHolySites />} />
+63:      <Route path="/about-us" element={<AboutUs />} />
+64:      <Route path="/core-values" element={<CoreValues />} />
+65:      <Route path="/how-we-work" element={<HowWeWork />} />
+66:      <Route path="/hajjUmrah-partner" element={<HajjUmrahBusiness />} />
+67:      <Route path="/listing-page" element={<ComingSoon />} />
+68:      <Route path="/frequently-asked-questions" element={<FQA />} />
+exec
+/bin/zsh -lc "grep -n \"REACT_APP_API_BASE_URL\\|REACT_APP_AUTH_TOKEN\\|accessToken\\|refreshToken\\|access_token\\|refresh_token\\|/api/token/refresh/\" /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/services/api/httpClient.js" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/defaultexec
+/bin/zsh -lc "grep -n \"auth/api\\|auth/apis\\|user-login-with-email\\|otp\\|get-user-profile\\|user-logout\\|address\" /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/AuthApi.js /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/UserAuthApis.js" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/defaultexec
+/bin/zsh -lc "grep -n \"partner/get_\\|partner/apis\\|booking/new/create\\|booking/all/get\\|wallet/apis\\|management/apis/custom/manage/packages\\|common/update_user_gender\\|user-subscribe\\|update-user-name\\|update-user-phone-number\" /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/homepageApi.js /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/listingApi.js /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default succeeded in 51ms:
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/AuthApi.js:23:    const response = await publicClient.post("/auth/api/user-login-with-email/", {
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/AuthApi.js:37:    const response = await authHeaderClient.post("/auth/api/is-phone-number-exist/", {
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/AuthApi.js:50:    const response = await authHeaderClient.post("/auth/api/is-email-exist/", {
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/AuthApi.js:64:    const response = await authHeaderClient.post("/auth/api/otp-request/", data);
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/AuthApi.js:72:    const response = await authHeaderClient.post("/auth/api/sign-up-with-phone/", {
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/AuthApi.js:94:    const response = await axiosInstance.post("/auth/api/resend-verification-email/", {
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/AuthApi.js:104:    const response = await axiosInstance.post("/auth/api/user-logout/", {
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/AuthApi.js:114:  street_address,
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/AuthApi.js:115:  address_line2,
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/AuthApi.js:123:      "/user/profile/address/create/",
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/AuthApi.js:125:        street_address,
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/AuthApi.js:126:        address_line2,
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/AuthApi.js:153:    const response = await axiosInstance.get("/auth/api/get-user-profile/");
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/AuthApi.js:163:    const response = await axiosInstance.get("/user/profile/address/get-all/");
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/AuthApi.js:165:      console.log("address data", response?.data);
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/AuthApi.js:174:    const response = await axiosInstance.get(`/auth/api/verify-email/?token=${token}`);
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/AuthApi.js:183:export const verifyOtp = async (phone_number, otp_password) => {
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/AuthApi.js:187:      otp_password,
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/AuthApi.js:189:    const response = await authHeaderClient.put("/auth/api/otp-validate/", payload);
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/UserAuthApis.js:7:    const response = await api.post("/auth/apis/user-login-with-email/", {
+ succeeded in 51ms:
+4:export const API_BASE_URL = (process.env.REACT_APP_API_BASE_URL || "").replace(
+8:export const STATIC_AUTH_HEADER = process.env.REACT_APP_AUTH_TOKEN || "";
+14:  accessKey: "accessToken",
+15:  refreshKey: "refreshToken",
+28:  accessKey: "access_token",
+29:  refreshKey: "refresh_token",
+100:  const refreshToken = Cookies.get(tokenProfile.refreshKey);
+101:  if (!refreshToken) {
+108:      buildApiUrl("/api/token/refresh/"),
+109:      { refresh: refreshToken },
+112:    const accessToken = response?.data?.access;
+113:    if (!accessToken) {
+120:      accessToken,
+123:    return accessToken;
+145:  const refreshToken = createRefreshTokenHandler(tokenProfile, onAuthFailure);
+149:      const accessToken = Cookies.get(tokenProfile.accessKey);
+150:      if (!accessToken) {
+155:      config.headers.Authorization = `Bearer ${accessToken}`;
+172:        const newAccessToken = await refreshToken();
+185:  client.refreshAccessToken = refreshToken;
+ succeeded in 52ms:
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/homepageApi.js:55:      "/partner/get_featured_packages/",
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/listingApi.js:29:    const response = await get("/partner/get_package_detail_by_city_and_date/", {
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/listingApi.js:41:  const response = await get("/partner/get_package_short_detail_for_web/", {
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js:99:  const result = await apiGet("/partner/get_featured_packages/", {
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js:119:  const result = await apiGet("/partner/apis/packages/client/all/get/?", {
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js:138:    "/partner/apis/packages/client/search/date-and-city/?",
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js:154:    "/partner/apis/packages/client/get-package-detail/?",
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js:181://   const response = await axiosInstance.post("/booking/new/create/", {
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js:216://     const response = await axiosInstance.post("/booking/new/create/", payload,{headers:{Authorization:""}});
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js:255:    const response = await axiosInstance.post("/booking/new/create/", payload);
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js:376:    const response = await apiGet(`/booking/all/get/`);
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js:773:    const response = await axiosInstance.put("/common/update_user_gender/", {
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js:795:    const response = await axiosInstance.post("/auth/api/user-subscribe/", {
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js:839:    const response = await axiosInstance.patch("/auth/api/update-user-name/", {
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js:860:      "/auth/api/update-user-phone-number/",
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js:890:      "/wallet/apis/bank/create/",
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js:918:      "/wallet/apis/withdraw/create/",
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js:942:      "/wallet/apis/transaction/get/all/"
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js:993:      "/management/apis/custom/manage/packages/",
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js:1009:      "/management/apis/custom/manage/packages/"
+exec
+/bin/zsh -lc "grep -n \"path=\\\"\\*\\\"\" /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx || true" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/defaultexec
+/bin/zsh -lc 'nl -ba /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/listingApi.js' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/defaultexec
+/bin/zsh -lc 'nl -ba /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/hooks/useHomepageData.js' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/defaultexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Huz/Huz-Web-Frontend/.env' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/defaultexec
+/bin/zsh -lc "grep -n \"AuthContext.Provider value\\|loading\\|setLoading\" /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/context/AuthContextProvider.js" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default succeeded in 51ms:
+
+ succeeded in 52ms:
+     1	import { useCallback, useEffect, useMemo, useState } from "react";
+     2	import { fetchHomepagePackages, HOMEPAGE_DEFAULT_ERROR } from "../api/homepageApi";
+     3	
+     4	const CACHE_TTL_MS = 5 * 60 * 1000;
+     5	const homepageCache = new Map();
+     6	
+     7	const getCacheKey = (packageType) => `homepage:${packageType}`;
+     8	
+     9	const getCachedValue = (packageType) => {
+    10	  const entry = homepageCache.get(getCacheKey(packageType));
+    11	
+    12	  if (!entry) {
+    13	    return null;
+    14	  }
+    15	
+    16	  if (Date.now() - entry.timestamp > CACHE_TTL_MS) {
+    17	    homepageCache.delete(getCacheKey(packageType));
+    18	    return null;
+    19	  }
+    20	
+ succeeded in 52ms:
+     1	import { get } from "../services/api/httpClient";
+     2	import {
+     3	  getDefaultApiStartDate,
+     4	  normalizePackageListPayload,
+     5	} from "../features/listing/utils/listingPackageUtils";
+     6	
+     7	export const LISTING_DEFAULT_ERROR =
+     8	  "We couldn't load packages right now. Please try again in a moment.";
+     9	
+    10	const extractApiMessage = (error) => {
+    11	  return (
+    12	    error?.response?.data?.message ||
+    13	    error?.response?.data?.detail ||
+    14	    error?.response?.data?.error ||
+    15	    error?.message ||
+    16	    LISTING_DEFAULT_ERROR
+    17	  );
+    18	};
+    19	
+    20	const requestListingPackages = async ({
+ succeeded in 51ms:
+24:  const [loading, setLoading] = useState(true);
+26:    setLoading(true);
+31:      setLoading(false);
+40:        setLoading(false);
+58:      setLoading(false);
+71:    <AuthContext.Provider value={{ login, setLogin, signOut }}>
+ succeeded in 51ms:
+REACT_APP_API_BASE_URL=http://127.0.0.1:8000
+REACT_APP_AUTH_TOKEN=Basic a2V6dG9ncm91cDpoMnNvNGgybw==
+# http://128.199.201.57
+exec
+/bin/zsh -lc "grep -hoE '\"/["'^"]+"'"' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/AuthApi.js /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/UserAuthApis.js /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/homepageApi.js /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/listingApi.js /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js | sort -u" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default succeeded in 52ms:
+"/auth/api/get-user-profile/"
+"/auth/api/is-email-exist/"
+"/auth/api/is-phone-number-exist/"
+"/auth/api/otp-request/"
+"/auth/api/otp-validate/"
+"/auth/api/resend-verification-email/"
+"/auth/api/sign-up-with-phone/"
+"/auth/api/update-user-name/"
+"/auth/api/update-user-phone-number/"
+"/auth/api/user-login-with-email/"
+"/auth/api/user-logout/"
+"/auth/api/user-subscribe/"
+"/auth/apis/user-login-with-email/"
+"/booking/booking-number/concierge-request/create/"
+"/booking/booking-number/delete/"
+"/booking/booking-number/objection/response/"
+"/booking/booking-number/payment/create/"
+"/booking/booking-number/payment/receipt/create/"
+"/booking/booking-number/rating-and-review/create/"
+"/booking/booking-number/traveler/passport-or-photo/update/"
+exec
+/bin/zsh -lc "grep -n \"bookings/pay_booking_amount_by_transaction_photo\" -n /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js && nl -ba /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js | sed -n '520,620p'" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default succeeded in 52ms:
+308://     "/bookings/pay_booking_amount_by_transaction_photo/",
+   520	};
+   521	
+   522	export const submitBookingComplaint = async (complaintData) => {
+   523	  const validationError = validateParams(complaintData, [
+   524	    // "session_token",
+   525	    "booking_number",
+   526	    "complaint_title",
+   527	    "complaint_message",
+   528	  ]);
+   529	  if (validationError) return { success: false, error: validationError };
+   530	
+   531	  const formData = new FormData();
+   532	  // formData.append("session_token", complaintData.session_token);
+   533	  formData.append("booking_number", complaintData.booking_number);
+   534	  formData.append("complaint_title", complaintData.complaint_title);
+   535	  formData.append("complaint_message", complaintData.complaint_message);
+   536	  if (complaintData.response_message)
+   537	    formData.append("response_message", complaintData.response_message);
+   538	
+exec
+/bin/zsh -lc "grep -n '\"/dashboard\"' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js && nl -ba /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js | sed -n '730,790p'" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default exited 1 in 52ms:
+
+exec
+/bin/zsh -lc "grep -R -n '\"/dashboard\"' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/AuthApi.js /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/UserAuthApis.js /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/homepageApi.js /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/listingApi.js /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default succeeded in 51ms:
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/AuthApi.js:82:    // navigate("/dashboard");
+exec
+/bin/zsh -lc "grep -n \"departureLocation\\|departureDate\\|listing-page\" /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/components/SearchBar/SearchBar.js" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default succeeded in 52ms:
+392:  const [departureLocation, setDepartureLocation] = useState("");
+394:  const [departureDate, setDepartureDate] = useState(null);
+424:    const formattedDate = departureDate
+425:      ? departureDate.toISOString().split("T")[0]
+429:      departureLocation: departureLocation || "",
+430:      departureDate: formattedDate || "",
+433:    navigate(`/listing-page?${queryParams.toString()}`);
+437:    return departureLocation.trim() !== "" && departureDate !== null;
+482:                departureLocation ||
+508:                      departureLocation === city
+514:                    {departureLocation === city ? (
+534:              value={formatDate(departureDate)}
+548:                  selectedDate={departureDate}
+exec
+/bin/zsh -lc "grep -n \"useSearchParams\\|departureLocation\\|departureDate\\|type\\|fetchListingPackages\" /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/features/listing/hooks/useListingPageData.js" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default succeeded in 52ms:
+2:import { useSearchParams } from "react-router-dom";
+3:import { fetchListingPackages } from "../../../api/listingApi";
+25:  const [searchParams, setSearchParams] = useSearchParams();
+27:  const packageType = searchParams.get("type") || "Umrah";
+28:  const departureLocation = searchParams.get("departureLocation") || "";
+29:  const departureDate = searchParams.get("departureDate") || "";
+33:      departureLocation,
+34:      departureDate,
+36:    [departureDate, departureLocation]
+54:        const response = await fetchListingPackages({
+56:          departureLocation,
+57:          departureDate,
+77:  }, [packageType, departureDate, departureLocation]);
+97:  }, [filters, sortOrder, queryFilters.departureDate, queryFilters.departureLocation]);
+136:          nextSearchParams.delete("departureLocation");
+139:          nextSearchParams.delete("departureDate");
+164:      if (key === "departureDate") {
+165:        updateFilter("departureDate", "");
+185:    nextSearchParams.delete("departureLocation");
+186:    nextSearchParams.delete("departureDate");
+exec
+/bin/zsh -lc "grep -n \"PackageId\\|getPackageDetailByPackageId\" /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/features/packageDetail/hooks/usePackageDetailLogic.js" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default succeeded in 51ms:
+3:import { getPackageDetailByPackageId } from "../../../api/apiService";
+7:const getPackageIdFromSearch = (search) =>
+8:  new URLSearchParams(search).get("PackageId");
+32:  const packageId = useMemo(() => getPackageIdFromSearch(search), [search]);
+71:        const result = await getPackageDetailByPackageId({ huz_token: packageId });
+exec
+/bin/zsh -lc "grep -n \"createBookingRequest\\|payment-methods\\|invoice\\|navigate\" /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/features/booking/hooks/useBookingLogic.js" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default succeeded in 52ms:
+4:import { createBookingRequest } from "../../../api/apiService";
+40:  const navigate = useNavigate();
+130:        navigate(location.pathname, {
+145:    navigate,
+347:  const navigateToLogin = useCallback(
+352:      navigate("/login", {
+360:    [location.pathname, location.search, navigate, persistBookingState]
+370:      navigateToLogin("Please login to complete your booking");
+418:      const bookingResponse = await createBookingRequest(payload);
+427:      navigate("/payment-methods", {
+431:          invoiceData: {
+443:        navigateToLogin("Your session has expired. Please login again.");
+460:    navigate,
+461:    navigateToLogin,
+exec
+/bin/zsh -lc "grep -n \"export const ScrollToTop\\|useLocation\" /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/Utilities/UtilityFunctions.js" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default succeeded in 51ms:
+3:import { useLocation } from "react-router-dom";
+21:  const location = useLocation();
+exec
+/bin/zsh -lc 'nl -ba /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/Utilities/UtilityFunctions.js' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default succeeded in 51ms:
+     1	// src/Utilities/UtilityFunctions.js
+     2	import { useEffect } from "react";
+     3	import { useLocation } from "react-router-dom";
+     4	import makkahHotels from './makkah_hotels.json';
+     5	import madinahHotels from './madina_hotels.json';
+     6	
+     7	
+     8	
+     9	const getHotelImages = (hotelName, hotelData = []) => {
+    10	  if (!hotelData || hotelData.length === 0) return []; // Handle case where no hotel data is passed
+    11	
+    12	  const hotelDataItem = hotelData.find(hotel => hotel.hotel_Name === hotelName);
+    13	  return hotelDataItem
+    14	    ? [hotelDataItem.image1, hotelDataItem.image2, hotelDataItem.image3, hotelDataItem.image4].filter(Boolean)
+    15	    : [];
+    16	};
+    17	
+    18	export { getHotelImages, makkahHotels, madinahHotels };
+    19	
+    20	const ScrollToTop = () => {
+exec
+/bin/zsh -lc "echo 'DOC ENDPOINT TOKENS:' && grep -oE '/[A-Za-z0-9_./?-]+' /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/API_SURFACE.md | sort -u > /tmp/doc_endpoints.txt && cat /tmp/doc_endpoints.txt && echo '---' && echo 'CODE ENDPOINT TOKENS:' && grep -hoE '\"/["'^"]+"'"' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/services/api/httpClient.js /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/AuthApi.js /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/UserAuthApis.js /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/homepageApi.js /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/listingApi.js /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js | tr -d '\"' | sort -u > /tmp/code_endpoints.txt && cat /tmp/code_endpoints.txt && echo '---' && echo 'IN DOC NOT IN CODE:' && comm -23 /tmp/doc_endpoints.txt /tmp/code_endpoints.txt && echo '---' && echo 'IN CODE NOT IN DOC:' && comm -13 /tmp/doc_endpoints.txt /tmp/code_endpoints.txt" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default succeeded in 52ms:
+DOC ENDPOINT TOKENS:
+//127.0.0.1
+/POST/PUT
+/api/AuthApi.js
+/api/UserAuthApis.js
+/api/apiService.js
+/api/homepageApi.js
+/api/listingApi.js
+/api/token/refresh/
+/auth/api/get-user-profile/
+/auth/api/is-email-exist/
+/auth/api/is-phone-number-exist/
+/auth/api/otp-request/
+/auth/api/otp-validate/
+/auth/api/resend-verification-email/
+/auth/api/sign-up-with-phone/
+/auth/api/update-user-name/
+/auth/api/update-user-phone-number/
+/auth/api/user-login-with-email/
+/auth/api/user-logout/
+exec
+/bin/zsh -lc "grep -n \"booking/all/get\\|booking-number/get-detail\" /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default succeeded in 51ms:
+376:    const response = await apiGet(`/booking/all/get/`);
+388:      `/booking/booking-number/get-detail/?booking_number=${bookingNumber}`
+exec
+/bin/zsh -lc 'grep -n "verify-email" /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/AuthApi.js' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default succeeded in 52ms:
+174:    const response = await axiosInstance.get(`/auth/api/verify-email/?token=${token}`);
+exec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Huz/Huz-Web-Frontend/package.json' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default succeeded in 52ms:
+{
+  "name": "huz-new-website",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@emotion/styled": "^11.14.0",
+    "@floating-ui/utils": "^0.2.9",
+    "@headlessui/react": "^2.2.0",
+    "@mui/icons-material": "^6.5.0",
+    "@react-pdf-viewer/core": "^3.12.0",
+    "@react-pdf-viewer/default-layout": "^3.12.0",
+    "@tanstack/react-table": "^8.21.3",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/react-datepicker": "^6.2.0",
+    "axios": "^1.7.7",
+    "country-state-city": "^3.2.1",
+    "framer-motion": "^11.11.17",
+    "js-cookie": "^3.0.5",
+exec
+/bin/zsh -lc "nl -ba /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js | sed -n '250,340p'" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default succeeded in 52ms:
+   250	    // Prepare request payload
+   251	
+   252	
+   253	    
+   254	    // Make API call
+   255	    const response = await axiosInstance.post("/booking/new/create/", payload);
+   256	
+   257	    // Check for errors in response
+   258	    if (response.data.errors) {
+   259	      throw new Error(response.data.errors.detail || "Booking creation failed");
+   260	    }
+   261	
+   262	    return response.data;
+   263	  } catch (error) {
+   264	    // Handle different types of errors
+   265	    if (error.response) {
+   266	      // The request was made and the server responded with a status code
+   267	      // that falls out of the range of 2xx
+   268	      console.error("API Error Response:", error.response.data);
+   269	      throw new Error(error.response.data.errors?.detail || "API request failed");
+exec
+/bin/zsh -lc "nl -ba /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js | sed -n '337,430p'" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default succeeded in 51ms:
+   337	export const createBookingRequestbyTransaction = async (
+   338	  booking_number,
+   339	  transaction_amount,
+   340	  full_or_minimum
+   341	) => {
+   342	  console.log("first", booking_number, transaction_amount, full_or_minimum);
+   343	  const response = await axiosInstance.post(
+   344	    "/booking/booking-number/payment/create/",
+   345	    {
+   346	      booking_number,
+   347	      transaction_amount,
+   348	      full_or_minimum,
+   349	    }
+   350	  );
+   351	  return response;
+   352	};
+   353	export const createBookingRequestbyTransactionReceipt = async (
+   354	  receiptPayLoad
+   355	) => {
+   356	  try {
+exec
+/bin/zsh -lc 'grep -n "api/token/refresh" /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/AuthApi.js /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/services/api/httpClient.js' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default succeeded in 52ms:
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/services/api/httpClient.js:108:      buildApiUrl("/api/token/refresh/"),
+exec
+/bin/zsh -lc "nl -ba /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/AuthApi.js | sed -n '1,220p'" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default succeeded in 52ms:
+     1	import {
+     2	  authHeaderClient,
+     3	  buildRequestConfig,
+     4	  clearAppAuth,
+     5	  httpClient,
+     6	  persistAppAuthTokens,
+     7	  publicClient,
+     8	  refreshAccessToken,
+     9	} from "../services/api/httpClient";
+    10	
+    11	export { refreshAccessToken };
+    12	
+    13	const axiosInstance = httpClient;
+    14	const authConfig = buildRequestConfig({ includeStaticAuth: true });
+    15	
+    16	const persistTokens = (tokenPayload) => {
+    17	  persistAppAuthTokens(tokenPayload);
+    18	};
+    19	//Post Api
+    20	//Login
+codex
+I’ve completed the source revalidation pass and found atlas entries still aligned with current code for the high-risk surfaces. Next I’m appending Phase 2 verification, blind spots, and next refresh targets to `DEEP_SCAN_REPORT.md` and `RUN_SUMMARY.md`.
+exec
+/bin/zsh -lc 'tail -n 60 /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default succeeded in 52ms:
+- `docs/atlas/API_SURFACE.md`
+- `docs/atlas/CHANGE_MAP.md`
+
+#### Verification Evidence Used
+- Entrypoints and provider stack: `src/index.js`, `src/App.js`
+- Route inventory and protection boundaries: `src/routes/AppRoutes.jsx`, `src/components/ProtectedRoute/ProtectedRoute.js`
+- Navigation route intents: `src/components/Header/Header.js`, `src/pages/UserSetting/sidebar.jsx`
+- API transport and contract surface: `src/services/api/httpClient.js`, `src/api/AuthApi.js`, `src/api/UserAuthApis.js`, `src/api/homepageApi.js`, `src/api/listingApi.js`, `src/api/apiService.js`
+- Flow hooks/pages: `src/hooks/useHomepageData.js`, `src/features/listing/hooks/useListingPageData.js`, `src/features/packageDetail/hooks/usePackageDetailLogic.js`, `src/features/booking/hooks/useBookingLogic.js`, `src/components/SearchBar/SearchBar.js`
+
+#### Key Atlas-Level Findings Captured
+- Duplicate route declaration remains in `AppRoutes` for `/listing-page` (first maps to `ListingPage`, later maps to `ComingSoon`), which creates route ownership ambiguity.
+- Navigation includes targets without route declarations in `AppRoutes` (`/my-reviews`, `/help`, `/reviews`).
+- `ProtectedRoute` consumes `loading` from `AuthContext`, while `AuthContextProvider` currently exposes only `{ login, setLogin, signOut }`.
+- API contracts still span modern and legacy endpoint families (`/auth/api/...` vs `/auth/apis/...`, and `/partner/get_*` vs `/partner/apis/*`).
+
+#### Phase Scope Notes
+- This phase refreshed documentation only; no code changes were applied in `/Users/macbook/Desktop/Huz/Huz-Web-Frontend`.
+- Findings recorded here are intended for follow-up validation/fix planning in later phases, not implementation in Phase 1.
+
+file update
+M /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md
+@@ -247 +247,53 @@
+ - Additional legacy/dead paths may still exist outside the traced route and flow surfaces above.
++
++### 2026-03-05 - System Atlas Run `20260305-152520-system-atlas` - Phase 2 (Validate Atlas Coverage)
++
++#### Atlas Coverage Validation Result
++- Revalidated the highest-risk atlas references against live source files and confirmed Phase 1 atlas docs still match current code behavior.
++- No atlas drift requiring edits to `PROJECT_BLUEPRINT.md`, `MODULE_MAP.md`, `ROUTES_AND_ENTRYPOINTS.md`, or `API_SURFACE.md` was found in this phase.
++
++#### High-Risk Files Reopened For Validation
++- Routing and ownership boundaries:
++  - `src/routes/AppRoutes.jsx`
++  - `src/components/Header/Header.js`
++  - `src/pages/UserSetting/sidebar.jsx`
++- Auth gate and context contract:
++  - `src/components/ProtectedRoute/ProtectedRoute.js`
++  - `src/context/AuthContextProvider.js`
++- API transport and contract drift surface:
++  - `src/services/api/httpClient.js`
++  - `src/api/AuthApi.js`
++  - `src/api/UserAuthApis.js`
++  - `src/api/homepageApi.js`
++  - `src/api/listingApi.js`
++  - `src/api/apiService.js`
++- Flow validation touchpoints:
++  - `src/components/SearchBar/SearchBar.js`
++  - `src/features/listing/hooks/useListingPageData.js`
++  - `src/features/packageDetail/hooks/usePackageDetailLogic.js`
++  - `src/features/booking/hooks/useBookingLogic.js`
++  - `src/hooks/useHomepageData.js`
++  - `.env`
++
++#### Confirmed Atlas Statements Still Accurate
++- Duplicate `/listing-page` route declaration still exists in `AppRoutes` (first `ListingPage`, later `ComingSoon`).
++- Navigation targets `/my-reviews`, `/help`, and `/reviews` still have no corresponding route declarations.
++- `ProtectedRoute` still consumes `loading` while `AuthContextProvider` still does not provide `loading` in context value.
++- Mixed endpoint families remain active (`/auth/api/...` with `/auth/apis/...`, and `/partner/get_*` with `/partner/apis/*`).
++- Homepage in-memory cache TTL remains 5 minutes (`5 * 60 * 1000`) and listing query handling remains route-query driven.
++- `.env` base URL and static auth header values still match atlas notes.
++
++#### Assumptions And Unknowns
++- Contract validation remains frontend-consumer-based; backend implementation and API schemas were not rescanned in this phase.
++- Route behavior was validated statically from source; no browser-run navigation trace was executed in Phase 2.
++- Legacy commented API paths remain non-active by source inspection, but production backend support status is unknown.
++
++#### Next Recommended Atlas Refresh Targets
++- Refresh route docs immediately after any cleanup of duplicate `/listing-page` declarations or addition of missing `/help`, `/reviews`, `/my-reviews` routes.
++- Refresh auth/flow notes after resolving `AuthContextProvider` vs `ProtectedRoute` loading contract mismatch.
++- Refresh API surface after consolidating legacy wrappers (`UserAuthApis`, mixed `apiService` endpoints, token profile split in `httpClient`).
++- Re-run atlas verification when `.env` API host/token policy changes across environments.
++
++#### Verification Method
++- Source validation commands: `nl`, `grep`, `cat` over the high-risk files listed above.
++- Phase 2 remained documentation-only; no target project source files were modified.
+apply_patch(auto_approved=true) exited 0 in 39ms:
+Success. Updated the following files:
+M /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md
+index 0719b8719d415d12f63a9295118430d6773c481f..f227f53568f2f0f40d51591511c45b26a0ed438e
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md
+@@ -245,3 +245,55 @@
+ - No browser-driven runtime trace was executed; findings are from static code-path analysis and source inspection.
+ - No test/build command was run in this reporting phase because Phase 2 was documentation-only.
+ - Additional legacy/dead paths may still exist outside the traced route and flow surfaces above.
++
++### 2026-03-05 - System Atlas Run `20260305-152520-system-atlas` - Phase 2 (Validate Atlas Coverage)
++
++#### Atlas Coverage Validation Result
++- Revalidated the highest-risk atlas references against live source files and confirmed Phase 1 atlas docs still match current code behavior.
++- No atlas drift requiring edits to `PROJECT_BLUEPRINT.md`, `MODULE_MAP.md`, `ROUTES_AND_ENTRYPOINTS.md`, or `API_SURFACE.md` was found in this phase.
++
++#### High-Risk Files Reopened For Validation
++- Routing and ownership boundaries:
++  - `src/routes/AppRoutes.jsx`
++  - `src/components/Header/Header.js`
++  - `src/pages/UserSetting/sidebar.jsx`
++- Auth gate and context contract:
++  - `src/components/ProtectedRoute/ProtectedRoute.js`
++  - `src/context/AuthContextProvider.js`
++- API transport and contract drift surface:
++  - `src/services/api/httpClient.js`
++  - `src/api/AuthApi.js`
++  - `src/api/UserAuthApis.js`
++  - `src/api/homepageApi.js`
++  - `src/api/listingApi.js`
++  - `src/api/apiService.js`
++- Flow validation touchpoints:
++  - `src/components/SearchBar/SearchBar.js`
++  - `src/features/listing/hooks/useListingPageData.js`
++  - `src/features/packageDetail/hooks/usePackageDetailLogic.js`
++  - `src/features/booking/hooks/useBookingLogic.js`
++  - `src/hooks/useHomepageData.js`
++  - `.env`
++
++#### Confirmed Atlas Statements Still Accurate
++- Duplicate `/listing-page` route declaration still exists in `AppRoutes` (first `ListingPage`, later `ComingSoon`).
++- Navigation targets `/my-reviews`, `/help`, and `/reviews` still have no corresponding route declarations.
++- `ProtectedRoute` still consumes `loading` while `AuthContextProvider` still does not provide `loading` in context value.
++- Mixed endpoint families remain active (`/auth/api/...` with `/auth/apis/...`, and `/partner/get_*` with `/partner/apis/*`).
++- Homepage in-memory cache TTL remains 5 minutes (`5 * 60 * 1000`) and listing query handling remains route-query driven.
++- `.env` base URL and static auth header values still match atlas notes.
++
++#### Assumptions And Unknowns
++- Contract validation remains frontend-consumer-based; backend implementation and API schemas were not rescanned in this phase.
++- Route behavior was validated statically from source; no browser-run navigation trace was executed in Phase 2.
++- Legacy commented API paths remain non-active by source inspection, but production backend support status is unknown.
++
++#### Next Recommended Atlas Refresh Targets
++- Refresh route docs immediately after any cleanup of duplicate `/listing-page` declarations or addition of missing `/help`, `/reviews`, `/my-reviews` routes.
++- Refresh auth/flow notes after resolving `AuthContextProvider` vs `ProtectedRoute` loading contract mismatch.
++- Refresh API surface after consolidating legacy wrappers (`UserAuthApis`, mixed `apiService` endpoints, token profile split in `httpClient`).
++- Re-run atlas verification when `.env` API host/token policy changes across environments.
++
++#### Verification Method
++- Source validation commands: `nl`, `grep`, `cat` over the high-risk files listed above.
++- Phase 2 remained documentation-only; no target project source files were modified.
+
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md
+index 0719b8719d415d12f63a9295118430d6773c481f..f227f53568f2f0f40d51591511c45b26a0ed438e
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md
+@@ -245,3 +245,55 @@
+ - No browser-driven runtime trace was executed; findings are from static code-path analysis and source inspection.
+ - No test/build command was run in this reporting phase because Phase 2 was documentation-only.
+ - Additional legacy/dead paths may still exist outside the traced route and flow surfaces above.
++
++### 2026-03-05 - System Atlas Run `20260305-152520-system-atlas` - Phase 2 (Validate Atlas Coverage)
++
++#### Atlas Coverage Validation Result
++- Revalidated the highest-risk atlas references against live source files and confirmed Phase 1 atlas docs still match current code behavior.
++- No atlas drift requiring edits to `PROJECT_BLUEPRINT.md`, `MODULE_MAP.md`, `ROUTES_AND_ENTRYPOINTS.md`, or `API_SURFACE.md` was found in this phase.
++
++#### High-Risk Files Reopened For Validation
++- Routing and ownership boundaries:
++  - `src/routes/AppRoutes.jsx`
++  - `src/components/Header/Header.js`
++  - `src/pages/UserSetting/sidebar.jsx`
++- Auth gate and context contract:
++  - `src/components/ProtectedRoute/ProtectedRoute.js`
++  - `src/context/AuthContextProvider.js`
++- API transport and contract drift surface:
++  - `src/services/api/httpClient.js`
++  - `src/api/AuthApi.js`
++  - `src/api/UserAuthApis.js`
++  - `src/api/homepageApi.js`
++  - `src/api/listingApi.js`
++  - `src/api/apiService.js`
++- Flow validation touchpoints:
++  - `src/components/SearchBar/SearchBar.js`
++  - `src/features/listing/hooks/useListingPageData.js`
++  - `src/features/packageDetail/hooks/usePackageDetailLogic.js`
++  - `src/features/booking/hooks/useBookingLogic.js`
++  - `src/hooks/useHomepageData.js`
++  - `.env`
++
++#### Confirmed Atlas Statements Still Accurate
++- Duplicate `/listing-page` route declaration still exists in `AppRoutes` (first `ListingPage`, later `ComingSoon`).
++- Navigation targets `/my-reviews`, `/help`, and `/reviews` still have no corresponding route declarations.
++- `ProtectedRoute` still consumes `loading` while `AuthContextProvider` still does not provide `loading` in context value.
++- Mixed endpoint families remain active (`/auth/api/...` with `/auth/apis/...`, and `/partner/get_*` with `/partner/apis/*`).
++- Homepage in-memory cache TTL remains 5 minutes (`5 * 60 * 1000`) and listing query handling remains route-query driven.
++- `.env` base URL and static auth header values still match atlas notes.
++
++#### Assumptions And Unknowns
++- Contract validation remains frontend-consumer-based; backend implementation and API schemas were not rescanned in this phase.
++- Route behavior was validated statically from source; no browser-run navigation trace was executed in Phase 2.
++- Legacy commented API paths remain non-active by source inspection, but production backend support status is unknown.
++
++#### Next Recommended Atlas Refresh Targets
++- Refresh route docs immediately after any cleanup of duplicate `/listing-page` declarations or addition of missing `/help`, `/reviews`, `/my-reviews` routes.
++- Refresh auth/flow notes after resolving `AuthContextProvider` vs `ProtectedRoute` loading contract mismatch.
++- Refresh API surface after consolidating legacy wrappers (`UserAuthApis`, mixed `apiService` endpoints, token profile split in `httpClient`).
++- Re-run atlas verification when `.env` API host/token policy changes across environments.
++
++#### Verification Method
++- Source validation commands: `nl`, `grep`, `cat` over the high-risk files listed above.
++- Phase 2 remained documentation-only; no target project source files were modified.
+
+exec
+/bin/zsh -lc 'tail -n 80 /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default succeeded in 52ms:
+# Run Summary
+
+- Run mode: `system-atlas`
+- Target project: `/Users/macbook/Desktop/Huz/Huz-Web-Frontend`
+- Workspace root: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default`
+- Scope: `/Users/macbook/Desktop/Huz`
+- Rule: append one section per completed phase. Do not overwrite prior phase sections.
+
+Expected section format:
+
+## Phase X - Title
+### Changes Made
+### How It Was Implemented
+### Files Touched
+### Verification
+
+## Phase 0 - Inventory Scope
+### Changes Made
+- Completed target-scope inventory for `/Users/macbook/Desktop/Huz/Huz-Web-Frontend` covering modules, entrypoints, routes, API/service layers, and flow boundaries.
+- Appended durable Phase 0 findings (including structural ambiguity and stale-atlas evidence) to `docs/qa/DEEP_SCAN_REPORT.md`.
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md
+index 0719b8719d415d12f63a9295118430d6773c481f..f227f53568f2f0f40d51591511c45b26a0ed438e
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md
+@@ -245,3 +245,55 @@
+ - No browser-driven runtime trace was executed; findings are from static code-path analysis and source inspection.
+ - No test/build command was run in this reporting phase because Phase 2 was documentation-only.
+ - Additional legacy/dead paths may still exist outside the traced route and flow surfaces above.
++
++### 2026-03-05 - System Atlas Run `20260305-152520-system-atlas` - Phase 2 (Validate Atlas Coverage)
++
++#### Atlas Coverage Validation Result
++- Revalidated the highest-risk atlas references against live source files and confirmed Phase 1 atlas docs still match current code behavior.
++- No atlas drift requiring edits to `PROJECT_BLUEPRINT.md`, `MODULE_MAP.md`, `ROUTES_AND_ENTRYPOINTS.md`, or `API_SURFACE.md` was found in this phase.
++
++#### High-Risk Files Reopened For Validation
++- Routing and ownership boundaries:
++  - `src/routes/AppRoutes.jsx`
++  - `src/components/Header/Header.js`
++  - `src/pages/UserSetting/sidebar.jsx`
++- Auth gate and context contract:
++  - `src/components/ProtectedRoute/ProtectedRoute.js`
++  - `src/context/AuthContextProvider.js`
++- API transport and contract drift surface:
++  - `src/services/api/httpClient.js`
++  - `src/api/AuthApi.js`
++  - `src/api/UserAuthApis.js`
++  - `src/api/homepageApi.js`
++  - `src/api/listingApi.js`
++  - `src/api/apiService.js`
++- Flow validation touchpoints:
++  - `src/components/SearchBar/SearchBar.js`
++  - `src/features/listing/hooks/useListingPageData.js`
++  - `src/features/packageDetail/hooks/usePackageDetailLogic.js`
++  - `src/features/booking/hooks/useBookingLogic.js`
++  - `src/hooks/useHomepageData.js`
++  - `.env`
++
++#### Confirmed Atlas Statements Still Accurate
++- Duplicate `/listing-page` route declaration still exists in `AppRoutes` (first `ListingPage`, later `ComingSoon`).
++- Navigation targets `/my-reviews`, `/help`, and `/reviews` still have no corresponding route declarations.
++- `ProtectedRoute` still consumes `loading` while `AuthContextProvider` still does not provide `loading` in context value.
++- Mixed endpoint families remain active (`/auth/api/...` with `/auth/apis/...`, and `/partner/get_*` with `/partner/apis/*`).
++- Homepage in-memory cache TTL remains 5 minutes (`5 * 60 * 1000`) and listing query handling remains route-query driven.
++- `.env` base URL and static auth header values still match atlas notes.
++
++#### Assumptions And Unknowns
++- Contract validation remains frontend-consumer-based; backend implementation and API schemas were not rescanned in this phase.
++- Route behavior was validated statically from source; no browser-run navigation trace was executed in Phase 2.
++- Legacy commented API paths remain non-active by source inspection, but production backend support status is unknown.
++
++#### Next Recommended Atlas Refresh Targets
++- Refresh route docs immediately after any cleanup of duplicate `/listing-page` declarations or addition of missing `/help`, `/reviews`, `/my-reviews` routes.
++- Refresh auth/flow notes after resolving `AuthContextProvider` vs `ProtectedRoute` loading contract mismatch.
++- Refresh API surface after consolidating legacy wrappers (`UserAuthApis`, mixed `apiService` endpoints, token profile split in `httpClient`).
++- Re-run atlas verification when `.env` API host/token policy changes across environments.
++
++#### Verification Method
++- Source validation commands: `nl`, `grep`, `cat` over the high-risk files listed above.
++- Phase 2 remained documentation-only; no target project source files were modified.
+
+file update
+M /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md
+@@ -65 +65,24 @@
+ - Verified phase performed docs-only updates (no source code edits in target project).
++
++## Phase 2 - Validate Atlas Coverage
++### Changes Made
++- Revalidated the refreshed atlas against high-risk route, auth, and API surfaces in `/Users/macbook/Desktop/Huz/Huz-Web-Frontend`.
++- Confirmed current atlas docs remain aligned with source behavior; no additional atlas file edits were required in this phase.
++- Appended Phase 2 coverage validation, assumptions, unknowns, and next refresh targets to `docs/qa/DEEP_SCAN_REPORT.md`.
++
++### How It Was Implemented
++- Read required run context (`config.json`, `OPERATOR_PROFILE.md`, atlas docs, run `TASK.md`, Phase 2 prompt).
++- Reopened and checked highest-risk files cited by atlas (`AppRoutes`, `ProtectedRoute`, `AuthContextProvider`, `httpClient`, `AuthApi`, `UserAuthApis`, `apiService`, navigation emitters, and key flow hooks).
++- Verified known ambiguity points (duplicate `/listing-page`, unresolved navigation targets, auth loading contract mismatch, mixed endpoint families) are still accurately represented in atlas docs.
++- Recorded remaining blind spots and recommended next atlas refresh triggers in `DEEP_SCAN_REPORT.md`.
++
++### Files Touched
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md`
++
++### Verification
++- Route and navigation verification: `src/routes/AppRoutes.jsx`, `src/components/Header/Header.js`, `src/pages/UserSetting/sidebar.jsx`.
++- Auth guard/context verification: `src/components/ProtectedRoute/ProtectedRoute.js`, `src/context/AuthContextProvider.js`.
++- API and contract verification: `src/services/api/httpClient.js`, `src/api/AuthApi.js`, `src/api/UserAuthApis.js`, `src/api/homepageApi.js`, `src/api/listingApi.js`, `src/api/apiService.js`, plus `.env`.
++- Supporting flow checks: `src/components/SearchBar/SearchBar.js`, `src/features/listing/hooks/useListingPageData.js`, `src/features/packageDetail/hooks/usePackageDetailLogic.js`, `src/features/booking/hooks/useBookingLogic.js`, `src/hooks/useHomepageData.js`.
++- Commands used for evidence capture: `cat`, `grep`, and `nl`; no target-project code files were modified in this phase.
+apply_patch(auto_approved=true) exited 0 in 26ms:
+Success. Updated the following files:
+M /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md
+index ba4b599565bd67f3aeab8ebf5b0612188aace3a3..def57e21e032b06917e17cb4c74be990c03dfaf2
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md
+@@ -63,3 +63,26 @@
+ - Verified provider/auth boundaries against `src/App.js` and `src/context/AuthContextProvider.js`.
+ - Verified endpoint inventory against `src/services/api/httpClient.js` and `src/api/*` modules.
+ - Verified phase performed docs-only updates (no source code edits in target project).
++
++## Phase 2 - Validate Atlas Coverage
++### Changes Made
++- Revalidated the refreshed atlas against high-risk route, auth, and API surfaces in `/Users/macbook/Desktop/Huz/Huz-Web-Frontend`.
++- Confirmed current atlas docs remain aligned with source behavior; no additional atlas file edits were required in this phase.
++- Appended Phase 2 coverage validation, assumptions, unknowns, and next refresh targets to `docs/qa/DEEP_SCAN_REPORT.md`.
++
++### How It Was Implemented
++- Read required run context (`config.json`, `OPERATOR_PROFILE.md`, atlas docs, run `TASK.md`, Phase 2 prompt).
++- Reopened and checked highest-risk files cited by atlas (`AppRoutes`, `ProtectedRoute`, `AuthContextProvider`, `httpClient`, `AuthApi`, `UserAuthApis`, `apiService`, navigation emitters, and key flow hooks).
++- Verified known ambiguity points (duplicate `/listing-page`, unresolved navigation targets, auth loading contract mismatch, mixed endpoint families) are still accurately represented in atlas docs.
++- Recorded remaining blind spots and recommended next atlas refresh triggers in `DEEP_SCAN_REPORT.md`.
++
++### Files Touched
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md`
++
++### Verification
++- Route and navigation verification: `src/routes/AppRoutes.jsx`, `src/components/Header/Header.js`, `src/pages/UserSetting/sidebar.jsx`.
++- Auth guard/context verification: `src/components/ProtectedRoute/ProtectedRoute.js`, `src/context/AuthContextProvider.js`.
++- API and contract verification: `src/services/api/httpClient.js`, `src/api/AuthApi.js`, `src/api/UserAuthApis.js`, `src/api/homepageApi.js`, `src/api/listingApi.js`, `src/api/apiService.js`, plus `.env`.
++- Supporting flow checks: `src/components/SearchBar/SearchBar.js`, `src/features/listing/hooks/useListingPageData.js`, `src/features/packageDetail/hooks/usePackageDetailLogic.js`, `src/features/booking/hooks/useBookingLogic.js`, `src/hooks/useHomepageData.js`.
++- Commands used for evidence capture: `cat`, `grep`, and `nl`; no target-project code files were modified in this phase.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md
+index 0719b8719d415d12f63a9295118430d6773c481f..f227f53568f2f0f40d51591511c45b26a0ed438e
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md
+@@ -245,3 +245,55 @@
+ - No browser-driven runtime trace was executed; findings are from static code-path analysis and source inspection.
+ - No test/build command was run in this reporting phase because Phase 2 was documentation-only.
+ - Additional legacy/dead paths may still exist outside the traced route and flow surfaces above.
++
++### 2026-03-05 - System Atlas Run `20260305-152520-system-atlas` - Phase 2 (Validate Atlas Coverage)
++
++#### Atlas Coverage Validation Result
++- Revalidated the highest-risk atlas references against live source files and confirmed Phase 1 atlas docs still match current code behavior.
++- No atlas drift requiring edits to `PROJECT_BLUEPRINT.md`, `MODULE_MAP.md`, `ROUTES_AND_ENTRYPOINTS.md`, or `API_SURFACE.md` was found in this phase.
++
++#### High-Risk Files Reopened For Validation
++- Routing and ownership boundaries:
++  - `src/routes/AppRoutes.jsx`
++  - `src/components/Header/Header.js`
++  - `src/pages/UserSetting/sidebar.jsx`
++- Auth gate and context contract:
++  - `src/components/ProtectedRoute/ProtectedRoute.js`
++  - `src/context/AuthContextProvider.js`
++- API transport and contract drift surface:
++  - `src/services/api/httpClient.js`
++  - `src/api/AuthApi.js`
++  - `src/api/UserAuthApis.js`
++  - `src/api/homepageApi.js`
++  - `src/api/listingApi.js`
++  - `src/api/apiService.js`
++- Flow validation touchpoints:
++  - `src/components/SearchBar/SearchBar.js`
++  - `src/features/listing/hooks/useListingPageData.js`
++  - `src/features/packageDetail/hooks/usePackageDetailLogic.js`
++  - `src/features/booking/hooks/useBookingLogic.js`
++  - `src/hooks/useHomepageData.js`
++  - `.env`
++
++#### Confirmed Atlas Statements Still Accurate
++- Duplicate `/listing-page` route declaration still exists in `AppRoutes` (first `ListingPage`, later `ComingSoon`).
++- Navigation targets `/my-reviews`, `/help`, and `/reviews` still have no corresponding route declarations.
++- `ProtectedRoute` still consumes `loading` while `AuthContextProvider` still does not provide `loading` in context value.
++- Mixed endpoint families remain active (`/auth/api/...` with `/auth/apis/...`, and `/partner/get_*` with `/partner/apis/*`).
++- Homepage in-memory cache TTL remains 5 minutes (`5 * 60 * 1000`) and listing query handling remains route-query driven.
++- `.env` base URL and static auth header values still match atlas notes.
++
++#### Assumptions And Unknowns
++- Contract validation remains frontend-consumer-based; backend implementation and API schemas were not rescanned in this phase.
++- Route behavior was validated statically from source; no browser-run navigation trace was executed in Phase 2.
++- Legacy commented API paths remain non-active by source inspection, but production backend support status is unknown.
++
++#### Next Recommended Atlas Refresh Targets
++- Refresh route docs immediately after any cleanup of duplicate `/listing-page` declarations or addition of missing `/help`, `/reviews`, `/my-reviews` routes.
++- Refresh auth/flow notes after resolving `AuthContextProvider` vs `ProtectedRoute` loading contract mismatch.
++- Refresh API surface after consolidating legacy wrappers (`UserAuthApis`, mixed `apiService` endpoints, token profile split in `httpClient`).
++- Re-run atlas verification when `.env` API host/token policy changes across environments.
++
++#### Verification Method
++- Source validation commands: `nl`, `grep`, `cat` over the high-risk files listed above.
++- Phase 2 remained documentation-only; no target project source files were modified.
+
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md
+index ba4b599565bd67f3aeab8ebf5b0612188aace3a3..def57e21e032b06917e17cb4c74be990c03dfaf2
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md
+@@ -63,3 +63,26 @@
+ - Verified provider/auth boundaries against `src/App.js` and `src/context/AuthContextProvider.js`.
+ - Verified endpoint inventory against `src/services/api/httpClient.js` and `src/api/*` modules.
+ - Verified phase performed docs-only updates (no source code edits in target project).
++
++## Phase 2 - Validate Atlas Coverage
++### Changes Made
++- Revalidated the refreshed atlas against high-risk route, auth, and API surfaces in `/Users/macbook/Desktop/Huz/Huz-Web-Frontend`.
++- Confirmed current atlas docs remain aligned with source behavior; no additional atlas file edits were required in this phase.
++- Appended Phase 2 coverage validation, assumptions, unknowns, and next refresh targets to `docs/qa/DEEP_SCAN_REPORT.md`.
++
++### How It Was Implemented
++- Read required run context (`config.json`, `OPERATOR_PROFILE.md`, atlas docs, run `TASK.md`, Phase 2 prompt).
++- Reopened and checked highest-risk files cited by atlas (`AppRoutes`, `ProtectedRoute`, `AuthContextProvider`, `httpClient`, `AuthApi`, `UserAuthApis`, `apiService`, navigation emitters, and key flow hooks).
++- Verified known ambiguity points (duplicate `/listing-page`, unresolved navigation targets, auth loading contract mismatch, mixed endpoint families) are still accurately represented in atlas docs.
++- Recorded remaining blind spots and recommended next atlas refresh triggers in `DEEP_SCAN_REPORT.md`.
++
++### Files Touched
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md`
++
++### Verification
++- Route and navigation verification: `src/routes/AppRoutes.jsx`, `src/components/Header/Header.js`, `src/pages/UserSetting/sidebar.jsx`.
++- Auth guard/context verification: `src/components/ProtectedRoute/ProtectedRoute.js`, `src/context/AuthContextProvider.js`.
++- API and contract verification: `src/services/api/httpClient.js`, `src/api/AuthApi.js`, `src/api/UserAuthApis.js`, `src/api/homepageApi.js`, `src/api/listingApi.js`, `src/api/apiService.js`, plus `.env`.
++- Supporting flow checks: `src/components/SearchBar/SearchBar.js`, `src/features/listing/hooks/useListingPageData.js`, `src/features/packageDetail/hooks/usePackageDetailLogic.js`, `src/features/booking/hooks/useBookingLogic.js`, `src/hooks/useHomepageData.js`.
++- Commands used for evidence capture: `cat`, `grep`, and `nl`; no target-project code files were modified in this phase.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md
+index 0719b8719d415d12f63a9295118430d6773c481f..f227f53568f2f0f40d51591511c45b26a0ed438e
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md
+@@ -245,3 +245,55 @@
+ - No browser-driven runtime trace was executed; findings are from static code-path analysis and source inspection.
+ - No test/build command was run in this reporting phase because Phase 2 was documentation-only.
+ - Additional legacy/dead paths may still exist outside the traced route and flow surfaces above.
++
++### 2026-03-05 - System Atlas Run `20260305-152520-system-atlas` - Phase 2 (Validate Atlas Coverage)
++
++#### Atlas Coverage Validation Result
++- Revalidated the highest-risk atlas references against live source files and confirmed Phase 1 atlas docs still match current code behavior.
++- No atlas drift requiring edits to `PROJECT_BLUEPRINT.md`, `MODULE_MAP.md`, `ROUTES_AND_ENTRYPOINTS.md`, or `API_SURFACE.md` was found in this phase.
++
++#### High-Risk Files Reopened For Validation
++- Routing and ownership boundaries:
++  - `src/routes/AppRoutes.jsx`
++  - `src/components/Header/Header.js`
++  - `src/pages/UserSetting/sidebar.jsx`
++- Auth gate and context contract:
++  - `src/components/ProtectedRoute/ProtectedRoute.js`
++  - `src/context/AuthContextProvider.js`
++- API transport and contract drift surface:
++  - `src/services/api/httpClient.js`
++  - `src/api/AuthApi.js`
++  - `src/api/UserAuthApis.js`
++  - `src/api/homepageApi.js`
++  - `src/api/listingApi.js`
++  - `src/api/apiService.js`
++- Flow validation touchpoints:
++  - `src/components/SearchBar/SearchBar.js`
++  - `src/features/listing/hooks/useListingPageData.js`
++  - `src/features/packageDetail/hooks/usePackageDetailLogic.js`
++  - `src/features/booking/hooks/useBookingLogic.js`
++  - `src/hooks/useHomepageData.js`
++  - `.env`
++
++#### Confirmed Atlas Statements Still Accurate
++- Duplicate `/listing-page` route declaration still exists in `AppRoutes` (first `ListingPage`, later `ComingSoon`).
++- Navigation targets `/my-reviews`, `/help`, and `/reviews` still have no corresponding route declarations.
++- `ProtectedRoute` still consumes `loading` while `AuthContextProvider` still does not provide `loading` in context value.
++- Mixed endpoint families remain active (`/auth/api/...` with `/auth/apis/...`, and `/partner/get_*` with `/partner/apis/*`).
++- Homepage in-memory cache TTL remains 5 minutes (`5 * 60 * 1000`) and listing query handling remains route-query driven.
++- `.env` base URL and static auth header values still match atlas notes.
++
++#### Assumptions And Unknowns
++- Contract validation remains frontend-consumer-based; backend implementation and API schemas were not rescanned in this phase.
++- Route behavior was validated statically from source; no browser-run navigation trace was executed in Phase 2.
++- Legacy commented API paths remain non-active by source inspection, but production backend support status is unknown.
++
++#### Next Recommended Atlas Refresh Targets
++- Refresh route docs immediately after any cleanup of duplicate `/listing-page` declarations or addition of missing `/help`, `/reviews`, `/my-reviews` routes.
++- Refresh auth/flow notes after resolving `AuthContextProvider` vs `ProtectedRoute` loading contract mismatch.
++- Refresh API surface after consolidating legacy wrappers (`UserAuthApis`, mixed `apiService` endpoints, token profile split in `httpClient`).
++- Re-run atlas verification when `.env` API host/token policy changes across environments.
++
++#### Verification Method
++- Source validation commands: `nl`, `grep`, `cat` over the high-risk files listed above.
++- Phase 2 remained documentation-only; no target project source files were modified.
+
+codex
+Phase 2 documentation updates are in place. I’m now running the required orchestration commands (`complete --phase 2`, then `next`) and then I’ll print `NEXT_PROMPT.md`.
+exec
+/bin/zsh -lc 'node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas --phase 2' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default succeeded in 105ms:
+Marked phase 2 as completed.
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md
+index ba4b599565bd67f3aeab8ebf5b0612188aace3a3..def57e21e032b06917e17cb4c74be990c03dfaf2
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md
+@@ -63,3 +63,26 @@
+ - Verified provider/auth boundaries against `src/App.js` and `src/context/AuthContextProvider.js`.
+ - Verified endpoint inventory against `src/services/api/httpClient.js` and `src/api/*` modules.
+ - Verified phase performed docs-only updates (no source code edits in target project).
++
++## Phase 2 - Validate Atlas Coverage
++### Changes Made
++- Revalidated the refreshed atlas against high-risk route, auth, and API surfaces in `/Users/macbook/Desktop/Huz/Huz-Web-Frontend`.
++- Confirmed current atlas docs remain aligned with source behavior; no additional atlas file edits were required in this phase.
++- Appended Phase 2 coverage validation, assumptions, unknowns, and next refresh targets to `docs/qa/DEEP_SCAN_REPORT.md`.
++
++### How It Was Implemented
++- Read required run context (`config.json`, `OPERATOR_PROFILE.md`, atlas docs, run `TASK.md`, Phase 2 prompt).
++- Reopened and checked highest-risk files cited by atlas (`AppRoutes`, `ProtectedRoute`, `AuthContextProvider`, `httpClient`, `AuthApi`, `UserAuthApis`, `apiService`, navigation emitters, and key flow hooks).
++- Verified known ambiguity points (duplicate `/listing-page`, unresolved navigation targets, auth loading contract mismatch, mixed endpoint families) are still accurately represented in atlas docs.
++- Recorded remaining blind spots and recommended next atlas refresh triggers in `DEEP_SCAN_REPORT.md`.
++
++### Files Touched
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md`
++
++### Verification
++- Route and navigation verification: `src/routes/AppRoutes.jsx`, `src/components/Header/Header.js`, `src/pages/UserSetting/sidebar.jsx`.
++- Auth guard/context verification: `src/components/ProtectedRoute/ProtectedRoute.js`, `src/context/AuthContextProvider.js`.
++- API and contract verification: `src/services/api/httpClient.js`, `src/api/AuthApi.js`, `src/api/UserAuthApis.js`, `src/api/homepageApi.js`, `src/api/listingApi.js`, `src/api/apiService.js`, plus `.env`.
++- Supporting flow checks: `src/components/SearchBar/SearchBar.js`, `src/features/listing/hooks/useListingPageData.js`, `src/features/packageDetail/hooks/usePackageDetailLogic.js`, `src/features/booking/hooks/useBookingLogic.js`, `src/hooks/useHomepageData.js`.
++- Commands used for evidence capture: `cat`, `grep`, and `nl`; no target-project code files were modified in this phase.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md
+index 0719b8719d415d12f63a9295118430d6773c481f..f227f53568f2f0f40d51591511c45b26a0ed438e
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md
+@@ -245,3 +245,55 @@
+ - No browser-driven runtime trace was executed; findings are from static code-path analysis and source inspection.
+ - No test/build command was run in this reporting phase because Phase 2 was documentation-only.
+ - Additional legacy/dead paths may still exist outside the traced route and flow surfaces above.
++
++### 2026-03-05 - System Atlas Run `20260305-152520-system-atlas` - Phase 2 (Validate Atlas Coverage)
++
++#### Atlas Coverage Validation Result
++- Revalidated the highest-risk atlas references against live source files and confirmed Phase 1 atlas docs still match current code behavior.
++- No atlas drift requiring edits to `PROJECT_BLUEPRINT.md`, `MODULE_MAP.md`, `ROUTES_AND_ENTRYPOINTS.md`, or `API_SURFACE.md` was found in this phase.
++
++#### High-Risk Files Reopened For Validation
++- Routing and ownership boundaries:
++  - `src/routes/AppRoutes.jsx`
++  - `src/components/Header/Header.js`
++  - `src/pages/UserSetting/sidebar.jsx`
++- Auth gate and context contract:
++  - `src/components/ProtectedRoute/ProtectedRoute.js`
++  - `src/context/AuthContextProvider.js`
++- API transport and contract drift surface:
++  - `src/services/api/httpClient.js`
++  - `src/api/AuthApi.js`
++  - `src/api/UserAuthApis.js`
++  - `src/api/homepageApi.js`
++  - `src/api/listingApi.js`
++  - `src/api/apiService.js`
++- Flow validation touchpoints:
++  - `src/components/SearchBar/SearchBar.js`
++  - `src/features/listing/hooks/useListingPageData.js`
++  - `src/features/packageDetail/hooks/usePackageDetailLogic.js`
++  - `src/features/booking/hooks/useBookingLogic.js`
++  - `src/hooks/useHomepageData.js`
++  - `.env`
++
++#### Confirmed Atlas Statements Still Accurate
++- Duplicate `/listing-page` route declaration still exists in `AppRoutes` (first `ListingPage`, later `ComingSoon`).
++- Navigation targets `/my-reviews`, `/help`, and `/reviews` still have no corresponding route declarations.
++- `ProtectedRoute` still consumes `loading` while `AuthContextProvider` still does not provide `loading` in context value.
++- Mixed endpoint families remain active (`/auth/api/...` with `/auth/apis/...`, and `/partner/get_*` with `/partner/apis/*`).
++- Homepage in-memory cache TTL remains 5 minutes (`5 * 60 * 1000`) and listing query handling remains route-query driven.
++- `.env` base URL and static auth header values still match atlas notes.
++
++#### Assumptions And Unknowns
++- Contract validation remains frontend-consumer-based; backend implementation and API schemas were not rescanned in this phase.
++- Route behavior was validated statically from source; no browser-run navigation trace was executed in Phase 2.
++- Legacy commented API paths remain non-active by source inspection, but production backend support status is unknown.
++
++#### Next Recommended Atlas Refresh Targets
++- Refresh route docs immediately after any cleanup of duplicate `/listing-page` declarations or addition of missing `/help`, `/reviews`, `/my-reviews` routes.
++- Refresh auth/flow notes after resolving `AuthContextProvider` vs `ProtectedRoute` loading contract mismatch.
++- Refresh API surface after consolidating legacy wrappers (`UserAuthApis`, mixed `apiService` endpoints, token profile split in `httpClient`).
++- Re-run atlas verification when `.env` API host/token policy changes across environments.
++
++#### Verification Method
++- Source validation commands: `nl`, `grep`, `cat` over the high-risk files listed above.
++- Phase 2 remained documentation-only; no target project source files were modified.
+
+exec
+/bin/zsh -lc 'node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default succeeded in 52ms:
+Project bot run complete for target `/Users/macbook/Desktop/Huz/Huz-Web-Frontend`.
+
+No remaining phases.
+Final validation checklist:
+- Ensure the requested build/test/lint commands were run for the changed scope.
+- Ensure the atlas docs under `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas` were refreshed for touched modules.
+- Ensure `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md` contains the full cumulative summary of changes and implementation details.
+- Ensure any mode-specific report docs were updated.
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md
+index ba4b599565bd67f3aeab8ebf5b0612188aace3a3..def57e21e032b06917e17cb4c74be990c03dfaf2
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md
+@@ -63,3 +63,26 @@
+ - Verified provider/auth boundaries against `src/App.js` and `src/context/AuthContextProvider.js`.
+ - Verified endpoint inventory against `src/services/api/httpClient.js` and `src/api/*` modules.
+ - Verified phase performed docs-only updates (no source code edits in target project).
++
++## Phase 2 - Validate Atlas Coverage
++### Changes Made
++- Revalidated the refreshed atlas against high-risk route, auth, and API surfaces in `/Users/macbook/Desktop/Huz/Huz-Web-Frontend`.
++- Confirmed current atlas docs remain aligned with source behavior; no additional atlas file edits were required in this phase.
++- Appended Phase 2 coverage validation, assumptions, unknowns, and next refresh targets to `docs/qa/DEEP_SCAN_REPORT.md`.
++
++### How It Was Implemented
++- Read required run context (`config.json`, `OPERATOR_PROFILE.md`, atlas docs, run `TASK.md`, Phase 2 prompt).
++- Reopened and checked highest-risk files cited by atlas (`AppRoutes`, `ProtectedRoute`, `AuthContextProvider`, `httpClient`, `AuthApi`, `UserAuthApis`, `apiService`, navigation emitters, and key flow hooks).
++- Verified known ambiguity points (duplicate `/listing-page`, unresolved navigation targets, auth loading contract mismatch, mixed endpoint families) are still accurately represented in atlas docs.
++- Recorded remaining blind spots and recommended next atlas refresh triggers in `DEEP_SCAN_REPORT.md`.
++
++### Files Touched
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md`
++
++### Verification
++- Route and navigation verification: `src/routes/AppRoutes.jsx`, `src/components/Header/Header.js`, `src/pages/UserSetting/sidebar.jsx`.
++- Auth guard/context verification: `src/components/ProtectedRoute/ProtectedRoute.js`, `src/context/AuthContextProvider.js`.
++- API and contract verification: `src/services/api/httpClient.js`, `src/api/AuthApi.js`, `src/api/UserAuthApis.js`, `src/api/homepageApi.js`, `src/api/listingApi.js`, `src/api/apiService.js`, plus `.env`.
++- Supporting flow checks: `src/components/SearchBar/SearchBar.js`, `src/features/listing/hooks/useListingPageData.js`, `src/features/packageDetail/hooks/usePackageDetailLogic.js`, `src/features/booking/hooks/useBookingLogic.js`, `src/hooks/useHomepageData.js`.
++- Commands used for evidence capture: `cat`, `grep`, and `nl`; no target-project code files were modified in this phase.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md
+index 0719b8719d415d12f63a9295118430d6773c481f..f227f53568f2f0f40d51591511c45b26a0ed438e
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md
+@@ -245,3 +245,55 @@
+ - No browser-driven runtime trace was executed; findings are from static code-path analysis and source inspection.
+ - No test/build command was run in this reporting phase because Phase 2 was documentation-only.
+ - Additional legacy/dead paths may still exist outside the traced route and flow surfaces above.
++
++### 2026-03-05 - System Atlas Run `20260305-152520-system-atlas` - Phase 2 (Validate Atlas Coverage)
++
++#### Atlas Coverage Validation Result
++- Revalidated the highest-risk atlas references against live source files and confirmed Phase 1 atlas docs still match current code behavior.
++- No atlas drift requiring edits to `PROJECT_BLUEPRINT.md`, `MODULE_MAP.md`, `ROUTES_AND_ENTRYPOINTS.md`, or `API_SURFACE.md` was found in this phase.
++
++#### High-Risk Files Reopened For Validation
++- Routing and ownership boundaries:
++  - `src/routes/AppRoutes.jsx`
++  - `src/components/Header/Header.js`
++  - `src/pages/UserSetting/sidebar.jsx`
++- Auth gate and context contract:
++  - `src/components/ProtectedRoute/ProtectedRoute.js`
++  - `src/context/AuthContextProvider.js`
++- API transport and contract drift surface:
++  - `src/services/api/httpClient.js`
++  - `src/api/AuthApi.js`
++  - `src/api/UserAuthApis.js`
++  - `src/api/homepageApi.js`
++  - `src/api/listingApi.js`
++  - `src/api/apiService.js`
++- Flow validation touchpoints:
++  - `src/components/SearchBar/SearchBar.js`
++  - `src/features/listing/hooks/useListingPageData.js`
++  - `src/features/packageDetail/hooks/usePackageDetailLogic.js`
++  - `src/features/booking/hooks/useBookingLogic.js`
++  - `src/hooks/useHomepageData.js`
++  - `.env`
++
++#### Confirmed Atlas Statements Still Accurate
++- Duplicate `/listing-page` route declaration still exists in `AppRoutes` (first `ListingPage`, later `ComingSoon`).
++- Navigation targets `/my-reviews`, `/help`, and `/reviews` still have no corresponding route declarations.
++- `ProtectedRoute` still consumes `loading` while `AuthContextProvider` still does not provide `loading` in context value.
++- Mixed endpoint families remain active (`/auth/api/...` with `/auth/apis/...`, and `/partner/get_*` with `/partner/apis/*`).
++- Homepage in-memory cache TTL remains 5 minutes (`5 * 60 * 1000`) and listing query handling remains route-query driven.
++- `.env` base URL and static auth header values still match atlas notes.
++
++#### Assumptions And Unknowns
++- Contract validation remains frontend-consumer-based; backend implementation and API schemas were not rescanned in this phase.
++- Route behavior was validated statically from source; no browser-run navigation trace was executed in Phase 2.
++- Legacy commented API paths remain non-active by source inspection, but production backend support status is unknown.
++
++#### Next Recommended Atlas Refresh Targets
++- Refresh route docs immediately after any cleanup of duplicate `/listing-page` declarations or addition of missing `/help`, `/reviews`, `/my-reviews` routes.
++- Refresh auth/flow notes after resolving `AuthContextProvider` vs `ProtectedRoute` loading contract mismatch.
++- Refresh API surface after consolidating legacy wrappers (`UserAuthApis`, mixed `apiService` endpoints, token profile split in `httpClient`).
++- Re-run atlas verification when `.env` API host/token policy changes across environments.
++
++#### Verification Method
++- Source validation commands: `nl`, `grep`, `cat` over the high-risk files listed above.
++- Phase 2 remained documentation-only; no target project source files were modified.
+
+codex
+The run is now marked complete with no remaining phases. I’m printing the current `NEXT_PROMPT.md` content next.
+exec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/NEXT_PROMPT.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default succeeded in 52ms:
+Project bot run complete for target `/Users/macbook/Desktop/Huz/Huz-Web-Frontend`.
+
+No remaining phases.
+Final validation checklist:
+- Ensure the requested build/test/lint commands were run for the changed scope.
+- Ensure the atlas docs under `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas` were refreshed for touched modules.
+- Ensure `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md` contains the full cumulative summary of changes and implementation details.
+- Ensure any mode-specific report docs were updated.
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md
+index ba4b599565bd67f3aeab8ebf5b0612188aace3a3..def57e21e032b06917e17cb4c74be990c03dfaf2
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md
+@@ -63,3 +63,26 @@
+ - Verified provider/auth boundaries against `src/App.js` and `src/context/AuthContextProvider.js`.
+ - Verified endpoint inventory against `src/services/api/httpClient.js` and `src/api/*` modules.
+ - Verified phase performed docs-only updates (no source code edits in target project).
++
++## Phase 2 - Validate Atlas Coverage
++### Changes Made
++- Revalidated the refreshed atlas against high-risk route, auth, and API surfaces in `/Users/macbook/Desktop/Huz/Huz-Web-Frontend`.
++- Confirmed current atlas docs remain aligned with source behavior; no additional atlas file edits were required in this phase.
++- Appended Phase 2 coverage validation, assumptions, unknowns, and next refresh targets to `docs/qa/DEEP_SCAN_REPORT.md`.
++
++### How It Was Implemented
++- Read required run context (`config.json`, `OPERATOR_PROFILE.md`, atlas docs, run `TASK.md`, Phase 2 prompt).
++- Reopened and checked highest-risk files cited by atlas (`AppRoutes`, `ProtectedRoute`, `AuthContextProvider`, `httpClient`, `AuthApi`, `UserAuthApis`, `apiService`, navigation emitters, and key flow hooks).
++- Verified known ambiguity points (duplicate `/listing-page`, unresolved navigation targets, auth loading contract mismatch, mixed endpoint families) are still accurately represented in atlas docs.
++- Recorded remaining blind spots and recommended next atlas refresh triggers in `DEEP_SCAN_REPORT.md`.
++
++### Files Touched
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md`
++
++### Verification
++- Route and navigation verification: `src/routes/AppRoutes.jsx`, `src/components/Header/Header.js`, `src/pages/UserSetting/sidebar.jsx`.
++- Auth guard/context verification: `src/components/ProtectedRoute/ProtectedRoute.js`, `src/context/AuthContextProvider.js`.
++- API and contract verification: `src/services/api/httpClient.js`, `src/api/AuthApi.js`, `src/api/UserAuthApis.js`, `src/api/homepageApi.js`, `src/api/listingApi.js`, `src/api/apiService.js`, plus `.env`.
++- Supporting flow checks: `src/components/SearchBar/SearchBar.js`, `src/features/listing/hooks/useListingPageData.js`, `src/features/packageDetail/hooks/usePackageDetailLogic.js`, `src/features/booking/hooks/useBookingLogic.js`, `src/hooks/useHomepageData.js`.
++- Commands used for evidence capture: `cat`, `grep`, and `nl`; no target-project code files were modified in this phase.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md
+index 0719b8719d415d12f63a9295118430d6773c481f..f227f53568f2f0f40d51591511c45b26a0ed438e
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md
+@@ -245,3 +245,55 @@
+ - No browser-driven runtime trace was executed; findings are from static code-path analysis and source inspection.
+ - No test/build command was run in this reporting phase because Phase 2 was documentation-only.
+ - Additional legacy/dead paths may still exist outside the traced route and flow surfaces above.
++
++### 2026-03-05 - System Atlas Run `20260305-152520-system-atlas` - Phase 2 (Validate Atlas Coverage)
++
++#### Atlas Coverage Validation Result
++- Revalidated the highest-risk atlas references against live source files and confirmed Phase 1 atlas docs still match current code behavior.
++- No atlas drift requiring edits to `PROJECT_BLUEPRINT.md`, `MODULE_MAP.md`, `ROUTES_AND_ENTRYPOINTS.md`, or `API_SURFACE.md` was found in this phase.
++
++#### High-Risk Files Reopened For Validation
++- Routing and ownership boundaries:
++  - `src/routes/AppRoutes.jsx`
++  - `src/components/Header/Header.js`
++  - `src/pages/UserSetting/sidebar.jsx`
++- Auth gate and context contract:
++  - `src/components/ProtectedRoute/ProtectedRoute.js`
++  - `src/context/AuthContextProvider.js`
++- API transport and contract drift surface:
++  - `src/services/api/httpClient.js`
++  - `src/api/AuthApi.js`
++  - `src/api/UserAuthApis.js`
++  - `src/api/homepageApi.js`
++  - `src/api/listingApi.js`
++  - `src/api/apiService.js`
++- Flow validation touchpoints:
++  - `src/components/SearchBar/SearchBar.js`
++  - `src/features/listing/hooks/useListingPageData.js`
++  - `src/features/packageDetail/hooks/usePackageDetailLogic.js`
++  - `src/features/booking/hooks/useBookingLogic.js`
++  - `src/hooks/useHomepageData.js`
++  - `.env`
++
++#### Confirmed Atlas Statements Still Accurate
++- Duplicate `/listing-page` route declaration still exists in `AppRoutes` (first `ListingPage`, later `ComingSoon`).
++- Navigation targets `/my-reviews`, `/help`, and `/reviews` still have no corresponding route declarations.
++- `ProtectedRoute` still consumes `loading` while `AuthContextProvider` still does not provide `loading` in context value.
++- Mixed endpoint families remain active (`/auth/api/...` with `/auth/apis/...`, and `/partner/get_*` with `/partner/apis/*`).
++- Homepage in-memory cache TTL remains 5 minutes (`5 * 60 * 1000`) and listing query handling remains route-query driven.
++- `.env` base URL and static auth header values still match atlas notes.
++
++#### Assumptions And Unknowns
++- Contract validation remains frontend-consumer-based; backend implementation and API schemas were not rescanned in this phase.
++- Route behavior was validated statically from source; no browser-run navigation trace was executed in Phase 2.
++- Legacy commented API paths remain non-active by source inspection, but production backend support status is unknown.
++
++#### Next Recommended Atlas Refresh Targets
++- Refresh route docs immediately after any cleanup of duplicate `/listing-page` declarations or addition of missing `/help`, `/reviews`, `/my-reviews` routes.
++- Refresh auth/flow notes after resolving `AuthContextProvider` vs `ProtectedRoute` loading contract mismatch.
++- Refresh API surface after consolidating legacy wrappers (`UserAuthApis`, mixed `apiService` endpoints, token profile split in `httpClient`).
++- Re-run atlas verification when `.env` API host/token policy changes across environments.
++
++#### Verification Method
++- Source validation commands: `nl`, `grep`, `cat` over the high-risk files listed above.
++- Phase 2 remained documentation-only; no target project source files were modified.
+
+exec
+/bin/zsh -lc 'git -C /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default status --short' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default exited 128 in 51ms:
+fatal: not a git repository (or any of the parent directories): .git
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md
+index ba4b599565bd67f3aeab8ebf5b0612188aace3a3..def57e21e032b06917e17cb4c74be990c03dfaf2
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md
+@@ -63,3 +63,26 @@
+ - Verified provider/auth boundaries against `src/App.js` and `src/context/AuthContextProvider.js`.
+ - Verified endpoint inventory against `src/services/api/httpClient.js` and `src/api/*` modules.
+ - Verified phase performed docs-only updates (no source code edits in target project).
++
++## Phase 2 - Validate Atlas Coverage
++### Changes Made
++- Revalidated the refreshed atlas against high-risk route, auth, and API surfaces in `/Users/macbook/Desktop/Huz/Huz-Web-Frontend`.
++- Confirmed current atlas docs remain aligned with source behavior; no additional atlas file edits were required in this phase.
++- Appended Phase 2 coverage validation, assumptions, unknowns, and next refresh targets to `docs/qa/DEEP_SCAN_REPORT.md`.
++
++### How It Was Implemented
++- Read required run context (`config.json`, `OPERATOR_PROFILE.md`, atlas docs, run `TASK.md`, Phase 2 prompt).
++- Reopened and checked highest-risk files cited by atlas (`AppRoutes`, `ProtectedRoute`, `AuthContextProvider`, `httpClient`, `AuthApi`, `UserAuthApis`, `apiService`, navigation emitters, and key flow hooks).
++- Verified known ambiguity points (duplicate `/listing-page`, unresolved navigation targets, auth loading contract mismatch, mixed endpoint families) are still accurately represented in atlas docs.
++- Recorded remaining blind spots and recommended next atlas refresh triggers in `DEEP_SCAN_REPORT.md`.
++
++### Files Touched
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md`
++
++### Verification
++- Route and navigation verification: `src/routes/AppRoutes.jsx`, `src/components/Header/Header.js`, `src/pages/UserSetting/sidebar.jsx`.
++- Auth guard/context verification: `src/components/ProtectedRoute/ProtectedRoute.js`, `src/context/AuthContextProvider.js`.
++- API and contract verification: `src/services/api/httpClient.js`, `src/api/AuthApi.js`, `src/api/UserAuthApis.js`, `src/api/homepageApi.js`, `src/api/listingApi.js`, `src/api/apiService.js`, plus `.env`.
++- Supporting flow checks: `src/components/SearchBar/SearchBar.js`, `src/features/listing/hooks/useListingPageData.js`, `src/features/packageDetail/hooks/usePackageDetailLogic.js`, `src/features/booking/hooks/useBookingLogic.js`, `src/hooks/useHomepageData.js`.
++- Commands used for evidence capture: `cat`, `grep`, and `nl`; no target-project code files were modified in this phase.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md
+index 0719b8719d415d12f63a9295118430d6773c481f..f227f53568f2f0f40d51591511c45b26a0ed438e
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md
+@@ -245,3 +245,55 @@
+ - No browser-driven runtime trace was executed; findings are from static code-path analysis and source inspection.
+ - No test/build command was run in this reporting phase because Phase 2 was documentation-only.
+ - Additional legacy/dead paths may still exist outside the traced route and flow surfaces above.
++
++### 2026-03-05 - System Atlas Run `20260305-152520-system-atlas` - Phase 2 (Validate Atlas Coverage)
++
++#### Atlas Coverage Validation Result
++- Revalidated the highest-risk atlas references against live source files and confirmed Phase 1 atlas docs still match current code behavior.
++- No atlas drift requiring edits to `PROJECT_BLUEPRINT.md`, `MODULE_MAP.md`, `ROUTES_AND_ENTRYPOINTS.md`, or `API_SURFACE.md` was found in this phase.
++
++#### High-Risk Files Reopened For Validation
++- Routing and ownership boundaries:
++  - `src/routes/AppRoutes.jsx`
++  - `src/components/Header/Header.js`
++  - `src/pages/UserSetting/sidebar.jsx`
++- Auth gate and context contract:
++  - `src/components/ProtectedRoute/ProtectedRoute.js`
++  - `src/context/AuthContextProvider.js`
++- API transport and contract drift surface:
++  - `src/services/api/httpClient.js`
++  - `src/api/AuthApi.js`
++  - `src/api/UserAuthApis.js`
++  - `src/api/homepageApi.js`
++  - `src/api/listingApi.js`
++  - `src/api/apiService.js`
++- Flow validation touchpoints:
++  - `src/components/SearchBar/SearchBar.js`
++  - `src/features/listing/hooks/useListingPageData.js`
++  - `src/features/packageDetail/hooks/usePackageDetailLogic.js`
++  - `src/features/booking/hooks/useBookingLogic.js`
++  - `src/hooks/useHomepageData.js`
++  - `.env`
++
++#### Confirmed Atlas Statements Still Accurate
++- Duplicate `/listing-page` route declaration still exists in `AppRoutes` (first `ListingPage`, later `ComingSoon`).
++- Navigation targets `/my-reviews`, `/help`, and `/reviews` still have no corresponding route declarations.
++- `ProtectedRoute` still consumes `loading` while `AuthContextProvider` still does not provide `loading` in context value.
++- Mixed endpoint families remain active (`/auth/api/...` with `/auth/apis/...`, and `/partner/get_*` with `/partner/apis/*`).
++- Homepage in-memory cache TTL remains 5 minutes (`5 * 60 * 1000`) and listing query handling remains route-query driven.
++- `.env` base URL and static auth header values still match atlas notes.
++
++#### Assumptions And Unknowns
++- Contract validation remains frontend-consumer-based; backend implementation and API schemas were not rescanned in this phase.
++- Route behavior was validated statically from source; no browser-run navigation trace was executed in Phase 2.
++- Legacy commented API paths remain non-active by source inspection, but production backend support status is unknown.
++
++#### Next Recommended Atlas Refresh Targets
++- Refresh route docs immediately after any cleanup of duplicate `/listing-page` declarations or addition of missing `/help`, `/reviews`, `/my-reviews` routes.
++- Refresh auth/flow notes after resolving `AuthContextProvider` vs `ProtectedRoute` loading contract mismatch.
++- Refresh API surface after consolidating legacy wrappers (`UserAuthApis`, mixed `apiService` endpoints, token profile split in `httpClient`).
++- Re-run atlas verification when `.env` API host/token policy changes across environments.
++
++#### Verification Method
++- Source validation commands: `nl`, `grep`, `cat` over the high-risk files listed above.
++- Phase 2 remained documentation-only; no target project source files were modified.
+
+codex
+Phase 2 (`Validate Atlas Coverage`) was executed for `/Users/macbook/Desktop/Huz/Huz-Web-Frontend` using `project-autopilot-manager`.
+
+Updated phase artifacts:
+- [DEEP_SCAN_REPORT.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md)
+- [RUN_SUMMARY.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md)
+
+Required commands run:
+1. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas --phase 2`
+2. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas`
+
+`NEXT_PROMPT.md`:
+```md
+Project bot run complete for target `/Users/macbook/Desktop/Huz/Huz-Web-Frontend`.
+
+No remaining phases.
+Final validation checklist:
+- Ensure the requested build/test/lint commands were run for the changed scope.
+- Ensure the atlas docs under `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas` were refreshed for touched modules.
+- Ensure `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md` contains the full cumulative summary of changes and implementation details.
+- Ensure any mode-specific report docs were updated.
+```
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md
+index ba4b599565bd67f3aeab8ebf5b0612188aace3a3..def57e21e032b06917e17cb4c74be990c03dfaf2
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md
+@@ -63,3 +63,26 @@
+ - Verified provider/auth boundaries against `src/App.js` and `src/context/AuthContextProvider.js`.
+ - Verified endpoint inventory against `src/services/api/httpClient.js` and `src/api/*` modules.
+ - Verified phase performed docs-only updates (no source code edits in target project).
++
++## Phase 2 - Validate Atlas Coverage
++### Changes Made
++- Revalidated the refreshed atlas against high-risk route, auth, and API surfaces in `/Users/macbook/Desktop/Huz/Huz-Web-Frontend`.
++- Confirmed current atlas docs remain aligned with source behavior; no additional atlas file edits were required in this phase.
++- Appended Phase 2 coverage validation, assumptions, unknowns, and next refresh targets to `docs/qa/DEEP_SCAN_REPORT.md`.
++
++### How It Was Implemented
++- Read required run context (`config.json`, `OPERATOR_PROFILE.md`, atlas docs, run `TASK.md`, Phase 2 prompt).
++- Reopened and checked highest-risk files cited by atlas (`AppRoutes`, `ProtectedRoute`, `AuthContextProvider`, `httpClient`, `AuthApi`, `UserAuthApis`, `apiService`, navigation emitters, and key flow hooks).
++- Verified known ambiguity points (duplicate `/listing-page`, unresolved navigation targets, auth loading contract mismatch, mixed endpoint families) are still accurately represented in atlas docs.
++- Recorded remaining blind spots and recommended next atlas refresh triggers in `DEEP_SCAN_REPORT.md`.
++
++### Files Touched
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md`
++
++### Verification
++- Route and navigation verification: `src/routes/AppRoutes.jsx`, `src/components/Header/Header.js`, `src/pages/UserSetting/sidebar.jsx`.
++- Auth guard/context verification: `src/components/ProtectedRoute/ProtectedRoute.js`, `src/context/AuthContextProvider.js`.
++- API and contract verification: `src/services/api/httpClient.js`, `src/api/AuthApi.js`, `src/api/UserAuthApis.js`, `src/api/homepageApi.js`, `src/api/listingApi.js`, `src/api/apiService.js`, plus `.env`.
++- Supporting flow checks: `src/components/SearchBar/SearchBar.js`, `src/features/listing/hooks/useListingPageData.js`, `src/features/packageDetail/hooks/usePackageDetailLogic.js`, `src/features/booking/hooks/useBookingLogic.js`, `src/hooks/useHomepageData.js`.
++- Commands used for evidence capture: `cat`, `grep`, and `nl`; no target-project code files were modified in this phase.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md
+index 0719b8719d415d12f63a9295118430d6773c481f..f227f53568f2f0f40d51591511c45b26a0ed438e
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md
+@@ -245,3 +245,55 @@
+ - No browser-driven runtime trace was executed; findings are from static code-path analysis and source inspection.
+ - No test/build command was run in this reporting phase because Phase 2 was documentation-only.
+ - Additional legacy/dead paths may still exist outside the traced route and flow surfaces above.
++
++### 2026-03-05 - System Atlas Run `20260305-152520-system-atlas` - Phase 2 (Validate Atlas Coverage)
++
++#### Atlas Coverage Validation Result
++- Revalidated the highest-risk atlas references against live source files and confirmed Phase 1 atlas docs still match current code behavior.
++- No atlas drift requiring edits to `PROJECT_BLUEPRINT.md`, `MODULE_MAP.md`, `ROUTES_AND_ENTRYPOINTS.md`, or `API_SURFACE.md` was found in this phase.
++
++#### High-Risk Files Reopened For Validation
++- Routing and ownership boundaries:
++  - `src/routes/AppRoutes.jsx`
++  - `src/components/Header/Header.js`
++  - `src/pages/UserSetting/sidebar.jsx`
++- Auth gate and context contract:
++  - `src/components/ProtectedRoute/ProtectedRoute.js`
++  - `src/context/AuthContextProvider.js`
++- API transport and contract drift surface:
++  - `src/services/api/httpClient.js`
++  - `src/api/AuthApi.js`
++  - `src/api/UserAuthApis.js`
++  - `src/api/homepageApi.js`
++  - `src/api/listingApi.js`
++  - `src/api/apiService.js`
++- Flow validation touchpoints:
++  - `src/components/SearchBar/SearchBar.js`
++  - `src/features/listing/hooks/useListingPageData.js`
++  - `src/features/packageDetail/hooks/usePackageDetailLogic.js`
++  - `src/features/booking/hooks/useBookingLogic.js`
++  - `src/hooks/useHomepageData.js`
++  - `.env`
++
++#### Confirmed Atlas Statements Still Accurate
++- Duplicate `/listing-page` route declaration still exists in `AppRoutes` (first `ListingPage`, later `ComingSoon`).
++- Navigation targets `/my-reviews`, `/help`, and `/reviews` still have no corresponding route declarations.
++- `ProtectedRoute` still consumes `loading` while `AuthContextProvider` still does not provide `loading` in context value.
++- Mixed endpoint families remain active (`/auth/api/...` with `/auth/apis/...`, and `/partner/get_*` with `/partner/apis/*`).
++- Homepage in-memory cache TTL remains 5 minutes (`5 * 60 * 1000`) and listing query handling remains route-query driven.
++- `.env` base URL and static auth header values still match atlas notes.
++
++#### Assumptions And Unknowns
++- Contract validation remains frontend-consumer-based; backend implementation and API schemas were not rescanned in this phase.
++- Route behavior was validated statically from source; no browser-run navigation trace was executed in Phase 2.
++- Legacy commented API paths remain non-active by source inspection, but production backend support status is unknown.
++
++#### Next Recommended Atlas Refresh Targets
++- Refresh route docs immediately after any cleanup of duplicate `/listing-page` declarations or addition of missing `/help`, `/reviews`, `/my-reviews` routes.
++- Refresh auth/flow notes after resolving `AuthContextProvider` vs `ProtectedRoute` loading contract mismatch.
++- Refresh API surface after consolidating legacy wrappers (`UserAuthApis`, mixed `apiService` endpoints, token profile split in `httpClient`).
++- Re-run atlas verification when `.env` API host/token policy changes across environments.
++
++#### Verification Method
++- Source validation commands: `nl`, `grep`, `cat` over the high-risk files listed above.
++- Phase 2 remained documentation-only; no target project source files were modified.
+
+tokens used
+58,362
+Phase 2 (`Validate Atlas Coverage`) was executed for `/Users/macbook/Desktop/Huz/Huz-Web-Frontend` using `project-autopilot-manager`.
+
+Updated phase artifacts:
+- [DEEP_SCAN_REPORT.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md)
+- [RUN_SUMMARY.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md)
+
+Required commands run:
+1. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas --phase 2`
+2. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas`
+
+`NEXT_PROMPT.md`:
+```md
+Project bot run complete for target `/Users/macbook/Desktop/Huz/Huz-Web-Frontend`.
+
+No remaining phases.
+Final validation checklist:
+- Ensure the requested build/test/lint commands were run for the changed scope.
+- Ensure the atlas docs under `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas` were refreshed for touched modules.
+- Ensure `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/project-bot/runs/20260305-152520-system-atlas/RUN_SUMMARY.md` contains the full cumulative summary of changes and implementation details.
+- Ensure any mode-specific report docs were updated.
+```

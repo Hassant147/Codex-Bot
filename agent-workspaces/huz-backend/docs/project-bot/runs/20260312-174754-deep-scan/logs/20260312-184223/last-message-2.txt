@@ -1,0 +1,14 @@
+Phase 3 is complete. I revalidated the open deep-scan and linked security findings against the live tree, corrected the atlas auth contract for `/common/manage_user_account/`, and recorded the Phase 3 verification summary in [ROUTES_AND_ENTRYPOINTS.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/ROUTES_AND_ENTRYPOINTS.md), [API_SURFACE.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/API_SURFACE.md), [DEEP_SCAN_REPORT.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md), [BUG_BACKLOG.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md), and [RUN_SUMMARY.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-deep-scan/RUN_SUMMARY.md). Runtime verification is still blocked because `python3 manage.py test management partners booking common --settings=huz.settings_test` fails with `ModuleNotFoundError: No module named 'django'`.
+
+I ran the required `complete --phase 3` and `next` orchestration commands. [NEXT_PROMPT.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-deep-scan/NEXT_PROMPT.md) now contains:
+
+```md
+Project bot run complete for target `/Users/macbook/Desktop/Huz/Huz-Backend`.
+
+No remaining phases.
+Final validation checklist:
+- Ensure the requested build/test/lint commands were run for the changed scope.
+- Ensure the atlas docs under `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas` were refreshed for touched modules.
+- Ensure `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-deep-scan/RUN_SUMMARY.md` contains the full cumulative summary of changes and implementation details.
+- Ensure any mode-specific report docs were updated.
+```

@@ -1,0 +1,8 @@
+# Traceability Map
+
+Trace requirements -> modules -> routes -> APIs -> tests/verifications.
+
+| Requirement/Finding | Modules | Routes | APIs | Verification |
+| --- | --- | --- | --- | --- |
+| `BOOKING-005` admin pending booking action must honor backend `operator_can_act` | `Huz-Admin-Frontend/src/pages/Admin-Panel/Bookings/BookingDetailsPage/Pending.js`, `src/context/BookingContext.js` | `/booking/:bookingNumber` (admin partner panel) | `/bookings/get_booking_detail_by_booking_number/`, `/bookings/partner_action_for_booking/` | Phase 1 implemented; Phase 2 still needs `Huz-Admin-Frontend` build, backend `manage.py check`, targeted booking tests, and route smoke. |
+| `BOOKING-006` admin booking fulfillment subflows must stop using global `localStorage("bookingNumber")` | `Huz-Admin-Frontend/src/App.js`, `src/pages/Admin-Panel/Bookings/bookingRouteUtils.js`, `src/pages/Admin-Panel/Bookings/BookingDetailsPage/useAdminBookingLoader.js`, `BookingDetailsPage/Active.js`, subflow wrappers, `src/context/BookingContext.js` | `/booking/:bookingNumber`, `/booking/:bookingNumber/upload-evisa`, `/booking/:bookingNumber/airline-tickets`, `/booking/:bookingNumber/transport-arrangement`, `/booking/:bookingNumber/hotel-arrangement`, plus legacy redirect entrypoints | `/bookings/get_booking_detail_by_booking_number/`, `/bookings/manage_booking_documents/`, `/bookings/manage_booking_airline_details/`, `/bookings/manage_booking_hotel_or_transport_details/` | Phase 1 implemented; Phase 2 still needs `Huz-Admin-Frontend` build, backend `manage.py check`, targeted booking tests, and subflow route smoke. |

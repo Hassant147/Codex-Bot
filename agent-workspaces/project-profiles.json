@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "profiles": [
+    {
+      "id": "profile-1772750095738-m0t3wy",
+      "name": "HUZ",
+      "workspaceRoot": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz",
+      "projectPath": "/Users/macbook/Desktop/Huz",
+      "designGuides": [
+        "/Users/macbook/Desktop/Huz/UI_DESIGN_SYSTEM_GUIDE.md",
+        "/Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md"
+      ],
+      "blueprintSources": [
+        "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/PROJECT_BLUEPRINT.md",
+        "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/MODULE_MAP.md",
+        "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/ROUTES_AND_ENTRYPOINTS.md",
+        "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/API_SURFACE.md",
+        "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md",
+        "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md"
+      ],
+      "projectSurfaces": [
+        {
+          "id": "primary-project",
+          "label": "Huz-Web-Frontend",
+          "path": "/Users/macbook/Desktop/Huz/Huz-Web-Frontend",
+          "kind": "panel-fe"
+        }
+      ],
+      "devIgnorePatterns": [
+        "node_modules/**",
+        "dist/**",
+        "build/**",
+        "coverage/**",
+        ".git/**",
+        ".cache/**",
+        ".next/**",
+        ".turbo/**",
+        ".idea/**",
+        ".vscode/**",
+        "logs/**",
+        "tmp/**",
+        "temp/**",
+        "*.min.js",
+        "*.map",
+        "*.log",
+        "*.lock"
+      ],
+      "scopeLevelDefault": "module",
+      "fullSystemRequiredDocs": true,
+      "requiredAtlasDocs": [
+        "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/PROJECT_BLUEPRINT.md",
+        "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/MODULE_MAP.md",
+        "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/ROUTES_AND_ENTRYPOINTS.md",
+        "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/API_SURFACE.md",
+        "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/CHANGE_MAP.md"
+      ],
+      "globalRules": "Always maintain full-system project memory in docs for the selected scope level.\nExclude non-dev and non-required files from deep mapping and auditing.\nWhen code changes touch modules/routes/APIs/contracts/schema/security/state, refresh relevant atlas docs in the same run.\nKeep audit findings traceable with status updates (open, fixed, verified) when remediation occurs.\nFor full-system or multi-panel fullstack scope, ensure frontend panels and backend structure/contracts are mapped together.",
+      "preferredModel": "gpt-5.3-codex",
+      "preferredEffort": "xhigh",
+      "preferredPreset": "max-quality",
+      "preferredMaxCycles": 12,
+      "preferredQuiet": true,
+      "preferredAutoRefresh": true,
+      "preferredRefreshSeconds": 5,
+      "createdAt": "2026-03-05T22:34:55.739Z",
+      "updatedAt": "2026-03-05T22:44:23.807Z"
+    }
+  ]
+}

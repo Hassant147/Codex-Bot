@@ -1,0 +1,913 @@
+2026-03-08T08:26:06.231743Z  WARN sqlx::query: slow statement: execution time exceeded alert threshold summary="INSERT INTO backfill_state (id, …" db.statement="\n\n\nINSERT INTO backfill_state (id, status, last_watermark, last_success_at, updated_at)\nVALUES (?, ?, NULL, NULL, ?)\nON CONFLICT(id) DO NOTHING\n            \n" rows_affected=0 rows_returned=0 elapsed=5.232932s elapsed_secs=5.232932 slow_threshold=1s
+2026-03-08T08:26:06.231871Z  WARN codex_core::state_db: failed to read backfill state at /Users/macbook/.codex: error returned from database: (code: 5) database is locked
+OpenAI Codex v0.108.0-alpha.12 (research preview)
+--------
+workdir: /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz
+model: gpt-5.4
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR, /Users/macbook/.codex/memories]
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019ccc8d-a5a5-7a72-9cf9-885155d98bb1
+--------
+user
+Use $project-autopilot-manager in `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz`.
+Read `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-062131-full-enhance/state.json` and `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-062131-full-enhance/prompts/phase-03.md`.
+Execute only Phase 3 (Implement Highest-Priority Batch) against target project `/Users/macbook/Desktop/Huz`.
+At the end, run:
+1. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-062131-full-enhance --phase 3`
+2. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-062131-full-enhance`
+Then print `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-062131-full-enhance/NEXT_PROMPT.md`.
+
+mcp: playwright starting
+2026-03-08T08:26:07.182041Z  WARN codex_core::shell_snapshot: Failed to delete shell snapshot at "/Users/macbook/.codex/shell_snapshots/019ccc8d-a5a5-7a72-9cf9-885155d98bb1.tmp-1772958366232943000": Os { code: 2, kind: NotFound, message: "No such file or directory" }
+mcp: playwright ready
+mcp startup: ready: playwright
+codex
+Using `project-autopilot-manager` for this run. I’m reading the saved run state and Phase 3 prompt first, then I’ll inspect the target project and implement only the highest-priority batch scoped to that phase.
+exec
+/bin/zsh -lc "sed -n '1,220p' /Users/macbook/.codex/skills/project-autopilot-manager/SKILL.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "sed -n '1,260p' /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-062131-full-enhance/state.json" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "sed -n '1,260p' /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-062131-full-enhance/prompts/phase-03.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'ls -la /Users/macbook/Desktop/Huz' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 51ms:
+---
+name: project-autopilot-manager
+description: General-purpose Codex project bot for initializing persistent atlas docs, creating bounded multi-phase task runs, keeping blueprint/map files updated after code changes, and automating fresh-session execution for scans, cleanup, revamps, feature work, and full project enhancement. Use when Codex should manage a project end-to-end instead of relying on repeated manual prompt transfer.
+---
+
+# Project Autopilot Manager
+
+## Purpose
+
+Run large project tasks through durable docs and bounded fresh-session phases so Codex can keep working without rescanning the entire codebase every time.
+
+## Core Guarantees
+
+- Keep atlas docs current after code changes.
+- Store project memory in files, not chat memory.
+- Split large work into bounded phases.
+- Generate fresh-session prompts automatically.
+- Work across different local projects by changing the target project path.
+
+## Main Script
+ succeeded in 51ms:
+# Phase 3: Implement Highest-Priority Batch
+
+Run Mode: `full-enhance`
+Run Directory: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-062131-full-enhance`
+Workspace Root: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz`
+Target Project: `/Users/macbook/Desktop/Huz`
+Scoped Directory/Module: `Huz-Web-Frontend remaining routes and shared page system`
+
+## Original Request
+Analyze the project, create a prioritized backlog, execute the highest-value batch safely, verify it, and refresh the docs.
+
+Compiled automation contract:
+- Scope level: multi-panel-fe
+- Scope: Huz-Web-Frontend remaining routes and shared page system
+- Scope targets: Huz-Web-Frontend, public-marketing-pages, static-site-pages, auth-pages, protected-user-pages, shared-layout-system
+- Keep atlas, maps, and audit files synchronized with any implementation changes.
+
+Large-task campaign contract (mandatory):
+- Treat this as a multi-run execution campaign, not a one-shot rewrite.
+- This run must complete one bounded implementation batch (target <= 8 pages or one backend domain).
+ succeeded in 51ms:
+{
+  "version": 1,
+  "workspaceRoot": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz",
+  "projectPath": "/Users/macbook/Desktop/Huz",
+  "mode": "full-enhance",
+  "modeTitle": "Full Enhancement",
+  "description": "Run a complete analyze-plan-execute-verify-refresh loop for a project or large module set, splitting the work into bounded phases and keeping the atlas and backlog current throughout.",
+  "scopeLevel": "multi-panel-fe",
+  "scope": "Huz-Web-Frontend remaining routes and shared page system",
+  "scopeTargets": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/Huz-Web-Frontend",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/public-marketing-pages",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/static-site-pages",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/auth-pages",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/protected-user-pages",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/shared-layout-system"
+  ],
+  "request": "Analyze the project, create a prioritized backlog, execute the highest-value batch safely, verify it, and refresh the docs.\n\nCompiled automation contract:\n- Scope level: multi-panel-fe\n- Scope: Huz-Web-Frontend remaining routes and shared page system\n- Scope targets: Huz-Web-Frontend, public-marketing-pages, static-site-pages, auth-pages, protected-user-pages, shared-layout-system\n- Keep atlas, maps, and audit files synchronized with any implementation changes.\n\nLarge-task campaign contract (mandatory):\n- Treat this as a multi-run execution campaign, not a one-shot rewrite.\n- This run must complete one bounded implementation batch (target <= 8 pages or one backend domain).\n- Keep frontend and backend contracts synchronized for touched flows.\n- Update BUG_BACKLOG with completed items, deferred items, and the exact next batch recommendation.\n- Include concrete verification commands and outcomes in RUN_SUMMARY for every batch.\n- Do not claim full completion unless the backlog for this scope is explicitly clear.\n\nOriginal user request: Please start a multi-run full frontend revamp campaign for Huz-Web-Frontend.\n\nScope: Huz-Web-Frontend remaining routes and shared page system\nScope targets: Huz-Web-Frontend, public-marketing-pages, static-site-pages, auth-pages, protected-user-pages, shared-layout-system\n\nMission:\n- Revamp all remaining Huz web frontend pages with one consistent Huz theme across desktop and mobile using a single responsive design system.\n- Homepage is reference-only. Use HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md and UI_DESIGN_SYSTEM_GUIDE.md as the design contract, and use the already-aligned pages as reference implementations instead of reinventing them.\n- Cover every route cluster in src/routes/AppRoutes.jsx, including public marketing pages, static site pages, auth pages, and protected account pages. This includes the static/policy/generic route system and all remaining user-setting routes.\n- Treat HomePage, ListingPage, PackageDetailPage, Booking, PaymentMethods, AuthLayout, and PersonalDetails as reference-quality foundations. Only touch them when extracting reusable primitives, shared layout pieces, or consistency fixes needed by the broader revamp.\n\nMandatory execution rules:\n- Use one consistent theme, layout rhythm, spacing system, card language, CTA hierarchy, and surface treatment across the app.\n- One design for both mobile and desktop. Do not maintain separate mobile/desktop page implementations unless the mobile file is only a thin compatibility wrapper around shared responsive content.\n- Prefer reusable, modular, data-driven architecture. Extend shared primitives such as BrandPageShell, homepage layout tokens, shared UI components, and static content abstractions instead of page-specific shells.\n- Strong modern React + JavaScript approach only. Remove brittle legacy duplication, isolate page logic cleanly, and keep component ownership obvious.\n- Keep routes stable.\n- Keep the app optimized, clean, aligned, sorted, and efficient.\n- Old, unused, dead, duplicate, or placeholder code/files may be deleted only after replacement is proven safe.\n- Do not run build. Do not run npm install. Do not modify lockfiles. Verification must rely on static inspection, route/import consistency checks, targeted grep/search, and clear manual reasoning notes. Explicitly record that no build was run.\n\nHigh-priority design/architecture goals:\n- Replace placeholder or one-off static page implementations with a shared branded content system that preserves route-specific content while reducing duplicated JSX/CSS.\n- Unify public/static/auth/account pages under the same design principles already established by the newer branded pages.\n- Improve performance by reducing duplicate render trees, duplicate layout wrappers, duplicate mobile variants, and unnecessary page-level assets/code paths.\n- Centralize repeated content structures so the many static pages stay maintainable and light.\n- Make every page feel like the same product.\n\nExpected outcomes:\n- All relevant pages in Huz-Web-Frontend are either revamped directly or migrated onto shared reusable primitives.\n- Static site pages are consolidated into an efficient modular system.\n- Dead files/components left behind by the revamp are removed when proven unused.\n- Atlas docs, backlog, and run summaries are refreshed as the work progresses.\n- The run proceeds in bounded batches until the revamp scope is fully covered.\n\nGlobal Instructions (always apply):\nAlways maintain full-system project memory in docs for the selected scope level.\nExclude non-dev and non-required files from deep mapping and auditing.\nWhen code changes touch modules/routes/APIs/contracts/schema/security/state, refresh relevant atlas docs in the same run.\nKeep audit findings traceable with status updates (open, fixed, verified) when remediation occurs.\nFor full-system or multi-panel fullstack scope, ensure frontend panels and backend structure/contracts are mapped together.",
+  "projectSurfaces": [
+    {
+ succeeded in 51ms:
+total 104
+drwxr-xr-x@ 13 macbook  staff    416 Mar  7 20:21 .
+drwx------@ 27 macbook  staff    864 Mar  7 20:08 ..
+drwxr-xr-x@ 11 macbook  staff    352 Mar  8 05:42 .git
+-rw-r--r--@  1 macbook  staff    571 Mar  6 15:15 .gitignore
+-rw-r--r--@  1 macbook  staff   8768 Mar  6 17:45 FIXES_SUMMARY.md
+-rw-r--r--@  1 macbook  staff  12293 Mar  8 06:06 HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md
+drwxr-xr-x@ 15 macbook  staff    480 Feb 24 20:09 Huz-Admin-Frontend
+drwxrwxr-x@ 19 macbook  staff    608 Mar  6 15:14 Huz-Backend
+drwxrwxr-x@ 21 macbook  staff    672 Mar  6 15:12 Huz-Operator-Frontend
+drwxrwxr-x@ 17 macbook  staff    544 Mar  6 15:23 Huz-Web-Frontend
+-rw-r--r--@  1 macbook  staff  17661 Feb 26 17:18 UI_DESIGN_SYSTEM_GUIDE.md
+drwxr-xr-x@ 11 macbook  staff    352 Mar  8 04:19 docs
+drwxr-xr-x@  3 macbook  staff     96 Mar  5 03:17 scripts
+codex
+I have the phase contract. Next I’m pulling the operator rules, atlas docs, and the batch plan/backlog details so I can implement the exact Phase 3 slice instead of guessing at scope.
+exec
+/bin/zsh -lc "sed -n '1,260p' /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-062131-full-enhance/TASK.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "sed -n '1,260p' /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/OPERATOR_PROFILE.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "sed -n '1,220p' /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/config.json" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 50ms:
+# Operator Profile
+
+This file captures the default working style for the project bot. Every run should read this file before planning or changing code.
+
+## Working Style
+- Work in clearly scoped phases with durable written outputs.
+- Prefer module-by-module execution instead of scattered random fixes.
+- Treat frontend and backend as one connected system map when integration is involved.
+- Use existing atlas docs first, then read only the extra code needed for accuracy.
+
+## Scope Rules
+- The target project is the only place code changes should happen unless the task explicitly requires a related supporting change.
+- Keep the bot workspace as the long-term memory layer. Store reports, atlas docs, backlogs, summaries, and run state here instead of inside the target repo when possible.
+- Match frontend to backend contracts when drift is found, unless the task explicitly says to refactor the backend contract itself.
+
+## Quality Rules
+- Reduce duplication, stale logic, dead code, and brittle state flows.
+- Prefer modern modular patterns, reusable primitives, and clear ownership boundaries.
+- Keep routes stable unless the task explicitly requires a migration.
+- If code changes affect structure, routes, APIs, or ownership, refresh the relevant atlas docs in the same phase.
+ succeeded in 50ms:
+{
+  "version": 1,
+  "workspaceRoot": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz",
+  "projectPath": "/Users/macbook/Desktop/Huz",
+  "designGuides": [
+    "/Users/macbook/Desktop/Huz/UI_DESIGN_SYSTEM_GUIDE.md",
+    "/Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md"
+  ],
+  "blueprintSources": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/PROJECT_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/MODULE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/ROUTES_AND_ENTRYPOINTS.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/API_SURFACE.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md"
+  ],
+  "projectSurfaces": [
+    {
+      "id": "primary-project",
+      "label": "Huz-Web-Frontend",
+ succeeded in 50ms:
+Analyze the project, create a prioritized backlog, execute the highest-value batch safely, verify it, and refresh the docs.
+
+Compiled automation contract:
+- Scope level: multi-panel-fe
+- Scope: Huz-Web-Frontend remaining routes and shared page system
+- Scope targets: Huz-Web-Frontend, public-marketing-pages, static-site-pages, auth-pages, protected-user-pages, shared-layout-system
+- Keep atlas, maps, and audit files synchronized with any implementation changes.
+
+Large-task campaign contract (mandatory):
+- Treat this as a multi-run execution campaign, not a one-shot rewrite.
+- This run must complete one bounded implementation batch (target <= 8 pages or one backend domain).
+- Keep frontend and backend contracts synchronized for touched flows.
+- Update BUG_BACKLOG with completed items, deferred items, and the exact next batch recommendation.
+- Include concrete verification commands and outcomes in RUN_SUMMARY for every batch.
+- Do not claim full completion unless the backlog for this scope is explicitly clear.
+
+Original user request: Please start a multi-run full frontend revamp campaign for Huz-Web-Frontend.
+
+Scope: Huz-Web-Frontend remaining routes and shared page system
+Scope targets: Huz-Web-Frontend, public-marketing-pages, static-site-pages, auth-pages, protected-user-pages, shared-layout-system
+exec
+/bin/zsh -lc "sed -n '1,260p' /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "sed -n '1,260p' /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "sed -n '1,260p' /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-062131-full-enhance/RUN_SUMMARY.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+# Bug and Improvement Backlog
+
+Use this backlog for prioritized follow-up work discovered during scans or implementation.
+
+| ID | Priority | Module | Summary | Status | Verification |
+| --- | --- | --- | --- | --- | --- |
+| MB-RESP-001 | High | Web booking flow | Unify `src/pages/UserSetting/MyApplication/Booking/booking.jsx` and `src/pages/UserSetting/MyApplication/Mobile/mobilebooking.jsx` around one shared responsive page owner; both files currently duplicate `useBookingLogic` and booking UI state. | Fixed | Verified by scoped eslint plus route tracing of `/package-booking`/`/bookings` -> `/payment-methods`; `mobilebooking.jsx` now resolves to the unified route owner. |
+| MB-RESP-002 | High | Wallet + operator response | Extract shared state modules for `Payment&Wallet` and `OperatorResponse` before deleting mobile files; both desktop/mobile pairs duplicate API fetches, modal state, and booking-status decisions. | Fixed | Verified by scoped eslint plus import tracing; `/payment-wallet-mobile` now redirects to `/payment-wallet`, and mobile wallet/operator-response files now resolve to the unified responsive owners. |
+| MB-RESP-003 | High | Wishlist + messages | Replace `window.innerWidth` routing in `Wishlist/index.jsx` and unify the separate desktop/mobile message trees; these surfaces still maintain duplicate local state and inconsistent route structure. | Fixed | Verified by scoped eslint and route tracing; `/messages-chat` now redirects into `/messages`, wishlist keeps `savedPackages` localStorage, and route owners no longer import mobile-only page trees. |
+| MB-RESP-004 | Medium | Flow wrappers | Collapse booking status, traveler details, and remaining payment around one responsive account shell; these pages already share feature hooks but still maintain breakpoint-specific wrappers and steppers. | Fixed | Verified by scoped eslint plus dependency tracing across `/booking-status` -> `/data-table` -> `/remaining-payment` -> `/operator-response`, preserving `booking_number` query/state handoff. |
+| MB-RESP-005 | Medium | Listing + Hajj Guidance + route aliases | Fold `ListingMobileScreen.jsx` and the inline Hajj Guidance mobile branch into single responsive page structures, then convert `/booking-page` and `/payment-wallet-mobile` into compatibility aliases to the unified routes. | Fixed | Verified by scoped eslint, import tracing, and route tracing; `ListingMobileScreen.jsx` is now a compatibility re-export, Hajj Guidance uses one responsive shell, and legacy alias routes now redirect to canonical pages. |
+| FE-REV-001 | High | Shared static page system | Rebuild the static-page abstraction on top of `BrandPageShell` and homepage shell tokens; `StaticContentPage.jsx` still renders its own `Header`/`Footer`, which leaves data-driven static routes outside the Huz shell contract. | Open | Pending: route/import tracing plus shell-adoption diff across migrated static routes. |
+| FE-REV-002 | High | Public info and legal routes | Migrate `AboutUs`, `CoreValues`, `ComingSoon`, `FrequentlyAskedQuestions`, `TermsServices`, `PrivacyPolicy`, `PolicyPages`, and `GenericPages` onto the branded static system. These routes still duplicate shell/back-button/scroll patterns or remain on the legacy static abstraction. | Open | Pending: route tracing and copy-preservation checks, especially for the legal documents. |
+| FE-REV-003 | High | Guide and holy-site content family | Consolidate `PreparationTips`, `TravelEssentials`, `UmrahGuide`, `MakkahHolySites`, `MadinahHolySites`, `JeddahHolySites`, and `TaifHolySites` around reusable article and city-guide templates. These routes repeat the same hero, article, related-card, slider, and `AppDownload` structures. | Open | Pending: content-array diffing, carousel import tracing, and route-link verification for related articles and city navigation. |
+| FE-REV-004 | High | Protected account shell convergence | Move `bookingstatus.jsx`, `datatable.jsx`, `remainingPayment.jsx`, `operatorresponse.jsx`, `payment&wallet.jsx`, `messagePage.jsx`, and `wishlist.jsx` onto one responsive branded account shell while preserving the existing feature hooks and route-state handoff. | Open | Pending: route tracing across `/booking-status` -> `/data-table` -> `/remaining-payment` -> `/operator-response` plus `/messages` and `/wishlist`. |
+| FE-REV-005 | Medium | Lead-gen and partner pages | Align `VisaServices.jsx`, `ContactUs.jsx`, `HajjUmrahBusiness.jsx`, and `ListPackagePage.js` to the Huz design system and replace placeholder form behavior or isolated landing-page shells. `VisaServices.jsx` and `ContactUs.jsx` still submit to `console.log`, and `ListPackagePage.js` remains outside the shared shell. | Open | Pending: preserve CTA destinations and confirm no new network side effects are introduced. |
+| FE-REV-006 | Medium | Compatibility cleanup | Remove or convert the remaining dead compatibility surfaces after canonical routes are stable, especially `src/pages/UserSetting/Mobile/Message/messagepageview.jsx` and the current mobile re-export wrappers. | Open | Pending: `rg` consumer search and route/import tracing after page migrations land. |
+
+## 2026-03-08 - Phase 1 Planning Notes
+
+ succeeded in 52ms:
+# Run Summary
+
+- Run mode: `full-enhance`
+- Target project: `/Users/macbook/Desktop/Huz`
+- Workspace root: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz`
+- Scope level: `multi-panel-fe`
+- Scope: `Huz-Web-Frontend remaining routes and shared page system`
+- Scope targets: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/Huz-Web-Frontend`, `/Users/macbook/Desktop/Codex-Project-Bot-GUI/public-marketing-pages`, `/Users/macbook/Desktop/Codex-Project-Bot-GUI/static-site-pages`, `/Users/macbook/Desktop/Codex-Project-Bot-GUI/auth-pages`, `/Users/macbook/Desktop/Codex-Project-Bot-GUI/protected-user-pages`, `/Users/macbook/Desktop/Codex-Project-Bot-GUI/shared-layout-system`
+- Full-system required docs: `enabled`
+- Rule: append one section per completed phase. Do not overwrite prior phase sections.
+
+Expected section format:
+
+## Phase X - Title
+### Changes Made
+### How It Was Implemented
+### Files Touched
+### Verification
+
+## Phase 0 - Refresh Atlas and Inventory
+ succeeded in 52ms:
+# Deep Scan Report
+
+Use this report for on-demand deep analysis of logic, structures, routes, contracts, and mismatch risks.
+
+## Findings
+
+### 2026-03-07 - Phase 0 Inventory Scope (`system-atlas`)
+
+#### Scope Scanned
+- `/Users/macbook/Desktop/Huz/Huz-Backend`
+- `/Users/macbook/Desktop/Huz/Huz-Web-Frontend`
+- `/Users/macbook/Desktop/Huz/Huz-Admin-Frontend`
+- `/Users/macbook/Desktop/Huz/Huz-Operator-Frontend`
+
+#### Module and Ownership Inventory
+- Backend platform (`Django 5`):
+  - `huz/` project config and root URL includes.
+  - `common/` user auth/profile, OTP, account/wallet primitives.
+  - `partners/` partner auth/profile, package lifecycle, partner wallet, website package listing endpoints.
+  - `booking/` user booking lifecycle, partner booking operations, DRF v1 booking routes.
+codex
+The backlog makes the Phase 3 batch explicit: shared static foundation plus the 8 public info/legal route owners. I’m reading those source files now to redesign them around one branded, data-driven system and to confirm any route/query contracts I need to preserve.
+exec
+/bin/zsh -lc "sed -n '1,260p' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HomePage/homepageLayout.js" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "sed -n '1,240p' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/shared/layout/BrandPageShell.jsx" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "rg -n 'path=\"/(about-us|core-values|coming-soon|frequently-asked-questions|terms-services|privacy-policy|refund-policy|cancellation-policy|Media|career)\"' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "sed -n '1,260p' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/CoreValues/CoreValues.jsx" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "sed -n '1,260p' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/AboutUs/AboutUs.jsx" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "sed -n '1,260p' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/features/staticPages/StaticContentPage.jsx" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 51ms:
+export const HOMEPAGE_SHELL =
+  "mx-auto w-full max-w-[1500px] px-4 sm:px-6 md:px-8 xl:px-10 2xl:px-14";
+
+export const HOMEPAGE_MAIN_SECTION_PADDING =
+  "pt-8 sm:pt-10 md:pt-12 lg:pt-14 xl:pt-16 pb-4 sm:pb-5 md:pb-6 lg:pb-8 xl:pb-10";
+
+export const HOMEPAGE_SECTION_STACK =
+  "space-y-10 sm:space-y-12 md:space-y-14 xl:space-y-16";
+
+export const HOMEPAGE_DIVIDER =
+  "hidden";
+ succeeded in 51ms:
+import React from "react";
+import Footer from "../../components/Footer/Footer";
+import Header from "../../components/Header/Header";
+import { HOMEPAGE_SHELL } from "../../pages/HomePage/homepageLayout";
+
+const BrandPageShell = ({
+  children,
+  shellClassName = "",
+  mainClassName = "pb-10 pt-8 lg:pt-10",
+  footerOuterClassName = "bg-transparent",
+  hero = null,
+  preFooter = null,
+  preFooterClassName = "pb-10 pt-2",
+  showFooter = true,
+  showHeader = true,
+  withAmbient = false,
+}) => {
+  return (
+    <>
+      {showHeader ? <Header /> : null}
+ succeeded in 52ms:
+import React from "react";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
+import { motion } from "framer-motion";
+
+const AboutUs = () => {
+  const fastFacts = [
+    {
+      id: 1,
+      number: "7.7M+",
+      description: "active packages worldwide"
+    },
+    {
+      id: 2,
+      number: "100K+",
+      description: "cities and towns with active Hajj Umrah listings"
+    },
+    {
+      id: 3,
+      number: "220+",
+ succeeded in 52ms:
+import React from "react";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
+import { motion } from "framer-motion";
+
+const CoreValues = () => {
+  const coreValues = [
+    {
+      id: 1,
+      title: "Integrity",
+      description: "Integrity is at the heart of our business. We are committed to honesty, transparency, and ethical practices in all our interactions. Our dedication to integrity ensures that we build trust and reliability with our customers, vendors, and partners. We believe that by maintaining the highest standards of integrity, we can create a solid foundation for long-term relationships and success."
+    },
+    {
+      id: 2,
+      title: "Customer Focus",
+      description: "Our customers are at the center of everything we do. We strive to understand their needs and exceed their expectations, ensuring their satisfaction and well-being throughout their journey. By providing personalized service and support, we aim to make every Hajj and Umrah experience seamless and meaningful. Our commitment to our customers drives us to continuously improve and adapt our services to better serve them."
+    },
+    {
+      id: 3,
+      title: "Innovation",
+ succeeded in 52ms:
+import React from "react";
+import { motion } from "framer-motion";
+import { ArrowLeft } from "lucide-react";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
+
+const defaultMotion = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6 },
+};
+
+export const StaticMotionBlock = ({
+  as = "div",
+  initial = defaultMotion.initial,
+  animate = defaultMotion.animate,
+  transition = defaultMotion.transition,
+  className,
+  style,
+  children,
+ succeeded in 81ms:
+78:      <Route path="/about-us" element={<AboutUs />} />
+79:      <Route path="/core-values" element={<CoreValues />} />
+82:      <Route path="/coming-soon" element={<ComingSoon />} />
+83:      <Route path="/frequently-asked-questions" element={<FQA />} />
+84:      <Route path="/terms-services" element={<TermsServices />} />
+85:      <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+86:      <Route path="/refund-policy" element={<PolicyPages />} />
+87:      <Route path="/cancellation-policy" element={<PolicyPages />} />
+89:      <Route path="/Media" element={<GenericPages />} />
+90:      <Route path="/career" element={<GenericPages />} />
+exec
+/bin/zsh -lc "sed -n '1,260p' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ComingSoon/ComingSoon.jsx" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "sed -n '1,260p' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/FrequentlyAskedQuestions/FQA.jsx" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "sed -n '1,260p' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/PolicyPages/PolicyPages.jsx" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "sed -n '1,260p' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/GenericPages/GenericPages.jsx" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "sed -n '1,320p' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/TermsServices/TermsServices.jsx" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "sed -n '1,320p' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/PrivacyPolicy/PrivacyPolicy.jsx" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 50ms:
+import React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import StaticContentPage, {
+  StaticComingSoonSection,
+  StaticSupportSection,
+} from "../../features/staticPages/StaticContentPage";
+import {
+  getPolicyPageContent,
+  policyExpectationItems,
+  policySupportCards,
+} from "../../features/staticPages/content/policyPagesContent";
+
+const PolicyPages = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const pageContent = getPolicyPageContent(location.pathname);
+
+  return (
+    <StaticContentPage
+      backButton={{ onClick: () => navigate("/") }}
+ succeeded in 52ms:
+import React from 'react';
+import { motion } from 'framer-motion';
+import { ArrowLeft } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
+
+const ComingSoon = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  
+  // Get the package type from URL parameters
+  const urlParams = new URLSearchParams(location.search);
+  const packageType = urlParams.get('type') || 'Hajj';
+  const isHajj = packageType.toLowerCase() === 'hajj';
+  const isUmrah = packageType.toLowerCase() === 'umrah';
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <Header />
+ succeeded in 52ms:
+import React, { useEffect, useState } from "react";
+import { Transition } from "@headlessui/react";
+import { IoIosArrowDown } from "react-icons/io";
+import { AiOutlineSearch } from "react-icons/ai";
+import Footer from "../../components/Footer/Footer";
+import Header from "../../components/Header/Header";
+
+const faqs = [
+  {
+    question: "How do I register as a vendor on the platform?",
+    answer:
+      "To register as a vendor, visit our registration page and fill out the required forms. You will need to provide business credentials and details about your Hajj and Umrah packages.",
+  },
+  {
+    question: "What are the fees associated with listing my services?",
+    answer:
+      "We charge a nominal listing fee for each package you post. Additionally, a transaction fee is applied for each booking made through our platform. Detailed fee structure is available in the vendor dashboard.",
+  },
+  {
+    question: "How can I manage my listings?",
+ succeeded in 51ms:
+import React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import StaticContentPage, {
+  StaticComingSoonSection,
+  StaticSupportSection,
+} from "../../features/staticPages/StaticContentPage";
+import { getGenericPageContent } from "../../features/staticPages/content/genericPagesContent";
+
+const GenericPages = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const pageContent = getGenericPageContent(location.pathname);
+
+  return (
+    <StaticContentPage
+      backButton={{ onClick: () => navigate("/") }}
+    >
+      <StaticComingSoonSection
+        title={pageContent.title}
+        description={pageContent.description}
+ succeeded in 50ms:
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
+import Footer from "../../components/Footer/Footer";
+import Header from "../../components/Header/Header";
+
+const TermsServices = () => {
+  useEffect(() => {
+    const scrollToTop = () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    };
+    // Scroll to top when the component mounts
+    scrollToTop();
+  }, []);
+  return (
+    <main>
+      <Header />
+      <div className="min-h-screen flex flex-col justify-start sm:px-6 lg:px-8">
+ succeeded in 51ms:
+import React, { useEffect } from "react";
+import Footer from "../../components/Footer/Footer";
+import Header from "../../components/Header/Header";
+
+const PrivacyPolicy = () => {
+  useEffect(() => {
+    const scrollToTop = () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    };
+    // Scroll to top when the component mounts
+    scrollToTop();
+  }, []);
+  const sectionClasses = "mx-auto mt-4 mb-4 text-xl text-black";
+  const paragraphClasses =
+    "mb-0 mx-auto text-base font-medium leading-relaxed text-gray-600";
+  const listClasses = "list-disc ml-0 md:ml-12 text-gray-600";
+  const titleClasses = "text-center text-3xl text-gray-900";
+exec
+/bin/zsh -lc "sed -n '1,240p' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/features/staticPages/content/policyPagesContent.js" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'rg --files /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/features/staticPages' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+const policyPageContent = {
+  "/refund-policy": {
+    title: "Refund Policy",
+    description:
+      "We're working on our comprehensive refund policy and procedures. This page will be available soon with detailed information about our policies, procedures, and guidelines to ensure transparency and clarity for all our users.",
+  },
+  "/cancellation-policy": {
+    title: "Cancellation Policy",
+    description:
+      "We're working on our comprehensive cancellation policy and procedures. This page will be available soon with detailed information about our policies, procedures, and guidelines to ensure transparency and clarity for all our users.",
+  },
+  fallback: {
+    title: "Policy",
+    description:
+      "We're working on our comprehensive policy information. This page will be available soon with detailed information about our policies, procedures, and guidelines to ensure transparency and clarity for all our users.",
+  },
+};
+
+export const getPolicyPageContent = (pathname) =>
+  policyPageContent[pathname] || policyPageContent.fallback;
+exec
+/bin/zsh -lc "sed -n '1,220p' /Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "sed -n '1,240p' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/features/staticPages/content/genericPagesContent.js" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "sed -n '1,260p' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/styles/globals.css" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "sed -n '1,220p' /Users/macbook/Desktop/Huz/UI_DESIGN_SYSTEM_GUIDE.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 51ms:
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/features/staticPages/StaticContentPage.jsx
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/features/staticPages/content/policyPagesContent.js
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/features/staticPages/content/howWeWorkContent.js
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/features/staticPages/content/genericPagesContent.js
+ succeeded in 52ms:
+const genericPageContent = {
+  "/contact": {
+    title: "Help Center",
+    description:
+      "Our comprehensive help center will provide you with answers to common questions, troubleshooting guides, and step-by-step instructions to help you make the most of our platform.",
+    expectItems: [
+      "Comprehensive FAQ section",
+      "Step-by-step tutorials and guides",
+      "Live chat support integration",
+      "Video tutorials and walkthroughs",
+    ],
+    footerText:
+      "Stay updated on our progress and be the first to know when our help center becomes available.",
+    supportTitle: "Need Immediate Assistance?",
+    supportCards: [
+      {
+        icon: "\uD83D\uDCDE",
+        title: "Contact Support",
+        description:
+          "Our support team is available to answer any questions and provide assistance.",
+ succeeded in 52ms:
+# Huz Web Frontend Design System Guide
+### Shared Theme, Layout, and Page Construction Rules
+
+This document replaces the old homepage-only guide.
+
+It is now the source of truth for building and reviewing branded pages in `Huz-Web-Frontend`, including public marketing routes and protected traveller flows, especially:
+- Homepage
+- Listing
+- Package Detail
+- Booking
+- Payment
+- Auth
+- Profile
+
+The goal is simple:
+
+1. Every branded page must feel like the same product on desktop and mobile.
+2. Developers must stop building page-specific shells.
+3. Developers must stop creating separate desktop and mobile page designs for the same route.
+4. Header, background, spacing, promo blocks, and footer must come from one shared system.
+ succeeded in 52ms:
+/* src/styles/globals.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Naskh+Arabic:wght@600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   HUZ DESIGN SYSTEM — CSS Custom Properties
+   ============================================================ */
+:root {
+  /* Brand Greens */
+  --huz-green-50:  #f0faf6;
+  --huz-green-100: #d5f0e4;
+  --huz-green-400: #34b38c;
+  --huz-green-500: #00936c;
+  --huz-green-600: #007a5a;
+  --huz-green-700: #005c43;
+  --huz-green-800: #003d2c;
+
+ succeeded in 52ms:
+# UI Design System Guide — Operator Panel
+### How the Package Module was redesigned — and how to apply it to other modules
+
+---
+
+## 1. Design Philosophy
+
+The goal was to move from a **functional-but-plain** interface to a **premium product feel** — the kind of UI that makes an operator feel they are using a well-crafted SaaS tool, not a generic form page.
+
+The three pillars used for every decision:
+
+| Pillar | What it means in practice |
+|---|---|
+| **Depth** | Cards should feel like they are floating. Use shadows, borders, and subtle gradients. |
+| **Hierarchy** | The most important element on the page must visually dominate. Titles, CTAs, and status indicators all have distinct visual weight. |
+| **Feedback** | Every interactive element must respond — hover, active, disabled states are never left blank. |
+
+---
+
+## 2. Color System
+exec
+/bin/zsh -lc "sed -n '220,420p' /Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'rg -n "StaticContentPage|AboutUs|CoreValues|Frequently|Terms|Privacy|PolicyPages|GenericPages|AppPromoSection|public" /Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md /Users/macbook/Desktop/Huz/UI_DESIGN_SYSTEM_GUIDE.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 50ms:
+- primary page container
+- white large rounded section
+- used for page-level content blocks
+
+`homepage-soft-card`
+- slightly softer gradient card
+- used inside pages for grouped content
+
+`homepage-surface-card`
+- white content card
+- use for smaller modules
+
+### 5.3 Color system
+
+Core design colors:
+
+- Brand green: `#00936c`
+- Deep green: `#005c43`
+- Brand gold: `#D1A554`
+- Gold text/accent: `#9a6d17`
+ succeeded in 51ms:
+/Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md:6:It is now the source of truth for building and reviewing branded pages in `Huz-Web-Frontend`, including public marketing routes and protected traveller flows, especially:
+/Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md:154:- Current common use: `AppPromoSection`.
+/Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md:188:They define the public page rhythm.
+/Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md:343:<BrandPageShell preFooter={<AppPromoSection />}>
+/Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md:358:  preFooter={<AppPromoSection />}
+/Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md:454:- `AppPromoSection`
+exec
+/bin/zsh -lc "sed -n '1,260p' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HomePage/components/AppPromoSection.jsx" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "sed -n '1,260p' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HomePage/HomePage.js" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'rg -n "AppPromoSection" /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+import React from "react";
+import { Smartphone, Star, Download } from "lucide-react";
+import playStore from "../../../assets/footer/playStore.png";
+import appleStore from "../../../assets/footer/appleStore.png";
+import ResponsiveImage from "../../../shared/ui/ResponsiveImage";
+import { FOOTER_MOBILE_IMAGE } from "../../../shared/assets/publicAssetCatalog";
+
+const appStats = [
+  { icon: Star, value: "4.8★", label: "App Store rating" },
+  { icon: Download, value: "100K+", label: "Downloads" },
+];
+
+const AppPromoSection = () => {
+  return (
+    <div className="homepage-section-surface relative overflow-hidden text-[#1a2734]">
+      <div className="relative grid gap-6 p-5 sm:p-6 lg:grid-cols-[minmax(0,1fr)_280px] lg:items-end lg:gap-8 xl:grid-cols-[minmax(0,1fr)_320px] xl:p-10">
+        {/* ── Left: content ── */}
+        <div className="flex flex-col justify-center space-y-6">
+          <span className="section-label">
+            <Smartphone className="h-3.5 w-3.5" />
+ succeeded in 52ms:
+import React, { Suspense, lazy } from "react";
+import Skeleton from "../../components/ui/Skeleton";
+import PageLoader from "../../shared/ui/PageLoader";
+import BrandPageShell from "../../shared/layout/BrandPageShell";
+import { useHomepageData } from "../../hooks/useHomepageData";
+import HeroSection from "./components/HeroSection";
+import PackageShowcaseSection from "./components/PackageShowcaseSection";
+import ServicePillarsSection from "./components/ServicePillarsSection";
+import PartnerShowcaseSection from "./components/PartnerShowcaseSection";
+import DeferredSection from "./components/DeferredSection";
+import {
+  HOMEPAGE_DIVIDER,
+  HOMEPAGE_MAIN_SECTION_PADDING,
+  HOMEPAGE_SECTION_STACK,
+} from "./homepageLayout";
+
+const GuidesSection = lazy(() => import("./components/GuidesSection"));
+const ZiyarahSpotlightSection = lazy(() => import("./components/ZiyarahSpotlightSection"));
+const TestimonialsSection = lazy(() => import("./components/TestimonialsSection"));
+const VisionStorySection = lazy(() => import("./components/VisionStorySection"));
+ succeeded in 52ms:
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ListingPage/ListingPage.js:11:import AppPromoSection from "../HomePage/components/AppPromoSection";
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ListingPage/ListingPage.js:58:        <BrandPageShell preFooter={<AppPromoSection />}>
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HomePage/HomePage.js:21:const AppPromoSection = lazy(() => import("./components/AppPromoSection"));
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HomePage/HomePage.js:52:            <AppPromoSection />
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HomePage/components/AppPromoSection.jsx:13:const AppPromoSection = () => {
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HomePage/components/AppPromoSection.jsx:78:export default AppPromoSection;
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/UserSetting/PaymentMethods/paymentMethods.jsx:18:import AppPromoSection from "../../HomePage/components/AppPromoSection";
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/UserSetting/PaymentMethods/paymentMethods.jsx:229:          preFooter={<AppPromoSection />}
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/UserSetting/MyApplication/Booking/booking.jsx:34:import AppPromoSection from "../../../HomePage/components/AppPromoSection";
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/UserSetting/MyApplication/Booking/booking.jsx:728:          preFooter={<AppPromoSection />}
+exec
+/bin/zsh -lc "sed -n '1,260p' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/features/staticPages/content/howWeWorkContent.js" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'rg -n "HowWeWork" /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'rg -n "howWeWorkContent|StaticContentPage|StaticMotionBlock|StaticBackButton|StaticComingSoonSection|StaticSupportSection" /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 51ms:
+export const howWeWorkContent = {
+  backButton: {
+    wrapperClassName: "pt-8 pb-4 px-4 sm:px-6 lg:px-8",
+    buttonClassName:
+      "flex items-center gap-3 text-gray-600 hover:text-gray-800 transition-colors",
+    iconWrapperClassName:
+      "w-8 h-8 border border-gray-400 rounded-full flex items-center justify-center",
+    iconClassName: "w-4 h-4 text-gray-600",
+  },
+  hero: {
+    title: "How We Work",
+    description:
+      "Discover how HajjUmrah.co makes your spiritual journey simple and seamless",
+  },
+  stepsSection: {
+    title: "And it's only three steps away",
+    items: [
+      {
+        id: 1,
+        title: "Sign up & load funds",
+ succeeded in 51ms:
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HowWeWork/HowWeWork.jsx:8:const HowWeWork = () => {
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HowWeWork/HowWeWork.jsx:143:export default HowWeWork;
+ succeeded in 51ms:
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HowWeWork/HowWeWork.jsx:3:import StaticContentPage, {
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HowWeWork/HowWeWork.jsx:4:  StaticMotionBlock,
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HowWeWork/HowWeWork.jsx:5:} from "../../features/staticPages/StaticContentPage";
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HowWeWork/HowWeWork.jsx:6:import { howWeWorkContent } from "../../features/staticPages/content/howWeWorkContent";
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HowWeWork/HowWeWork.jsx:12:    <StaticContentPage
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HowWeWork/HowWeWork.jsx:14:        ...howWeWorkContent.backButton,
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HowWeWork/HowWeWork.jsx:18:      <StaticMotionBlock className="text-center mb-8 px-4 sm:px-6 lg:px-8">
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HowWeWork/HowWeWork.jsx:20:          {howWeWorkContent.hero.title}
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HowWeWork/HowWeWork.jsx:23:          {howWeWorkContent.hero.description}
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HowWeWork/HowWeWork.jsx:25:      </StaticMotionBlock>
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HowWeWork/HowWeWork.jsx:27:      <StaticMotionBlock
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HowWeWork/HowWeWork.jsx:33:            {howWeWorkContent.stepsSection.title}
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HowWeWork/HowWeWork.jsx:37:            {howWeWorkContent.stepsSection.items.map((step, index) => (
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HowWeWork/HowWeWork.jsx:38:              <StaticMotionBlock
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HowWeWork/HowWeWork.jsx:49:              </StaticMotionBlock>
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HowWeWork/HowWeWork.jsx:53:      </StaticMotionBlock>
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HowWeWork/HowWeWork.jsx:55:      <StaticMotionBlock
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HowWeWork/HowWeWork.jsx:61:            {howWeWorkContent.aboutSection.title}
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HowWeWork/HowWeWork.jsx:65:            {howWeWorkContent.aboutSection.paragraphs.map((paragraph, index) => (
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HowWeWork/HowWeWork.jsx:66:              <StaticMotionBlock
+exec
+/bin/zsh -lc "sed -n '1,260p' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HowWeWork/HowWeWork.jsx" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'rg -n "AboutUs|CoreValues|FQA|TermsServices|PrivacyPolicy|PolicyPages|GenericPages|HowWeWork" /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 51ms:
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import StaticContentPage, {
+  StaticMotionBlock,
+} from "../../features/staticPages/StaticContentPage";
+import { howWeWorkContent } from "../../features/staticPages/content/howWeWorkContent";
+
+const HowWeWork = () => {
+  const navigate = useNavigate();
+
+  return (
+    <StaticContentPage
+      backButton={{
+        ...howWeWorkContent.backButton,
+        onClick: () => navigate("/"),
+      }}
+    >
+      <StaticMotionBlock className="text-center mb-8 px-4 sm:px-6 lg:px-8">
+        <h1 className="text-2xl sm:text-xl lg:text-3xl font-bold text-[#0F4C5C] mb-4">
+          {howWeWorkContent.hero.title}
+ succeeded in 51ms:
+22:const AboutUs = lazy(() => import("../pages/AboutUs/AboutUs"));
+23:const CoreValues = lazy(() => import("../pages/CoreValues/CoreValues"));
+24:const HowWeWork = lazy(() => import("../pages/HowWeWork/HowWeWork"));
+27:const FQA = lazy(() => import("../pages/FrequentlyAskedQuestions/FQA"));
+28:const TermsServices = lazy(() => import("../pages/TermsServices/TermsServices"));
+29:const PrivacyPolicy = lazy(() => import("../pages/PrivacyPolicy/PrivacyPolicy"));
+30:const PolicyPages = lazy(() => import("../pages/PolicyPages/PolicyPages"));
+31:const GenericPages = lazy(() => import("../pages/GenericPages/GenericPages"));
+78:      <Route path="/about-us" element={<AboutUs />} />
+79:      <Route path="/core-values" element={<CoreValues />} />
+80:      <Route path="/how-we-work" element={<HowWeWork />} />
+83:      <Route path="/frequently-asked-questions" element={<FQA />} />
+84:      <Route path="/terms-services" element={<TermsServices />} />
+85:      <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+86:      <Route path="/refund-policy" element={<PolicyPages />} />
+87:      <Route path="/cancellation-policy" element={<PolicyPages />} />
+89:      <Route path="/Media" element={<GenericPages />} />
+90:      <Route path="/career" element={<GenericPages />} />
+codex
+I’ve confirmed the batch pages and the current problem pattern: most of them still own their own `Header`/`Footer`, while `StaticContentPage` is still a legacy wrapper. I’m drilling into the legal/content files next so I can refactor them into structured data without losing route behavior or legal copy.
+exec
+/bin/zsh -lc "sed -n '260,520p' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/TermsServices/TermsServices.jsx" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "sed -n '260,520p' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/PrivacyPolicy/PrivacyPolicy.jsx" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'wc -l /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/TermsServices/TermsServices.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/PrivacyPolicy/PrivacyPolicy.jsx' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'rg -n "<li>|<h2|<h3|<p className=|<ul|<ol|<Link" /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/TermsServices/TermsServices.jsx' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'rg -n "<h2|<h3|<p className=|<ul|<ol|<li" /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/PrivacyPolicy/PrivacyPolicy.jsx' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 50ms:
+    1324 /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/TermsServices/TermsServices.jsx
+     642 /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/PrivacyPolicy/PrivacyPolicy.jsx
+    1966 total
+ succeeded in 52ms:
+                        <span className="text-black font-bold">
+                          Market our products.
+                        </span>{" "}
+                        We may contact you with information about our Services.
+                        We will only do so with your permission, which can be
+                        revoked at any time.
+                      </li>
+                      <li>
+                        <span className="text-black font-bold">
+                          Other business purposes.
+                        </span>{" "}
+                        We may use your Personal Information for additional
+                        purposes if that purpose is disclosed to you before we
+                        collect the information or if we obtain your consent.
+                      </li>
+                    </ol>
+
+                    <h3 className={sectionClasses}>
+                      California Privacy Rights
+                    </h3>
+ succeeded in 52ms:
+                    without limitation, Hajj Umrah’s trademarks and logos, the
+                    visual interfaces, graphics, design, compilation,
+                    information, software, computer code (including source code
+                    or object code), services, text, pictures, information,
+                    data, sound files, other files, and the selection and
+                    arrangement thereof (collectively, the “Materials”) are
+                    protected by relevant intellectual property and proprietary
+                    rights and laws. All Materials are the property of Hajj
+                    Umrah or its subsidiaries or affiliated companies and/or
+                    third-party licensors. Unless otherwise expressly stated in
+                    writing by Hajj Umrah, by agreeing to these Terms of Service
+                    you are granted a limited, non-sublicensable license (i.e.,
+                    a personal and limited right) to access and use the Hajj
+                    Umrah Services for your personal use or internal business
+                    use only.
+                    <br />
+                    <br />
+                    Hajj Umrah reserves all rights not expressly granted in
+                    these Terms of Service. This license is subject to these
+                    Terms of Service and does not permit you to engage in any of
+ succeeded in 51ms:
+22:          <h2 className="text-center text-3xl text-gray-900">
+28:                <ol style={{ listStyle: "auto" }} className="text-2xl">
+29:                  <li>
+30:                    <h2 className="mx-auto mt-4 mb-4 text-2xl text-black">
+35:                  <p className="mb-0 mx-auto text-base font-medium leading-relaxed text-gray-600">
+81:                  <li>
+82:                    <h2 className="mx-auto mt-4 mb-4 text-2xl text-black">
+87:                  <p className="mb-0 mx-auto text-base font-medium leading-relaxed text-gray-600">
+115:                  <li>
+116:                    <h2 className="mx-auto mt-4 mb-4 text-2xl text-black">
+121:                  <p className="mb-0 mx-auto text-base font-medium leading-relaxed text-gray-600">
+123:                    <Link to="/privacy-policy">
+135:                  <li>
+136:                    <h2 className="mx-auto mt-4 mb-4 text-2xl text-black">
+141:                  <ol style={{ listStyleType: "lower-alpha" }}>
+143:                      <h3 className="mx-auto mt-4 mb-4 text-xl text-black">
+146:                      <p className="mb-0 mx-auto text-base font-medium leading-relaxed text-gray-600">
+180:                      <h3 className="mx-auto mt-4 mb-4 text-xl text-black">
+183:                      <p className="mb-0 mx-auto text-base font-medium leading-relaxed text-gray-600">
+193:                        <Link
+ succeeded in 51ms:
+32:              <h2 className={titleClasses}>Privacy Policy</h2>
+36:                    <p className={paragraphClasses}>
+52:                    <h2 className={sectionClasses}>
+56:                    <p className={paragraphClasses}>
+64:                    <h3 className={sectionClasses}>
+68:                    <p className={paragraphClasses}>
+72:                    <ul className={listClasses}>
+73:                      <li>
+79:                      <li>
+86:                      <li>
+94:                      <li>
+102:                    <h3 className={sectionClasses}>
+106:                    <p className={paragraphClasses}>
+111:                    <ul className={listClasses}>
+112:                      <li>
+118:                      <li>
+124:                      <li>
+130:                      <li>
+137:                    <p className={paragraphClasses}>
+143:                    <h3 className={sectionClasses}>
+exec
+/bin/zsh -lc 'ls -la /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'find /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz -maxdepth 2 -type l -ls' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 51ms:
+total 0
+drwxr-xr-x@ 3 macbook  staff   96 Mar  5 03:44 .
+drwxr-xr-x@ 7 macbook  staff  224 Mar  6 03:30 ..
+drwxr-xr-x@ 6 macbook  staff  192 Mar  8 04:03 docs
+ succeeded in 51ms:
+
+codex
+I’ve reached the point where implementation starts. Before patching, I’m checking whether the target repo path is actually writable from this workspace, because the run contract points at `/Users/macbook/Desktop/Huz` while the sandbox looks narrower than that.
+exec
+/bin/zsh -lc 'if [ -w /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src ]; then echo writable; else echo not-writable; fi' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+not-writable
+exec
+/bin/zsh -lc 'ls -ld /Users/macbook/Desktop/Huz /Users/macbook/Desktop/Huz/Huz-Web-Frontend /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc id in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+drwxr-xr-x@ 13 macbook  staff  416 Mar  7 20:21 /Users/macbook/Desktop/Huz
+drwxrwxr-x@ 17 macbook  staff  544 Mar  6 15:23 /Users/macbook/Desktop/Huz/Huz-Web-Frontend
+drwxrwxr-x@ 18 macbook  staff  576 Mar  6 15:21 /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src
+ succeeded in 50ms:
+uid=502(macbook) gid=20(staff) groups=20(staff),12(everyone),61(localaccounts),79(_appserverusr),80(admin),81(_appserveradm),98(_lpadmin),701(com.apple.sharepoint.group.1),33(_appstore),100(_lpoperator),204(_developer),250(_analyticsusers),395(com.apple.access_ftp),398(com.apple.access_screensharing),399(com.apple.access_ssh),400(com.apple.access_remote_ae),702(com.apple.sharepoint.group.2)
+codex
+I read the saved run state and Phase 3 prompt and confirmed the intended batch: the shared static-page foundation plus the 8 public info/legal route owners in [StaticContentPage.jsx](/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/features/staticPages/StaticContentPage.jsx), [AboutUs.jsx](/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/AboutUs/AboutUs.jsx), [CoreValues.jsx](/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/CoreValues/CoreValues.jsx), [ComingSoon.jsx](/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ComingSoon/ComingSoon.jsx), [FQA.jsx](/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/FrequentlyAskedQuestions/FQA.jsx), [TermsServices.jsx](/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/TermsServices/TermsServices.jsx), [PrivacyPolicy.jsx](/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/PrivacyPolicy/PrivacyPolicy.jsx), [PolicyPages.jsx](/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/PolicyPages/PolicyPages.jsx), and [GenericPages.jsx](/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/GenericPages/GenericPages.jsx).
+
+Execution is blocked in this session because the target repo path `/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src` is not writable under the current sandbox. Because of that, I did not make code changes, did not refresh Phase 3 docs/state, and did not run the required `project_orchestrate.mjs complete` / `next` commands or print `NEXT_PROMPT.md`, since that would falsely mark the phase as completed.
+
+To proceed, rerun this task in a session with write access to `/Users/macbook/Desktop/Huz` (ideally with that repo as the writable workspace root). Once that is available, I can execute Phase 3 exactly against the already-confirmed batch.
+tokens used
+126,069
+I read the saved run state and Phase 3 prompt and confirmed the intended batch: the shared static-page foundation plus the 8 public info/legal route owners in [StaticContentPage.jsx](/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/features/staticPages/StaticContentPage.jsx), [AboutUs.jsx](/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/AboutUs/AboutUs.jsx), [CoreValues.jsx](/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/CoreValues/CoreValues.jsx), [ComingSoon.jsx](/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ComingSoon/ComingSoon.jsx), [FQA.jsx](/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/FrequentlyAskedQuestions/FQA.jsx), [TermsServices.jsx](/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/TermsServices/TermsServices.jsx), [PrivacyPolicy.jsx](/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/PrivacyPolicy/PrivacyPolicy.jsx), [PolicyPages.jsx](/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/PolicyPages/PolicyPages.jsx), and [GenericPages.jsx](/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/GenericPages/GenericPages.jsx).
+
+Execution is blocked in this session because the target repo path `/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src` is not writable under the current sandbox. Because of that, I did not make code changes, did not refresh Phase 3 docs/state, and did not run the required `project_orchestrate.mjs complete` / `next` commands or print `NEXT_PROMPT.md`, since that would falsely mark the phase as completed.
+
+To proceed, rerun this task in a session with write access to `/Users/macbook/Desktop/Huz` (ideally with that repo as the writable workspace root). Once that is available, I can execute Phase 3 exactly against the already-confirmed batch.

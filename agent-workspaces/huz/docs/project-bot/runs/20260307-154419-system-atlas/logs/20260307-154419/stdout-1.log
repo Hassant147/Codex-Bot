@@ -1,0 +1,2851 @@
+OpenAI Codex v0.108.0-alpha.12 (research preview)
+--------
+workdir: /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR, /Users/macbook/.codex/memories]
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019cc7e5-f006-7571-828b-14a53f3abd43
+--------
+user
+Use $project-autopilot-manager in `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz`.
+Read `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/state.json` and `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/prompts/phase-00.md`.
+Execute only Phase 0 (Inventory Scope) against target project `/Users/macbook/Desktop/Huz`.
+At the end, run:
+1. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas --phase 0`
+2. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas`
+Then print `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/NEXT_PROMPT.md`.
+
+mcp: playwright starting
+mcp: playwright ready
+mcp startup: ready: playwright
+codex
+Using `project-autopilot-manager` for this run and executing only Phase 0. I’ll first read the specified `state.json` and `phase-00.md`, then apply exactly the Phase 0 inventory steps against `/Users/macbook/Desktop/Huz`.
+exec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/prompts/phase-00.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/state.json' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 51ms:
+{
+  "version": 1,
+  "workspaceRoot": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz",
+  "projectPath": "/Users/macbook/Desktop/Huz",
+  "mode": "system-atlas",
+  "modeTitle": "System Atlas",
+  "description": "Build or refresh the master project blueprint, module map, routes, APIs, flows, and change map so future work can rely on durable project memory.",
+  "scopeLevel": "panel-fullstack",
+  "scope": "",
+  "scopeTargets": [],
+  "request": "Refresh the full system atlas for this project. Update the blueprint, module map, routes, API surface, and change map only.\n\nCompiled automation contract:\n- Scope level: panel-fullstack\n- Scope: [Not explicitly specified]\n- Scope targets: [Not explicitly specified]\n- Keep atlas, maps, and audit files synchronized with any implementation changes.\n\nOriginal user request: Please run a complete blueprint run for backend and all frontends.\nInside the document, i want onyl these things:\nAPI LIST From backend,\nand On frontend which page or module is connected with that API.\nif an API is created on backend side but not connected to any FE then show those APIS in a seperate list.\n\nGlobal Instructions (always apply):\nAlways maintain full-system project memory in docs for the selected scope level.\nExclude non-dev and non-required files from deep mapping and auditing.\nWhen code changes touch modules/routes/APIs/contracts/schema/security/state, refresh relevant atlas docs in the same run.\nKeep audit findings traceable with status updates (open, fixed, verified) when remediation occurs.\nFor full-system or multi-panel fullstack scope, ensure frontend panels and backend structure/contracts are mapped together.",
+  "projectSurfaces": [
+    {
+      "id": "primary-project",
+      "label": "Huz-Web-Frontend",
+      "path": "/Users/macbook/Desktop/Huz/Huz-Web-Frontend",
+      "kind": "panel-fe"
+    }
+  ],
+  "devIgnorePatterns": [
+ succeeded in 51ms:
+# Phase 0: Inventory Scope
+
+Run Mode: `system-atlas`
+Run Directory: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas`
+Workspace Root: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz`
+Target Project: `/Users/macbook/Desktop/Huz`
+Scoped Directory/Module: use the request and target project path to determine scope.
+
+## Original Request
+Refresh the full system atlas for this project. Update the blueprint, module map, routes, API surface, and change map only.
+
+Compiled automation contract:
+- Scope level: panel-fullstack
+- Scope: [Not explicitly specified]
+- Scope targets: [Not explicitly specified]
+- Keep atlas, maps, and audit files synchronized with any implementation changes.
+
+Original user request: Please run a complete blueprint run for backend and all frontends.
+Inside the document, i want onyl these things:
+API LIST From backend,
+codex
+I’ve loaded the phase contract and will now read the required context files (`config`, operator profile, current atlas docs, and run task file) before doing the Phase 0 inventory scan.
+exec
+/bin/zsh -lc 'wc -l /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/config.json /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/OPERATOR_PROFILE.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/PROJECT_BLUEPRINT.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/MODULE_MAP.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/ROUTES_AND_ENTRYPOINTS.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/API_SURFACE.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/CHANGE_MAP.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/TASK.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 51ms:
+      56 /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/config.json
+      33 /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/OPERATOR_PROFILE.md
+      11 /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/PROJECT_BLUEPRINT.md
+       6 /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/MODULE_MAP.md
+       6 /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/ROUTES_AND_ENTRYPOINTS.md
+       6 /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/API_SURFACE.md
+      10 /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/CHANGE_MAP.md
+      20 /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/TASK.md
+     148 total
+exec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/OPERATOR_PROFILE.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/config.json' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 51ms:
+# Operator Profile
+
+This file captures the default working style for the project bot. Every run should read this file before planning or changing code.
+
+## Working Style
+- Work in clearly scoped phases with durable written outputs.
+- Prefer module-by-module execution instead of scattered random fixes.
+- Treat frontend and backend as one connected system map when integration is involved.
+- Use existing atlas docs first, then read only the extra code needed for accuracy.
+
+## Scope Rules
+- The target project is the only place code changes should happen unless the task explicitly requires a related supporting change.
+- Keep the bot workspace as the long-term memory layer. Store reports, atlas docs, backlogs, summaries, and run state here instead of inside the target repo when possible.
+- Match frontend to backend contracts when drift is found, unless the task explicitly says to refactor the backend contract itself.
+
+## Quality Rules
+- Reduce duplication, stale logic, dead code, and brittle state flows.
+- Prefer modern modular patterns, reusable primitives, and clear ownership boundaries.
+- Keep routes stable unless the task explicitly requires a migration.
+- If code changes affect structure, routes, APIs, or ownership, refresh the relevant atlas docs in the same phase.
+ succeeded in 51ms:
+{
+  "version": 1,
+  "workspaceRoot": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz",
+  "projectPath": "/Users/macbook/Desktop/Huz",
+  "designGuides": [
+    "/Users/macbook/Desktop/Huz/UI_DESIGN_SYSTEM_GUIDE.md",
+    "/Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md"
+  ],
+  "blueprintSources": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/PROJECT_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/MODULE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/ROUTES_AND_ENTRYPOINTS.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/API_SURFACE.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md"
+  ],
+  "projectSurfaces": [
+    {
+      "id": "primary-project",
+      "label": "Huz-Web-Frontend",
+exec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/ROUTES_AND_ENTRYPOINTS.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/CHANGE_MAP.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/MODULE_MAP.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/TASK.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/PROJECT_BLUEPRINT.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/API_SURFACE.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 50ms:
+# Project Blueprint
+
+Keep this file current whenever code changes touch architecture, flows, or module boundaries.
+
+## Scope
+- Project goals
+- High-level architecture
+- Critical flows
+
+## Current Notes
+- Add or refresh notes here.
+ succeeded in 51ms:
+# Module Map
+
+Update this file whenever modules, folders, or responsibilities change.
+
+| Module | Path | Responsibility | Notes |
+| --- | --- | --- | --- |
+ succeeded in 51ms:
+# Change Map
+
+Every code-changing run should append what changed and which atlas docs were refreshed.
+
+## Entries
+- Date:
+- Scope:
+- Files changed:
+- Atlas docs refreshed:
+- Notes:
+ succeeded in 51ms:
+Refresh the full system atlas for this project. Update the blueprint, module map, routes, API surface, and change map only.
+
+Compiled automation contract:
+- Scope level: panel-fullstack
+- Scope: [Not explicitly specified]
+- Scope targets: [Not explicitly specified]
+- Keep atlas, maps, and audit files synchronized with any implementation changes.
+
+Original user request: Please run a complete blueprint run for backend and all frontends.
+Inside the document, i want onyl these things:
+API LIST From backend,
+and On frontend which page or module is connected with that API.
+if an API is created on backend side but not connected to any FE then show those APIS in a seperate list.
+
+Global Instructions (always apply):
+Always maintain full-system project memory in docs for the selected scope level.
+Exclude non-dev and non-required files from deep mapping and auditing.
+When code changes touch modules/routes/APIs/contracts/schema/security/state, refresh relevant atlas docs in the same run.
+Keep audit findings traceable with status updates (open, fixed, verified) when remediation occurs.
+For full-system or multi-panel fullstack scope, ensure frontend panels and backend structure/contracts are mapped together.
+ succeeded in 52ms:
+# Routes and Entrypoints
+
+Track frontend routes, backend route groups, entry components, and bootstrap paths here.
+
+## Routes
+- Add route groups and entrypoints.
+ succeeded in 52ms:
+# API Surface
+
+Track endpoints, service modules, request/response contracts, and important integration notes here.
+
+## APIs
+- Add API groups and contracts.
+codex
+The required context is loaded; current atlas docs are still placeholders, so Phase 0 will focus on evidence gathering only. I’m scanning `/Users/macbook/Desktop/Huz` now to inventory backend/frontend modules, routes, and API integration points without doing Phase 1 doc refresh yet.
+exec
+/bin/zsh -lc 'ls -la /Users/macbook/Desktop/Huz' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+total 96
+drwxr-xr-x@ 13 macbook  staff    416 Mar  6 15:42 .
+drwx------@ 21 macbook  staff    672 Mar  7 15:06 ..
+drwxr-xr-x@ 11 macbook  staff    352 Mar  6 23:25 .git
+-rw-r--r--@  1 macbook  staff    571 Mar  6 15:15 .gitignore
+-rw-r--r--@  1 macbook  staff   8768 Mar  6 17:45 FIXES_SUMMARY.md
+-rw-r--r--@  1 macbook  staff  10470 Mar  6 17:51 HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md
+drwxr-xr-x@ 15 macbook  staff    480 Feb 24 20:09 Huz-Admin-Frontend
+drwxrwxr-x@ 19 macbook  staff    608 Mar  6 15:14 Huz-Backend
+drwxrwxr-x@ 21 macbook  staff    672 Mar  6 15:12 Huz-Operator-Frontend
+drwxrwxr-x@ 17 macbook  staff    544 Mar  6 15:23 Huz-Web-Frontend
+-rw-r--r--@  1 macbook  staff  17661 Feb 26 17:18 UI_DESIGN_SYSTEM_GUIDE.md
+drwxr-xr-x@ 10 macbook  staff    320 Mar  6 15:14 docs
+drwxr-xr-x@  3 macbook  staff     96 Mar  5 03:17 scripts
+exec
+/bin/zsh -lc 'find /Users/macbook/Desktop/Huz/Huz-Backend -maxdepth 2 -type d | sort' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'find /Users/macbook/Desktop/Huz/Huz-Web-Frontend -maxdepth 2 -type d | sort' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'find /Users/macbook/Desktop/Huz/Huz-Operator-Frontend -maxdepth 2 -type d | sort' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'find /Users/macbook/Desktop/Huz/Huz-Admin-Frontend -maxdepth 2 -type d | sort' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 51ms:
+/Users/macbook/Desktop/Huz/Huz-Backend
+/Users/macbook/Desktop/Huz/Huz-Backend/.git
+/Users/macbook/Desktop/Huz/Huz-Backend/.git/gk
+/Users/macbook/Desktop/Huz/Huz-Backend/.git/hooks
+/Users/macbook/Desktop/Huz/Huz-Backend/.git/info
+/Users/macbook/Desktop/Huz/Huz-Backend/.git/logs
+/Users/macbook/Desktop/Huz/Huz-Backend/.git/objects
+/Users/macbook/Desktop/Huz/Huz-Backend/.git/refs
+/Users/macbook/Desktop/Huz/Huz-Backend/.idea
+/Users/macbook/Desktop/Huz/Huz-Backend/.idea/inspectionProfiles
+/Users/macbook/Desktop/Huz/Huz-Backend/.venv
+/Users/macbook/Desktop/Huz/Huz-Backend/.venv/bin
+/Users/macbook/Desktop/Huz/Huz-Backend/.venv/include
+/Users/macbook/Desktop/Huz/Huz-Backend/.venv/lib
+/Users/macbook/Desktop/Huz/Huz-Backend/booking
+/Users/macbook/Desktop/Huz/Huz-Backend/booking/__pycache__
+/Users/macbook/Desktop/Huz/Huz-Backend/booking/migrations
+/Users/macbook/Desktop/Huz/Huz-Backend/booking/views
+/Users/macbook/Desktop/Huz/Huz-Backend/chat
+/Users/macbook/Desktop/Huz/Huz-Backend/chat/__pycache__
+ succeeded in 51ms:
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/.git
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/.git/gk
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/.git/hooks
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/.git/info
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/.git/logs
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/.git/objects
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/.git/refs
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/dist
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/dist/assets
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/node_modules
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/node_modules/.bin
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/node_modules/.cache
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/node_modules/.vite
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/node_modules/.vite-temp
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/node_modules/@ampproject
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/node_modules/@babel
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/node_modules/@emotion
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/node_modules/@esbuild
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/node_modules/@eslint
+ succeeded in 52ms:
+Total output lines: 934
+
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/.git
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/.git/gk
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/.git/hooks
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/.git/info
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/.git/logs
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/.git/objects
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/.git/refs
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/build
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/build/assets
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/build/images
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/build/static
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/docs
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/node_modules
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/node_modules/.bin
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/node_modules/.cache
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/node_modules/@adobe
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/node_modules/@alloc
+ succeeded in 51ms:
+Total output lines: 952
+
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/.git
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/.git/gk
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/.git/hooks
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/.git/info
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/.git/logs
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/.git/objects
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/.git/refs
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/build
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/build/BANK
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/build/static
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/node_modules
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/node_modules/.bin
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/node_modules/.cache
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/node_modules/@adobe
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/node_modules/@alloc
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/node_modules/@ampproject
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/node_modules/@babel
+codex
+I confirmed the project has `Huz-Backend` plus three frontends (`Huz-Web-Frontend`, `Huz-Admin-Frontend`, `Huz-Operator-Frontend`). Next I’m switching to targeted scans (excluding build/node_modules) to map backend URL patterns and where each frontend calls those APIs.
+exec
+/bin/zsh -lc "rg -n \"urlpatterns|router\\.register|path\\(|re_path\\(\" /Users/macbook/Desktop/Huz/Huz-Backend -g '*.py' -g '"'!**/migrations/**'"' -g '"'!**/.venv/**'"'" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "rg --files /Users/macbook/Desktop/Huz/Huz-Backend -g '*.py' -g '"'!**/migrations/**'"' -g '"'!**/__pycache__/**'"' -g '"'!**/.venv/**'"' | sort" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "rg --files /Users/macbook/Desktop/Huz/Huz-Backend -g '*urls.py' -g '"'!**/migrations/**'"' | sort" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 50ms:
+zsh:1: command not found: rg
+ exited 127 in 52ms:
+zsh:1: command not found: rg
+ succeeded in 52ms:
+zsh:1: command not found: rg
+codex
+`rg` isn’t installed in this environment, so I’m switching to `find` + `grep` for the same inventory scan. I’ll keep it scoped to source files only.
+exec
+/bin/zsh -lc "grep -RIn --include='*.py' --exclude-dir=.venv --exclude-dir=migrations --exclude-dir=__pycache__ --exclude-dir=.git -E 'urlpatterns|router\\.register|path\\(|re_path\\(' /Users/macbook/Desktop/Huz/Huz-Backend" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "find /Users/macbook/Desktop/Huz/Huz-Backend -type f -name '*.py' \\( -path '*/migrations/*' -o -path '*/__pycache__/*' -o -path '*/.venv/*' -o -path '*/.git/*' \\) -prune -o -type f -name '*.py' -print | sort" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "find /Users/macbook/Desktop/Huz/Huz-Backend -type f -name '*urls.py' -print | sort" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 50ms:
+/Users/macbook/Desktop/Huz/Huz-Backend/chat/routing.py:4:websocket_urlpatterns = [
+/Users/macbook/Desktop/Huz/Huz-Backend/chat/routing.py:5:    re_path(r'ws/chat/$', consumers.ChatConsumer.as_asgi()),
+/Users/macbook/Desktop/Huz/Huz-Backend/chat/urls.py:4:urlpatterns = [
+/Users/macbook/Desktop/Huz/Huz-Backend/chat/urls.py:5:    path("user-messages/<user_session_token>/", views.UserInbox.as_view()),
+/Users/macbook/Desktop/Huz/Huz-Backend/chat/urls.py:6:    path("partner-messages/<partner_session_token>/", views.PartnerInbox.as_view()),
+/Users/macbook/Desktop/Huz/Huz-Backend/chat/urls.py:7:    path("send-messages/", views.SendMessages.as_view()),
+/Users/macbook/Desktop/Huz/Huz-Backend/chat/urls.py:8:    path("get-messages/<user_session_token>/<partner_session_token>/", views.GetMessages.as_view()),
+/Users/macbook/Desktop/Huz/Huz-Backend/chat/urls.py:9:    path("delete-all-messages/", views.DeleteAllMessages.as_view()),
+/Users/macbook/Desktop/Huz/Huz-Backend/booking/api_urls.py:8:router.register("bookings", BookingViewSet, basename="v1-bookings")
+/Users/macbook/Desktop/Huz/Huz-Backend/booking/api_urls.py:13:urlpatterns = [
+/Users/macbook/Desktop/Huz/Huz-Backend/booking/api_urls.py:14:    path("users/me/bookings/", current_user_booking_list, name="v1-user-bookings"),
+/Users/macbook/Desktop/Huz/Huz-Backend/booking/api_urls.py:17:urlpatterns += router.urls
+/Users/macbook/Desktop/Huz/Huz-Backend/booking/urls.py:5:urlpatterns = [
+/Users/macbook/Desktop/Huz/Huz-Backend/booking/urls.py:7:    path('create_booking_view/', booking_views.ManageBookingsView.as_view()),
+/Users/macbook/Desktop/Huz/Huz-Backend/booking/urls.py:8:    path('check_passport_validity/', passport_views.ManagePassportValidityView.as_view()),
+/Users/macbook/Desktop/Huz/Huz-Backend/booking/urls.py:9:    path('get_all_booking_short_detail_by_user/', booking_views.GetAllBookingsByUserView.as_view()),
+/Users/macbook/Desktop/Huz/Huz-Backend/booking/urls.py:10:    path('pay_booking_amount_by_transaction_number/', payment_views.PaidAmountByTransactionNumberView.as_view()),
+/Users/macbook/Desktop/Huz/Huz-Backend/booking/urls.py:11:    path('pay_booking_amount_by_transaction_photo/', payment_views.PaidAmountTransactionPhotoView.as_view()),
+/Users/macbook/Desktop/Huz/Huz-Backend/booking/urls.py:12:    path('delete_payment_record/', payment_views.DeleteAmountTransactionPhotoView.as_view()),
+/Users/macbook/Desktop/Huz/Huz-Backend/booking/urls.py:13:    # path('manage_passport_and_photo/', manage_bookings.ManageUserRequiredDocumentsView.as_view()),
+ succeeded in 455ms:
+/Users/macbook/Desktop/Huz/Huz-Backend/.venv/lib/python3.12/site-packages/django/contrib/admin/templatetags/admin_urls.py
+/Users/macbook/Desktop/Huz/Huz-Backend/.venv/lib/python3.12/site-packages/django/contrib/admindocs/urls.py
+/Users/macbook/Desktop/Huz/Huz-Backend/.venv/lib/python3.12/site-packages/django/contrib/auth/urls.py
+/Users/macbook/Desktop/Huz/Huz-Backend/.venv/lib/python3.12/site-packages/django/contrib/flatpages/urls.py
+/Users/macbook/Desktop/Huz/Huz-Backend/.venv/lib/python3.12/site-packages/django/contrib/staticfiles/urls.py
+/Users/macbook/Desktop/Huz/Huz-Backend/.venv/lib/python3.12/site-packages/django/core/checks/urls.py
+/Users/macbook/Desktop/Huz/Huz-Backend/.venv/lib/python3.12/site-packages/pip/_internal/utils/urls.py
+/Users/macbook/Desktop/Huz/Huz-Backend/.venv/lib/python3.12/site-packages/rest_framework/urls.py
+/Users/macbook/Desktop/Huz/Huz-Backend/.venv/lib/python3.12/site-packages/rest_framework/utils/urls.py
+/Users/macbook/Desktop/Huz/Huz-Backend/.venv/lib/python3.12/site-packages/tutorial/urls.py
+/Users/macbook/Desktop/Huz/Huz-Backend/booking/api_urls.py
+/Users/macbook/Desktop/Huz/Huz-Backend/booking/urls.py
+/Users/macbook/Desktop/Huz/Huz-Backend/chat/urls.py
+/Users/macbook/Desktop/Huz/Huz-Backend/common/urls.py
+/Users/macbook/Desktop/Huz/Huz-Backend/huz/urls.py
+/Users/macbook/Desktop/Huz/Huz-Backend/management/urls.py
+/Users/macbook/Desktop/Huz/Huz-Backend/partners/urls.py
+ succeeded in 459ms:
+/Users/macbook/Desktop/Huz/Huz-Backend/booking/__init__.py
+/Users/macbook/Desktop/Huz/Huz-Backend/booking/admin.py
+/Users/macbook/Desktop/Huz/Huz-Backend/booking/api_urls.py
+/Users/macbook/Desktop/Huz/Huz-Backend/booking/apps.py
+/Users/macbook/Desktop/Huz/Huz-Backend/booking/custom_request.py
+/Users/macbook/Desktop/Huz/Huz-Backend/booking/manage_bookings.py
+/Users/macbook/Desktop/Huz/Huz-Backend/booking/manage_partner_booking.py
+/Users/macbook/Desktop/Huz/Huz-Backend/booking/models.py
+/Users/macbook/Desktop/Huz/Huz-Backend/booking/request_serializers.py
+/Users/macbook/Desktop/Huz/Huz-Backend/booking/serializers.py
+/Users/macbook/Desktop/Huz/Huz-Backend/booking/services.py
+/Users/macbook/Desktop/Huz/Huz-Backend/booking/tests.py
+/Users/macbook/Desktop/Huz/Huz-Backend/booking/urls.py
+/Users/macbook/Desktop/Huz/Huz-Backend/booking/views/__init__.py
+/Users/macbook/Desktop/Huz/Huz-Backend/booking/views/api_v1.py
+/Users/macbook/Desktop/Huz/Huz-Backend/booking/views/bookings.py
+/Users/macbook/Desktop/Huz/Huz-Backend/booking/views/passports.py
+/Users/macbook/Desktop/Huz/Huz-Backend/booking/views/payments.py
+/Users/macbook/Desktop/Huz/Huz-Backend/chat/__init__.py
+/Users/macbook/Desktop/Huz/Huz-Backend/chat/admin.py
+codex
+I have a clean backend route inventory from Django `urls.py` files. Next I’m extracting frontend route definitions and API client modules from all three frontends so I can map “backend endpoint → connected FE pages/modules” and detect unconnected APIs.
+exec
+/bin/zsh -lc 'for d in /Users/macbook/Desktop/Huz/Huz-Web-Frontend /Users/macbook/Desktop/Huz/Huz-Admin-Frontend /Users/macbook/Desktop/Huz/Huz-Operator-Frontend; do
+  echo "===== ${d##*/} package.json =====";
+  cat "$d/package.json";
+  echo;
+  echo "===== ${d##*/} src top-level =====";
+  find "$d/src" -maxdepth 2 -type d | sort;
+  echo;
+  echo "===== ${d##*/} route-related files =====";
+  find "$d/src" -type f '"\\( -iname '*route*' -o -iname 'App.*' -o -iname 'main.*' -o -iname 'index.*' \\) | sort;
+  echo;
+  echo \"===== "'${d##*/} api/service files =====";
+  find "$d/src" -type f '"\\( -path '*/api/*' -o -path '*/services/*' -o -iname '*api*' -o -iname '*service*' \\) | sort;
+  echo;
+done" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 51ms:
+===== Huz-Web-Frontend package.json =====
+{
+  "name": "huz-new-website",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@headlessui/react": "^2.2.0",
+    "@mui/icons-material": "^6.5.0",
+    "@tanstack/react-table": "^8.21.3",
+    "axios": "^1.7.7",
+    "country-state-city": "^3.2.1",
+    "framer-motion": "^11.11.17",
+    "js-cookie": "^3.0.5",
+    "lucide-react": "^0.468.0",
+    "react": "^18.3.1",
+    "react-datepicker": "^7.6.0",
+    "react-dom": "^18.3.1",
+    "react-icons": "^5.5.0",
+    "react-router-dom": "^6.28.0",
+    "react-scripts": "5.0.1",
+exec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Huz/Huz-Backend/partners/urls.py' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Huz/Huz-Backend/management/urls.py' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Huz/Huz-Backend/common/urls.py' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Huz/Huz-Backend/booking/api_urls.py' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Huz/Huz-Backend/booking/urls.py' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Huz/Huz-Backend/huz/urls.py' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Huz/Huz-Backend/chat/urls.py' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 50ms:
+from django.urls import path, re_path
+from . import user_profile, accounts_and_transactions, views
+
+urlpatterns = [
+    path('user_subscribe/', user_profile.SubscribeAPIView.as_view()),
+    path('send_otp_sms/', user_profile.SendOTPSMSAPIView.as_view()),
+    path('verify_otp/', user_profile.MatchOTPSMSAPIView.as_view()),
+    path('send_otp_email/', user_profile.SendEmailOTPView.as_view()),
+    path('verify_otp_email/', user_profile.MatchEmailOTPView.as_view()),
+    path('is_user_exist/', user_profile.IsUserExistView.as_view()),
+    path('manage_user_account/', user_profile.CreateMemberProfileView.as_view()),
+    path('upload_user_photo/', user_profile.UploadUserImageView.as_view()),
+    path('update_firebase_token/', user_profile.UpdateFirebaseTokenView.as_view()),
+    path('update_user_name/', user_profile.UpdateUserNameView.as_view()),
+    path('update_user_gender/', user_profile.UpdateUserGenderView.as_view()),
+    path('update_user_email/', user_profile.UpdateEmailAddressView.as_view()),
+    path('manage_user_address_detail/', user_profile.ManageUserAddressView.as_view()),
+    # User account and Transactions
+    path('manage_user_withdraw_request/', accounts_and_transactions.ManageWithdrawView.as_view()),
+    path('manage_user_bank_account/', accounts_and_transactions.ManageBankAccountView.as_view()),
+ succeeded in 50ms:
+from django.urls import path, re_path
+from . import (
+    forgot_password,
+    package_management,
+    partner_accounts_and_transactions,
+    partner_profile,
+    views,
+)
+from .views import operator_packages
+
+
+urlpatterns = [
+    path('forgot_password_request/', forgot_password.ForgotEmail.as_view()),
+    path('update_forgot_password_request/', forgot_password.UpdatePassword.as_view()),
+
+    path('partner_login/', partner_profile.PartnerLoginView.as_view()),
+    path('is_user_exist/', partner_profile.IsPartnerExistView.as_view()),
+    path('create_partner_profile/', partner_profile.CreatePartnerProfileView.as_view()),
+    path('get_partner_profile/', partner_profile.GetPartnerProfileView.as_view()),
+    path('resend_otp/', partner_profile.SendEmailOTPView.as_view()),
+ succeeded in 50ms:
+from django.urls import path, re_path
+from . import approval_task, admin_reports
+
+
+urlpatterns = [
+    path('approved_or_reject_company/', approval_task.ApprovedORRejectCompanyView.as_view()),
+    path('fetch_all_pending_companies/', approval_task.GetAllPendingApprovalsView.as_view()),
+    path('fetch_all_approved_companies/', approval_task.GetAllApprovedCompaniesView.as_view()),
+    path('fetch_all_sale_directors/', approval_task.GetAllSaleDirectorsView.as_view()),
+    path('approve_booking_payment/', approval_task.ApproveBookingPaymentView.as_view()),
+    path('fetch_all_paid_bookings/', approval_task.FetchPaidBookingView.as_view()),
+    path('manage_featured_package/', approval_task.ManageFeaturedPackageView.as_view()),
+    path('fetch_all_partner_receive_able_payments_details/', approval_task.GetPartnerReceiveAblePaymentsView.as_view()),
+    path('transfer_partner_receive_able_payments/', approval_task.ManagePartnerReceiveAblePaymentView.as_view()),
+    path('manage_master_hotels/', approval_task.ManageMasterHotelsCatalogView.as_view()),
+
+    path('partner_status_count/', admin_reports.PartnerStatusCountView.as_view()),
+    path('top-five-partners-rating/', admin_reports.TopPartnersRatingAPIView.as_view()),
+    path('top-five-partners-traveller/', admin_reports.TopOperatorsWithTravelerAPIView.as_view()),
+    path('top-five-partners-bookings/', admin_reports.TopOperatorsWithBookingAPIView.as_view()),
+ succeeded in 51ms:
+from django.contrib import admin
+from django.urls import path, include, re_path
+from django.views.static import serve
+from . import settings
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
+from rest_framework import permissions
+
+schema_view = get_schema_view(
+    openapi.Info(
+        title="Your API",
+        default_version='v1',
+        description="API documentation",
+        terms_of_service="https://www.google.com/policies/terms/",
+        contact=openapi.Contact(email="contact@yourapi.local"),
+        license=openapi.License(name="BSD License"),
+    ),
+    public=True,
+    permission_classes=(permissions.AllowAny,),
+)
+ succeeded in 51ms:
+from django.urls import path
+from rest_framework.routers import DefaultRouter
+
+from .views.api_v1 import BookingViewSet
+
+
+router = DefaultRouter()
+router.register("bookings", BookingViewSet, basename="v1-bookings")
+
+current_user_booking_list = BookingViewSet.as_view({"get": "list"})
+
+
+urlpatterns = [
+    path("users/me/bookings/", current_user_booking_list, name="v1-user-bookings"),
+]
+
+urlpatterns += router.urls
+ succeeded in 51ms:
+from django.urls import path
+from . import manage_bookings, manage_partner_booking, custom_request
+from .views import bookings as booking_views, passports as passport_views, payments as payment_views
+
+urlpatterns = [
+    # User Section
+    path('create_booking_view/', booking_views.ManageBookingsView.as_view()),
+    path('check_passport_validity/', passport_views.ManagePassportValidityView.as_view()),
+    path('get_all_booking_short_detail_by_user/', booking_views.GetAllBookingsByUserView.as_view()),
+    path('pay_booking_amount_by_transaction_number/', payment_views.PaidAmountByTransactionNumberView.as_view()),
+    path('pay_booking_amount_by_transaction_photo/', payment_views.PaidAmountTransactionPhotoView.as_view()),
+    path('delete_payment_record/', payment_views.DeleteAmountTransactionPhotoView.as_view()),
+    # path('manage_passport_and_photo/', manage_bookings.ManageUserRequiredDocumentsView.as_view()),
+    path('manage_user_passport/', manage_bookings.ManageUserPassportView.as_view()),
+    path('manage_user_passport_photo/', manage_bookings.ManageUserPassportPhotoView.as_view()),
+    # path('delete_passport_or_photo/', manage_bookings.DeleteUserRequiredDocumentsView.as_view()),
+    path('rating_and_review/', manage_bookings.BookingRatingAndReviewView.as_view()),
+    path('raise_complaint_booking_wise/', manage_bookings.BookingComplaintsView.as_view()),
+    path('get_all_complaints_by_user/', manage_bookings.GetUserComplaintsView.as_view()),
+    path('objection_response_by_user/', manage_bookings.ObjectionResponseView.as_view()),
+ succeeded in 50ms:
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path("user-messages/<user_session_token>/", views.UserInbox.as_view()),
+    path("partner-messages/<partner_session_token>/", views.PartnerInbox.as_view()),
+    path("send-messages/", views.SendMessages.as_view()),
+    path("get-messages/<user_session_token>/<partner_session_token>/", views.GetMessages.as_view()),
+    path("delete-all-messages/", views.DeleteAllMessages.as_view()),
+]
+exec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/App.js' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 51ms:
+// src/App.js
+import React, { Suspense } from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import { ScrollToTop } from "./Utilities/UtilityFunctions.js";
+import "./styles/globals.css";
+import AuthContextProvider from "./context/AuthContextProvider.js";
+import { CurrencyProvider } from "./context/CurrencyContext";
+import { BookingProvider } from "./context/BookingContext";
+import AppRoutes from "./routes/AppRoutes";
+import PageLoader from "./shared/ui/PageLoader";
+
+const App = () => {
+  return (
+    <AuthContextProvider>
+      <CurrencyProvider>
+        <BookingProvider>
+          <Router>
+            <ScrollToTop />
+            <Suspense fallback={<PageLoader />}>
+              <div>
+ succeeded in 51ms:
+import React, { lazy } from "react";
+import { Route, Routes } from "react-router-dom";
+import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute";
+
+const HomePage = lazy(() => import("../pages/HomePage/HomePage"));
+const ListingPage = lazy(() => import("../pages/ListingPage/ListingPage"));
+const PackageDetailPage = lazy(() => import("../pages/PackageDetailPage/PackageDetailPage"));
+const PersonalDetailsPage = lazy(() => import("../pages/UserSetting/PersonalDetailsPage"));
+const ListPackagePage = lazy(() => import("../pages/ListPackagePage/ListPackagePage"));
+const SignUpPage = lazy(() => import("../pages/Signup/Signup"));
+const LoginPage = lazy(() => import("../pages/Login/Login"));
+const OtpPage = lazy(() => import("../pages/Otp/Otp"));
+const VisaServices = lazy(() => import("../pages/VisaServices/VisaServices"));
+const HajjGuidance = lazy(() => import("../pages/HajjGuidance/HajjGuidance"));
+const UmrahGuide = lazy(() => import("../pages/UmrahGuide/UmrahGuide"));
+const PreparationTips = lazy(() => import("../pages/PreparationTips/PreparationTips"));
+const TravelEssentials = lazy(() => import("../pages/TravelEssentials/TravelEssentials"));
+const MakkahHolySites = lazy(() => import("../pages/MakkahHolySites/MakkahHolySites"));
+const MadinahHolySites = lazy(() => import("../pages/MadinahHolySites/MadinahHolySites"));
+const JeddahHolySites = lazy(() => import("../pages/JeddahHolySites/JeddahHolySites"));
+exec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/AuthApi.js' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/homepageApi.js' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/packageDetailApi.js' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/listingApi.js' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/services/api/httpClient.js' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 51ms:
+import { get } from "../services/api/httpClient";
+
+const PACKAGE_DETAIL_ERROR_MESSAGE =
+  "We could not load this package right now. Please try again in a moment.";
+
+const extractApiErrorMessage = (error, fallbackMessage) =>
+  error?.response?.data?.message ||
+  error?.response?.data?.detail ||
+  error?.response?.data?.error ||
+  error?.message ||
+  fallbackMessage;
+
+export const fetchPackageDetailByToken = async ({ huzToken, signal } = {}) => {
+  if (!huzToken) {
+    return null;
+  }
+
+  try {
+    const response = await get("/partner/get_package_detail_by_package_id_for_web/", {
+      params: { huz_token: huzToken },
+ succeeded in 52ms:
+import { get } from "../services/api/httpClient";
+
+const HOMEPAGE_DEFAULT_ERROR =
+  "We couldn't load the homepage packages right now. Please try again in a moment.";
+
+const asArray = (value) => (Array.isArray(value) ? value : []);
+
+const normalizePackageList = (payload) => {
+  if (Array.isArray(payload)) {
+    return payload;
+  }
+
+  const candidates = [
+    payload?.results,
+    payload?.data?.results,
+    payload?.data,
+    payload?.packages,
+    payload?.items,
+  ];
+
+ succeeded in 52ms:
+import Cookies from "js-cookie";
+import {
+  authHeaderClient,
+  clearAppAuth,
+  publicClient,
+  refreshAccessToken,
+} from "../services/api/httpClient";
+
+export { refreshAccessToken };
+
+const PROFILE_STORAGE_KEY = "Login-User-Profile";
+const ACCESS_COOKIE_KEY = "accessToken";
+const REFRESH_COOKIE_KEY = "refreshToken";
+const LEGACY_ACCESS_COOKIE_KEY = "access_token";
+const LEGACY_REFRESH_COOKIE_KEY = "refresh_token";
+export const DEV_DEFAULT_OTP = process.env.NODE_ENV === "production" ? "" : "123456";
+
+const isBrowser = typeof window !== "undefined";
+
+const authCookieOptions = {
+ succeeded in 52ms:
+import httpClient, { refreshAccessToken } from "../services/api/httpClient";
+import Cookies from "js-cookie";
+
+export { refreshAccessToken };
+
+const axiosInstance = httpClient;
+const validateParams = (params, requiredFields) => {
+  for (const field of requiredFields) {
+    if (!params[field]) return `${field} is required.`;
+  }
+  return null;
+};
+
+const resolveSessionToken = (sessionToken = "") =>
+  (
+    sessionToken ||
+    Cookies.get("accessToken") ||
+    Cookies.get("access_token") ||
+    ""
+  ).trim();
+ succeeded in 51ms:
+import { get } from "../services/api/httpClient";
+import {
+  getDefaultApiStartDate,
+  normalizePaginatedPackageListPayload,
+} from "../features/listing/utils/listingPackageUtils";
+import { LISTING_PAGE_SIZE } from "../features/listing/constants/listingConfig";
+
+export const LISTING_DEFAULT_ERROR =
+  "We couldn't load packages right now. Please try again in a moment.";
+
+const extractApiMessage = (error) => {
+  return (
+    error?.response?.data?.message ||
+    error?.response?.data?.detail ||
+    error?.response?.data?.error ||
+    error?.message ||
+    LISTING_DEFAULT_ERROR
+  );
+};
+
+ succeeded in 51ms:
+import axios from "axios";
+import Cookies from "js-cookie";
+
+export const API_BASE_URL = (process.env.REACT_APP_API_BASE_URL || "").replace(
+  /\/$/,
+  ""
+);
+export const STATIC_AUTH_HEADER = process.env.REACT_APP_AUTH_TOKEN || "";
+export const JSON_HEADERS = {
+  "Content-Type": "application/json",
+};
+
+const APP_TOKEN_PROFILE = {
+  accessKey: "accessToken",
+  refreshKey: "refreshToken",
+  accessCookieOptions: {
+    expires: 1 / 288,
+    secure: true,
+    sameSite: "Strict",
+  },
+codex
+I finished the web frontend endpoint extraction and have concrete endpoint usage (including fallback legacy routes). I’ll do the same for admin/operator frontend API layers and then compute which backend endpoints are connected vs currently unreferenced.
+exec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/App.js' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/index.js' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/utility/Api.js' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/utility/AuthApis.js' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/utility/Super-Admin-Api.js' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 51ms:
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+ succeeded in 51ms:
+import React, { Suspense, createContext, lazy, useState } from "react";
+import { BrowserRouter as Router, Navigate, Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./App.css";
+import "./customToast.css";
+import "./components/ScrollToTopButton.css";
+import ScrollToTopButton from "./components/ScrollToTopButton";
+import HeaderNavbarCom from "./components/HeaderNavbarComponent";
+import { RouteLoader } from "./components/ui";
+import { UserProvider } from "./context/UserContext";
+import { BookingProvider } from "./context/BookingContext";
+import { CurrencyProvider } from "./utility/CurrencyContext";
+
+const LoginPage = lazy(() => import("./pages/login/login"));
+
+const SuperAdminDashboard = lazy(() => import("./pages/dashboard/dashboard"));
+const AccessProfilePage = lazy(() => import("./pages/dashboard/dashboard-pages/AccessProfilePage"));
+const PendingProfilePage = lazy(() => import("./pages/dashboard/dashboard-pages/PendingProfilePages/PendingProfilesList"));
+const ApproveAmountsPage = lazy(() => import("./pages/dashboard/dashboard-pages/ApproveAmountsPages/ApproveAmountsPage"));
+ succeeded in 51ms:
+import axios from "axios";
+
+const resolveApiBaseURL = () => {
+  const configuredURL = `${process.env.REACT_APP_API_BASE_URL || ""}`.trim();
+  const fallbackURL = "http://127.0.0.1:8000";
+  const normalizedBaseURL = configuredURL || fallbackURL;
+  return normalizedBaseURL.replace(/\/+$/, "");
+};
+
+const API_BASE_URL = resolveApiBaseURL();
+
+// Create an Axios instance with the base URL and default headers
+const apiClient = axios.create({
+  baseURL: API_BASE_URL,
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: `${process.env.REACT_APP_AUTH_TOKEN}`,
+  },
+});
+
+ succeeded in 51ms:
+import axios from "axios";
+import FormData from "form-data";
+
+// Ensure the token is correctly formatted without spaces
+const authHeader = `${process.env.REACT_APP_AUTH_TOKEN}`;
+const resolveApiBaseURL = () => {
+  const configuredURL = `${process.env.REACT_APP_API_BASE_URL || ""}`.trim();
+  const fallbackURL = "http://127.0.0.1:8000";
+  const normalizedBaseURL = configuredURL || fallbackURL;
+  return normalizedBaseURL.replace(/\/+$/, "");
+};
+
+const baseURL = resolveApiBaseURL();
+
+const config = {
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: authHeader,
+  },
+};
+ succeeded in 51ms:
+import axios from "axios";
+
+const authHeader = `${process.env.REACT_APP_AUTH_TOKEN}`;
+const LOCAL_FALLBACK_API_URL = "http://127.0.0.1:8000";
+
+const resolveApiBaseURL = () => {
+  const configuredURL = `${process.env.REACT_APP_API_BASE_URL || ""}`.trim();
+  const fallbackURL = LOCAL_FALLBACK_API_URL;
+  const normalizedBaseURL = configuredURL || fallbackURL;
+  return normalizedBaseURL.replace(/\/+$/, "");
+};
+
+const baseURL = resolveApiBaseURL();
+const localFallbackBaseURL = LOCAL_FALLBACK_API_URL.replace(/\/+$/, "");
+
+const config = {
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: authHeader,
+  },
+exec
+/bin/zsh -lc "grep -RIn --include='*.js' --include='*.jsx' --include='*.ts' --include='*.tsx' -E '\"/(api/v1|common|partner|bookings|management|chat)["'^"'"\\047 ]*|\\047/(api/v1|common|partner|bookings|management|chat)["'^'"\\047 ]*' /Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "grep -RIn --include='*.js' --include='*.jsx' --include='*.ts' --include='*.tsx' -E '\"/(api/v1|common|partner|bookings|management|chat)["'^"'"\\047 ]*|\\047/(api/v1|common|partner|bookings|management|chat)["'^'"\\047 ]*' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "grep -RIn --include='*.js' --include='*.jsx' --include='*.ts' --include='*.tsx' -E '\"/(api/v1|common|partner|bookings|management|chat)["'^"'"\\047 ]*|\\047/(api/v1|common|partner|bookings|management|chat)["'^'"\\047 ]*' /Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 51ms:
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/components/NavigationBarForContent.js:15:  { to: "/partner-dashboard", label: "Dashboard", icon: dashboardIcon },
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/pages/dashboard/dashboard-pages/AccessProfilePage.js:64:    navigate("/partner-dashboard");
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/App.js:181:  { path: "/partner-dashboard", Component: Dashboard },
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/utility/Super-Admin-Api.js:83:      url: "/common/is_user_exist/",
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/utility/Super-Admin-Api.js:110:      url: "/management/fetch_all_pending_companies/",
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/utility/Super-Admin-Api.js:138:      url: "/management/fetch_all_sale_directors/",
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/utility/Super-Admin-Api.js:165:      url: "/management/approved_or_reject_company/",
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/utility/Super-Admin-Api.js:197:      url: "/management/fetch_all_approved_companies/",
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/utility/Super-Admin-Api.js:220:      url: "/management/fetch_all_paid_bookings/",
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/utility/Super-Admin-Api.js:253:      url: "/management/approve_booking_payment/",
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/utility/Super-Admin-Api.js:292:      url: "/management/fetch_all_partner_receive_able_payments_details/",
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/utility/Super-Admin-Api.js:305:      url: "/bookings/get_booking_detail_by_booking_number/",
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/utility/Super-Admin-Api.js:323:      url: "/management/transfer_partner_receive_able_payments/",
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/utility/Api.js:53:    url: "/partner/enroll_transport_package/",
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/utility/Api.js:114:      "/partner/update_transport_package_basic_detail/",
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/utility/Api.js:155:  return apiClient.put("/partner/update_transport_package_photo/", formData, {
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/utility/Api.js:168:  return apiClient.put("/partner/change_transport_package_status/", {
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/utility/Api.js:191:      "/partner/get_transport_package_by_token/",
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/utility/Api.js:211:      "/partner/enroll_package_basic_detail/",
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/utility/Api.js:224:      "/partner/enroll_package_basic_detail/",
+ succeeded in 51ms:
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js:138:  const result = await apiGet("/partner/get_featured_packages/", {
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js:160:  const result = await apiGet("/partner/get_package_short_detail_for_web/", {
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js:216:    "/partner/get_package_detail_by_city_and_date/",
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js:233:  const result = await apiGet("/partner/get_package_detail_by_package_id_for_web/", {
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js:349:    const response = await axiosInstance.post("/api/v1/bookings/", requestPayload);
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js:360:          "/bookings/create_booking_view/",
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js:412:      "/bookings/check_passport_validity/",
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js:435://     "/bookings/pay_booking_amount_by_transaction_photo/",
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js:486:        "/bookings/pay_booking_amount_by_transaction_number/",
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js:519:      "/bookings/pay_booking_amount_by_transaction_photo/",
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js:555:    const response = await axiosInstance.get("/api/v1/users/me/bookings/");
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js:560:        "/bookings/get_all_booking_short_detail_by_user/"
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js:612:      "/bookings/objection_response_by_user/",
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js:628:      "/bookings/objection_response_by_user/",
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js:656:    user_passport: "/bookings/manage_user_passport/",
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js:657:    user_photo: "/bookings/manage_user_passport_photo/",
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js:661:    routeByFileType[fileKey] || "/bookings/manage_user_passport/",
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js:669:    "/bookings/manage_user_passport_photo/",
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js:688:    const response = await axiosInstance.post("/bookings/rating_and_review/", payload);
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/api/apiService.js:774:      "/bookings/raise_complaint_booking_wise/",
+ succeeded in 51ms:
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src/api/PackageAPI.js:12:  createAirlineDetail: (data) => post("/partner/enroll_package_airline_detail/", data),
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src/api/PackageAPI.js:14:  updateAirlineDetail: (data) => put("/partner/enroll_package_airline_detail/", data),
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src/api/PackageAPI.js:17:    packagesAPIClient.get("/partner/get_package_short_detail_by_partner_token/", {
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src/api/PackageAPI.js:22:  createBasicDetail: (data) => post("/partner/enroll_package_basic_detail/", data),
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src/api/PackageAPI.js:24:  updateBasicDetail: (data) => put("/partner/enroll_package_basic_detail/", data),
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src/api/PackageAPI.js:27:    packagesAPIClient.get("/partner/get_package_detail_by_partner_token/", {
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src/api/PackageAPI.js:33:    packagesAPIClient.get("/partner/get_partner_overall_package_statistics/", {
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src/api/PackageAPI.js:38:  createHotelDetail: (data) => post("/partner/enroll_package_hotel_detail/", data),
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src/api/PackageAPI.js:40:  updateHotelDetail: (data) => put("/partner/enroll_package_hotel_detail/", data),
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src/api/PackageAPI.js:42:  updatePackageStatus: (data) => put("/partner/change_huz_package_status/", data),
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src/api/PackageAPI.js:44:  createTransportDetail: (data) => post("/partner/enroll_package_transport_detail/", data),
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src/api/PackageAPI.js:46:  updateTransportDetail: (data) => put("/partner/enroll_package_transport_detail/", data),
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src/api/PackageAPI.js:48:  createZiyaratDetail: (data) => post("/partner/enroll_package_ziyarah_detail/", data),
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src/api/PackageAPI.js:50:  updateZiyaratDetail: (data) => put("/partner/enroll_package_ziyarah_detail/", data),
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src/api/PackageAPI.js:53:    packagesAPIClient.get("/partner/get_all_hotels_with_images/", {
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src/api/WalletApi.js:78:        walletAPIClient.get("/partner/get_partner_over_transaction_amount/", {
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src/api/WalletApi.js:97:          walletAPIClient.get("/partner/get_partner_all_transaction_history/", {
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src/api/WalletApi.js:108:          walletAPIClient.get("/partner/manage_partner_bank_account/", {
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src/api/WalletApi.js:119:          "/partner/manage_partner_bank_account/",
+/Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src/api/WalletApi.js:130:        walletAPIClient.delete("/partner/manage_partner_bank_account/", {
+exec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src/App.jsx' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src/main.jsx' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 51ms:
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+import './index.css';
+
+const container = document.getElementById('root');
+const root = ReactDOM.createRoot(container);
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+ succeeded in 51ms:
+import React, { useContext } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import AppRoutes from './routes/index';
+import { AuthProvider } from './contexts/AuthContext';
+import { AuthContext } from './contexts/authContextObject';
+import { BusinessProfileProvider } from "./contexts/BusinessProfileContext";
+import ErrorBoundary from './components/ErrorBoundary';
+import { PageLoader } from './components/ui';
+
+const AppContent = () => {
+  const { isLoading } = useContext(AuthContext);
+
+  if (isLoading) {
+    return <PageLoader message="Preparing your operator workspace..." />;
+  }
+
+  return (
+    <div className="flex min-h-screen flex-col">
+      <AppRoutes />
+    </div>
+exec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src/pages/Dashboard/DashboardRoutes.jsx' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src/pages/Dashboard/BookingsModule/BookingRoutes.jsx' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src/routes/index.jsx' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src/pages/Dashboard/PackageCreationModule/PackageCreationSteps/PackageCreationRoutes.jsx' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+import React, { lazy } from "react";
+import { Navigate, Route, Routes, useSearchParams } from "react-router-dom";
+import PackageCreationLayout from "./PackageCreationLayout";
+import { ProtectedRoute } from "../../../../routes/RouteGuards";
+import { PackageFlowProvider } from "./packageFlowContext";
+import DashboardNotFoundPage from "../../components/DashboardNotFoundPage";
+
+const PackageTypeSelection = lazy(() => import("../PackageTypeSelection"));
+const BasicInformation = lazy(() => import("./BasicInfoForm/BasicInformation"));
+const Airline = lazy(() => import("./AirlineInfo/Airline"));
+const Transport = lazy(() => import("./Transport/Transport"));
+const SingleCityHotel = lazy(() => import("./Hotel/SingleCityHotel"));
+const Ziyarah = lazy(() => import("./Ziyarah/Ziyarah"));
+
+const HOTEL_STEP_ROUTES = [
+  {
+    path: "hotel/makkah",
+    city: "Makkah",
+    nextRoute: "/package-creation/hotel/madinah",
+  },
+ succeeded in 52ms:
+import React, { lazy } from "react";
+import { Routes, Route } from "react-router-dom";
+import { TEAM_MODULE_ENABLED } from "../../api/TeamApi";
+import DashboardRouteErrorBoundary from "./components/DashboardRouteErrorBoundary";
+import DashboardNotFoundPage from "./components/DashboardNotFoundPage";
+
+// Lazy-loaded components for all routes
+const Dashboard = lazy(() => import("./Dashboard"));
+const PackageCreationRoutes = lazy(() =>
+  import("./PackageCreationModule/PackageCreationSteps/PackageCreationRoutes")
+);
+const DetailPage = lazy(() =>
+  import("./PackageDetailedPage/PackageDetailedPage")
+);
+const PackageManagement = lazy(() =>
+  import("./PackagesList/PackageManagement")
+);
+const Complaints = lazy(() => import("./Complaints/Complaints"));
+const BookingRoutes = lazy(() => import("./BookingsModule/BookingRoutes"));
+const Wallet = lazy(() => import("./Wallet/wallet"));
+ succeeded in 52ms:
+import React, { lazy, Suspense } from "react";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
+import { ProtectedRoute } from "../../../routes/RouteGuards";
+import { BookingProvider } from "../../../contexts/BookingContext";
+import { parseBookingNumberFromSearch } from "./bookingModuleUtils";
+
+const Bookings = lazy(() => import("./Bookings"));
+const BookingDetails = lazy(() => import("./BookingDetailsPage/BookingDetails"));
+const UploadEvisa = lazy(() =>
+  import("./BookingDetailsPage/ActiveSatusComponents/UploadVisa/UploadEvisa")
+);
+const AirlineTickets = lazy(() =>
+  import("./BookingDetailsPage/ActiveSatusComponents/AirlineTickets/AirlineTickets")
+);
+const TransportArrangement = lazy(() =>
+  import(
+    "./BookingDetailsPage/ActiveSatusComponents/TransportArrangement/TransportArrangement"
+  )
+);
+ succeeded in 52ms:
+// src/routes/AppRoutes.jsx
+import React, { lazy, useContext } from "react";
+import { Routes, Route } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import { SectionLoader } from "../components/ui";
+import {
+  PublicRoute,
+  ProtectedRoute,
+  PendingRoute,
+  PendingReviewRoute,
+  NotVerifiedRoute,
+  RejectedRoute,
+} from "./RouteGuards";
+import { AuthContext } from "../contexts/authContextObject";
+
+// Lazy-loaded pages and components
+const DashboardRoutes = lazy(() => import("../pages/Dashboard/DashboardRoutes"));
+const NavigationBar = lazy(() => import("../components/NavigationBarForContent.jsx"));
+
+exec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 51ms:
+# Deep Scan Report
+
+Use this report for on-demand deep analysis of logic, structures, routes, contracts, and mismatch risks.
+
+## Findings
+- Add findings grouped by module or concern.
+exec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+# Run Summary
+
+- Run mode: `system-atlas`
+- Target project: `/Users/macbook/Desktop/Huz`
+- Workspace root: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz`
+- Scope level: `panel-fullstack`
+- Scope: Full requested scope
+- Scope targets: None
+- Full-system required docs: `enabled`
+- Rule: append one section per completed phase. Do not overwrite prior phase sections.
+
+Expected section format:
+
+## Phase X - Title
+### Changes Made
+### How It Was Implemented
+### Files Touched
+### Verification
+ succeeded in 51ms:
+# Bug and Improvement Backlog
+
+Use this backlog for prioritized follow-up work discovered during scans or implementation.
+
+| ID | Priority | Module | Summary | Status | Verification |
+| --- | --- | --- | --- | --- | --- |
+exec
+/bin/zsh -lc "find /Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src -type f \\( -name '*.js' -o -name '*.jsx' -o -name '*.ts' -o -name '*.tsx' \\) -print0 | xargs -0 perl -ne 'while(/[\"\\x27](\\/(?:api\\/v1|common|partner|bookings|management|chat)\\/["'^"'"\\x27]*)[\"\\x27]/g){print \""'$1'"\\n\"}' | sort -u" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "find /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src -type f \\( -name '*.js' -o -name '*.jsx' -o -name '*.ts' -o -name '*.tsx' \\) -print0 | xargs -0 perl -ne 'while(/[\"\\x27](\\/(?:api\\/v1|common|partner|bookings|management|chat)\\/["'^"'"\\x27]*)[\"\\x27]/g){print \""'$1'"\\n\"}' | sort -u" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+/api/v1/bookings/
+/api/v1/users/me/bookings/
+/bookings/check_passport_validity/
+/bookings/create_booking_view/
+/bookings/get_all_booking_short_detail_by_user/
+/bookings/get_all_complaints_by_user/
+/bookings/get_user_all_request/
+/bookings/manage_user_passport/
+/bookings/manage_user_passport_photo/
+/bookings/objection_response_by_user/
+/bookings/pay_booking_amount_by_transaction_number/
+/bookings/pay_booking_amount_by_transaction_photo/
+/bookings/raise_a_request/
+/bookings/raise_complaint_booking_wise/
+/bookings/rating_and_review/
+/common/is_user_exist/
+/common/manage_user_account/
+/common/manage_user_address_detail/
+/common/send_otp_sms/
+/common/update_user_email/
+ succeeded in 52ms:
+/bookings/delete_booking_documents/
+/bookings/get_booking_detail_by_booking_number/
+/bookings/get_overall_complaints_counts/
+/bookings/get_receivable_payment_statistics/
+/bookings/get_yearly_earning_statistics/
+/bookings/manage_booking_airline_details/
+/bookings/manage_booking_documents/
+/bookings/manage_booking_hotel_or_transport_details/
+/bookings/partner_action_for_booking/
+/common/is_user_exist/
+/management/approve_booking_payment/
+/management/approved_or_reject_company/
+/management/fetch_all_approved_companies/
+/management/fetch_all_paid_bookings/
+/management/fetch_all_partner_receive_able_payments_details/
+/management/fetch_all_pending_companies/
+/management/fetch_all_sale_directors/
+/management/manage_master_hotels/
+/management/transfer_partner_receive_able_payments/
+/partner/change_huz_package_status/
+exec
+/bin/zsh -lc "find /Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src -type f \\( -name '*.js' -o -name '*.jsx' -o -name '*.ts' -o -name '*.tsx' \\) -print0 | xargs -0 perl -ne 'while(/[\"\\x27](\\/(?:api\\/v1|common|partner|bookings|management|chat)\\/["'^"'"\\x27]*)[\"\\x27]/g){print \""'$1'"\\n\"}' | sort -u" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+/bookings/delete_booking_documents/
+/bookings/get_all_booking_detail_for_partner/
+/bookings/get_all_complaints_for_partner/
+/bookings/get_booking_detail_by_booking_number/
+/bookings/get_overall_booking_statistics/
+/bookings/get_overall_complaints_counts/
+/bookings/get_overall_partner_rating/
+/bookings/get_overall_rating_package_wise/
+/bookings/get_rating_and_review_package_wise/
+/bookings/get_receivable_payment_statistics/
+/bookings/get_yearly_earning_statistics/
+/bookings/give_feedback_on_complaints/
+/bookings/manage_booking_airline_details/
+/bookings/manage_booking_documents/
+/bookings/manage_booking_hotel_or_transport_details/
+/bookings/partner_action_for_booking/
+/bookings/update_booking_status_into_close/
+/bookings/update_booking_status_into_report_rabbit/
+/common/update_firebase_token/
+/common/upload_user_photo/
+exec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Huz/Huz-Backend/booking/views/api_v1.py' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 51ms:
+from rest_framework import status
+from rest_framework.decorators import action
+from rest_framework.response import Response
+
+from .bookings import _payload_with_user_session
+from ..request_serializers import (
+    BookingPaymentCreateRequestSerializer,
+    BookingPaymentUpdateRequestSerializer,
+    PassportValidityCreateRequestSerializer,
+    PassportValidityUpdateRequestSerializer,
+    validate_serializer_or_raise,
+)
+from ..serializers import DetailBookingSerializer
+from ..services import (
+    get_booking_by_identifier_for_user,
+    record_booking_payment,
+    update_booking_payment,
+    update_passport_validation,
+    validate_passport,
+)
+exec
+/bin/zsh -lc "grep -n \"class BookingViewSet\" -n /Users/macbook/Desktop/Huz/Huz-Backend/booking/views/bookings.py && sed -n '1,260p' /Users/macbook/Desktop/Huz/Huz-Backend/booking/views/bookings.py" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+53:class BookingViewSet(viewsets.ViewSet):
+from rest_framework import status, viewsets
+from rest_framework.exceptions import AuthenticationFailed
+from rest_framework.response import Response
+
+from common.auth_utils import is_admin_request, require_user_profile
+from common.models import UserProfile
+from common.permissions import IsAdminOrAuthenticatedUserProfile
+
+from .. import manage_bookings as legacy_manage_bookings
+from ..request_serializers import BookingCreateRequestSerializer, validate_serializer_or_raise
+from ..serializers import DetailBookingSerializer
+from ..services import create_booking, get_user_bookings_queryset
+
+
+ManageBookingsView = legacy_manage_bookings.ManageBookingsView
+GetAllBookingsByUserView = legacy_manage_bookings.GetAllBookingsByUserView
+
+
+def _resolve_request_user_profile(request, payload=None):
+exec
+/bin/zsh -lc '{
+  grep -E "''^[[:space:]]*path'"\\(\" /Users/macbook/Desktop/Huz/Huz-Backend/common/urls.py | sed -E \"s/.*path\\(['\\\"](["'^'"'\\\"]+)['\\\"].*/\\/common\\/\\1/\";
+  grep -E \""'^[[:space:]]*path'"\\(\" /Users/macbook/Desktop/Huz/Huz-Backend/partners/urls.py | sed -E \"s/.*path\\(['\\\"](["'^'"'\\\"]+)['\\\"].*/\\/partner\\/\\1/\";
+  grep -E \""'^[[:space:]]*path'"\\(\" /Users/macbook/Desktop/Huz/Huz-Backend/booking/urls.py | sed -E \"s/.*path\\(['\\\"](["'^'"'\\\"]+)['\\\"].*/\\/bookings\\/\\1/\";
+  grep -E \""'^[[:space:]]*path'"\\(\" /Users/macbook/Desktop/Huz/Huz-Backend/management/urls.py | sed -E \"s/.*path\\(['\\\"](["'^'"'\\\"]+)['\\\"].*/\\/management\\/\\1/\";
+  grep -E \""'^[[:space:]]*path'"\\(\" /Users/macbook/Desktop/Huz/Huz-Backend/chat/urls.py | sed -E \"s/.*path\\(['\\\"](["'^'"'\\\"]+)['\\\"].*/\\/chat\\/\\1/\";
+  echo \"/api/v1/users/me/bookings/\";
+  echo \"/api/v1/bookings/\";
+  echo \"/api/v1/bookings/{booking_identifier}/payments/\";
+  echo \"/api/v1/bookings/{booking_identifier}/passports/\";
+} | sed -E 's#//+#/#g' | sort -u" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+/api/v1/bookings/
+/api/v1/bookings/{booking_identifier}/passports/
+/api/v1/bookings/{booking_identifier}/payments/
+/api/v1/users/me/bookings/
+/bookings/check_passport_validity/
+/bookings/create_booking_view/
+/bookings/delete_booking_documents/
+/bookings/delete_payment_record/
+/bookings/get_all_booking_detail_for_partner/
+/bookings/get_all_booking_short_detail_by_user/
+/bookings/get_all_complaints_by_user/
+/bookings/get_all_complaints_for_partner/
+/bookings/get_booking_detail_by_booking_number/
+/bookings/get_overall_booking_statistics/
+/bookings/get_overall_complaints_counts/
+/bookings/get_overall_partner_rating/
+/bookings/get_overall_rating_package_wise/
+/bookings/get_rating_and_review_package_wise/
+/bookings/get_receivable_payment_statistics/
+/bookings/get_user_all_request/
+exec
+/bin/zsh -lc 'BACKEND=/tmp/huz_backend_endpoints.txt
+WEB=/tmp/huz_web_endpoints.txt
+ADMIN=/tmp/huz_admin_endpoints.txt
+OP=/tmp/huz_operator_endpoints.txt
+ALLFE=/tmp/huz_all_fe_endpoints.txt
+
+{
+  grep -E "''^[[:space:]]*path'"\\(\" /Users/macbook/Desktop/Huz/Huz-Backend/common/urls.py | sed -E \"s/.*path\\(['\\\"](["'^'"'\\\"]+)['\\\"].*/\\/common\\/\\1/\";
+  grep -E \""'^[[:space:]]*path'"\\(\" /Users/macbook/Desktop/Huz/Huz-Backend/partners/urls.py | sed -E \"s/.*path\\(['\\\"](["'^'"'\\\"]+)['\\\"].*/\\/partner\\/\\1/\";
+  grep -E \""'^[[:space:]]*path'"\\(\" /Users/macbook/Desktop/Huz/Huz-Backend/booking/urls.py | sed -E \"s/.*path\\(['\\\"](["'^'"'\\\"]+)['\\\"].*/\\/bookings\\/\\1/\";
+  grep -E \""'^[[:space:]]*path'"\\(\" /Users/macbook/Desktop/Huz/Huz-Backend/management/urls.py | sed -E \"s/.*path\\(['\\\"](["'^'"'\\\"]+)['\\\"].*/\\/management\\/\\1/\";
+  grep -E \""'^[[:space:]]*path'"\\(\" /Users/macbook/Desktop/Huz/Huz-Backend/chat/urls.py | sed -E \"s/.*path\\(['\\\"](["'^'"'\\\"]+)['\\\"].*/\\/chat\\/\\1/\";
+  echo \"/api/v1/users/me/bookings/\";
+  echo \"/api/v1/bookings/\";
+  echo \"/api/v1/bookings/{booking_identifier}/payments/\";
+  echo \"/api/v1/bookings/{booking_identifier}/passports/\";
+} | sed -E 's#//+#/#g; s#\\?.*"'$##'"' | sort -u > \""'$BACKEND"
+
+extract_fe(){
+  local src="$1" out="$2"
+  find "$src" -type f '"\\( -name '*.js' -o -name '*.jsx' -o -name '*.ts' -o -name '*.tsx' \\) -print0 \\
+    | xargs -0 perl -ne 'while(/[\"\\x27](\\/(?:api\\/v1|common|partner|bookings|management|chat)\\/["'^"'"\\x27]*)[\"\\x27]/g){print \""'$1'"\\n\"}' \\
+    | sed -E 's#\\?.*"'$##'"' | sort -u > \""'$out"
+}
+
+extract_fe /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src "$WEB"
+extract_fe /Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src "$ADMIN"
+extract_fe /Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src "$OP"
+cat "$WEB" "$ADMIN" "$OP" | sort -u > "$ALLFE"
+
+echo "=== BACKEND COUNT ==="; wc -l "$BACKEND"
+echo "=== WEB COUNT ==="; wc -l "$WEB"
+echo "=== ADMIN COUNT ==="; wc -l "$ADMIN"
+echo "=== OPERATOR COUNT ==="; wc -l "$OP"
+echo "=== FE UNION COUNT ==="; wc -l "$ALLFE"
+
+echo "=== BACKEND NOT USED BY ANY FE ==="
+comm -23 "$BACKEND" "$ALLFE"
+
+echo "=== FE ENDPOINTS NOT FOUND IN BACKEND URL MAP ==="
+comm -13 "$BACKEND" "$ALLFE"
+' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 156ms:
+=== BACKEND COUNT ===
+     121 /tmp/huz_backend_endpoints.txt
+=== WEB COUNT ===
+      28 /tmp/huz_web_endpoints.txt
+=== ADMIN COUNT ===
+      42 /tmp/huz_admin_endpoints.txt
+=== OPERATOR COUNT ===
+      48 /tmp/huz_operator_endpoints.txt
+=== FE UNION COUNT ===
+      93 /tmp/huz_all_fe_endpoints.txt
+=== BACKEND NOT USED BY ANY FE ===
+/api/v1/bookings/{booking_identifier}/passports/
+/api/v1/bookings/{booking_identifier}/payments/
+/bookings/delete_payment_record/
+/bookings/manage_custom_package/
+/bookings/manage_user_check_in/
+/chat/delete-all-messages/
+/chat/get-messages/<user_session_token>/<partner_session_token>/
+/chat/partner-messages/<partner_session_token>/
+/chat/send-messages/
+exec
+/bin/zsh -lc 'BACKEND=/tmp/huz_backend_endpoints.txt
+WEB=/tmp/huz_web_endpoints_v2.txt
+ADMIN=/tmp/huz_admin_endpoints_v2.txt
+OP=/tmp/huz_operator_endpoints_v2.txt
+ALLFE=/tmp/huz_all_fe_endpoints_v2.txt
+
+extract_fe(){
+  local src="$1" out="$2"
+  find "$src" -type f '"\\( -name '*.js' -o -name '*.jsx' -o -name '*.ts' -o -name '*.tsx' \\) -print0 \\
+    | xargs -0 perl -ne 'while(/[\"\\x27\\x60](\\/(?:api\\/v1|common|partner|bookings|management|chat)\\/["'^"'"\\x27\\x60]*)[\"\\x27\\x60]/g){print \""'$1'"\\n\"}' \\
+    | sed -E 's#\\?.*"'$##'"' | sort -u > \""'$out"
+}
+
+extract_fe /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src "$WEB"
+extract_fe /Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src "$ADMIN"
+extract_fe /Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src "$OP"
+cat "$WEB" "$ADMIN" "$OP" | sort -u > "$ALLFE"
+
+echo "=== FE UNION COUNT ==="; wc -l "$ALLFE"
+echo "=== BACKEND NOT USED BY ANY FE (v2) ==="
+comm -23 "$BACKEND" "$ALLFE"
+
+echo "=== FE ENDPOINTS NOT FOUND IN BACKEND URL MAP (v2) ==="
+comm -13 "$BACKEND" "$ALLFE"
+
+echo "=== WEB DYNAMIC MATCH CHECK ==="
+grep -n '"'/api/v1/bookings/' \""'$WEB"' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 113ms:
+=== FE UNION COUNT ===
+      95 /tmp/huz_all_fe_endpoints_v2.txt
+=== BACKEND NOT USED BY ANY FE (v2) ===
+/api/v1/bookings/{booking_identifier}/passports/
+/api/v1/bookings/{booking_identifier}/payments/
+/bookings/delete_payment_record/
+/bookings/manage_custom_package/
+/bookings/manage_user_check_in/
+/chat/delete-all-messages/
+/chat/get-messages/<user_session_token>/<partner_session_token>/
+/chat/partner-messages/<partner_session_token>/
+/chat/send-messages/
+/chat/user-messages/<user_session_token>/
+/common/get_user_all_transaction_history/
+/common/get_user_overall_transaction_summary/
+/common/manage_user_bank_account/
+/common/manage_user_withdraw_request/
+/common/send_otp_email/
+/common/user_subscribe/
+/common/verify_otp_email/
+exec
+/bin/zsh -lc "BACKEND=/tmp/huz_backend_endpoints.txt
+ALLFE=/tmp/huz_all_fe_endpoints_v2.txt
+BN=/tmp/huz_backend_norm.txt
+FN=/tmp/huz_fe_norm.txt
+normalize(){
+  sed -E 's#\\"'$'"\\{["'^}]+'"\\}#{param}#g; s#<["'^>]+>#{param}#g; s#'"\\{["'^}]+'"\\}#{param}#g; s#//+#/#g; s#/+#/#g; s#\\?.*"'$##'"' \""'$1" | sort -u
+}
+normalize "$BACKEND" > "$BN"
+normalize "$ALLFE" > "$FN"
+
+echo "=== NORMALIZED BACKEND COUNT ==="; wc -l "$BN"
+echo "=== NORMALIZED FE COUNT ==="; wc -l "$FN"
+
+echo "=== BACKEND NOT USED (normalized) ==="
+comm -23 "$BN" "$FN"
+
+echo "=== FE NOT IN BACKEND (normalized) ==="
+comm -13 "$BN" "$FN"' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+=== NORMALIZED BACKEND COUNT ===
+     121 /tmp/huz_backend_norm.txt
+=== NORMALIZED FE COUNT ===
+      95 /tmp/huz_fe_norm.txt
+=== BACKEND NOT USED (normalized) ===
+/api/v1/bookings/{param}/passports/
+/bookings/delete_payment_record/
+/bookings/manage_custom_package/
+/bookings/manage_user_check_in/
+/chat/delete-all-messages/
+/chat/get-messages/{param}/{param}/
+/chat/partner-messages/{param}/
+/chat/send-messages/
+/chat/user-messages/{param}/
+/common/get_user_all_transaction_history/
+/common/get_user_overall_transaction_summary/
+/common/manage_user_bank_account/
+/common/manage_user_withdraw_request/
+/common/send_otp_email/
+/common/user_subscribe/
+exec
+/bin/zsh -lc "BACKEND=/tmp/huz_backend_norm.txt
+WEB=/tmp/huz_web_endpoints_v2.txt
+ADMIN=/tmp/huz_admin_endpoints_v2.txt
+OP=/tmp/huz_operator_endpoints_v2.txt
+norm_file(){ sed -E 's#\\"'$'"\\{["'^}]+'"\\}#{param}#g; s#<["'^>]+>#{param}#g; s#'"\\{["'^}]+'"\\}#{param}#g; s#\\?.*"'$##'"' \""'$1" | sort -u; }
+norm_file "$WEB" >/tmp/web_norm.txt
+norm_file "$ADMIN" >/tmp/admin_norm.txt
+norm_file "$OP" >/tmp/op_norm.txt
+
+for f in /tmp/web_norm.txt /tmp/admin_norm.txt /tmp/op_norm.txt; do
+  name=$(basename "$f" _norm.txt)
+  echo "=== $name intersects backend ==="
+  comm -12 "$BACKEND" "$f" | wc -l
+  echo "=== $name unmatched ==="
+  comm -13 "$BACKEND" "$f"
+  echo
+ done
+
+echo "=== backend endpoints by prefix ==="
+awk -F/ '"'NF>2{print \"/\""'$2"/"}'"' \""'$BACKEND" | sort | uniq -c | sort -nr
+
+echo "=== web endpoints by prefix ==="
+awk -F/ '"'NF>2{print \"/\""'$2"/"}'"' /tmp/web_norm.txt | sort | uniq -c | sort -nr
+
+echo \"=== admin endpoints by prefix ===\"
+awk -F/ 'NF>2{print \"/\""'$2"/"}'"' /tmp/admin_norm.txt | sort | uniq -c | sort -nr
+
+echo \"=== operator endpoints by prefix ===\"
+awk -F/ 'NF>2{print \"/\""'$2"/"}'"' /tmp/op_norm.txt | sort | uniq -c | sort -nr" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+=== web intersects backend ===
+      28
+=== web unmatched ===
+/management/apis/custom/manage/packages/
+
+=== admin intersects backend ===
+      46
+=== admin unmatched ===
+/partner/change_transport_package_status/
+/partner/enroll_transport_package/
+/partner/get_transport_package_by_token/
+/partner/manage_partner_withdraw_request/F{param}
+/partner/update_partner_avatar/
+/partner/update_transport_package_basic_detail/
+/partner/update_transport_package_photo/
+/partner/upload_hotel_photos/
+
+=== op intersects backend ===
+      48
+=== op unmatched ===
+exec
+/bin/zsh -lc "echo '=== Web API importers ==='
+grep -RIn --include='*.js' --include='*.jsx' \"from \\\".*\\(api/\\|apiService\\|AuthApi\\|homepageApi\\|listingApi\\|packageDetailApi\\|services/api\\)\" /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src | head -n 200
+
+echo '=== Admin API importers ==='
+grep -RIn --include='*.js' --include='*.jsx' \"from \\\".*\\(utility/Api\\|utility/AuthApis\\|utility/Super-Admin-Api\\)\" /Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src | head -n 260
+
+echo '=== Operator API importers ==='
+grep -RIn --include='*.js' --include='*.jsx' \"from \\\".*\\/api\\/\" /Users/macbook/Desktop/Huz/Huz-Operator-Frontend/src | head -n 320" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 125ms:
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/components/DeactivateButton.js:2:import { deactivateTransportPackage, deactivatePackage } from "../utility/Api"; // Ensure the correct API import
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/components/ActivateButton.js:2:import { deactivateTransportPackage, deactivatePackage } from "../utility/Api"; // Ensure the correct API import
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/pages/AccountReview/AccountReview.js:6:import { checkUserExistence } from "../../utility/AuthApis";
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/pages/Admin-Panel/PackageManagement/ContinueCreatedCompanyForms/ZiyarahForm.js:2:import { enrollPackageZiyarahDetail } from "../../../../utility/Api"; // Import the API function
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/pages/Admin-Panel/PackageManagement/ContinueCreatedCompanyForms/AirlineForm.js:2:import { enrollPackageAirlineDetail } from "../../../../utility/Api";
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/pages/Admin-Panel/PackageManagement/ContinueCreatedCompanyForms/BasicInformationForm.js:2:import { enrollPackageBasicDetail } from "../../../../utility/Api";
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/pages/Admin-Panel/PackageManagement/ContinueCreatedCompanyForms/TransportForm.js:2:import { enrollPackageTransportDetail } from "../../../../utility/Api";
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/pages/Admin-Panel/PackageManagement/PackageDetailedPage/PackageDetailedPage.js:3:import { getPackageDetails } from "../../../../utility/Api"; // Adjust this import as needed
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/pages/Admin-Panel/PackageManagement/EditCompanyPackageForms/ZiyarahForm.js:6:} from "../../../../utility/Api";
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/pages/Admin-Panel/PackageManagement/EditCompanyPackageForms/AirlineForm.js:7:} from "../../../../utility/Api";
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/pages/Admin-Panel/PackageManagement/EditCompanyPackageForms/BasicInformationForm.js:2:import { enrollPackageBasicDetail, editPackageBasicDetail } from "../../../../utility/Api";
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/pages/Admin-Panel/PackageManagement/EditCompanyPackageForms/TransportForm.js:5:} from "../../../../utility/Api";
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/pages/Admin-Panel/PackageManagement/CreateIndividualPackageForm/TransportForm.js:13:} from "../../../../utility/Api";
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/pages/Admin-Panel/PackageManagement/PackagesList/PackageManagement.js:2:import { fetchPackages, fetchTransportPackage } from "../../../../utility/Api";
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/pages/Admin-Panel/PackageManagement/CreateCompanyPackageForms/ZiyarahForm.js:5:} from "../../../../utility/Api"; // Import the edit API function
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/pages/Admin-Panel/PackageManagement/CreateCompanyPackageForms/AirlineForm.js:7:} from "../../../../utility/Api";
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/pages/Admin-Panel/PackageManagement/CreateCompanyPackageForms/BasicInformationForm.js:5:} from "../../../../utility/Api";
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/pages/Admin-Panel/PackageManagement/CreateCompanyPackageForms/TransportForm.js:5:} from "../../../../utility/Api"; // Import the edit API function
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/pages/Admin-Panel/Complaints/Complaints.js:7:} from "../../../utility/Api";
+/Users/macbook/Desktop/Huz/Huz-Admin-Frontend/src/pages/Admin-Panel/Bookings/components/Tabs.jsx:3:import { fetchBookings } from "../../../../utility/Api";
+exec
+/bin/zsh -lc "grep -n \"INSTALLED_APPS\\|MIDDLEWARE\\|ROOT_URLCONF\\|ASGI_APPLICATION\\|WSGI_APPLICATION\" -n /Users/macbook/Desktop/Huz/Huz-Backend/huz/settings.py && sed -n '1,240p' /Users/macbook/Desktop/Huz/Huz-Backend/huz/settings.py" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 72ms:
+50:INSTALLED_APPS = [
+92:MIDDLEWARE = [
+147:ROOT_URLCONF = 'huz.urls'
+165:WSGI_APPLICATION = 'huz.wsgi.application'
+166:# ASGI_APPLICATION = 'huz.asgi.application'
+"""
+Django settings for huz project.
+
+Generated by 'django-admin startproject' using Django 5.0.6.
+
+For more information on this file, see
+https://docs.djangoproject.com/en/5.0/topics/settings/
+
+For the full list of settings and their values, see
+https://docs.djangoproject.com/en/5.0/ref/settings/
+"""
+
+from pathlib import Path
+import os
+from decouple import config, Csv
+exec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Huz/Huz-Backend/huz/asgi.py' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+import os
+from django.core.asgi import get_asgi_application
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'huz.settings')
+django_asgi_app = get_asgi_application()  # Initialize Django
+
+from channels.auth import AuthMiddlewareStack
+from channels.routing import ProtocolTypeRouter, URLRouter
+import chat.routing
+
+application = ProtocolTypeRouter({
+    "http": django_asgi_app,
+    "websocket": AuthMiddlewareStack(
+        URLRouter(
+            chat.routing.websocket_urlpatterns
+        )
+    ),
+})
+codex
+I’ve completed the Phase 0 scan and computed endpoint coverage/diffs across backend + all three frontends. Next I’ll write two durable phase outputs only:  
+1. Update `docs/qa/DEEP_SCAN_REPORT.md` with the inventory (modules, route/API boundaries, connected/unconnected endpoints, stale-doc evidence, and ambiguities).  
+2. Append `## Phase 0 - Inventory Scope` to the run summary with implementation details, touched files, and verification commands.  
+
+After that I’ll run the required `complete` and `next` orchestration commands and print `NEXT_PROMPT.md`.
+exec
+/bin/zsh -lc 'wc -l /tmp/web_norm.txt /tmp/admin_norm.txt /tmp/op_norm.txt /tmp/huz_backend_norm.txt' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+      29 /tmp/web_norm.txt
+      54 /tmp/admin_norm.txt
+      48 /tmp/op_norm.txt
+     121 /tmp/huz_backend_norm.txt
+     252 total
+exec
+/bin/zsh -lc 'comm -23 /tmp/huz_backend_norm.txt /tmp/huz_fe_norm.txt | wc -l && comm -13 /tmp/huz_backend_norm.txt /tmp/huz_fe_norm.txt | wc -l && comm -12 /tmp/huz_backend_norm.txt /tmp/huz_fe_norm.txt | wc -l' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 51ms:
+      35
+       9
+      86
+file update
+M /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
+@@ -5,2 +5,87 @@
+ ## Findings
+-- Add findings grouped by module or concern.
++
++### 2026-03-07 - Phase 0 Inventory Scope (`system-atlas`)
++
++#### Scope Scanned
++- `/Users/macbook/Desktop/Huz/Huz-Backend`
++- `/Users/macbook/Desktop/Huz/Huz-Web-Frontend`
++- `/Users/macbook/Desktop/Huz/Huz-Admin-Frontend`
++- `/Users/macbook/Desktop/Huz/Huz-Operator-Frontend`
++
++#### Module and Ownership Inventory
++- Backend platform (`Django 5`):
++  - `huz/` project config and root URL includes.
++  - `common/` user auth/profile, OTP, account/wallet primitives.
++  - `partners/` partner auth/profile, package lifecycle, partner wallet, website package listing endpoints.
++  - `booking/` user booking lifecycle, partner booking operations, DRF v1 booking routes.
++  - `management/` super-admin approvals, payment approvals/transfers, reports, master hotels.
++  - `chat/` REST inbox/message endpoints and websocket routing (`chat/routing.py`).
++- Frontend surfaces:
++  - `Huz-Web-Frontend` (CRA, React 18) public + user-account flows.
++  - `Huz-Admin-Frontend` (CRA, React 18) super-admin and partner control panel flows.
++  - `Huz-Operator-Frontend` (Vite, React 19) partner/operator auth + dashboard modules.
++
++#### Entrypoints and Route Boundaries
++- Backend route groups from `huz/urls.py`:
++  - `/api/v1/`, `/common/`, `/partner/`, `/bookings/`, `/management/`, `/chat/`.
++- Frontend route entry files:
++  - Web: `Huz-Web-Frontend/src/routes/AppRoutes.jsx`.
++  - Admin: `Huz-Admin-Frontend/src/App.js` (`SUPER_ADMIN_ROUTES`, `PARTNER_ROUTES`).
++  - Operator: `Huz-Operator-Frontend/src/routes/index.jsx`, nested `DashboardRoutes`, `BookingRoutes`, `PackageCreationRoutes`.
++
++#### API Connectivity Snapshot
++- Backend URL map extracted from URL confs: **121** normalized endpoints.
++- Frontend endpoint references (normalized):
++  - Web: **29** referenced, **28** matched backend map.
++  - Admin: **54** referenced, **46** matched backend map.
++  - Operator: **48** referenced, **48** matched backend map.
++  - FE union: **95** referenced; **86** match backend; **9** FE-only (not in backend map).
++- Backend endpoints with no FE reference: **35**.
++
++Backend endpoints currently unreferenced by all FE (sample groups):
++- `/chat/*` endpoints (5 total).
++- `/management/*` report endpoints (e.g. `top-five-*`, `all-booking-status`, `register-users-count`).
++- `/common/` financial/email variants (e.g. `manage_user_bank_account`, `send_otp_email`, `verify_otp_email`).
++- `/bookings/manage_custom_package/`, `/bookings/manage_user_check_in/`, `/bookings/delete_payment_record/`.
++- `/api/v1/bookings/{param}/passports/`.
++
++FE endpoints not found in backend URL map:
++- `/management/apis/custom/manage/packages/`
++- `/partner/change_transport_package_status/`
++- `/partner/enroll_transport_package/`
++- `/partner/get_transport_package_by_token/`
++- `/partner/update_partner_avatar/`
++- `/partner/update_transport_package_basic_detail/`
++- `/partner/update_transport_package_photo/`
++- `/partner/upload_hotel_photos/`
++- `/partner/manage_partner_withdraw_request/F{param}` (malformed path literal in FE)
++
++#### Frontend Module -> API Client Boundaries
++- Web FE API clients:
++  - `src/api/AuthApi.js` consumed by auth/profile pages and `AuthContextProvider`.
++  - `src/api/listingApi.js`, `src/api/homepageApi.js`, `src/api/packageDetailApi.js` consumed by listing/home/package-detail hooks.
++  - `src/api/apiService.js` consumed by booking, payment, complaints, requests, and traveler-info hooks/pages.
++- Admin FE API clients:
++  - `src/utility/Super-Admin-Api.js` consumed by `/super-admin-*` and approval pages.
++  - `src/utility/AuthApis.js` consumed by signup/otp/account-setup profile onboarding.
++  - `src/utility/Api.js` consumed across partner panel modules (package, bookings, wallet, complaints, hotel catalog, profile).
++- Operator FE API clients:
++  - `src/api/authAPI.js`, `src/api/companyAPI.js` for auth/account setup/profile.
++  - `src/api/PackageAPI.js` for package creation/list/detail flows.
++  - `src/api/BookingApi.js`, `src/api/complaintsAPI.js`, `src/api/ReviewRatingAPI.js`, `src/api/WalletApi.js`, `src/api/DashboardApi.js` for dashboard modules.
++
++#### Stale Docs and Structural Ambiguity Evidence
++- Atlas docs are placeholder-only and currently stale for full-system mapping:
++  - `docs/atlas/PROJECT_BLUEPRINT.md`
++  - `docs/atlas/MODULE_MAP.md`
++  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
++  - `docs/atlas/API_SURFACE.md`
++  - `docs/atlas/CHANGE_MAP.md`
++- `docs/project-bot/config.json` `projectSurfaces` lists only `Huz-Web-Frontend`, while active scope includes backend + admin + operator + web.
++- Websocket ambiguity: `huz/asgi.py` wires `chat.routing.websocket_urlpatterns`, but `ASGI_APPLICATION` is commented out in `huz/settings.py`.
++
++#### Phase 0 Handoff for Phase 1
++- Phase 1 should refresh atlas docs using this inventory and prioritize:
++  - Full endpoint map with FE module/page consumers.
++  - Explicit section for backend endpoints with no FE consumer.
++  - Contract drift list for FE-only endpoints not present in backend URL map.
+apply_patch(auto_approved=true) exited 0 in 71ms:
+Success. Updated the following files:
+M /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
+index 689b886a8515388261cdf8d4365311c820200dca..d8b08bab00f5f38a4e66a3e0c273e79bf0d137be
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
+@@ -3,4 +3,89 @@
+ Use this report for on-demand deep analysis of logic, structures, routes, contracts, and mismatch risks.
+ 
+ ## Findings
+-- Add findings grouped by module or concern.
++
++### 2026-03-07 - Phase 0 Inventory Scope (`system-atlas`)
++
++#### Scope Scanned
++- `/Users/macbook/Desktop/Huz/Huz-Backend`
++- `/Users/macbook/Desktop/Huz/Huz-Web-Frontend`
++- `/Users/macbook/Desktop/Huz/Huz-Admin-Frontend`
++- `/Users/macbook/Desktop/Huz/Huz-Operator-Frontend`
++
++#### Module and Ownership Inventory
++- Backend platform (`Django 5`):
++  - `huz/` project config and root URL includes.
++  - `common/` user auth/profile, OTP, account/wallet primitives.
++  - `partners/` partner auth/profile, package lifecycle, partner wallet, website package listing endpoints.
++  - `booking/` user booking lifecycle, partner booking operations, DRF v1 booking routes.
++  - `management/` super-admin approvals, payment approvals/transfers, reports, master hotels.
++  - `chat/` REST inbox/message endpoints and websocket routing (`chat/routing.py`).
++- Frontend surfaces:
++  - `Huz-Web-Frontend` (CRA, React 18) public + user-account flows.
++  - `Huz-Admin-Frontend` (CRA, React 18) super-admin and partner control panel flows.
++  - `Huz-Operator-Frontend` (Vite, React 19) partner/operator auth + dashboard modules.
++
++#### Entrypoints and Route Boundaries
++- Backend route groups from `huz/urls.py`:
++  - `/api/v1/`, `/common/`, `/partner/`, `/bookings/`, `/management/`, `/chat/`.
++- Frontend route entry files:
++  - Web: `Huz-Web-Frontend/src/routes/AppRoutes.jsx`.
++  - Admin: `Huz-Admin-Frontend/src/App.js` (`SUPER_ADMIN_ROUTES`, `PARTNER_ROUTES`).
++  - Operator: `Huz-Operator-Frontend/src/routes/index.jsx`, nested `DashboardRoutes`, `BookingRoutes`, `PackageCreationRoutes`.
++
++#### API Connectivity Snapshot
++- Backend URL map extracted from URL confs: **121** normalized endpoints.
++- Frontend endpoint references (normalized):
++  - Web: **29** referenced, **28** matched backend map.
++  - Admin: **54** referenced, **46** matched backend map.
++  - Operator: **48** referenced, **48** matched backend map.
++  - FE union: **95** referenced; **86** match backend; **9** FE-only (not in backend map).
++- Backend endpoints with no FE reference: **35**.
++
++Backend endpoints currently unreferenced by all FE (sample groups):
++- `/chat/*` endpoints (5 total).
++- `/management/*` report endpoints (e.g. `top-five-*`, `all-booking-status`, `register-users-count`).
++- `/common/` financial/email variants (e.g. `manage_user_bank_account`, `send_otp_email`, `verify_otp_email`).
++- `/bookings/manage_custom_package/`, `/bookings/manage_user_check_in/`, `/bookings/delete_payment_record/`.
++- `/api/v1/bookings/{param}/passports/`.
++
++FE endpoints not found in backend URL map:
++- `/management/apis/custom/manage/packages/`
++- `/partner/change_transport_package_status/`
++- `/partner/enroll_transport_package/`
++- `/partner/get_transport_package_by_token/`
++- `/partner/update_partner_avatar/`
++- `/partner/update_transport_package_basic_detail/`
++- `/partner/update_transport_package_photo/`
++- `/partner/upload_hotel_photos/`
++- `/partner/manage_partner_withdraw_request/F{param}` (malformed path literal in FE)
++
++#### Frontend Module -> API Client Boundaries
++- Web FE API clients:
++  - `src/api/AuthApi.js` consumed by auth/profile pages and `AuthContextProvider`.
++  - `src/api/listingApi.js`, `src/api/homepageApi.js`, `src/api/packageDetailApi.js` consumed by listing/home/package-detail hooks.
++  - `src/api/apiService.js` consumed by booking, payment, complaints, requests, and traveler-info hooks/pages.
++- Admin FE API clients:
++  - `src/utility/Super-Admin-Api.js` consumed by `/super-admin-*` and approval pages.
++  - `src/utility/AuthApis.js` consumed by signup/otp/account-setup profile onboarding.
++  - `src/utility/Api.js` consumed across partner panel modules (package, bookings, wallet, complaints, hotel catalog, profile).
++- Operator FE API clients:
++  - `src/api/authAPI.js`, `src/api/companyAPI.js` for auth/account setup/profile.
++  - `src/api/PackageAPI.js` for package creation/list/detail flows.
++  - `src/api/BookingApi.js`, `src/api/complaintsAPI.js`, `src/api/ReviewRatingAPI.js`, `src/api/WalletApi.js`, `src/api/DashboardApi.js` for dashboard modules.
++
++#### Stale Docs and Structural Ambiguity Evidence
++- Atlas docs are placeholder-only and currently stale for full-system mapping:
++  - `docs/atlas/PROJECT_BLUEPRINT.md`
++  - `docs/atlas/MODULE_MAP.md`
++  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
++  - `docs/atlas/API_SURFACE.md`
++  - `docs/atlas/CHANGE_MAP.md`
++- `docs/project-bot/config.json` `projectSurfaces` lists only `Huz-Web-Frontend`, while active scope includes backend + admin + operator + web.
++- Websocket ambiguity: `huz/asgi.py` wires `chat.routing.websocket_urlpatterns`, but `ASGI_APPLICATION` is commented out in `huz/settings.py`.
++
++#### Phase 0 Handoff for Phase 1
++- Phase 1 should refresh atlas docs using this inventory and prioritize:
++  - Full endpoint map with FE module/page consumers.
++  - Explicit section for backend endpoints with no FE consumer.
++  - Contract drift list for FE-only endpoints not present in backend URL map.
+
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
+index 689b886a8515388261cdf8d4365311c820200dca..d8b08bab00f5f38a4e66a3e0c273e79bf0d137be
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
+@@ -3,4 +3,89 @@
+ Use this report for on-demand deep analysis of logic, structures, routes, contracts, and mismatch risks.
+ 
+ ## Findings
+-- Add findings grouped by module or concern.
++
++### 2026-03-07 - Phase 0 Inventory Scope (`system-atlas`)
++
++#### Scope Scanned
++- `/Users/macbook/Desktop/Huz/Huz-Backend`
++- `/Users/macbook/Desktop/Huz/Huz-Web-Frontend`
++- `/Users/macbook/Desktop/Huz/Huz-Admin-Frontend`
++- `/Users/macbook/Desktop/Huz/Huz-Operator-Frontend`
++
++#### Module and Ownership Inventory
++- Backend platform (`Django 5`):
++  - `huz/` project config and root URL includes.
++  - `common/` user auth/profile, OTP, account/wallet primitives.
++  - `partners/` partner auth/profile, package lifecycle, partner wallet, website package listing endpoints.
++  - `booking/` user booking lifecycle, partner booking operations, DRF v1 booking routes.
++  - `management/` super-admin approvals, payment approvals/transfers, reports, master hotels.
++  - `chat/` REST inbox/message endpoints and websocket routing (`chat/routing.py`).
++- Frontend surfaces:
++  - `Huz-Web-Frontend` (CRA, React 18) public + user-account flows.
++  - `Huz-Admin-Frontend` (CRA, React 18) super-admin and partner control panel flows.
++  - `Huz-Operator-Frontend` (Vite, React 19) partner/operator auth + dashboard modules.
++
++#### Entrypoints and Route Boundaries
++- Backend route groups from `huz/urls.py`:
++  - `/api/v1/`, `/common/`, `/partner/`, `/bookings/`, `/management/`, `/chat/`.
++- Frontend route entry files:
++  - Web: `Huz-Web-Frontend/src/routes/AppRoutes.jsx`.
++  - Admin: `Huz-Admin-Frontend/src/App.js` (`SUPER_ADMIN_ROUTES`, `PARTNER_ROUTES`).
++  - Operator: `Huz-Operator-Frontend/src/routes/index.jsx`, nested `DashboardRoutes`, `BookingRoutes`, `PackageCreationRoutes`.
++
++#### API Connectivity Snapshot
++- Backend URL map extracted from URL confs: **121** normalized endpoints.
++- Frontend endpoint references (normalized):
++  - Web: **29** referenced, **28** matched backend map.
++  - Admin: **54** referenced, **46** matched backend map.
++  - Operator: **48** referenced, **48** matched backend map.
++  - FE union: **95** referenced; **86** match backend; **9** FE-only (not in backend map).
++- Backend endpoints with no FE reference: **35**.
++
++Backend endpoints currently unreferenced by all FE (sample groups):
++- `/chat/*` endpoints (5 total).
++- `/management/*` report endpoints (e.g. `top-five-*`, `all-booking-status`, `register-users-count`).
++- `/common/` financial/email variants (e.g. `manage_user_bank_account`, `send_otp_email`, `verify_otp_email`).
++- `/bookings/manage_custom_package/`, `/bookings/manage_user_check_in/`, `/bookings/delete_payment_record/`.
++- `/api/v1/bookings/{param}/passports/`.
++
++FE endpoints not found in backend URL map:
++- `/management/apis/custom/manage/packages/`
++- `/partner/change_transport_package_status/`
++- `/partner/enroll_transport_package/`
++- `/partner/get_transport_package_by_token/`
++- `/partner/update_partner_avatar/`
++- `/partner/update_transport_package_basic_detail/`
++- `/partner/update_transport_package_photo/`
++- `/partner/upload_hotel_photos/`
++- `/partner/manage_partner_withdraw_request/F{param}` (malformed path literal in FE)
++
++#### Frontend Module -> API Client Boundaries
++- Web FE API clients:
++  - `src/api/AuthApi.js` consumed by auth/profile pages and `AuthContextProvider`.
++  - `src/api/listingApi.js`, `src/api/homepageApi.js`, `src/api/packageDetailApi.js` consumed by listing/home/package-detail hooks.
++  - `src/api/apiService.js` consumed by booking, payment, complaints, requests, and traveler-info hooks/pages.
++- Admin FE API clients:
++  - `src/utility/Super-Admin-Api.js` consumed by `/super-admin-*` and approval pages.
++  - `src/utility/AuthApis.js` consumed by signup/otp/account-setup profile onboarding.
++  - `src/utility/Api.js` consumed across partner panel modules (package, bookings, wallet, complaints, hotel catalog, profile).
++- Operator FE API clients:
++  - `src/api/authAPI.js`, `src/api/companyAPI.js` for auth/account setup/profile.
++  - `src/api/PackageAPI.js` for package creation/list/detail flows.
++  - `src/api/BookingApi.js`, `src/api/complaintsAPI.js`, `src/api/ReviewRatingAPI.js`, `src/api/WalletApi.js`, `src/api/DashboardApi.js` for dashboard modules.
++
++#### Stale Docs and Structural Ambiguity Evidence
++- Atlas docs are placeholder-only and currently stale for full-system mapping:
++  - `docs/atlas/PROJECT_BLUEPRINT.md`
++  - `docs/atlas/MODULE_MAP.md`
++  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
++  - `docs/atlas/API_SURFACE.md`
++  - `docs/atlas/CHANGE_MAP.md`
++- `docs/project-bot/config.json` `projectSurfaces` lists only `Huz-Web-Frontend`, while active scope includes backend + admin + operator + web.
++- Websocket ambiguity: `huz/asgi.py` wires `chat.routing.websocket_urlpatterns`, but `ASGI_APPLICATION` is commented out in `huz/settings.py`.
++
++#### Phase 0 Handoff for Phase 1
++- Phase 1 should refresh atlas docs using this inventory and prioritize:
++  - Full endpoint map with FE module/page consumers.
++  - Explicit section for backend endpoints with no FE consumer.
++  - Contract drift list for FE-only endpoints not present in backend URL map.
+
+file update
+M /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md
+@@ -18 +18,27 @@
+ ### Verification
++
++## Phase 0 - Inventory Scope
++### Changes Made
++- Completed a full Phase 0 inventory scan of backend plus all three frontend panels under `/Users/macbook/Desktop/Huz`.
++- Added durable inventory findings to `docs/qa/DEEP_SCAN_REPORT.md`, including module boundaries, route/API group mapping, endpoint coverage, and drift evidence.
++- No application code was changed in this phase.
++
++### How It Was Implemented
++- Read required run context and current atlas/report docs from the workspace.
++- Scanned backend URL configuration files (`huz/urls.py`, app-level `urls.py`, and DRF v1 booking viewset actions) to build the endpoint inventory.
++- Scanned frontend route and API layers in Web/Admin/Operator panels and extracted referenced endpoints.
++- Normalized and compared backend vs frontend endpoint sets to identify connected endpoints, backend-only endpoints, and FE-only endpoints (contract drift).
++
++### Files Touched
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md`
++
++### Verification
++- Verified backend route extraction from app URL configs and DRF action routes.
++- Verified frontend API references by scanning `src` trees for endpoint literals across Web/Admin/Operator.
++- Verified normalized coverage totals:
++  - Backend endpoints: `121`
++  - FE union endpoints: `95`
++  - Matched backend↔FE endpoints: `86`
++  - Backend endpoints with no FE reference: `35`
++  - FE endpoints not present in backend URL map: `9`
+apply_patch(auto_approved=true) exited 0 in 30ms:
+Success. Updated the following files:
+M /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md
+index 6e04aa83f0d2762aeee71b9bd15a7bd818289876..4b2582e5883a84f62c41ca2ecad7ffc3ca42dd76
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md
+@@ -16,3 +16,29 @@
+ ### How It Was Implemented
+ ### Files Touched
+ ### Verification
++
++## Phase 0 - Inventory Scope
++### Changes Made
++- Completed a full Phase 0 inventory scan of backend plus all three frontend panels under `/Users/macbook/Desktop/Huz`.
++- Added durable inventory findings to `docs/qa/DEEP_SCAN_REPORT.md`, including module boundaries, route/API group mapping, endpoint coverage, and drift evidence.
++- No application code was changed in this phase.
++
++### How It Was Implemented
++- Read required run context and current atlas/report docs from the workspace.
++- Scanned backend URL configuration files (`huz/urls.py`, app-level `urls.py`, and DRF v1 booking viewset actions) to build the endpoint inventory.
++- Scanned frontend route and API layers in Web/Admin/Operator panels and extracted referenced endpoints.
++- Normalized and compared backend vs frontend endpoint sets to identify connected endpoints, backend-only endpoints, and FE-only endpoints (contract drift).
++
++### Files Touched
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md`
++
++### Verification
++- Verified backend route extraction from app URL configs and DRF action routes.
++- Verified frontend API references by scanning `src` trees for endpoint literals across Web/Admin/Operator.
++- Verified normalized coverage totals:
++  - Backend endpoints: `121`
++  - FE union endpoints: `95`
++  - Matched backend↔FE endpoints: `86`
++  - Backend endpoints with no FE reference: `35`
++  - FE endpoints not present in backend URL map: `9`
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
+index 689b886a8515388261cdf8d4365311c820200dca..d8b08bab00f5f38a4e66a3e0c273e79bf0d137be
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
+@@ -3,4 +3,89 @@
+ Use this report for on-demand deep analysis of logic, structures, routes, contracts, and mismatch risks.
+ 
+ ## Findings
+-- Add findings grouped by module or concern.
++
++### 2026-03-07 - Phase 0 Inventory Scope (`system-atlas`)
++
++#### Scope Scanned
++- `/Users/macbook/Desktop/Huz/Huz-Backend`
++- `/Users/macbook/Desktop/Huz/Huz-Web-Frontend`
++- `/Users/macbook/Desktop/Huz/Huz-Admin-Frontend`
++- `/Users/macbook/Desktop/Huz/Huz-Operator-Frontend`
++
++#### Module and Ownership Inventory
++- Backend platform (`Django 5`):
++  - `huz/` project config and root URL includes.
++  - `common/` user auth/profile, OTP, account/wallet primitives.
++  - `partners/` partner auth/profile, package lifecycle, partner wallet, website package listing endpoints.
++  - `booking/` user booking lifecycle, partner booking operations, DRF v1 booking routes.
++  - `management/` super-admin approvals, payment approvals/transfers, reports, master hotels.
++  - `chat/` REST inbox/message endpoints and websocket routing (`chat/routing.py`).
++- Frontend surfaces:
++  - `Huz-Web-Frontend` (CRA, React 18) public + user-account flows.
++  - `Huz-Admin-Frontend` (CRA, React 18) super-admin and partner control panel flows.
++  - `Huz-Operator-Frontend` (Vite, React 19) partner/operator auth + dashboard modules.
++
++#### Entrypoints and Route Boundaries
++- Backend route groups from `huz/urls.py`:
++  - `/api/v1/`, `/common/`, `/partner/`, `/bookings/`, `/management/`, `/chat/`.
++- Frontend route entry files:
++  - Web: `Huz-Web-Frontend/src/routes/AppRoutes.jsx`.
++  - Admin: `Huz-Admin-Frontend/src/App.js` (`SUPER_ADMIN_ROUTES`, `PARTNER_ROUTES`).
++  - Operator: `Huz-Operator-Frontend/src/routes/index.jsx`, nested `DashboardRoutes`, `BookingRoutes`, `PackageCreationRoutes`.
++
++#### API Connectivity Snapshot
++- Backend URL map extracted from URL confs: **121** normalized endpoints.
++- Frontend endpoint references (normalized):
++  - Web: **29** referenced, **28** matched backend map.
++  - Admin: **54** referenced, **46** matched backend map.
++  - Operator: **48** referenced, **48** matched backend map.
++  - FE union: **95** referenced; **86** match backend; **9** FE-only (not in backend map).
++- Backend endpoints with no FE reference: **35**.
++
++Backend endpoints currently unreferenced by all FE (sample groups):
++- `/chat/*` endpoints (5 total).
++- `/management/*` report endpoints (e.g. `top-five-*`, `all-booking-status`, `register-users-count`).
++- `/common/` financial/email variants (e.g. `manage_user_bank_account`, `send_otp_email`, `verify_otp_email`).
++- `/bookings/manage_custom_package/`, `/bookings/manage_user_check_in/`, `/bookings/delete_payment_record/`.
++- `/api/v1/bookings/{param}/passports/`.
++
++FE endpoints not found in backend URL map:
++- `/management/apis/custom/manage/packages/`
++- `/partner/change_transport_package_status/`
++- `/partner/enroll_transport_package/`
++- `/partner/get_transport_package_by_token/`
++- `/partner/update_partner_avatar/`
++- `/partner/update_transport_package_basic_detail/`
++- `/partner/update_transport_package_photo/`
++- `/partner/upload_hotel_photos/`
++- `/partner/manage_partner_withdraw_request/F{param}` (malformed path literal in FE)
++
++#### Frontend Module -> API Client Boundaries
++- Web FE API clients:
++  - `src/api/AuthApi.js` consumed by auth/profile pages and `AuthContextProvider`.
++  - `src/api/listingApi.js`, `src/api/homepageApi.js`, `src/api/packageDetailApi.js` consumed by listing/home/package-detail hooks.
++  - `src/api/apiService.js` consumed by booking, payment, complaints, requests, and traveler-info hooks/pages.
++- Admin FE API clients:
++  - `src/utility/Super-Admin-Api.js` consumed by `/super-admin-*` and approval pages.
++  - `src/utility/AuthApis.js` consumed by signup/otp/account-setup profile onboarding.
++  - `src/utility/Api.js` consumed across partner panel modules (package, bookings, wallet, complaints, hotel catalog, profile).
++- Operator FE API clients:
++  - `src/api/authAPI.js`, `src/api/companyAPI.js` for auth/account setup/profile.
++  - `src/api/PackageAPI.js` for package creation/list/detail flows.
++  - `src/api/BookingApi.js`, `src/api/complaintsAPI.js`, `src/api/ReviewRatingAPI.js`, `src/api/WalletApi.js`, `src/api/DashboardApi.js` for dashboard modules.
++
++#### Stale Docs and Structural Ambiguity Evidence
++- Atlas docs are placeholder-only and currently stale for full-system mapping:
++  - `docs/atlas/PROJECT_BLUEPRINT.md`
++  - `docs/atlas/MODULE_MAP.md`
++  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
++  - `docs/atlas/API_SURFACE.md`
++  - `docs/atlas/CHANGE_MAP.md`
++- `docs/project-bot/config.json` `projectSurfaces` lists only `Huz-Web-Frontend`, while active scope includes backend + admin + operator + web.
++- Websocket ambiguity: `huz/asgi.py` wires `chat.routing.websocket_urlpatterns`, but `ASGI_APPLICATION` is commented out in `huz/settings.py`.
++
++#### Phase 0 Handoff for Phase 1
++- Phase 1 should refresh atlas docs using this inventory and prioritize:
++  - Full endpoint map with FE module/page consumers.
++  - Explicit section for backend endpoints with no FE consumer.
++  - Contract drift list for FE-only endpoints not present in backend URL map.
+
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md
+index 6e04aa83f0d2762aeee71b9bd15a7bd818289876..4b2582e5883a84f62c41ca2ecad7ffc3ca42dd76
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md
+@@ -16,3 +16,29 @@
+ ### How It Was Implemented
+ ### Files Touched
+ ### Verification
++
++## Phase 0 - Inventory Scope
++### Changes Made
++- Completed a full Phase 0 inventory scan of backend plus all three frontend panels under `/Users/macbook/Desktop/Huz`.
++- Added durable inventory findings to `docs/qa/DEEP_SCAN_REPORT.md`, including module boundaries, route/API group mapping, endpoint coverage, and drift evidence.
++- No application code was changed in this phase.
++
++### How It Was Implemented
++- Read required run context and current atlas/report docs from the workspace.
++- Scanned backend URL configuration files (`huz/urls.py`, app-level `urls.py`, and DRF v1 booking viewset actions) to build the endpoint inventory.
++- Scanned frontend route and API layers in Web/Admin/Operator panels and extracted referenced endpoints.
++- Normalized and compared backend vs frontend endpoint sets to identify connected endpoints, backend-only endpoints, and FE-only endpoints (contract drift).
++
++### Files Touched
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md`
++
++### Verification
++- Verified backend route extraction from app URL configs and DRF action routes.
++- Verified frontend API references by scanning `src` trees for endpoint literals across Web/Admin/Operator.
++- Verified normalized coverage totals:
++  - Backend endpoints: `121`
++  - FE union endpoints: `95`
++  - Matched backend↔FE endpoints: `86`
++  - Backend endpoints with no FE reference: `35`
++  - FE endpoints not present in backend URL map: `9`
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
+index 689b886a8515388261cdf8d4365311c820200dca..d8b08bab00f5f38a4e66a3e0c273e79bf0d137be
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
+@@ -3,4 +3,89 @@
+ Use this report for on-demand deep analysis of logic, structures, routes, contracts, and mismatch risks.
+ 
+ ## Findings
+-- Add findings grouped by module or concern.
++
++### 2026-03-07 - Phase 0 Inventory Scope (`system-atlas`)
++
++#### Scope Scanned
++- `/Users/macbook/Desktop/Huz/Huz-Backend`
++- `/Users/macbook/Desktop/Huz/Huz-Web-Frontend`
++- `/Users/macbook/Desktop/Huz/Huz-Admin-Frontend`
++- `/Users/macbook/Desktop/Huz/Huz-Operator-Frontend`
++
++#### Module and Ownership Inventory
++- Backend platform (`Django 5`):
++  - `huz/` project config and root URL includes.
++  - `common/` user auth/profile, OTP, account/wallet primitives.
++  - `partners/` partner auth/profile, package lifecycle, partner wallet, website package listing endpoints.
++  - `booking/` user booking lifecycle, partner booking operations, DRF v1 booking routes.
++  - `management/` super-admin approvals, payment approvals/transfers, reports, master hotels.
++  - `chat/` REST inbox/message endpoints and websocket routing (`chat/routing.py`).
++- Frontend surfaces:
++  - `Huz-Web-Frontend` (CRA, React 18) public + user-account flows.
++  - `Huz-Admin-Frontend` (CRA, React 18) super-admin and partner control panel flows.
++  - `Huz-Operator-Frontend` (Vite, React 19) partner/operator auth + dashboard modules.
++
++#### Entrypoints and Route Boundaries
++- Backend route groups from `huz/urls.py`:
++  - `/api/v1/`, `/common/`, `/partner/`, `/bookings/`, `/management/`, `/chat/`.
++- Frontend route entry files:
++  - Web: `Huz-Web-Frontend/src/routes/AppRoutes.jsx`.
++  - Admin: `Huz-Admin-Frontend/src/App.js` (`SUPER_ADMIN_ROUTES`, `PARTNER_ROUTES`).
++  - Operator: `Huz-Operator-Frontend/src/routes/index.jsx`, nested `DashboardRoutes`, `BookingRoutes`, `PackageCreationRoutes`.
++
++#### API Connectivity Snapshot
++- Backend URL map extracted from URL confs: **121** normalized endpoints.
++- Frontend endpoint references (normalized):
++  - Web: **29** referenced, **28** matched backend map.
++  - Admin: **54** referenced, **46** matched backend map.
++  - Operator: **48** referenced, **48** matched backend map.
++  - FE union: **95** referenced; **86** match backend; **9** FE-only (not in backend map).
++- Backend endpoints with no FE reference: **35**.
++
++Backend endpoints currently unreferenced by all FE (sample groups):
++- `/chat/*` endpoints (5 total).
++- `/management/*` report endpoints (e.g. `top-five-*`, `all-booking-status`, `register-users-count`).
++- `/common/` financial/email variants (e.g. `manage_user_bank_account`, `send_otp_email`, `verify_otp_email`).
++- `/bookings/manage_custom_package/`, `/bookings/manage_user_check_in/`, `/bookings/delete_payment_record/`.
++- `/api/v1/bookings/{param}/passports/`.
++
++FE endpoints not found in backend URL map:
++- `/management/apis/custom/manage/packages/`
++- `/partner/change_transport_package_status/`
++- `/partner/enroll_transport_package/`
++- `/partner/get_transport_package_by_token/`
++- `/partner/update_partner_avatar/`
++- `/partner/update_transport_package_basic_detail/`
++- `/partner/update_transport_package_photo/`
++- `/partner/upload_hotel_photos/`
++- `/partner/manage_partner_withdraw_request/F{param}` (malformed path literal in FE)
++
++#### Frontend Module -> API Client Boundaries
++- Web FE API clients:
++  - `src/api/AuthApi.js` consumed by auth/profile pages and `AuthContextProvider`.
++  - `src/api/listingApi.js`, `src/api/homepageApi.js`, `src/api/packageDetailApi.js` consumed by listing/home/package-detail hooks.
++  - `src/api/apiService.js` consumed by booking, payment, complaints, requests, and traveler-info hooks/pages.
++- Admin FE API clients:
++  - `src/utility/Super-Admin-Api.js` consumed by `/super-admin-*` and approval pages.
++  - `src/utility/AuthApis.js` consumed by signup/otp/account-setup profile onboarding.
++  - `src/utility/Api.js` consumed across partner panel modules (package, bookings, wallet, complaints, hotel catalog, profile).
++- Operator FE API clients:
++  - `src/api/authAPI.js`, `src/api/companyAPI.js` for auth/account setup/profile.
++  - `src/api/PackageAPI.js` for package creation/list/detail flows.
++  - `src/api/BookingApi.js`, `src/api/complaintsAPI.js`, `src/api/ReviewRatingAPI.js`, `src/api/WalletApi.js`, `src/api/DashboardApi.js` for dashboard modules.
++
++#### Stale Docs and Structural Ambiguity Evidence
++- Atlas docs are placeholder-only and currently stale for full-system mapping:
++  - `docs/atlas/PROJECT_BLUEPRINT.md`
++  - `docs/atlas/MODULE_MAP.md`
++  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
++  - `docs/atlas/API_SURFACE.md`
++  - `docs/atlas/CHANGE_MAP.md`
++- `docs/project-bot/config.json` `projectSurfaces` lists only `Huz-Web-Frontend`, while active scope includes backend + admin + operator + web.
++- Websocket ambiguity: `huz/asgi.py` wires `chat.routing.websocket_urlpatterns`, but `ASGI_APPLICATION` is commented out in `huz/settings.py`.
++
++#### Phase 0 Handoff for Phase 1
++- Phase 1 should refresh atlas docs using this inventory and prioritize:
++  - Full endpoint map with FE module/page consumers.
++  - Explicit section for backend endpoints with no FE consumer.
++  - Contract drift list for FE-only endpoints not present in backend URL map.
+
+codex
+Phase 0 documentation updates are in place: inventory findings in `DEEP_SCAN_REPORT.md` and a new `Phase 0` section in `RUN_SUMMARY.md`. I’ll quickly verify those files, then run the required `complete` and `next` orchestration commands and print `NEXT_PROMPT.md`.
+exec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 51ms:
+# Run Summary
+
+- Run mode: `system-atlas`
+- Target project: `/Users/macbook/Desktop/Huz`
+- Workspace root: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz`
+- Scope level: `panel-fullstack`
+- Scope: Full requested scope
+- Scope targets: None
+- Full-system required docs: `enabled`
+- Rule: append one section per completed phase. Do not overwrite prior phase sections.
+
+Expected section format:
+
+## Phase X - Title
+### Changes Made
+### How It Was Implemented
+### Files Touched
+### Verification
+
+## Phase 0 - Inventory Scope
+ succeeded in 51ms:
+# Deep Scan Report
+
+Use this report for on-demand deep analysis of logic, structures, routes, contracts, and mismatch risks.
+
+## Findings
+
+### 2026-03-07 - Phase 0 Inventory Scope (`system-atlas`)
+
+#### Scope Scanned
+- `/Users/macbook/Desktop/Huz/Huz-Backend`
+- `/Users/macbook/Desktop/Huz/Huz-Web-Frontend`
+- `/Users/macbook/Desktop/Huz/Huz-Admin-Frontend`
+- `/Users/macbook/Desktop/Huz/Huz-Operator-Frontend`
+
+#### Module and Ownership Inventory
+- Backend platform (`Django 5`):
+  - `huz/` project config and root URL includes.
+  - `common/` user auth/profile, OTP, account/wallet primitives.
+  - `partners/` partner auth/profile, package lifecycle, partner wallet, website package listing endpoints.
+  - `booking/` user booking lifecycle, partner booking operations, DRF v1 booking routes.
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md
+index 6e04aa83f0d2762aeee71b9bd15a7bd818289876..4b2582e5883a84f62c41ca2ecad7ffc3ca42dd76
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md
+@@ -16,3 +16,29 @@
+ ### How It Was Implemented
+ ### Files Touched
+ ### Verification
++
++## Phase 0 - Inventory Scope
++### Changes Made
++- Completed a full Phase 0 inventory scan of backend plus all three frontend panels under `/Users/macbook/Desktop/Huz`.
++- Added durable inventory findings to `docs/qa/DEEP_SCAN_REPORT.md`, including module boundaries, route/API group mapping, endpoint coverage, and drift evidence.
++- No application code was changed in this phase.
++
++### How It Was Implemented
++- Read required run context and current atlas/report docs from the workspace.
++- Scanned backend URL configuration files (`huz/urls.py`, app-level `urls.py`, and DRF v1 booking viewset actions) to build the endpoint inventory.
++- Scanned frontend route and API layers in Web/Admin/Operator panels and extracted referenced endpoints.
++- Normalized and compared backend vs frontend endpoint sets to identify connected endpoints, backend-only endpoints, and FE-only endpoints (contract drift).
++
++### Files Touched
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md`
++
++### Verification
++- Verified backend route extraction from app URL configs and DRF action routes.
++- Verified frontend API references by scanning `src` trees for endpoint literals across Web/Admin/Operator.
++- Verified normalized coverage totals:
++  - Backend endpoints: `121`
++  - FE union endpoints: `95`
++  - Matched backend↔FE endpoints: `86`
++  - Backend endpoints with no FE reference: `35`
++  - FE endpoints not present in backend URL map: `9`
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
+index 689b886a8515388261cdf8d4365311c820200dca..d8b08bab00f5f38a4e66a3e0c273e79bf0d137be
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
+@@ -3,4 +3,89 @@
+ Use this report for on-demand deep analysis of logic, structures, routes, contracts, and mismatch risks.
+ 
+ ## Findings
+-- Add findings grouped by module or concern.
++
++### 2026-03-07 - Phase 0 Inventory Scope (`system-atlas`)
++
++#### Scope Scanned
++- `/Users/macbook/Desktop/Huz/Huz-Backend`
++- `/Users/macbook/Desktop/Huz/Huz-Web-Frontend`
++- `/Users/macbook/Desktop/Huz/Huz-Admin-Frontend`
++- `/Users/macbook/Desktop/Huz/Huz-Operator-Frontend`
++
++#### Module and Ownership Inventory
++- Backend platform (`Django 5`):
++  - `huz/` project config and root URL includes.
++  - `common/` user auth/profile, OTP, account/wallet primitives.
++  - `partners/` partner auth/profile, package lifecycle, partner wallet, website package listing endpoints.
++  - `booking/` user booking lifecycle, partner booking operations, DRF v1 booking routes.
++  - `management/` super-admin approvals, payment approvals/transfers, reports, master hotels.
++  - `chat/` REST inbox/message endpoints and websocket routing (`chat/routing.py`).
++- Frontend surfaces:
++  - `Huz-Web-Frontend` (CRA, React 18) public + user-account flows.
++  - `Huz-Admin-Frontend` (CRA, React 18) super-admin and partner control panel flows.
++  - `Huz-Operator-Frontend` (Vite, React 19) partner/operator auth + dashboard modules.
++
++#### Entrypoints and Route Boundaries
++- Backend route groups from `huz/urls.py`:
++  - `/api/v1/`, `/common/`, `/partner/`, `/bookings/`, `/management/`, `/chat/`.
++- Frontend route entry files:
++  - Web: `Huz-Web-Frontend/src/routes/AppRoutes.jsx`.
++  - Admin: `Huz-Admin-Frontend/src/App.js` (`SUPER_ADMIN_ROUTES`, `PARTNER_ROUTES`).
++  - Operator: `Huz-Operator-Frontend/src/routes/index.jsx`, nested `DashboardRoutes`, `BookingRoutes`, `PackageCreationRoutes`.
++
++#### API Connectivity Snapshot
++- Backend URL map extracted from URL confs: **121** normalized endpoints.
++- Frontend endpoint references (normalized):
++  - Web: **29** referenced, **28** matched backend map.
++  - Admin: **54** referenced, **46** matched backend map.
++  - Operator: **48** referenced, **48** matched backend map.
++  - FE union: **95** referenced; **86** match backend; **9** FE-only (not in backend map).
++- Backend endpoints with no FE reference: **35**.
++
++Backend endpoints currently unreferenced by all FE (sample groups):
++- `/chat/*` endpoints (5 total).
++- `/management/*` report endpoints (e.g. `top-five-*`, `all-booking-status`, `register-users-count`).
++- `/common/` financial/email variants (e.g. `manage_user_bank_account`, `send_otp_email`, `verify_otp_email`).
++- `/bookings/manage_custom_package/`, `/bookings/manage_user_check_in/`, `/bookings/delete_payment_record/`.
++- `/api/v1/bookings/{param}/passports/`.
++
++FE endpoints not found in backend URL map:
++- `/management/apis/custom/manage/packages/`
++- `/partner/change_transport_package_status/`
++- `/partner/enroll_transport_package/`
++- `/partner/get_transport_package_by_token/`
++- `/partner/update_partner_avatar/`
++- `/partner/update_transport_package_basic_detail/`
++- `/partner/update_transport_package_photo/`
++- `/partner/upload_hotel_photos/`
++- `/partner/manage_partner_withdraw_request/F{param}` (malformed path literal in FE)
++
++#### Frontend Module -> API Client Boundaries
++- Web FE API clients:
++  - `src/api/AuthApi.js` consumed by auth/profile pages and `AuthContextProvider`.
++  - `src/api/listingApi.js`, `src/api/homepageApi.js`, `src/api/packageDetailApi.js` consumed by listing/home/package-detail hooks.
++  - `src/api/apiService.js` consumed by booking, payment, complaints, requests, and traveler-info hooks/pages.
++- Admin FE API clients:
++  - `src/utility/Super-Admin-Api.js` consumed by `/super-admin-*` and approval pages.
++  - `src/utility/AuthApis.js` consumed by signup/otp/account-setup profile onboarding.
++  - `src/utility/Api.js` consumed across partner panel modules (package, bookings, wallet, complaints, hotel catalog, profile).
++- Operator FE API clients:
++  - `src/api/authAPI.js`, `src/api/companyAPI.js` for auth/account setup/profile.
++  - `src/api/PackageAPI.js` for package creation/list/detail flows.
++  - `src/api/BookingApi.js`, `src/api/complaintsAPI.js`, `src/api/ReviewRatingAPI.js`, `src/api/WalletApi.js`, `src/api/DashboardApi.js` for dashboard modules.
++
++#### Stale Docs and Structural Ambiguity Evidence
++- Atlas docs are placeholder-only and currently stale for full-system mapping:
++  - `docs/atlas/PROJECT_BLUEPRINT.md`
++  - `docs/atlas/MODULE_MAP.md`
++  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
++  - `docs/atlas/API_SURFACE.md`
++  - `docs/atlas/CHANGE_MAP.md`
++- `docs/project-bot/config.json` `projectSurfaces` lists only `Huz-Web-Frontend`, while active scope includes backend + admin + operator + web.
++- Websocket ambiguity: `huz/asgi.py` wires `chat.routing.websocket_urlpatterns`, but `ASGI_APPLICATION` is commented out in `huz/settings.py`.
++
++#### Phase 0 Handoff for Phase 1
++- Phase 1 should refresh atlas docs using this inventory and prioritize:
++  - Full endpoint map with FE module/page consumers.
++  - Explicit section for backend endpoints with no FE consumer.
++  - Contract drift list for FE-only endpoints not present in backend URL map.
+
+codex
+I verified both phase artifacts. Running the required orchestration commands now (`complete --phase 0`, then `next`) and then I’ll print the generated `NEXT_PROMPT.md`.
+exec
+/bin/zsh -lc 'node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas --phase 0' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 51ms:
+Marked phase 0 as completed.
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md
+index 6e04aa83f0d2762aeee71b9bd15a7bd818289876..4b2582e5883a84f62c41ca2ecad7ffc3ca42dd76
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md
+@@ -16,3 +16,29 @@
+ ### How It Was Implemented
+ ### Files Touched
+ ### Verification
++
++## Phase 0 - Inventory Scope
++### Changes Made
++- Completed a full Phase 0 inventory scan of backend plus all three frontend panels under `/Users/macbook/Desktop/Huz`.
++- Added durable inventory findings to `docs/qa/DEEP_SCAN_REPORT.md`, including module boundaries, route/API group mapping, endpoint coverage, and drift evidence.
++- No application code was changed in this phase.
++
++### How It Was Implemented
++- Read required run context and current atlas/report docs from the workspace.
++- Scanned backend URL configuration files (`huz/urls.py`, app-level `urls.py`, and DRF v1 booking viewset actions) to build the endpoint inventory.
++- Scanned frontend route and API layers in Web/Admin/Operator panels and extracted referenced endpoints.
++- Normalized and compared backend vs frontend endpoint sets to identify connected endpoints, backend-only endpoints, and FE-only endpoints (contract drift).
++
++### Files Touched
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md`
++
++### Verification
++- Verified backend route extraction from app URL configs and DRF action routes.
++- Verified frontend API references by scanning `src` trees for endpoint literals across Web/Admin/Operator.
++- Verified normalized coverage totals:
++  - Backend endpoints: `121`
++  - FE union endpoints: `95`
++  - Matched backend↔FE endpoints: `86`
++  - Backend endpoints with no FE reference: `35`
++  - FE endpoints not present in backend URL map: `9`
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
+index 689b886a8515388261cdf8d4365311c820200dca..d8b08bab00f5f38a4e66a3e0c273e79bf0d137be
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
+@@ -3,4 +3,89 @@
+ Use this report for on-demand deep analysis of logic, structures, routes, contracts, and mismatch risks.
+ 
+ ## Findings
+-- Add findings grouped by module or concern.
++
++### 2026-03-07 - Phase 0 Inventory Scope (`system-atlas`)
++
++#### Scope Scanned
++- `/Users/macbook/Desktop/Huz/Huz-Backend`
++- `/Users/macbook/Desktop/Huz/Huz-Web-Frontend`
++- `/Users/macbook/Desktop/Huz/Huz-Admin-Frontend`
++- `/Users/macbook/Desktop/Huz/Huz-Operator-Frontend`
++
++#### Module and Ownership Inventory
++- Backend platform (`Django 5`):
++  - `huz/` project config and root URL includes.
++  - `common/` user auth/profile, OTP, account/wallet primitives.
++  - `partners/` partner auth/profile, package lifecycle, partner wallet, website package listing endpoints.
++  - `booking/` user booking lifecycle, partner booking operations, DRF v1 booking routes.
++  - `management/` super-admin approvals, payment approvals/transfers, reports, master hotels.
++  - `chat/` REST inbox/message endpoints and websocket routing (`chat/routing.py`).
++- Frontend surfaces:
++  - `Huz-Web-Frontend` (CRA, React 18) public + user-account flows.
++  - `Huz-Admin-Frontend` (CRA, React 18) super-admin and partner control panel flows.
++  - `Huz-Operator-Frontend` (Vite, React 19) partner/operator auth + dashboard modules.
++
++#### Entrypoints and Route Boundaries
++- Backend route groups from `huz/urls.py`:
++  - `/api/v1/`, `/common/`, `/partner/`, `/bookings/`, `/management/`, `/chat/`.
++- Frontend route entry files:
++  - Web: `Huz-Web-Frontend/src/routes/AppRoutes.jsx`.
++  - Admin: `Huz-Admin-Frontend/src/App.js` (`SUPER_ADMIN_ROUTES`, `PARTNER_ROUTES`).
++  - Operator: `Huz-Operator-Frontend/src/routes/index.jsx`, nested `DashboardRoutes`, `BookingRoutes`, `PackageCreationRoutes`.
++
++#### API Connectivity Snapshot
++- Backend URL map extracted from URL confs: **121** normalized endpoints.
++- Frontend endpoint references (normalized):
++  - Web: **29** referenced, **28** matched backend map.
++  - Admin: **54** referenced, **46** matched backend map.
++  - Operator: **48** referenced, **48** matched backend map.
++  - FE union: **95** referenced; **86** match backend; **9** FE-only (not in backend map).
++- Backend endpoints with no FE reference: **35**.
++
++Backend endpoints currently unreferenced by all FE (sample groups):
++- `/chat/*` endpoints (5 total).
++- `/management/*` report endpoints (e.g. `top-five-*`, `all-booking-status`, `register-users-count`).
++- `/common/` financial/email variants (e.g. `manage_user_bank_account`, `send_otp_email`, `verify_otp_email`).
++- `/bookings/manage_custom_package/`, `/bookings/manage_user_check_in/`, `/bookings/delete_payment_record/`.
++- `/api/v1/bookings/{param}/passports/`.
++
++FE endpoints not found in backend URL map:
++- `/management/apis/custom/manage/packages/`
++- `/partner/change_transport_package_status/`
++- `/partner/enroll_transport_package/`
++- `/partner/get_transport_package_by_token/`
++- `/partner/update_partner_avatar/`
++- `/partner/update_transport_package_basic_detail/`
++- `/partner/update_transport_package_photo/`
++- `/partner/upload_hotel_photos/`
++- `/partner/manage_partner_withdraw_request/F{param}` (malformed path literal in FE)
++
++#### Frontend Module -> API Client Boundaries
++- Web FE API clients:
++  - `src/api/AuthApi.js` consumed by auth/profile pages and `AuthContextProvider`.
++  - `src/api/listingApi.js`, `src/api/homepageApi.js`, `src/api/packageDetailApi.js` consumed by listing/home/package-detail hooks.
++  - `src/api/apiService.js` consumed by booking, payment, complaints, requests, and traveler-info hooks/pages.
++- Admin FE API clients:
++  - `src/utility/Super-Admin-Api.js` consumed by `/super-admin-*` and approval pages.
++  - `src/utility/AuthApis.js` consumed by signup/otp/account-setup profile onboarding.
++  - `src/utility/Api.js` consumed across partner panel modules (package, bookings, wallet, complaints, hotel catalog, profile).
++- Operator FE API clients:
++  - `src/api/authAPI.js`, `src/api/companyAPI.js` for auth/account setup/profile.
++  - `src/api/PackageAPI.js` for package creation/list/detail flows.
++  - `src/api/BookingApi.js`, `src/api/complaintsAPI.js`, `src/api/ReviewRatingAPI.js`, `src/api/WalletApi.js`, `src/api/DashboardApi.js` for dashboard modules.
++
++#### Stale Docs and Structural Ambiguity Evidence
++- Atlas docs are placeholder-only and currently stale for full-system mapping:
++  - `docs/atlas/PROJECT_BLUEPRINT.md`
++  - `docs/atlas/MODULE_MAP.md`
++  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
++  - `docs/atlas/API_SURFACE.md`
++  - `docs/atlas/CHANGE_MAP.md`
++- `docs/project-bot/config.json` `projectSurfaces` lists only `Huz-Web-Frontend`, while active scope includes backend + admin + operator + web.
++- Websocket ambiguity: `huz/asgi.py` wires `chat.routing.websocket_urlpatterns`, but `ASGI_APPLICATION` is commented out in `huz/settings.py`.
++
++#### Phase 0 Handoff for Phase 1
++- Phase 1 should refresh atlas docs using this inventory and prioritize:
++  - Full endpoint map with FE module/page consumers.
++  - Explicit section for backend endpoints with no FE consumer.
++  - Contract drift list for FE-only endpoints not present in backend URL map.
+
+exec
+/bin/zsh -lc 'node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+Use $project-autopilot-manager in `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz`.
+Read `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/state.json` and `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/prompts/phase-01.md`.
+Execute only Phase 1 (Refresh Atlas Docs) against target project `/Users/macbook/Desktop/Huz`.
+At the end, run:
+1. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas --phase 1`
+2. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas`
+Then print `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/NEXT_PROMPT.md`.
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md
+index 6e04aa83f0d2762aeee71b9bd15a7bd818289876..4b2582e5883a84f62c41ca2ecad7ffc3ca42dd76
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md
+@@ -16,3 +16,29 @@
+ ### How It Was Implemented
+ ### Files Touched
+ ### Verification
++
++## Phase 0 - Inventory Scope
++### Changes Made
++- Completed a full Phase 0 inventory scan of backend plus all three frontend panels under `/Users/macbook/Desktop/Huz`.
++- Added durable inventory findings to `docs/qa/DEEP_SCAN_REPORT.md`, including module boundaries, route/API group mapping, endpoint coverage, and drift evidence.
++- No application code was changed in this phase.
++
++### How It Was Implemented
++- Read required run context and current atlas/report docs from the workspace.
++- Scanned backend URL configuration files (`huz/urls.py`, app-level `urls.py`, and DRF v1 booking viewset actions) to build the endpoint inventory.
++- Scanned frontend route and API layers in Web/Admin/Operator panels and extracted referenced endpoints.
++- Normalized and compared backend vs frontend endpoint sets to identify connected endpoints, backend-only endpoints, and FE-only endpoints (contract drift).
++
++### Files Touched
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md`
++
++### Verification
++- Verified backend route extraction from app URL configs and DRF action routes.
++- Verified frontend API references by scanning `src` trees for endpoint literals across Web/Admin/Operator.
++- Verified normalized coverage totals:
++  - Backend endpoints: `121`
++  - FE union endpoints: `95`
++  - Matched backend↔FE endpoints: `86`
++  - Backend endpoints with no FE reference: `35`
++  - FE endpoints not present in backend URL map: `9`
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
+index 689b886a8515388261cdf8d4365311c820200dca..d8b08bab00f5f38a4e66a3e0c273e79bf0d137be
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
+@@ -3,4 +3,89 @@
+ Use this report for on-demand deep analysis of logic, structures, routes, contracts, and mismatch risks.
+ 
+ ## Findings
+-- Add findings grouped by module or concern.
++
++### 2026-03-07 - Phase 0 Inventory Scope (`system-atlas`)
++
++#### Scope Scanned
++- `/Users/macbook/Desktop/Huz/Huz-Backend`
++- `/Users/macbook/Desktop/Huz/Huz-Web-Frontend`
++- `/Users/macbook/Desktop/Huz/Huz-Admin-Frontend`
++- `/Users/macbook/Desktop/Huz/Huz-Operator-Frontend`
++
++#### Module and Ownership Inventory
++- Backend platform (`Django 5`):
++  - `huz/` project config and root URL includes.
++  - `common/` user auth/profile, OTP, account/wallet primitives.
++  - `partners/` partner auth/profile, package lifecycle, partner wallet, website package listing endpoints.
++  - `booking/` user booking lifecycle, partner booking operations, DRF v1 booking routes.
++  - `management/` super-admin approvals, payment approvals/transfers, reports, master hotels.
++  - `chat/` REST inbox/message endpoints and websocket routing (`chat/routing.py`).
++- Frontend surfaces:
++  - `Huz-Web-Frontend` (CRA, React 18) public + user-account flows.
++  - `Huz-Admin-Frontend` (CRA, React 18) super-admin and partner control panel flows.
++  - `Huz-Operator-Frontend` (Vite, React 19) partner/operator auth + dashboard modules.
++
++#### Entrypoints and Route Boundaries
++- Backend route groups from `huz/urls.py`:
++  - `/api/v1/`, `/common/`, `/partner/`, `/bookings/`, `/management/`, `/chat/`.
++- Frontend route entry files:
++  - Web: `Huz-Web-Frontend/src/routes/AppRoutes.jsx`.
++  - Admin: `Huz-Admin-Frontend/src/App.js` (`SUPER_ADMIN_ROUTES`, `PARTNER_ROUTES`).
++  - Operator: `Huz-Operator-Frontend/src/routes/index.jsx`, nested `DashboardRoutes`, `BookingRoutes`, `PackageCreationRoutes`.
++
++#### API Connectivity Snapshot
++- Backend URL map extracted from URL confs: **121** normalized endpoints.
++- Frontend endpoint references (normalized):
++  - Web: **29** referenced, **28** matched backend map.
++  - Admin: **54** referenced, **46** matched backend map.
++  - Operator: **48** referenced, **48** matched backend map.
++  - FE union: **95** referenced; **86** match backend; **9** FE-only (not in backend map).
++- Backend endpoints with no FE reference: **35**.
++
++Backend endpoints currently unreferenced by all FE (sample groups):
++- `/chat/*` endpoints (5 total).
++- `/management/*` report endpoints (e.g. `top-five-*`, `all-booking-status`, `register-users-count`).
++- `/common/` financial/email variants (e.g. `manage_user_bank_account`, `send_otp_email`, `verify_otp_email`).
++- `/bookings/manage_custom_package/`, `/bookings/manage_user_check_in/`, `/bookings/delete_payment_record/`.
++- `/api/v1/bookings/{param}/passports/`.
++
++FE endpoints not found in backend URL map:
++- `/management/apis/custom/manage/packages/`
++- `/partner/change_transport_package_status/`
++- `/partner/enroll_transport_package/`
++- `/partner/get_transport_package_by_token/`
++- `/partner/update_partner_avatar/`
++- `/partner/update_transport_package_basic_detail/`
++- `/partner/update_transport_package_photo/`
++- `/partner/upload_hotel_photos/`
++- `/partner/manage_partner_withdraw_request/F{param}` (malformed path literal in FE)
++
++#### Frontend Module -> API Client Boundaries
++- Web FE API clients:
++  - `src/api/AuthApi.js` consumed by auth/profile pages and `AuthContextProvider`.
++  - `src/api/listingApi.js`, `src/api/homepageApi.js`, `src/api/packageDetailApi.js` consumed by listing/home/package-detail hooks.
++  - `src/api/apiService.js` consumed by booking, payment, complaints, requests, and traveler-info hooks/pages.
++- Admin FE API clients:
++  - `src/utility/Super-Admin-Api.js` consumed by `/super-admin-*` and approval pages.
++  - `src/utility/AuthApis.js` consumed by signup/otp/account-setup profile onboarding.
++  - `src/utility/Api.js` consumed across partner panel modules (package, bookings, wallet, complaints, hotel catalog, profile).
++- Operator FE API clients:
++  - `src/api/authAPI.js`, `src/api/companyAPI.js` for auth/account setup/profile.
++  - `src/api/PackageAPI.js` for package creation/list/detail flows.
++  - `src/api/BookingApi.js`, `src/api/complaintsAPI.js`, `src/api/ReviewRatingAPI.js`, `src/api/WalletApi.js`, `src/api/DashboardApi.js` for dashboard modules.
++
++#### Stale Docs and Structural Ambiguity Evidence
++- Atlas docs are placeholder-only and currently stale for full-system mapping:
++  - `docs/atlas/PROJECT_BLUEPRINT.md`
++  - `docs/atlas/MODULE_MAP.md`
++  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
++  - `docs/atlas/API_SURFACE.md`
++  - `docs/atlas/CHANGE_MAP.md`
++- `docs/project-bot/config.json` `projectSurfaces` lists only `Huz-Web-Frontend`, while active scope includes backend + admin + operator + web.
++- Websocket ambiguity: `huz/asgi.py` wires `chat.routing.websocket_urlpatterns`, but `ASGI_APPLICATION` is commented out in `huz/settings.py`.
++
++#### Phase 0 Handoff for Phase 1
++- Phase 1 should refresh atlas docs using this inventory and prioritize:
++  - Full endpoint map with FE module/page consumers.
++  - Explicit section for backend endpoints with no FE consumer.
++  - Contract drift list for FE-only endpoints not present in backend URL map.
+
+exec
+/bin/zsh -lc 'cat /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/NEXT_PROMPT.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+Use $project-autopilot-manager in `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz`.
+Read `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/state.json` and `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/prompts/phase-01.md`.
+Execute only Phase 1 (Refresh Atlas Docs) against target project `/Users/macbook/Desktop/Huz`.
+At the end, run:
+1. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas --phase 1`
+2. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas`
+Then print `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/NEXT_PROMPT.md`.
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md
+index 6e04aa83f0d2762aeee71b9bd15a7bd818289876..4b2582e5883a84f62c41ca2ecad7ffc3ca42dd76
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md
+@@ -16,3 +16,29 @@
+ ### How It Was Implemented
+ ### Files Touched
+ ### Verification
++
++## Phase 0 - Inventory Scope
++### Changes Made
++- Completed a full Phase 0 inventory scan of backend plus all three frontend panels under `/Users/macbook/Desktop/Huz`.
++- Added durable inventory findings to `docs/qa/DEEP_SCAN_REPORT.md`, including module boundaries, route/API group mapping, endpoint coverage, and drift evidence.
++- No application code was changed in this phase.
++
++### How It Was Implemented
++- Read required run context and current atlas/report docs from the workspace.
++- Scanned backend URL configuration files (`huz/urls.py`, app-level `urls.py`, and DRF v1 booking viewset actions) to build the endpoint inventory.
++- Scanned frontend route and API layers in Web/Admin/Operator panels and extracted referenced endpoints.
++- Normalized and compared backend vs frontend endpoint sets to identify connected endpoints, backend-only endpoints, and FE-only endpoints (contract drift).
++
++### Files Touched
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md`
++
++### Verification
++- Verified backend route extraction from app URL configs and DRF action routes.
++- Verified frontend API references by scanning `src` trees for endpoint literals across Web/Admin/Operator.
++- Verified normalized coverage totals:
++  - Backend endpoints: `121`
++  - FE union endpoints: `95`
++  - Matched backend↔FE endpoints: `86`
++  - Backend endpoints with no FE reference: `35`
++  - FE endpoints not present in backend URL map: `9`
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
+index 689b886a8515388261cdf8d4365311c820200dca..d8b08bab00f5f38a4e66a3e0c273e79bf0d137be
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
+@@ -3,4 +3,89 @@
+ Use this report for on-demand deep analysis of logic, structures, routes, contracts, and mismatch risks.
+ 
+ ## Findings
+-- Add findings grouped by module or concern.
++
++### 2026-03-07 - Phase 0 Inventory Scope (`system-atlas`)
++
++#### Scope Scanned
++- `/Users/macbook/Desktop/Huz/Huz-Backend`
++- `/Users/macbook/Desktop/Huz/Huz-Web-Frontend`
++- `/Users/macbook/Desktop/Huz/Huz-Admin-Frontend`
++- `/Users/macbook/Desktop/Huz/Huz-Operator-Frontend`
++
++#### Module and Ownership Inventory
++- Backend platform (`Django 5`):
++  - `huz/` project config and root URL includes.
++  - `common/` user auth/profile, OTP, account/wallet primitives.
++  - `partners/` partner auth/profile, package lifecycle, partner wallet, website package listing endpoints.
++  - `booking/` user booking lifecycle, partner booking operations, DRF v1 booking routes.
++  - `management/` super-admin approvals, payment approvals/transfers, reports, master hotels.
++  - `chat/` REST inbox/message endpoints and websocket routing (`chat/routing.py`).
++- Frontend surfaces:
++  - `Huz-Web-Frontend` (CRA, React 18) public + user-account flows.
++  - `Huz-Admin-Frontend` (CRA, React 18) super-admin and partner control panel flows.
++  - `Huz-Operator-Frontend` (Vite, React 19) partner/operator auth + dashboard modules.
++
++#### Entrypoints and Route Boundaries
++- Backend route groups from `huz/urls.py`:
++  - `/api/v1/`, `/common/`, `/partner/`, `/bookings/`, `/management/`, `/chat/`.
++- Frontend route entry files:
++  - Web: `Huz-Web-Frontend/src/routes/AppRoutes.jsx`.
++  - Admin: `Huz-Admin-Frontend/src/App.js` (`SUPER_ADMIN_ROUTES`, `PARTNER_ROUTES`).
++  - Operator: `Huz-Operator-Frontend/src/routes/index.jsx`, nested `DashboardRoutes`, `BookingRoutes`, `PackageCreationRoutes`.
++
++#### API Connectivity Snapshot
++- Backend URL map extracted from URL confs: **121** normalized endpoints.
++- Frontend endpoint references (normalized):
++  - Web: **29** referenced, **28** matched backend map.
++  - Admin: **54** referenced, **46** matched backend map.
++  - Operator: **48** referenced, **48** matched backend map.
++  - FE union: **95** referenced; **86** match backend; **9** FE-only (not in backend map).
++- Backend endpoints with no FE reference: **35**.
++
++Backend endpoints currently unreferenced by all FE (sample groups):
++- `/chat/*` endpoints (5 total).
++- `/management/*` report endpoints (e.g. `top-five-*`, `all-booking-status`, `register-users-count`).
++- `/common/` financial/email variants (e.g. `manage_user_bank_account`, `send_otp_email`, `verify_otp_email`).
++- `/bookings/manage_custom_package/`, `/bookings/manage_user_check_in/`, `/bookings/delete_payment_record/`.
++- `/api/v1/bookings/{param}/passports/`.
++
++FE endpoints not found in backend URL map:
++- `/management/apis/custom/manage/packages/`
++- `/partner/change_transport_package_status/`
++- `/partner/enroll_transport_package/`
++- `/partner/get_transport_package_by_token/`
++- `/partner/update_partner_avatar/`
++- `/partner/update_transport_package_basic_detail/`
++- `/partner/update_transport_package_photo/`
++- `/partner/upload_hotel_photos/`
++- `/partner/manage_partner_withdraw_request/F{param}` (malformed path literal in FE)
++
++#### Frontend Module -> API Client Boundaries
++- Web FE API clients:
++  - `src/api/AuthApi.js` consumed by auth/profile pages and `AuthContextProvider`.
++  - `src/api/listingApi.js`, `src/api/homepageApi.js`, `src/api/packageDetailApi.js` consumed by listing/home/package-detail hooks.
++  - `src/api/apiService.js` consumed by booking, payment, complaints, requests, and traveler-info hooks/pages.
++- Admin FE API clients:
++  - `src/utility/Super-Admin-Api.js` consumed by `/super-admin-*` and approval pages.
++  - `src/utility/AuthApis.js` consumed by signup/otp/account-setup profile onboarding.
++  - `src/utility/Api.js` consumed across partner panel modules (package, bookings, wallet, complaints, hotel catalog, profile).
++- Operator FE API clients:
++  - `src/api/authAPI.js`, `src/api/companyAPI.js` for auth/account setup/profile.
++  - `src/api/PackageAPI.js` for package creation/list/detail flows.
++  - `src/api/BookingApi.js`, `src/api/complaintsAPI.js`, `src/api/ReviewRatingAPI.js`, `src/api/WalletApi.js`, `src/api/DashboardApi.js` for dashboard modules.
++
++#### Stale Docs and Structural Ambiguity Evidence
++- Atlas docs are placeholder-only and currently stale for full-system mapping:
++  - `docs/atlas/PROJECT_BLUEPRINT.md`
++  - `docs/atlas/MODULE_MAP.md`
++  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
++  - `docs/atlas/API_SURFACE.md`
++  - `docs/atlas/CHANGE_MAP.md`
++- `docs/project-bot/config.json` `projectSurfaces` lists only `Huz-Web-Frontend`, while active scope includes backend + admin + operator + web.
++- Websocket ambiguity: `huz/asgi.py` wires `chat.routing.websocket_urlpatterns`, but `ASGI_APPLICATION` is commented out in `huz/settings.py`.
++
++#### Phase 0 Handoff for Phase 1
++- Phase 1 should refresh atlas docs using this inventory and prioritize:
++  - Full endpoint map with FE module/page consumers.
++  - Explicit section for backend endpoints with no FE consumer.
++  - Contract drift list for FE-only endpoints not present in backend URL map.
+
+codex
+Phase 0 (`Inventory Scope`) is complete for `/Users/macbook/Desktop/Huz`.
+
+I updated:
+- [DEEP_SCAN_REPORT.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md)
+- [RUN_SUMMARY.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md)
+
+Required commands executed:
+1. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas --phase 0`
+2. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas`
+
+`NEXT_PROMPT.md`:
+
+```md
+Use $project-autopilot-manager in `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz`.
+Read `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/state.json` and `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/prompts/phase-01.md`.
+Execute only Phase 1 (Refresh Atlas Docs) against target project `/Users/macbook/Desktop/Huz`.
+At the end, run:
+1. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas --phase 1`
+2. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas`
+Then print `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/NEXT_PROMPT.md`.
+```
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md
+index 6e04aa83f0d2762aeee71b9bd15a7bd818289876..4b2582e5883a84f62c41ca2ecad7ffc3ca42dd76
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md
+@@ -16,3 +16,29 @@
+ ### How It Was Implemented
+ ### Files Touched
+ ### Verification
++
++## Phase 0 - Inventory Scope
++### Changes Made
++- Completed a full Phase 0 inventory scan of backend plus all three frontend panels under `/Users/macbook/Desktop/Huz`.
++- Added durable inventory findings to `docs/qa/DEEP_SCAN_REPORT.md`, including module boundaries, route/API group mapping, endpoint coverage, and drift evidence.
++- No application code was changed in this phase.
++
++### How It Was Implemented
++- Read required run context and current atlas/report docs from the workspace.
++- Scanned backend URL configuration files (`huz/urls.py`, app-level `urls.py`, and DRF v1 booking viewset actions) to build the endpoint inventory.
++- Scanned frontend route and API layers in Web/Admin/Operator panels and extracted referenced endpoints.
++- Normalized and compared backend vs frontend endpoint sets to identify connected endpoints, backend-only endpoints, and FE-only endpoints (contract drift).
++
++### Files Touched
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md`
++
++### Verification
++- Verified backend route extraction from app URL configs and DRF action routes.
++- Verified frontend API references by scanning `src` trees for endpoint literals across Web/Admin/Operator.
++- Verified normalized coverage totals:
++  - Backend endpoints: `121`
++  - FE union endpoints: `95`
++  - Matched backend↔FE endpoints: `86`
++  - Backend endpoints with no FE reference: `35`
++  - FE endpoints not present in backend URL map: `9`
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
+index 689b886a8515388261cdf8d4365311c820200dca..d8b08bab00f5f38a4e66a3e0c273e79bf0d137be
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
+@@ -3,4 +3,89 @@
+ Use this report for on-demand deep analysis of logic, structures, routes, contracts, and mismatch risks.
+ 
+ ## Findings
+-- Add findings grouped by module or concern.
++
++### 2026-03-07 - Phase 0 Inventory Scope (`system-atlas`)
++
++#### Scope Scanned
++- `/Users/macbook/Desktop/Huz/Huz-Backend`
++- `/Users/macbook/Desktop/Huz/Huz-Web-Frontend`
++- `/Users/macbook/Desktop/Huz/Huz-Admin-Frontend`
++- `/Users/macbook/Desktop/Huz/Huz-Operator-Frontend`
++
++#### Module and Ownership Inventory
++- Backend platform (`Django 5`):
++  - `huz/` project config and root URL includes.
++  - `common/` user auth/profile, OTP, account/wallet primitives.
++  - `partners/` partner auth/profile, package lifecycle, partner wallet, website package listing endpoints.
++  - `booking/` user booking lifecycle, partner booking operations, DRF v1 booking routes.
++  - `management/` super-admin approvals, payment approvals/transfers, reports, master hotels.
++  - `chat/` REST inbox/message endpoints and websocket routing (`chat/routing.py`).
++- Frontend surfaces:
++  - `Huz-Web-Frontend` (CRA, React 18) public + user-account flows.
++  - `Huz-Admin-Frontend` (CRA, React 18) super-admin and partner control panel flows.
++  - `Huz-Operator-Frontend` (Vite, React 19) partner/operator auth + dashboard modules.
++
++#### Entrypoints and Route Boundaries
++- Backend route groups from `huz/urls.py`:
++  - `/api/v1/`, `/common/`, `/partner/`, `/bookings/`, `/management/`, `/chat/`.
++- Frontend route entry files:
++  - Web: `Huz-Web-Frontend/src/routes/AppRoutes.jsx`.
++  - Admin: `Huz-Admin-Frontend/src/App.js` (`SUPER_ADMIN_ROUTES`, `PARTNER_ROUTES`).
++  - Operator: `Huz-Operator-Frontend/src/routes/index.jsx`, nested `DashboardRoutes`, `BookingRoutes`, `PackageCreationRoutes`.
++
++#### API Connectivity Snapshot
++- Backend URL map extracted from URL confs: **121** normalized endpoints.
++- Frontend endpoint references (normalized):
++  - Web: **29** referenced, **28** matched backend map.
++  - Admin: **54** referenced, **46** matched backend map.
++  - Operator: **48** referenced, **48** matched backend map.
++  - FE union: **95** referenced; **86** match backend; **9** FE-only (not in backend map).
++- Backend endpoints with no FE reference: **35**.
++
++Backend endpoints currently unreferenced by all FE (sample groups):
++- `/chat/*` endpoints (5 total).
++- `/management/*` report endpoints (e.g. `top-five-*`, `all-booking-status`, `register-users-count`).
++- `/common/` financial/email variants (e.g. `manage_user_bank_account`, `send_otp_email`, `verify_otp_email`).
++- `/bookings/manage_custom_package/`, `/bookings/manage_user_check_in/`, `/bookings/delete_payment_record/`.
++- `/api/v1/bookings/{param}/passports/`.
++
++FE endpoints not found in backend URL map:
++- `/management/apis/custom/manage/packages/`
++- `/partner/change_transport_package_status/`
++- `/partner/enroll_transport_package/`
++- `/partner/get_transport_package_by_token/`
++- `/partner/update_partner_avatar/`
++- `/partner/update_transport_package_basic_detail/`
++- `/partner/update_transport_package_photo/`
++- `/partner/upload_hotel_photos/`
++- `/partner/manage_partner_withdraw_request/F{param}` (malformed path literal in FE)
++
++#### Frontend Module -> API Client Boundaries
++- Web FE API clients:
++  - `src/api/AuthApi.js` consumed by auth/profile pages and `AuthContextProvider`.
++  - `src/api/listingApi.js`, `src/api/homepageApi.js`, `src/api/packageDetailApi.js` consumed by listing/home/package-detail hooks.
++  - `src/api/apiService.js` consumed by booking, payment, complaints, requests, and traveler-info hooks/pages.
++- Admin FE API clients:
++  - `src/utility/Super-Admin-Api.js` consumed by `/super-admin-*` and approval pages.
++  - `src/utility/AuthApis.js` consumed by signup/otp/account-setup profile onboarding.
++  - `src/utility/Api.js` consumed across partner panel modules (package, bookings, wallet, complaints, hotel catalog, profile).
++- Operator FE API clients:
++  - `src/api/authAPI.js`, `src/api/companyAPI.js` for auth/account setup/profile.
++  - `src/api/PackageAPI.js` for package creation/list/detail flows.
++  - `src/api/BookingApi.js`, `src/api/complaintsAPI.js`, `src/api/ReviewRatingAPI.js`, `src/api/WalletApi.js`, `src/api/DashboardApi.js` for dashboard modules.
++
++#### Stale Docs and Structural Ambiguity Evidence
++- Atlas docs are placeholder-only and currently stale for full-system mapping:
++  - `docs/atlas/PROJECT_BLUEPRINT.md`
++  - `docs/atlas/MODULE_MAP.md`
++  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
++  - `docs/atlas/API_SURFACE.md`
++  - `docs/atlas/CHANGE_MAP.md`
++- `docs/project-bot/config.json` `projectSurfaces` lists only `Huz-Web-Frontend`, while active scope includes backend + admin + operator + web.
++- Websocket ambiguity: `huz/asgi.py` wires `chat.routing.websocket_urlpatterns`, but `ASGI_APPLICATION` is commented out in `huz/settings.py`.
++
++#### Phase 0 Handoff for Phase 1
++- Phase 1 should refresh atlas docs using this inventory and prioritize:
++  - Full endpoint map with FE module/page consumers.
++  - Explicit section for backend endpoints with no FE consumer.
++  - Contract drift list for FE-only endpoints not present in backend URL map.
+
+tokens used
+145,636
+Phase 0 (`Inventory Scope`) is complete for `/Users/macbook/Desktop/Huz`.
+
+I updated:
+- [DEEP_SCAN_REPORT.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md)
+- [RUN_SUMMARY.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md)
+
+Required commands executed:
+1. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas --phase 0`
+2. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas`
+
+`NEXT_PROMPT.md`:
+
+```md
+Use $project-autopilot-manager in `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz`.
+Read `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/state.json` and `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/prompts/phase-01.md`.
+Execute only Phase 1 (Refresh Atlas Docs) against target project `/Users/macbook/Desktop/Huz`.
+At the end, run:
+1. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas --phase 1`
+2. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas`
+Then print `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260307-154419-system-atlas/NEXT_PROMPT.md`.
+```

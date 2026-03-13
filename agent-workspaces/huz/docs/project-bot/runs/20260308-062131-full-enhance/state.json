@@ -1,0 +1,154 @@
+{
+  "version": 1,
+  "workspaceRoot": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz",
+  "projectPath": "/Users/macbook/Desktop/Huz",
+  "mode": "full-enhance",
+  "modeTitle": "Full Enhancement",
+  "description": "Run a complete analyze-plan-execute-verify-refresh loop for a project or large module set, splitting the work into bounded phases and keeping the atlas and backlog current throughout.",
+  "scopeLevel": "multi-panel-fe",
+  "scope": "Huz-Web-Frontend remaining routes and shared page system",
+  "scopeTargets": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/Huz-Web-Frontend",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/public-marketing-pages",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/static-site-pages",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/auth-pages",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/protected-user-pages",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/shared-layout-system"
+  ],
+  "request": "Analyze the project, create a prioritized backlog, execute the highest-value batch safely, verify it, and refresh the docs.\n\nCompiled automation contract:\n- Scope level: multi-panel-fe\n- Scope: Huz-Web-Frontend remaining routes and shared page system\n- Scope targets: Huz-Web-Frontend, public-marketing-pages, static-site-pages, auth-pages, protected-user-pages, shared-layout-system\n- Keep atlas, maps, and audit files synchronized with any implementation changes.\n\nLarge-task campaign contract (mandatory):\n- Treat this as a multi-run execution campaign, not a one-shot rewrite.\n- This run must complete one bounded implementation batch (target <= 8 pages or one backend domain).\n- Keep frontend and backend contracts synchronized for touched flows.\n- Update BUG_BACKLOG with completed items, deferred items, and the exact next batch recommendation.\n- Include concrete verification commands and outcomes in RUN_SUMMARY for every batch.\n- Do not claim full completion unless the backlog for this scope is explicitly clear.\n\nOriginal user request: Please start a multi-run full frontend revamp campaign for Huz-Web-Frontend.\n\nScope: Huz-Web-Frontend remaining routes and shared page system\nScope targets: Huz-Web-Frontend, public-marketing-pages, static-site-pages, auth-pages, protected-user-pages, shared-layout-system\n\nMission:\n- Revamp all remaining Huz web frontend pages with one consistent Huz theme across desktop and mobile using a single responsive design system.\n- Homepage is reference-only. Use HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md and UI_DESIGN_SYSTEM_GUIDE.md as the design contract, and use the already-aligned pages as reference implementations instead of reinventing them.\n- Cover every route cluster in src/routes/AppRoutes.jsx, including public marketing pages, static site pages, auth pages, and protected account pages. This includes the static/policy/generic route system and all remaining user-setting routes.\n- Treat HomePage, ListingPage, PackageDetailPage, Booking, PaymentMethods, AuthLayout, and PersonalDetails as reference-quality foundations. Only touch them when extracting reusable primitives, shared layout pieces, or consistency fixes needed by the broader revamp.\n\nMandatory execution rules:\n- Use one consistent theme, layout rhythm, spacing system, card language, CTA hierarchy, and surface treatment across the app.\n- One design for both mobile and desktop. Do not maintain separate mobile/desktop page implementations unless the mobile file is only a thin compatibility wrapper around shared responsive content.\n- Prefer reusable, modular, data-driven architecture. Extend shared primitives such as BrandPageShell, homepage layout tokens, shared UI components, and static content abstractions instead of page-specific shells.\n- Strong modern React + JavaScript approach only. Remove brittle legacy duplication, isolate page logic cleanly, and keep component ownership obvious.\n- Keep routes stable.\n- Keep the app optimized, clean, aligned, sorted, and efficient.\n- Old, unused, dead, duplicate, or placeholder code/files may be deleted only after replacement is proven safe.\n- Do not run build. Do not run npm install. Do not modify lockfiles. Verification must rely on static inspection, route/import consistency checks, targeted grep/search, and clear manual reasoning notes. Explicitly record that no build was run.\n\nHigh-priority design/architecture goals:\n- Replace placeholder or one-off static page implementations with a shared branded content system that preserves route-specific content while reducing duplicated JSX/CSS.\n- Unify public/static/auth/account pages under the same design principles already established by the newer branded pages.\n- Improve performance by reducing duplicate render trees, duplicate layout wrappers, duplicate mobile variants, and unnecessary page-level assets/code paths.\n- Centralize repeated content structures so the many static pages stay maintainable and light.\n- Make every page feel like the same product.\n\nExpected outcomes:\n- All relevant pages in Huz-Web-Frontend are either revamped directly or migrated onto shared reusable primitives.\n- Static site pages are consolidated into an efficient modular system.\n- Dead files/components left behind by the revamp are removed when proven unused.\n- Atlas docs, backlog, and run summaries are refreshed as the work progresses.\n- The run proceeds in bounded batches until the revamp scope is fully covered.\n\nGlobal Instructions (always apply):\nAlways maintain full-system project memory in docs for the selected scope level.\nExclude non-dev and non-required files from deep mapping and auditing.\nWhen code changes touch modules/routes/APIs/contracts/schema/security/state, refresh relevant atlas docs in the same run.\nKeep audit findings traceable with status updates (open, fixed, verified) when remediation occurs.\nFor full-system or multi-panel fullstack scope, ensure frontend panels and backend structure/contracts are mapped together.",
+  "projectSurfaces": [
+    {
+      "id": "primary-project",
+      "label": "Huz-Web-Frontend",
+      "path": "/Users/macbook/Desktop/Huz/Huz-Web-Frontend",
+      "kind": "panel-fe"
+    }
+  ],
+  "devIgnorePatterns": [
+    "node_modules/**",
+    "dist/**",
+    "build/**",
+    "coverage/**",
+    ".git/**",
+    ".cache/**",
+    ".next/**",
+    ".turbo/**",
+    ".idea/**",
+    ".vscode/**",
+    "logs/**",
+    "tmp/**",
+    "temp/**",
+    "*.min.js",
+    "*.map",
+    "*.log",
+    "*.lock"
+  ],
+  "fullSystemRequiredDocs": true,
+  "requiredAtlasDocs": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/PROJECT_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/MODULE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/ROUTES_AND_ENTRYPOINTS.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/API_SURFACE.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/CHANGE_MAP.md"
+  ],
+  "designGuides": [
+    "/Users/macbook/Desktop/Huz/UI_DESIGN_SYSTEM_GUIDE.md",
+    "/Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md"
+  ],
+  "referenceDocs": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/PROJECT_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/MODULE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/ROUTES_AND_ENTRYPOINTS.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/API_SURFACE.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md"
+  ],
+  "forceExternalDocs": true,
+  "reportFiles": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md"
+  ],
+  "createdAt": "2026-03-08T01:21:31.839Z",
+  "updatedAt": "2026-03-08T09:24:52.764Z",
+  "phaseCursor": 6,
+  "phases": [
+    {
+      "id": 0,
+      "title": "Refresh Atlas and Inventory",
+      "status": "completed",
+      "completedAt": "2026-03-08T01:30:28.602Z",
+      "note": "",
+      "goal": "Refresh the project blueprint and identify the current module layout before enhancement work begins.",
+      "required": [
+        "Read the current atlas docs and refresh stale areas that block reliable execution.",
+        "Inventory the project scope, critical modules, routes, APIs, and major dependencies.",
+        "Capture baseline commands and verification constraints."
+      ]
+    },
+    {
+      "id": 1,
+      "title": "Deep Scan and Backlog",
+      "status": "completed",
+      "completedAt": "2026-03-08T01:40:14.153Z",
+      "note": "",
+      "goal": "Analyze the project deeply and produce a prioritized backlog of enhancements, mismatches, bugs, and structural improvements.",
+      "required": [
+        "Perform a targeted deep scan of the requested scope.",
+        "Update the deep scan report and bug backlog with prioritized, actionable items.",
+        "Group the work into coherent execution batches by module or risk."
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Plan Execution Batches",
+      "status": "completed",
+      "completedAt": "2026-03-08T01:45:19.537Z",
+      "note": "",
+      "goal": "Convert the backlog into a concrete implementation plan for the next batch of improvements.",
+      "required": [
+        "Select the highest-value batch that fits safely in the current run.",
+        "Document what will be changed now versus deferred for later batches.",
+        "Keep the plan aligned to the user request and current verification budget."
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Implement Highest-Priority Batch",
+      "status": "completed",
+      "completedAt": "2026-03-08T09:15:17.554Z",
+      "note": "",
+      "goal": "Execute the highest-priority improvement batch for the scoped project.",
+      "required": [
+        "Implement the selected fixes or enhancements across the necessary modules.",
+        "Keep changes cohesive and avoid scattering unrelated edits.",
+        "If new mismatches are uncovered, fix them or record them in the backlog before moving on."
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Verify and Reprioritize",
+      "status": "completed",
+      "completedAt": "2026-03-08T09:20:55.945Z",
+      "note": "",
+      "goal": "Validate the batch, update the backlog, and confirm the next recommended work.",
+      "required": [
+        "Run the appropriate validations and fix blockers found during verification.",
+        "Update the backlog with completed items, remaining work, and newly discovered issues.",
+        "Refresh the atlas docs for the touched modules."
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Finalize Docs and Summary",
+      "status": "completed",
+      "completedAt": "2026-03-08T09:24:52.759Z",
+      "note": "",
+      "goal": "Leave the project in a durable state for future automated runs.",
+      "required": [
+        "Update the atlas docs, scan report, backlog, and change map with final state after this batch.",
+        "Append a full summary of the work completed in this run.",
+        "Record the next recommended batch so a future run can continue without rescanning everything."
+      ]
+    }
+  ]
+}

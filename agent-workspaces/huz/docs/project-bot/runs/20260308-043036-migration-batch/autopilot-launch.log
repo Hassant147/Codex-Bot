@@ -1,0 +1,10 @@
+Autopilot start
+Root: /Users/macbook/Desktop/Huz
+Logs: /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-043036-migration-batch/logs/20260308-043046
+Mode: dangerous
+Codex: /Users/macbook/.vscode/extensions/openai.chatgpt-26.304.20706-darwin-arm64/bin/macos-aarch64/codex
+Model: gpt-5.4
+Effort: xhigh
+Quiet agent output: 0
+Max cycles: 12
+Run summary: /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-043036-migration-batch/RUN_SUMMARY.md

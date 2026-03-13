@@ -1,0 +1,1332 @@
+OpenAI Codex v0.108.0-alpha.12 (research preview)
+--------
+workdir: /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend
+model: gpt-5.4
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR, /Users/macbook/.codex/memories, /Users/macbook/Desktop/Huz/Huz-Backend]
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019ce257-d9f6-7f50-b282-d555a6cff14c
+--------
+user
+Use $project-autopilot-manager in `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend`.
+Read `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/state.json` and `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/prompts/phase-00.md`.
+Execute only Phase 0 (Read Context and Backlog) against target project `/Users/macbook/Desktop/Huz/Huz-Backend`.
+At the end, run:
+1. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch --phase 0`
+2. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch`
+Then print `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/NEXT_PROMPT.md`.
+
+mcp: playwright starting
+2026-03-12T13:58:55.106151Z  WARN codex_core::shell_snapshot: Failed to delete shell snapshot at "/Users/macbook/.codex/shell_snapshots/019ce257-d9f6-7f50-b282-d555a6cff14c.tmp-1773323934206153000": Os { code: 2, kind: NotFound, message: "No such file or directory" }
+mcp: playwright ready
+mcp startup: ready: playwright
+codex
+Using `project-autopilot-manager` because this is an existing bounded run. I’m reading the run state and Phase 0 prompt first, then I’ll execute only that phase against `/Users/macbook/Desktop/Huz/Huz-Backend` and finish by advancing the run metadata exactly as requested.
+exec
+/bin/zsh -lc "sed -n '1,260p' /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/prompts/phase-00.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc "sed -n '1,220p' /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/state.json" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 52ms:
+# Phase 0: Read Context and Backlog
+
+Run Mode: `plan-batch`
+Run Directory: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch`
+Workspace Root: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend`
+Target Project: `/Users/macbook/Desktop/Huz/Huz-Backend`
+Scoped Directory/Module: `/Users/macbook/Desktop/Huz/Huz-Backend`
+
+## Original Request
+Team mission: Audit the entire Huz-Backend repository deeply. Act as a project manager, Django architect, Python performance specialist, security reviewer, QA engineer, and implementation engineer. First perform a full backend audit for performance bottlenecks, optimization issues, N+1 queries, ORM misuse, inefficient loops, unnecessary database or network work, cache gaps, slow request paths, dead code, risky patterns, security flaws, and anything clearly wrong. Then create a prioritized remediation plan and implement the safe backend fixes in parallel. Important constraint: only document and fix issues that can be resolved entirely inside Huz-Backend. If an issue requires edits in any other repository, consumer application, or downstream client, do not implement that part. Document it clearly as out-of-scope and skip code changes. Keep all changes scoped to Huz-Backend, verify each batch, and finish with a final summary of issues found, fixes implemented, skipped out-of-scope items, and verification results.
+
+You are the Project Manager in coordinated team "Huz Backend Strict Backend Audit and Fix Active".
+Assigned lane: Backlog triage and batching
+Primary objective: Turn audit findings into lane-specific implementation batches with clear ownership and priorities.
+Execution phase: planning
+Mode: plan-batch
+Scope level: panel-be
+Scope: /Users/macbook/Desktop/Huz/Huz-Backend
+Scope targets: [Not specified]
+
+ succeeded in 52ms:
+{
+  "version": 1,
+  "workspaceRoot": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend",
+  "projectPath": "/Users/macbook/Desktop/Huz/Huz-Backend",
+  "mode": "plan-batch",
+  "modeTitle": "Plan Batch",
+  "description": "Read the atlas and backlog, then produce a concrete execution plan for the next bounded implementation batch without overcommitting to the entire backlog.",
+  "scopeLevel": "panel-be",
+  "scope": "/Users/macbook/Desktop/Huz/Huz-Backend",
+  "scopeTargets": [],
+  "request": "Team mission: Audit the entire Huz-Backend repository deeply. Act as a project manager, Django architect, Python performance specialist, security reviewer, QA engineer, and implementation engineer. First perform a full backend audit for performance bottlenecks, optimization issues, N+1 queries, ORM misuse, inefficient loops, unnecessary database or network work, cache gaps, slow request paths, dead code, risky patterns, security flaws, and anything clearly wrong. Then create a prioritized remediation plan and implement the safe backend fixes in parallel. Important constraint: only document and fix issues that can be resolved entirely inside Huz-Backend. If an issue requires edits in any other repository, consumer application, or downstream client, do not implement that part. Document it clearly as out-of-scope and skip code changes. Keep all changes scoped to Huz-Backend, verify each batch, and finish with a final summary of issues found, fixes implemented, skipped out-of-scope items, and verification results.\n\nYou are the Project Manager in coordinated team \"Huz Backend Strict Backend Audit and Fix Active\".\nAssigned lane: Backlog triage and batching\nPrimary objective: Turn audit findings into lane-specific implementation batches with clear ownership and priorities.\nExecution phase: planning\nMode: plan-batch\nScope level: panel-be\nScope: /Users/macbook/Desktop/Huz/Huz-Backend\nScope targets: [Not specified]\n\nTeam coordination contract:\n- Work only inside your assigned lane.\n- Ownership boundaries: coordination:plan\n- This is a report-only run. Do not modify product code; workspace docs and reports are allowed.\n- Read atlas docs, QA reports, and BUG_BACKLOG before making major decisions.\n- If you discover issues outside your lane, document them clearly in RUN_SUMMARY or BUG_BACKLOG instead of implementing them here.\n- Upstream dependencies that should already be complete: QA Audit, Security Audit\n\nPlanning contract:\n- Read all upstream reports first.\n- Convert the findings into implementation batches grouped by lane.\n- Make ownership explicit so downstream implementers do not overlap.\n\nOriginal operator request:\nAudit the entire Huz-Backend repository deeply. Act as a project manager, Django architect, Python performance specialist, security reviewer, QA engineer, and implementation engineer. First perform a full backend audit for performance bottlenecks, optimization issues, N+1 queries, ORM misuse, inefficient loops, unnecessary database or network work, cache gaps, slow request paths, dead code, risky patterns, security flaws, and anything clearly wrong. Then create a prioritized remediation plan and implement the safe backend fixes in parallel. Important constraint: only document and fix issues that can be resolved entirely inside Huz-Backend. If an issue requires edits in any other repository, consumer application, or downstream client, do not implement that part. Document it clearly as out-of-scope and skip code changes. Keep all changes scoped to Huz-Backend, verify each batch, and finish with a final summary of issues found, fixes implemented, skipped out-of-scope items, and verification results.\n\nGlobal Instructions (always apply):\nAlways maintain full-system project memory in docs for the selected scope level.\nExclude non-dev and non-required files from deep mapping and auditing.\nWhen code changes touch modules/routes/APIs/contracts/schema/security/state, refresh relevant atlas docs in the same run.\nKeep audit findings traceable with status updates (open, fixed, verified) when remediation occurs.\nFor full-system or multi-panel fullstack scope, ensure frontend panels and backend structure/contracts are mapped together.",
+  "projectSurfaces": [
+    {
+      "id": "huz-backend",
+      "label": "Huz-Backend",
+      "path": "/Users/macbook/Desktop/Huz/Huz-Backend",
+      "kind": "panel-be"
+    }
+  ],
+  "devIgnorePatterns": [
+codex
+I have the run contract. Next I’m loading the required bot config plus the atlas and audit docs, then I’ll sanity-check them against the current backend tree so Phase 0 ends with concrete planning inputs and any stale-doc blockers called out.
+exec
+/bin/zsh -lc "sed -n '1,220p' docs/project-bot/config.json" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 53ms:
+{
+  "version": 1,
+  "workspaceRoot": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend",
+  "projectPath": "/Users/macbook/Desktop/Huz/Huz-Backend",
+  "designGuides": [
+    "/Users/macbook/Desktop/Huz/UI_DESIGN_SYSTEM_GUIDE.md",
+    "/Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md"
+  ],
+  "blueprintSources": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/SYSTEM_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/FILE_MAP_DEV_ONLY.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/PANEL_MODULE_INDEX.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/FRONTEND_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/BACKEND_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/PROJECT_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/MODULE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/ROUTES_AND_ENTRYPOINTS.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/API_SURFACE.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/CHANGE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/ROUTE_MATRIX.md",
+exec
+/bin/zsh -lc "sed -n '1,260p' docs/project-bot/OPERATOR_PROFILE.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc "sed -n '1,240p' docs/project-bot/runs/20260312-174754-plan-batch/TASK.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc 'rg -n "''^(#|##|###) " docs/atlas/PROJECT_BLUEPRINT.md docs/atlas/MODULE_MAP.md docs/atlas/ROUTES_AND_ENTRYPOINTS.md docs/atlas/API_SURFACE.md docs/atlas/CHANGE_MAP.md docs/qa/FULL_AUDIT_REPORT.md docs/qa/DEEP_SCAN_REPORT.md docs/qa/BUG_BACKLOG.md docs/atlas/BACKEND_BLUEPRINT.md docs/atlas/BACKEND_SCHEMA_MAP.md docs/atlas/SECURITY_THREAT_MAP.md docs/atlas/TRACEABILITY_MAP.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc "cd /Users/macbook/Desktop/Huz/Huz-Backend && pwd && rg --files -g '"'!node_modules'"' -g '"'!dist'"' -g '"'!build'"' -g '"'!coverage'"' -g '"'!.git'"' | sed -n '1,260p'" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 52ms:
+# Operator Profile
+
+This file captures the default working style for the project bot. Every run should read this file before planning or changing code.
+
+## Working Style
+- Work in clearly scoped phases with durable written outputs.
+- Prefer module-by-module execution instead of scattered random fixes.
+- Treat frontend and backend as one connected system map when integration is involved.
+- Use existing atlas docs first, then read only the extra code needed for accuracy.
+
+## Scope Rules
+- The target project is the only place code changes should happen unless the task explicitly requires a related supporting change.
+- Keep the bot workspace as the long-term memory layer. Store reports, atlas docs, backlogs, summaries, and run state here instead of inside the target repo when possible.
+- Match frontend to backend contracts when drift is found, unless the task explicitly says to refactor the backend contract itself.
+
+## Quality Rules
+- Reduce duplication, stale logic, dead code, and brittle state flows.
+- Prefer modern modular patterns, reusable primitives, and clear ownership boundaries.
+- Keep routes stable unless the task explicitly requires a migration.
+- If code changes affect structure, routes, APIs, or ownership, refresh the relevant atlas docs in the same phase.
+ succeeded in 52ms:
+Team mission: Audit the entire Huz-Backend repository deeply. Act as a project manager, Django architect, Python performance specialist, security reviewer, QA engineer, and implementation engineer. First perform a full backend audit for performance bottlenecks, optimization issues, N+1 queries, ORM misuse, inefficient loops, unnecessary database or network work, cache gaps, slow request paths, dead code, risky patterns, security flaws, and anything clearly wrong. Then create a prioritized remediation plan and implement the safe backend fixes in parallel. Important constraint: only document and fix issues that can be resolved entirely inside Huz-Backend. If an issue requires edits in any other repository, consumer application, or downstream client, do not implement that part. Document it clearly as out-of-scope and skip code changes. Keep all changes scoped to Huz-Backend, verify each batch, and finish with a final summary of issues found, fixes implemented, skipped out-of-scope items, and verification results.
+
+You are the Project Manager in coordinated team "Huz Backend Strict Backend Audit and Fix Active".
+Assigned lane: Backlog triage and batching
+Primary objective: Turn audit findings into lane-specific implementation batches with clear ownership and priorities.
+Execution phase: planning
+Mode: plan-batch
+Scope level: panel-be
+Scope: /Users/macbook/Desktop/Huz/Huz-Backend
+Scope targets: [Not specified]
+
+Team coordination contract:
+- Work only inside your assigned lane.
+- Ownership boundaries: coordination:plan
+- This is a report-only run. Do not modify product code; workspace docs and reports are allowed.
+- Read atlas docs, QA reports, and BUG_BACKLOG before making major decisions.
+- If you discover issues outside your lane, document them clearly in RUN_SUMMARY or BUG_BACKLOG instead of implementing them here.
+- Upstream dependencies that should already be complete: QA Audit, Security Audit
+
+Planning contract:
+ succeeded in 52ms:
+docs/atlas/MODULE_MAP.md:1:# Module Map
+docs/atlas/MODULE_MAP.md:5:## Top-Level Modules
+docs/atlas/MODULE_MAP.md:15:## Shared Platform and Auth
+docs/atlas/MODULE_MAP.md:24:## Common App Surface
+docs/atlas/MODULE_MAP.md:33:## Partner App Surface
+docs/atlas/MODULE_MAP.md:46:## Booking App Surface
+docs/atlas/MODULE_MAP.md:63:## Management App Surface
+docs/atlas/MODULE_MAP.md:69:## Testing and Verification Modules
+docs/atlas/MODULE_MAP.md:76:## Collision and Refactor Watchlist
+docs/atlas/PROJECT_BLUEPRINT.md:1:# Project Blueprint
+docs/atlas/PROJECT_BLUEPRINT.md:5:## Scope
+docs/atlas/PROJECT_BLUEPRINT.md:11:## System Purpose
+docs/atlas/PROJECT_BLUEPRINT.md:21:## Runtime Architecture
+docs/atlas/PROJECT_BLUEPRINT.md:22:### Application Shell
+docs/atlas/PROJECT_BLUEPRINT.md:29:### Installed Apps
+docs/atlas/PROJECT_BLUEPRINT.md:35:### Authentication Model
+docs/atlas/PROJECT_BLUEPRINT.md:42:## Core Data Domains
+docs/atlas/PROJECT_BLUEPRINT.md:43:### Customer and Shared Platform (`common`)
+docs/atlas/PROJECT_BLUEPRINT.md:50:### Partner and Package Catalog (`partners`)
+docs/atlas/PROJECT_BLUEPRINT.md:57:### Booking Lifecycle (`booking`)
+ succeeded in 50ms:
+/Users/macbook/Desktop/Huz/Huz-Backend
+manage.py
+README.md
+requirements.txt
+management/urls.py
+management/approval_task.py
+management/apps.py
+management/__init__.py
+common/user_profile.py
+common/mailbody_booking_docuements.py
+common/api_v1.py
+common/middleware.py
+common/urls.py
+common/tests.py
+common/pagination.py
+common/mailbody_verified_payment.py
+common/mailbody_complaint.py
+common/firebase.json
+common/logs_file.py
+common/permissions.py
+codex
+The audit artifacts are present and the backend tree matches the expected Django apps at a high level. I’m now reading the actual findings and backlog entries, because Phase 0 needs the priority landscape and any stale-memory gaps before planning starts.
+Plan update
+Phase 0 is a report-only context pass. I’m loading required run context first, then I’ll record the planning inputs and blockers in durable docs before completing the phase.
+  → Read required run context, atlas docs, audit reports, and backlog
+  • Sanity-check atlas/backlog context against current Huz-Backend structure and identify stale-doc blockers
+  • Append Phase 0 findings to durable docs, complete the phase, and print NEXT_PROMPT.md
+exec
+/bin/zsh -lc "sed -n '1,220p' docs/atlas/MODULE_MAP.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc "sed -n '1,220p' docs/atlas/API_SURFACE.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc "sed -n '1,240p' docs/atlas/ROUTES_AND_ENTRYPOINTS.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc "sed -n '1,220p' docs/atlas/PROJECT_BLUEPRINT.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 50ms:
+# Project Blueprint
+
+Keep this file current whenever code changes touch architecture, flows, or module boundaries.
+
+## Scope
+- Target project: `/Users/macbook/Desktop/Huz/Huz-Backend`
+- Runtime: Django 5.0.6 + Django REST Framework 3.15 + drf-yasg
+- Primary domains: customer identity and wallets, partner onboarding and package catalog, booking lifecycle, admin approvals and payouts
+- Refresh basis: live working tree as inspected on 2026-03-12 during `system-atlas` Phase 1
+
+## System Purpose
+Huz-Backend is the backend for a Hajj and Umrah marketplace. It supports:
+
+- Customer onboarding, profile management, addresses, wallets, and withdrawals
+- Partner onboarding for individual and company operators
+- Package enrollment and website package discovery
+- Customer booking creation, staged payment submission, traveller passport capture, post-booking support, and review flows
+- Partner booking fulfillment, operator document uploads, complaints handling, and receivable tracking
+- Admin approval of partner companies, payment review, master hotel catalog maintenance, and partner payout release
+
+ succeeded in 50ms:
+# API Surface
+
+Track endpoints, service modules, request/response contracts, and important integration notes here.
+
+## Auth and Session Contract
+| Surface | Auth contract | Primary modules | Notes |
+| --- | --- | --- | --- |
+| Modern customer and operator API | `Authorization: Bearer <session token>` or `Authorization: Token <session token>` | `common/authentication.py`, `common/auth_utils.py`, `common/permissions.py` | Preferred path for `/api/v1/` and routed operator package endpoints. |
+| Legacy compatibility auth | `session_token` or `partner_session_token` in query params or request payload | `common/authentication.py`, legacy views across `partners/*`, `common/user_profile.py`, `booking/manage_partner_booking.py` | Still accepted; responses may include `X-Auth-Deprecated`. |
+| Django admin auth | Standard Django staff session/auth backend | `django.contrib.auth`, `management/approval_task.py` | Used for `/management/` and `/admin/`. |
+
+## Customer Identity and Wallet APIs
+| Surface | Endpoints | Request contract | Response contract | Service/modules | Notes |
+| --- | --- | --- | --- | --- | --- |
+| Legacy phone OTP | `/common/send_otp_sms/`, `/common/verify_otp/` | Phone number and OTP fields; SMS send restricted to `+92`; admin-authenticated | Success/error message payloads | `common/user_profile.py`, `common/throttling.py` | OTP send uses external SMS gateway and optional dev bypass. |
+| Legacy customer existence and creation | `/common/is_user_exist/`, `/common/manage_user_account/` | Phone number lookup or profile-creation payload | Serialized `UserProfile` or status message | `common/user_profile.py`, `common/serializers.py` | `/common/is_user_exist/` returns a full `UserProfileSerializer` payload, while `/common/manage_user_account/` remains `IsAdminUser` for both create and delete in the current tree; the create flow provisions wallet state and sends outbound side effects. |
+| Current user profile | `/api/v1/users/me/profile/` | Optional `name`, `email`, `user_gender` on update | `UserProfileSerializer` with `wallet_amount` | `common/api_v1.py`, `common/serializers.py` | Modern read/update contract. |
+| Current user address | `/api/v1/users/me/address/` | `street_address`, `city`, `state`, `country`, `postal_code`, optional lat/long and `address_id` on update | `MailingDetailSerializer` with `full_address` | `common/api_v1.py`, `common/models.py` | Toggles `UserProfile.is_address_exist`. |
+| Current user bank accounts | `/api/v1/users/me/wallet/banks/` | Create: `account_title`, `account_number`, `bank_name`, `branch_code`; delete: `account_id` | `UserBankAccountSerializer[]` or message | `common/api_v1.py` | Duplicate bank records are rejected. |
+| Current user withdrawals | `/api/v1/users/me/wallet/withdrawals/` | `account_id`, `withdraw_amount` | `UserWithdrawSerializer[]` or created withdrawal | `common/api_v1.py`, `common/models.py` | Uses wallet-balance checks and atomic decrement. |
+ succeeded in 50ms:
+# Module Map
+
+Update this file whenever modules, folders, or responsibilities change.
+
+## Top-Level Modules
+| Module | Path | Responsibility | Notes |
+| --- | --- | --- | --- |
+| Django project shell | `/Users/macbook/Desktop/Huz/Huz-Backend/huz` | Settings, root URL mounts, WSGI/ASGI bootstraps, optional docs/static serving | `huz/settings.py` is production-first; `huz/settings_test.py` swaps to SQLite for verification runs. |
+| Shared user domain | `/Users/macbook/Desktop/Huz/Huz-Backend/common` | Customer identity, OTP, wallets, addresses, notifications, auth bridge, email/SMS/Firebase helpers | Mixed legacy and modern APIs; contains the session-token authentication bridge used by `/api/v1/`. |
+| Partner domain | `/Users/macbook/Desktop/Huz/Huz-Backend/partners` | Partner onboarding, identity, services, package catalog, website package reads, partner wallets and withdrawals | Write path is split between modern operator views and older legacy modules. |
+| Booking domain | `/Users/macbook/Desktop/Huz/Huz-Backend/booking` | Booking creation, payment/passport lifecycle, support flows, partner fulfillment, receivable tracking | Contains the current state machine and the largest cross-module coupling. |
+| Back-office domain | `/Users/macbook/Desktop/Huz/Huz-Backend/management` | Company approvals, payment review, master hotel catalog, partner payout transfer | All routed views currently live in `approval_task.py`. |
+| Email templates | `/Users/macbook/Desktop/Huz/Huz-Backend/huz/templates/emails` | Transactional email rendering for approval, booking, objection, complaint, payment, and verification flows | Driven through helper functions in `common/utility.py`. |
+
+## Shared Platform and Auth
+| Module | Path | Responsibility | Notes |
+| --- | --- | --- | --- |
+| Session-token auth bridge | `/Users/macbook/Desktop/Huz/Huz-Backend/common/authentication.py` | Resolves Bearer/Token headers and legacy query/payload session tokens to customer or partner principals | Sets request auth context and drives `X-Auth-Deprecated` header when legacy token transport is used. |
+| Auth helpers | `/Users/macbook/Desktop/Huz/Huz-Backend/common/auth_utils.py` | Resolves authenticated user/partner principals and admin checks | Used by the modern `/api/v1/` and newer operator views. |
+| Custom permissions | `/Users/macbook/Desktop/Huz/Huz-Backend/common/permissions.py` | DRF permission classes for authenticated user and partner profile access | Keeps admin override behavior intact. |
+ succeeded in 50ms:
+# Routes and Entrypoints
+
+Track frontend routes, backend route groups, entry components, and bootstrap paths here.
+
+## Bootstrap Entrypoints
+| Entrypoint | Path | Purpose | Notes |
+| --- | --- | --- | --- |
+| Django CLI | `/Users/macbook/Desktop/Huz/Huz-Backend/manage.py` | Standard management-command bootstrap | Uses `huz.settings` by default. |
+| WSGI app | `/Users/macbook/Desktop/Huz/Huz-Backend/huz/wsgi.py` | Deployment WSGI entrypoint | Standard synchronous deployment path. |
+| ASGI app | `/Users/macbook/Desktop/Huz/Huz-Backend/huz/asgi.py` | ASGI entrypoint | Present even though `ASGI_APPLICATION` is commented in `huz/settings.py`. |
+| Root router | `/Users/macbook/Desktop/Huz/Huz-Backend/huz/urls.py` | Mounts all HTTP route groups | Also conditionally exposes Swagger/Redoc and Django static/media serving. |
+| Booking lifecycle timer | `/Users/macbook/Desktop/Huz/Huz-Backend/booking/management/commands/process_booking_timers.py` | Scheduled reconciler for booking expiry and completion | Must be run out-of-band by ops/cron; there is no Celery worker in the inspected tree. |
+| Package seed command | `/Users/macbook/Desktop/Huz/Huz-Backend/partners/management/commands/seed_huz_packages.py` | Developer data-seeding entrypoint for package catalog scenarios | Creates realistic package graphs and can attach them to an existing partner or bootstrap a seed partner. |
+
+## Root Route Mounts
+| Prefix | Mounted module | Auth model | Purpose | Notes |
+| --- | --- | --- | --- | --- |
+| `/api/v1/` | `booking.api_urls` and `common.api_urls` | Modern session-token auth bridge | Current authenticated customer API surface | `Authorization: Bearer/Token <session token>` preferred. |
+| `/common/` | `common.urls` | Mostly admin or legacy public | Legacy customer onboarding and utility endpoints | Still uses manual token payloads for some writes. |
+| `/partner/` | `partners.urls` | Mixed legacy public and newer authenticated operator routes | Partner onboarding, catalog, website reads, and partner account operations | Security posture varies endpoint-by-endpoint. |
+exec
+/bin/zsh -lc "sed -n '1,220p' docs/atlas/CHANGE_MAP.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 53ms:
+# Change Map
+
+Every code-changing run should append what changed and which atlas docs were refreshed.
+
+## Entries
+### 2026-03-12 - Deep Scan Phase 0 atlas context refresh
+- Scope: `/Users/macbook/Desktop/Huz/Huz-Backend`
+- Files changed:
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+  - `docs/atlas/MODULE_MAP.md`
+  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
+  - `docs/atlas/CHANGE_MAP.md`
+  - `docs/qa/DEEP_SCAN_REPORT.md`
+  - `docs/project-bot/runs/20260312-174754-deep-scan/RUN_SUMMARY.md`
+- Atlas docs refreshed:
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+  - `docs/atlas/MODULE_MAP.md`
+  - `docs/atlas/ROUTES_AND_ENTRYPOINTS.md`
+  - `docs/atlas/CHANGE_MAP.md`
+- Notes:
+exec
+/bin/zsh -lc "sed -n '1,220p' docs/qa/FULL_AUDIT_REPORT.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc "sed -n '1,220p' docs/atlas/BACKEND_BLUEPRINT.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc "sed -n '1,260p' docs/atlas/BACKEND_SCHEMA_MAP.md docs/atlas/SECURITY_THREAT_MAP.md docs/atlas/TRACEABILITY_MAP.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc "sed -n '1,260p' docs/qa/BUG_BACKLOG.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc "sed -n '1,260p' docs/qa/DEEP_SCAN_REPORT.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 50ms:
+# Backend Blueprint
+
+Document backend apps/modules, route groups, service rules/logic, schema ownership, and integration boundaries.
+
+## Services and Rules
+- Add app/service responsibilities and business rules.
+ succeeded in 50ms:
+# Full Audit Report
+
+Use this report for full-system audits across frontend, backend, contracts, security, and performance.
+
+## Coverage
+- List surfaces, scope level, and dev-only inventory boundaries.
+
+## Findings
+- Group findings by panel/service/module with evidence and priority.
+ succeeded in 52ms:
+# Bug and Improvement Backlog
+
+Use this backlog for prioritized follow-up work discovered during scans or implementation.
+
+| ID | Priority | Module | Summary | Status | Verification |
+| --- | --- | --- | --- | --- | --- |
+| DS-P1-001 | Critical | Partner auth/profile/account | Replace legacy `AllowAny` partner self-service with authenticated-principal-only access, remove raw `partner_session_token` lookups from profile, OTP, address, bank, withdrawal, logo, and password handlers, and stop serializing `partner_session_token`, `firebase_token`, and `web_firebase_token` in partner profile payloads. | open | Add partner API regressions that reject anonymous or foreign-token profile/bank/withdraw writes and confirm owner-only Bearer-authenticated reads and writes. Source: `partners/partner_profile.py:334-1295`; `partners/partner_accounts_and_transactions.py:15-344`; `partners/serializers.py:214-229` |
+| DS-P1-002 | High | Partner booking fulfillment | Normalize partner booking mutations around the authenticated principal. Remove request-body/query `partner_session_token` rebinding from booking action, document, arrangement, complaint, close, and report endpoints so booking ownership comes from the auth helper only. | open | Add partner-booking regressions proving a foreign token cannot mutate another partner's booking, documents, complaints, or close/report routes. Source: `booking/manage_partner_booking.py:394-643`; `booking/manage_partner_booking.py:646-940`; `booking/manage_partner_booking.py:1378-1774` |
+| DS-P1-003 | High | Booking documents and payouts | Enforce one-row-per-booking invariants for `DocumentsStatus` and `PartnersBookingPayment`, recalculate document completeness on delete/update, and stop creating duplicate receivable rows during repeated fulfillment transitions. | open | Add service/model tests for duplicate-row prevention, delete-triggered completion recompute, and idempotent payout creation across repeated document updates. Source: `booking/models.py:172-181`; `booking/models.py:266-279`; `booking/workflow.py:215-225`; `booking/manage_partner_booking.py:556-640`; `booking/services.py:734-766` |
+| DS-P1-004 | High | Wallet withdrawals | Move balance validation inside a locked transaction for both customer and partner withdrawals and update wallet amounts with row locking or database-side arithmetic so concurrent requests cannot overdraw or lose updates. | open | Add concurrent withdrawal tests or transaction-level regressions proving two simultaneous requests cannot overdraw the same wallet. Source: `common/api_v1.py:218-256`; `partners/partner_accounts_and_transactions.py:235-264` |
+| DS-P1-005 | Medium | Dead routes and duplicate package logic | Align maintained code with the live route surface: either mount or delete the unmounted management views, and clearly separate website-only legacy package code from the routed operator package write path so dead implementations stop drifting. | open | Add route inventory coverage or explicit deprecation tests showing which management/package views are intentionally live versus unreachable. Source: `management/urls.py:6-15`; `management/approval_task.py:907-990`; `management/approval_task.py:1282-1333`; `partners/urls.py:32-48`; `partners/package_management.py` |
+| DS-P1-006 | Medium | Management QA coverage | Restore a dedicated `management` test module for company approval, payment review, receivable transfer, master hotels, and any intentionally unmounted admin views so follow-on fixes can be verified without rescanning the repo. | open | Reintroduce `management/tests.py` or `management/tests/*` and run `python3 manage.py test management partners booking common --settings=huz.settings_test` in a provisioned environment. Source: `rg --files /Users/macbook/Desktop/Huz/Huz-Backend/management`; `python3 manage.py test partners.tests booking.tests common.tests --settings=huz.settings_test` |
+| SEC-001 | Critical | `common/authentication.py`, `partners/partner_profile.py`, `partners/partner_accounts_and_transactions.py`, `booking/manage_partner_booking.py` | Legacy session-token transport is still accepted across customer and partner flows, including high-value mutation routes, so bearer-equivalent secrets can still travel in query strings and request bodies. | open | Source inspection during security-audit Phase 0 |
+| SEC-002 | Critical | `common/firebase.json`, `huz/settings.py` | Firebase service-account credentials are tracked in the repository and loaded by default from `common/firebase.json`; rotate the credential and move it to an env-controlled or external secret path. | open | Source inspection during security-audit Phase 0 |
+| SEC-003 | High | `partners/partner_profile.py`, `partners/partner_accounts_and_transactions.py` | Legacy partner profile and wallet routes remain `AllowAny` while resolving principals directly from `partner_session_token`, making profile, banking, and withdrawal surfaces depend on raw token possession rather than explicit authenticated principals. | open | Source inspection during security-audit Phase 0 |
+| SEC-004 | Medium | `huz/settings.py`, `huz/urls.py`, `common/utility.py`, `booking/models.py`, `partners/models.py` | Uploaded passport, payment, complaint, and partner-company documents are stored in local media and can become anonymously reachable if `SERVE_MEDIA_AND_STATIC_FROM_DJANGO` is enabled; confirm production flag discipline and media exposure controls. | open | Source inspection during security-audit Phase 0 |
+| SEC-005 | Critical | `partners/package_management.py`, `partners/serializers.py` | Anonymous website package endpoints serialize `partner_session_token` in normal package list/detail payloads, allowing public users to harvest operator auth tokens directly from catalog traffic. | open | Source inspection during security-audit Phase 1 |
+| SEC-006 | Critical | `booking/serializers.py`, `booking/views/bookings.py`, `booking/manage_partner_booking.py` | Booking APIs disclose the opposite party's session token in customer and partner responses, creating a direct cross-role impersonation path between customers and operators. | open | Source inspection during security-audit Phase 1 |
+| SEC-007 | Critical | `common/user_profile.py`, `common/serializers.py`, `partners/partner_profile.py`, `partners/serializers.py` | Public existence/profile endpoints return full serialized user and partner records, including session tokens and Firebase device tokens, instead of safe yes/no lookup results. | open | Source inspection during security-audit Phase 1 |
+| SEC-008 | Critical | `common/user_profile.py`, `common/utility.py`, `common/authentication.py` | Customer `session_token` values are deterministically derived from phone numbers with base64 encoding and are accepted by the auth bridge, so any known phone number can be turned into a bearer-equivalent token offline. | open | Source inspection during security-audit Phase 1 |
+ succeeded in 52ms:
+# Backend Schema Map
+
+Track data models/schemas and their relationship to endpoints and business rules.
+
+| Schema/Model | Module | Related Endpoints | Key Constraints | Notes |
+| --- | --- | --- | --- | --- |
+# Security Threat Map
+
+Track auth boundaries, trust zones, sensitive flows, and prioritized threat findings.
+
+## Trust Zones
+- `Public`: website catalog reads under `/partner/*`, partner auth/reset/registration routes, and optional Swagger/ReDoc plus Django-served `/media/*` and `/static/*` when feature flags are enabled.
+- `Customer-authenticated`: `/api/v1/users/me/*` and `/api/v1/bookings/*`, backed by session-token auth contexts for `UserProfile`.
+- `Partner-authenticated`: operator package routes under `/partner/*` and booking-fulfillment routes under `/bookings/*`, backed by session-token auth contexts for `PartnerProfile`.
+- `Admin-authenticated`: `/management/*` plus `/admin/`, using Django staff auth and cross-tenant mutations.
+- `External`: MySQL, SMTP, VeevoTech SMS, Firebase Admin, and local filesystem storage for uploaded documents.
+
+| Surface | Threat Area | Risk | Mitigation Status | Notes |
+| --- | --- | --- | --- | --- |
+| Global session-token auth bridge | Header auth plus legacy query/body token transport | High | Partial | `SessionTokenHeaderAuthentication` and `LegacySessionTokenAuthentication` are both enabled globally, so modern endpoints can still authenticate from raw `session_token` or `partner_session_token`; the current mitigation is only the `X-Auth-Deprecated` response header. |
+ succeeded in 52ms:
+Total output lines: 196
+
+# Deep Scan Report
+
+Use this report for on-demand deep analysis of logic, structures, routes, contracts, and mismatch risks.
+
+## Findings
+### 2026-03-12 Deep Scan Phase 0 Refresh Atlas Context
+- Read the run config, operator profile, task prompt, existing atlas docs, current deep scan report, and bug backlog before validating source files.
+- Revalidated the live scan scope against the working tree: the audit remains centered on dev-relevant sources under `huz/`, `common/`, `partners/`, `booking/`, and `management/`, plus root bootstrap files like `manage.py`, `requirements.txt`, and `README.md`; large `media/`, `static/`, `.venv/`, and migration artifacts remain out of primary audit scope unless a later finding points back to them.
+- Cross-checked the current atlas against `git status --short`, `huz/urls.py`, app `urls.py` and `api_urls.py` files, `huz/settings.py`, `common/authentication.py`, `common/permissions.py`, `booking/views/bookings.py`, `booking/views/api_v1.py`, `booking/views/support.py`, `booking/flow_utils.py`, and `partners/management/commands/seed_huz_packages.py`.
+- Confirmed the previously documented route groups, auth split, dirty-tree warning, unmounted management views, and package-management routing seam still match the live tree.
+- Found two atlas omissions that were small but relevant for later scan phases: `partners/management/commands/seed_huz_packages.py` is a live management-command entrypoint for realistic package fixture generation, and `booking/flow_utils.py` is the shared traveller-count helper reused by both `booking/workflow.py` and `booking/services.py`.
+- Refreshed `PROJECT_BLUEPRINT.md`, `MODULE_MAP.md`, and `ROUTES_AND_ENTRYPOINTS.md` so downstream audit phases inherit the corrected context without needing another repo-wide inventory pass.
+- Verification in this phase was source-based only. No product code was modified.
+
+### 2026-03-12 Phase 0 Inventory Scope
+- Scope inventoried: `/Users/macbook/Desktop/Huz/Huz-Backend` for the `system-atlas` run. This phase was report-only and did not modify product code.
+- Runtime shape: Django 5 + DRF project rooted in `huz/`, with installed apps `common`, `partners`, `management`, and `booking`; `huz/settings_test.py` swaps the default MySQL database for SQLite during non-interactive test runs.
+- Route surface snapshot: `huz/urls.py` mounts newer `/api/v1/` user/customer routes from `common/api_urls.py` and `booking/api_urls.py`, plus legacy or back-office groups at `/common/`, `/partner/`, `/bookings/`, and `/management/`.
+codex
+The required planning inputs are coherent, but I’ve already hit two potential blockers worth formalizing: several secondary atlas/report docs are still placeholders, and runtime verification remains blocked because the shell does not have Django installed. I’m checking the run summary and repo state now so the phase write-up is durable and specific.
+exec
+/bin/zsh -lc "sed -n '1,240p' docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc 'git -C /Users/macbook/Desktop/Huz/Huz-Backend status --short' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 51ms:
+# Run Summary
+
+- Run mode: `plan-batch`
+- Target project: `/Users/macbook/Desktop/Huz/Huz-Backend`
+- Workspace root: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend`
+- Scope level: `panel-be`
+- Scope: `/Users/macbook/Desktop/Huz/Huz-Backend`
+- Scope targets: None
+- Full-system required docs: `disabled`
+- Rule: append one section per completed phase. Do not overwrite prior phase sections.
+
+Expected section format:
+
+## Phase X - Title
+### Changes Made
+### How It Was Implemented
+### Files Touched
+### Verification
+ succeeded in 50ms:
+ D booking/custom_request.py
+ D booking/manage_bookings.py
+ M booking/manage_partner_booking.py
+ M booking/models.py
+ M booking/serializers.py
+ M booking/services.py
+ M booking/tests.py
+ M booking/urls.py
+ M booking/views/bookings.py
+ D booking/views/passports.py
+ D booking/views/payments.py
+ M booking/views/support.py
+ D chat/__init__.py
+ D chat/admin.py
+ D chat/apps.py
+ D chat/consumers.py
+ D chat/encoders.py
+ D chat/migrations/0001_initial.py
+ D chat/migrations/__init__.py
+ D chat/models.py
+exec
+/bin/zsh -lc 'rg -n "GetAllApprovedCompaniesView|ManageFeaturedPackageView" /Users/macbook/Desktop/Huz/Huz-Backend/management/approval_task.py /Users/macbook/Desktop/Huz/Huz-Backend/management/urls.py' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc 'rg -n "# Full Audit Report|## Findings|## Coverage" docs/qa/FULL_AUDIT_REPORT.md docs/atlas/BACKEND_BLUEPRINT.md docs/atlas/BACKEND_SCHEMA_MAP.md docs/atlas/TRACEABILITY_MAP.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 53ms:
+docs/qa/FULL_AUDIT_REPORT.md:1:# Full Audit Report
+docs/qa/FULL_AUDIT_REPORT.md:5:## Coverage
+docs/qa/FULL_AUDIT_REPORT.md:8:## Findings
+ succeeded in 53ms:
+/Users/macbook/Desktop/Huz/Huz-Backend/management/approval_task.py:907:class GetAllApprovedCompaniesView(APIView):
+/Users/macbook/Desktop/Huz/Huz-Backend/management/approval_task.py:988:            logger.error(f"Error in GetAllApprovedCompaniesView: {str(e)}")
+/Users/macbook/Desktop/Huz/Huz-Backend/management/approval_task.py:1282:class ManageFeaturedPackageView(APIView):
+/Users/macbook/Desktop/Huz/Huz-Backend/management/approval_task.py:1332:            logger.error(f"ManageFeaturedPackageView - Put: {str(e)}")
+codex
+I have enough context to write Phase 0. I’m appending a planning-context section to the run summary and recording the two planning blockers in the QA docs: placeholder secondary docs and the still-blocked runtime verification environment.
+exec
+/bin/zsh -lc 'tail -n 80 docs/qa/BUG_BACKLOG.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc 'tail -n 60 docs/qa/DEEP_SCAN_REPORT.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc 'tail -n 40 docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 53ms:
+# Bug and Improvement Backlog
+
+Use this backlog for prioritized follow-up work discovered during scans or implementation.
+
+| ID | Priority | Module | Summary | Status | Verification |
+| --- | --- | --- | --- | --- | --- |
+| DS-P1-001 | Critical | Partner auth/profile/account | Replace legacy `AllowAny` partner self-service with authenticated-principal-only access, remove raw `partner_session_token` lookups from profile, OTP, address, bank, withdrawal, logo, and password handlers, and stop serializing `partner_session_token`, `firebase_token`, and `web_firebase_token` in partner profile payloads. | open | Add partner API regressions that reject anonymous or foreign-token profile/bank/withdraw writes and confirm owner-only Bearer-authenticated reads and writes. Source: `partners/partner_profile.py:334-1295`; `partners/partner_accounts_and_transactions.py:15-344`; `partners/serializers.py:214-229` |
+| DS-P1-002 | High | Partner booking fulfillment | Normalize partner booking mutations around the authenticated principal. Remove request-body/query `partner_session_token` rebinding from booking action, document, arrangement, complaint, close, and report endpoints so booking ownership comes from the auth helper only. | open | Add partner-booking regressions proving a foreign token cannot mutate another partner's booking, documents, complaints, or close/report routes. Source: `booking/manage_partner_booking.py:394-643`; `booking/manage_partner_booking.py:646-940`; `booking/manage_partner_booking.py:1378-1774` |
+| DS-P1-003 | High | Booking documents and payouts | Enforce one-row-per-booking invariants for `DocumentsStatus` and `PartnersBookingPayment`, recalculate document completeness on delete/update, and stop creating duplicate receivable rows during repeated fulfillment transitions. | open | Add service/model tests for duplicate-row prevention, delete-triggered completion recompute, and idempotent payout creation across repeated document updates. Source: `booking/models.py:172-181`; `booking/models.py:266-279`; `booking/workflow.py:215-225`; `booking/manage_partner_booking.py:556-640`; `booking/services.py:734-766` |
+| DS-P1-004 | High | Wallet withdrawals | Move balance validation inside a locked transaction for both customer and partner withdrawals and update wallet amounts with row locking or database-side arithmetic so concurrent requests cannot overdraw or lose updates. | open | Add concurrent withdrawal tests or transaction-level regressions proving two simultaneous requests cannot overdraw the same wallet. Source: `common/api_v1.py:218-256`; `partners/partner_accounts_and_transactions.py:235-264` |
+| DS-P1-005 | Medium | Dead routes and duplicate package logic | Align maintained code with the live route surface: either mount or delete the unmounted management views, and clearly separate website-only legacy package code from the routed operator package write path so dead implementations stop drifting. | open | Add route inventory coverage or explicit deprecation tests showing which management/package views are intentionally live versus unreachable. Source: `management/urls.py:6-15`; `management/approval_task.py:907-990`; `management/approval_task.py:1282-1333`; `partners/urls.py:32-48`; `partners/package_management.py` |
+| DS-P1-006 | Medium | Management QA coverage | Restore a dedicated `management` test module for company approval, payment review, receivable transfer, master hotels, and any intentionally unmounted admin views so follow-on fixes can be verified without rescanning the repo. | open | Reintroduce `management/tests.py` or `management/tests/*` and run `python3 manage.py test management partners booking common --settings=huz.settings_test` in a provisioned environment. Source: `rg --files /Users/macbook/Desktop/Huz/Huz-Backend/management`; `python3 manage.py test partners.tests booking.tests common.tests --settings=huz.settings_test` |
+| SEC-001 | Critical | `common/authentication.py`, `partners/partner_profile.py`, `partners/partner_accounts_and_transactions.py`, `booking/manage_partner_booking.py` | Legacy session-token transport is still accepted across customer and partner flows, including high-value mutation routes, so bearer-equivalent secrets can still travel in query strings and request bodies. | open | Source inspection during security-audit Phase 0 |
+| SEC-002 | Critical | `common/firebase.json`, `huz/settings.py` | Firebase service-account credentials are tracked in the repository and loaded by default from `common/firebase.json`; rotate the credential and move it to an env-controlled or external secret path. | open | Source inspection during security-audit Phase 0 |
+| SEC-003 | High | `partners/partner_profile.py`, `partners/partner_accounts_and_transactions.py` | Legacy partner profile and wallet routes remain `AllowAny` while resolving principals directly from `partner_session_token`, making profile, banking, and withdrawal surfaces depend on raw token possession rather than explicit authenticated principals. | open | Source inspection during security-audit Phase 0 |
+| SEC-004 | Medium | `huz/settings.py`, `huz/urls.py`, `common/utility.py`, `booking/models.py`, `partners/models.py` | Uploaded passport, payment, complaint, and partner-company documents are stored in local media and can become anonymously reachable if `SERVE_MEDIA_AND_STATIC_FROM_DJANGO` is enabled; confirm production flag discipline and media exposure controls. | open | Source inspection during security-audit Phase 0 |
+| SEC-005 | Critical | `partners/package_management.py`, `partners/serializers.py` | Anonymous website package endpoints serialize `partner_session_token` in normal package list/detail payloads, allowing public users to harvest operator auth tokens directly from catalog traffic. | open | Source inspection during security-audit Phase 1 |
+| SEC-006 | Critical | `booking/serializers.py`, `booking/views/bookings.py`, `booking/manage_partner_booking.py` | Booking APIs disclose the opposite party's session token in customer and partner responses, creating a direct cross-role impersonation path between customers and operators. | open | Source inspection during security-audit Phase 1 |
+| SEC-007 | Critical | `common/user_profile.py`, `common/serializers.py`, `partners/partner_profile.py`, `partners/serializers.py` | Public existence/profile endpoints return full serialized user and partner records, including session tokens and Firebase device tokens, instead of safe yes/no lookup results. | open | Source inspection during security-audit Phase 1 |
+| SEC-008 | Critical | `common/user_profile.py`, `common/utility.py`, `common/authentication.py` | Customer `session_token` values are deterministically derived from phone numbers with base64 encoding and are accepted by the auth bridge, so any known phone number can be turned into a bearer-equivalent token offline. | open | Source inspection during security-audit Phase 1 |
+ succeeded in 53ms:
+- Priority 0 containment guidance:
+  - Rotate the tracked Firebase credential and move it out of the repository (`SEC-002`).
+  - Remove `session_token`, `partner_session_token`, `firebase_token`, and `web_firebase_token` from package, booking, and public existence/profile serializers, then invalidate and reissue the exposed customer and partner session tokens (`SEC-005`, `SEC-006`, `SEC-007`, `SEC-008`).
+  - Disable raw query/body token trust on partner finance, profile, and other high-value mutation routes before broader cleanup work begins (`SEC-001`, `SEC-003`, `SEC-009`).
+- Priority 1 auth-boundary remediation guidance:
+  - Convert legacy partner profile/account endpoints to authenticated-partner routes and bind reads/writes to the authenticated principal instead of request-supplied tokens (`DS-P1-001`, `SEC-003`, `SEC-009`).
+  - Remove request-time partner re-binding from partner booking mutation views and use the auth-resolved partner consistently (`DS-P1-002`, `SEC-010`).
+  - Replace deterministic customer token generation with strong random opaque tokens, then add an invalidation path so previously phone-derived tokens stop working (`SEC-008`).
+- Priority 2 defense-in-depth and verification guidance:
+  - Re-check admin flows after auth cleanup so staff endpoints no longer depend on raw customer or partner session tokens in request payloads where an authenticated principal or server-side lookup can be used instead.
+  - Add regression tests that assert public package, booking, user-existence, and partner-profile responses never emit auth or device tokens, and restore dedicated `management` coverage for payment review and payout transfer (`DS-P1-006`).
+  - Confirm production deployments keep `SERVE_MEDIA_AND_STATIC_FROM_DJANGO` and optional docs routes disabled unless intentionally required, because uploaded passports, payment proofs, complaints, and partner-company files remain sensitive (`SEC-004`).
+- Recommended implementation order for a future fix batch:
+  - Batch 1: contain active credential leaks and rotate secrets (`SEC-002`, `SEC-005`, `SEC-006`, `SEC-007`, `SEC-008`).
+  - Batch 2: harden partner identity and finance routes and reject raw token trust (`SEC-001`, `SEC-003`, `SEC-009`, `DS-P1-001`).
+  - Batch 3: harden partner booking mutations and cross-tenant principal binding (`SEC-010`, `DS-P1-002`).
+  - Batch 4: add defense-in-depth coverage and exposure checks (`SEC-004`, `DS-P1-006`).
+- Out-of-scope coordination note: any downstream client that still submits `session_token` or `partner_session_token` in query/body fields will need a coordinated rollout outside this report-only phase. The backend target state is still fail-closed auth that binds mutations to the authenticated principal instead of caller-supplied tokens.
+- Verification for this phase remained source-based. No exploit execution, token rotation, or product-code change was performed.
+
+ succeeded in 52ms:
+# Run Summary
+
+- Run mode: `plan-batch`
+- Target project: `/Users/macbook/Desktop/Huz/Huz-Backend`
+- Workspace root: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend`
+- Scope level: `panel-be`
+- Scope: `/Users/macbook/Desktop/Huz/Huz-Backend`
+- Scope targets: None
+- Full-system required docs: `disabled`
+- Rule: append one section per completed phase. Do not overwrite prior phase sections.
+
+Expected section format:
+
+## Phase X - Title
+### Changes Made
+### How It Was Implemented
+### Files Touched
+### Verification
+file update
+M /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+@@ -196 +196,16 @@
+ - Verification for this phase remained documentation-only. No product code was modified.
++
++### 2026-03-12 Plan Batch Phase 0 Read Context and Backlog
++- Re-read the plan-batch run state, phase prompt, project-bot config, operator profile, required atlas docs, `CHANGE_MAP.md`, `DEEP_SCAN_REPORT.md`, and `BUG_BACKLOG.md` before any batching decisions.
++- Confirmed the planning scope is unchanged: the entire backend at `/Users/macbook/Desktop/Huz/Huz-Backend` with no narrower module target, report-only execution, and ownership limited to backlog triage plus batching.
++- Confirmed the current priority landscape still clusters cleanly into three downstream batches:
++  - Immediate auth and tenancy containment: `SEC-B1`, `SEC-B2`, and `DS-B1`, centered on token disclosure, raw token trust, partner-principal rebinding, and public serializer leaks.
++  - Next data-integrity and concurrency fixes: `DS-B2`, centered on one-row booking state invariants and wallet debit locking.
++  - Later drift and verification cleanup: `DS-B3` plus `SEC-B4`, centered on dead-route cleanup, management coverage, and production exposure guardrails.
++- Identified stale-document blockers for later planning depth:
++  - `docs/qa/FULL_AUDIT_REPORT.md` is still a placeholder stub, so this run should treat `docs/qa/DEEP_SCAN_REPORT.md` and `docs/qa/BUG_BACKLOG.md` as the authoritative audit inputs.
++  - `docs/atlas/BACKEND_BLUEPRINT.md`, `docs/atlas/BACKEND_SCHEMA_MAP.md`, and `docs/atlas/TRACEABILITY_MAP.md` remain minimally populated and should be refreshed before any schema-heavy or traceability-heavy planning pass.
++- Reconfirmed two operational blockers that downstream implementation phases must account for:
++  - Runtime verification is still blocked in the current shell until Django and related test dependencies are available.
++  - The target repository remains a dirty working tree, so planning should follow the checked-out files instead of assuming clean-history baselines.
++- Verification in this phase remained source-based and documentation-only. No product code was modified.
+M /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md
+@@ -48 +48,10 @@
+ - Coverage verification still shows no live `management` test module: `rg --files /Users/macbook/Desktop/Huz/Huz-Backend/management /Users/macbook/Desktop/Huz/Huz-Backend/common /Users/macbook/Desktop/Huz/Huz-Backend/partners /Users/macbook/Desktop/Huz/Huz-Backend/booking | rg '/tests?\.py$|/tests/'` returns only `common/tests.py`, `partners/tests.py`, and `booking/tests.py`.
++
++## 2026-03-12 Plan Batch Phase 0 Planning Notes
++
++- Scope confirmation: the next batch should still be planned against the full backend tree at `/Users/macbook/Desktop/Huz/Huz-Backend`; no narrower module target has been selected yet.
++- Priority confirmation: the first implementation batch should stay anchored on `SEC-B1`, `SEC-B2`, and `DS-B1` because auth exposure and partner-principal binding risks still dominate every lower-priority finding.
++- Deferred until after the first auth batch: `DS-B2` for booking-state and wallet invariants, then `DS-B3` plus `SEC-B4` for dead-route cleanup, management coverage, and production exposure guardrails.
++- Planning blocker: `docs/qa/FULL_AUDIT_REPORT.md` is still a stub, so backlog planning should continue to rely on `DEEP_SCAN_REPORT.md` and this backlog instead of the full-audit file.
++- Planning blocker: `docs/atlas/BACKEND_BLUEPRINT.md`, `docs/atlas/BACKEND_SCHEMA_MAP.md`, and `docs/atlas/TRACEABILITY_MAP.md` are still placeholder-level docs and should be refreshed before any schema-first or end-to-end traceability planning run.
++- Verification blocker: runtime test execution is still unavailable in the current shell until Django dependencies are provisioned; this remains the main environment gap for follow-on fix batches.
+M /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md
+@@ -18 +18,22 @@
+ ### Verification
++
++## Phase 0 - Read Context and Backlog
++### Changes Made
++- Read the run state, Phase 0 prompt, project-bot config, operator profile, task prompt, required atlas docs, and current QA/backlog artifacts for the plan-batch lane.
++- Reconfirmed the active planning scope, priority order, and current blockers against the live backend tree and dirty working-tree state.
++- Recorded the Phase 0 planning inputs and blockers in `docs/qa/DEEP_SCAN_REPORT.md` and `docs/qa/BUG_BACKLOG.md`.
++### How It Was Implemented
++- Reopened the required planning docs first so batching decisions stayed grounded in the existing atlas and upstream audit outputs rather than a fresh repo-wide rescan.
++- Cross-checked the current target project tree and `git status --short` output to confirm the backend app layout still matches the mapped `common`, `partners`, `booking`, and `management` surfaces and that the checked-out tree remains the correct source of truth.
++- Reviewed the latest remediation ordering from the deep-scan and security runs, then collapsed it into three downstream planning groups: immediate auth and tenancy containment, next booking-state and wallet integrity fixes, and later drift/verification cleanup.
++- Flagged the stale or incomplete planning artifacts that would distort later phases if left unaddressed: the placeholder `FULL_AUDIT_REPORT.md`, plus the minimally populated `BACKEND_BLUEPRINT.md`, `BACKEND_SCHEMA_MAP.md`, and `TRACEABILITY_MAP.md`.
++### Files Touched
++- `docs/qa/DEEP_SCAN_REPORT.md`
++- `docs/qa/BUG_BACKLOG.md`
++- `docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md`
++### Verification
++- Re-read all Phase 0 required context files listed in the run prompt before documenting conclusions.
++- Ran `git -C /Users/macbook/Desktop/Huz/Huz-Backend status --short` to confirm the plan must track the current checked-out backend tree, not a clean historical baseline.
++- Rechecked `management/approval_task.py` versus `management/urls.py` for the known unmounted admin views and confirmed the earlier backlog findings still match the live tree.
++- Verified that `docs/qa/FULL_AUDIT_REPORT.md`, `docs/atlas/BACKEND_BLUEPRINT.md`, `docs/atlas/BACKEND_SCHEMA_MAP.md`, and `docs/atlas/TRACEABILITY_MAP.md` are still incomplete relative to the required planning depth.
++- No product code changed and no runtime tests were executed in this phase.
+apply_patch(auto_approved=true) exited 0 in 58ms:
+Success. Updated the following files:
+M /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+M /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md
+M /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md
+index 8b03284acf02147f4828988e53d478460cb88d67..cd8e14638bc777de6717c3f33fb164c0aac47074
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md
+@@ -16,3 +16,24 @@
+ ### How It Was Implemented
+ ### Files Touched
+ ### Verification
++
++## Phase 0 - Read Context and Backlog
++### Changes Made
++- Read the run state, Phase 0 prompt, project-bot config, operator profile, task prompt, required atlas docs, and current QA/backlog artifacts for the plan-batch lane.
++- Reconfirmed the active planning scope, priority order, and current blockers against the live backend tree and dirty working-tree state.
++- Recorded the Phase 0 planning inputs and blockers in `docs/qa/DEEP_SCAN_REPORT.md` and `docs/qa/BUG_BACKLOG.md`.
++### How It Was Implemented
++- Reopened the required planning docs first so batching decisions stayed grounded in the existing atlas and upstream audit outputs rather than a fresh repo-wide rescan.
++- Cross-checked the current target project tree and `git status --short` output to confirm the backend app layout still matches the mapped `common`, `partners`, `booking`, and `management` surfaces and that the checked-out tree remains the correct source of truth.
++- Reviewed the latest remediation ordering from the deep-scan and security runs, then collapsed it into three downstream planning groups: immediate auth and tenancy containment, next booking-state and wallet integrity fixes, and later drift/verification cleanup.
++- Flagged the stale or incomplete planning artifacts that would distort later phases if left unaddressed: the placeholder `FULL_AUDIT_REPORT.md`, plus the minimally populated `BACKEND_BLUEPRINT.md`, `BACKEND_SCHEMA_MAP.md`, and `TRACEABILITY_MAP.md`.
++### Files Touched
++- `docs/qa/DEEP_SCAN_REPORT.md`
++- `docs/qa/BUG_BACKLOG.md`
++- `docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md`
++### Verification
++- Re-read all Phase 0 required context files listed in the run prompt before documenting conclusions.
++- Ran `git -C /Users/macbook/Desktop/Huz/Huz-Backend status --short` to confirm the plan must track the current checked-out backend tree, not a clean historical baseline.
++- Rechecked `management/approval_task.py` versus `management/urls.py` for the known unmounted admin views and confirmed the earlier backlog findings still match the live tree.
++- Verified that `docs/qa/FULL_AUDIT_REPORT.md`, `docs/atlas/BACKEND_BLUEPRINT.md`, `docs/atlas/BACKEND_SCHEMA_MAP.md`, and `docs/atlas/TRACEABILITY_MAP.md` are still incomplete relative to the required planning depth.
++- No product code changed and no runtime tests were executed in this phase.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md
+index f508709a551584bd04c03d98e499e6108cc30c50..13fe23041a35f6a222758027448640e72cac463a
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md
+@@ -46,3 +46,12 @@
+ - Confirmed that `/common/manage_user_account/` is staff-gated by `CreateMemberProfileView.permission_classes = [IsAdminUser]`, so Phase 3 corrected the atlas instead of opening a new backlog item for that route.
+ - Runtime verification is still blocked in this shell because `python3 manage.py test management partners booking common --settings=huz.settings_test` fails before discovery with `ModuleNotFoundError: No module named 'django'`.
+ - Coverage verification still shows no live `management` test module: `rg --files /Users/macbook/Desktop/Huz/Huz-Backend/management /Users/macbook/Desktop/Huz/Huz-Backend/common /Users/macbook/Desktop/Huz/Huz-Backend/partners /Users/macbook/Desktop/Huz/Huz-Backend/booking | rg '/tests?\.py$|/tests/'` returns only `common/tests.py`, `partners/tests.py`, and `booking/tests.py`.
++
++## 2026-03-12 Plan Batch Phase 0 Planning Notes
++
++- Scope confirmation: the next batch should still be planned against the full backend tree at `/Users/macbook/Desktop/Huz/Huz-Backend`; no narrower module target has been selected yet.
++- Priority confirmation: the first implementation batch should stay anchored on `SEC-B1`, `SEC-B2`, and `DS-B1` because auth exposure and partner-principal binding risks still dominate every lower-priority finding.
++- Deferred until after the first auth batch: `DS-B2` for booking-state and wallet invariants, then `DS-B3` plus `SEC-B4` for dead-route cleanup, management coverage, and production exposure guardrails.
++- Planning blocker: `docs/qa/FULL_AUDIT_REPORT.md` is still a stub, so backlog planning should continue to rely on `DEEP_SCAN_REPORT.md` and this backlog instead of the full-audit file.
++- Planning blocker: `docs/atlas/BACKEND_BLUEPRINT.md`, `docs/atlas/BACKEND_SCHEMA_MAP.md`, and `docs/atlas/TRACEABILITY_MAP.md` are still placeholder-level docs and should be refreshed before any schema-first or end-to-end traceability planning run.
++- Verification blocker: runtime test execution is still unavailable in the current shell until Django dependencies are provisioned; this remains the main environment gap for follow-on fix batches.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+index c70faf4403384210d7882fcc6bb9cf162155ae62..cf0c4e9f012f46de9434982c83597a587a89483d
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+@@ -194,3 +194,18 @@
+   - `rg --files /Users/macbook/Desktop/Huz/Huz-Backend/management /Users/macbook/Desktop/Huz/Huz-Backend/common /Users/macbook/Desktop/Huz/Huz-Backend/partners /Users/macbook/Desktop/Huz/Huz-Backend/booking | rg '/tests?\.py$|/tests/'` still returns only `common/tests.py`, `partners/tests.py`, and `booking/tests.py`.
+ - Repo-state verification: `git -C /Users/macbook/Desktop/Huz/Huz-Backend status --short` still shows the same broad dirty-tree pattern with live-file modifications, deleted legacy modules, and many media artifacts, so the atlas should continue to describe the checked-out tree rather than assume clean history.
+ - Verification for this phase remained documentation-only. No product code was modified.
++
++### 2026-03-12 Plan Batch Phase 0 Read Context and Backlog
++- Re-read the plan-batch run state, phase prompt, project-bot config, operator profile, required atlas docs, `CHANGE_MAP.md`, `DEEP_SCAN_REPORT.md`, and `BUG_BACKLOG.md` before any batching decisions.
++- Confirmed the planning scope is unchanged: the entire backend at `/Users/macbook/Desktop/Huz/Huz-Backend` with no narrower module target, report-only execution, and ownership limited to backlog triage plus batching.
++- Confirmed the current priority landscape still clusters cleanly into three downstream batches:
++  - Immediate auth and tenancy containment: `SEC-B1`, `SEC-B2`, and `DS-B1`, centered on token disclosure, raw token trust, partner-principal rebinding, and public serializer leaks.
++  - Next data-integrity and concurrency fixes: `DS-B2`, centered on one-row booking state invariants and wallet debit locking.
++  - Later drift and verification cleanup: `DS-B3` plus `SEC-B4`, centered on dead-route cleanup, management coverage, and production exposure guardrails.
++- Identified stale-document blockers for later planning depth:
++  - `docs/qa/FULL_AUDIT_REPORT.md` is still a placeholder stub, so this run should treat `docs/qa/DEEP_SCAN_REPORT.md` and `docs/qa/BUG_BACKLOG.md` as the authoritative audit inputs.
++  - `docs/atlas/BACKEND_BLUEPRINT.md`, `docs/atlas/BACKEND_SCHEMA_MAP.md`, and `docs/atlas/TRACEABILITY_MAP.md` remain minimally populated and should be refreshed before any schema-heavy or traceability-heavy planning pass.
++- Reconfirmed two operational blockers that downstream implementation phases must account for:
++  - Runtime verification is still blocked in the current shell until Django and related test dependencies are available.
++  - The target repository remains a dirty working tree, so planning should follow the checked-out files instead of assuming clean-history baselines.
++- Verification in this phase remained source-based and documentation-only. No product code was modified.
+
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md
+index 8b03284acf02147f4828988e53d478460cb88d67..cd8e14638bc777de6717c3f33fb164c0aac47074
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md
+@@ -16,3 +16,24 @@
+ ### How It Was Implemented
+ ### Files Touched
+ ### Verification
++
++## Phase 0 - Read Context and Backlog
++### Changes Made
++- Read the run state, Phase 0 prompt, project-bot config, operator profile, task prompt, required atlas docs, and current QA/backlog artifacts for the plan-batch lane.
++- Reconfirmed the active planning scope, priority order, and current blockers against the live backend tree and dirty working-tree state.
++- Recorded the Phase 0 planning inputs and blockers in `docs/qa/DEEP_SCAN_REPORT.md` and `docs/qa/BUG_BACKLOG.md`.
++### How It Was Implemented
++- Reopened the required planning docs first so batching decisions stayed grounded in the existing atlas and upstream audit outputs rather than a fresh repo-wide rescan.
++- Cross-checked the current target project tree and `git status --short` output to confirm the backend app layout still matches the mapped `common`, `partners`, `booking`, and `management` surfaces and that the checked-out tree remains the correct source of truth.
++- Reviewed the latest remediation ordering from the deep-scan and security runs, then collapsed it into three downstream planning groups: immediate auth and tenancy containment, next booking-state and wallet integrity fixes, and later drift/verification cleanup.
++- Flagged the stale or incomplete planning artifacts that would distort later phases if left unaddressed: the placeholder `FULL_AUDIT_REPORT.md`, plus the minimally populated `BACKEND_BLUEPRINT.md`, `BACKEND_SCHEMA_MAP.md`, and `TRACEABILITY_MAP.md`.
++### Files Touched
++- `docs/qa/DEEP_SCAN_REPORT.md`
++- `docs/qa/BUG_BACKLOG.md`
++- `docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md`
++### Verification
++- Re-read all Phase 0 required context files listed in the run prompt before documenting conclusions.
++- Ran `git -C /Users/macbook/Desktop/Huz/Huz-Backend status --short` to confirm the plan must track the current checked-out backend tree, not a clean historical baseline.
++- Rechecked `management/approval_task.py` versus `management/urls.py` for the known unmounted admin views and confirmed the earlier backlog findings still match the live tree.
++- Verified that `docs/qa/FULL_AUDIT_REPORT.md`, `docs/atlas/BACKEND_BLUEPRINT.md`, `docs/atlas/BACKEND_SCHEMA_MAP.md`, and `docs/atlas/TRACEABILITY_MAP.md` are still incomplete relative to the required planning depth.
++- No product code changed and no runtime tests were executed in this phase.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md
+index f508709a551584bd04c03d98e499e6108cc30c50..13fe23041a35f6a222758027448640e72cac463a
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md
+@@ -46,3 +46,12 @@
+ - Confirmed that `/common/manage_user_account/` is staff-gated by `CreateMemberProfileView.permission_classes = [IsAdminUser]`, so Phase 3 corrected the atlas instead of opening a new backlog item for that route.
+ - Runtime verification is still blocked in this shell because `python3 manage.py test management partners booking common --settings=huz.settings_test` fails before discovery with `ModuleNotFoundError: No module named 'django'`.
+ - Coverage verification still shows no live `management` test module: `rg --files /Users/macbook/Desktop/Huz/Huz-Backend/management /Users/macbook/Desktop/Huz/Huz-Backend/common /Users/macbook/Desktop/Huz/Huz-Backend/partners /Users/macbook/Desktop/Huz/Huz-Backend/booking | rg '/tests?\.py$|/tests/'` returns only `common/tests.py`, `partners/tests.py`, and `booking/tests.py`.
++
++## 2026-03-12 Plan Batch Phase 0 Planning Notes
++
++- Scope confirmation: the next batch should still be planned against the full backend tree at `/Users/macbook/Desktop/Huz/Huz-Backend`; no narrower module target has been selected yet.
++- Priority confirmation: the first implementation batch should stay anchored on `SEC-B1`, `SEC-B2`, and `DS-B1` because auth exposure and partner-principal binding risks still dominate every lower-priority finding.
++- Deferred until after the first auth batch: `DS-B2` for booking-state and wallet invariants, then `DS-B3` plus `SEC-B4` for dead-route cleanup, management coverage, and production exposure guardrails.
++- Planning blocker: `docs/qa/FULL_AUDIT_REPORT.md` is still a stub, so backlog planning should continue to rely on `DEEP_SCAN_REPORT.md` and this backlog instead of the full-audit file.
++- Planning blocker: `docs/atlas/BACKEND_BLUEPRINT.md`, `docs/atlas/BACKEND_SCHEMA_MAP.md`, and `docs/atlas/TRACEABILITY_MAP.md` are still placeholder-level docs and should be refreshed before any schema-first or end-to-end traceability planning run.
++- Verification blocker: runtime test execution is still unavailable in the current shell until Django dependencies are provisioned; this remains the main environment gap for follow-on fix batches.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+index c70faf4403384210d7882fcc6bb9cf162155ae62..cf0c4e9f012f46de9434982c83597a587a89483d
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+@@ -194,3 +194,18 @@
+   - `rg --files /Users/macbook/Desktop/Huz/Huz-Backend/management /Users/macbook/Desktop/Huz/Huz-Backend/common /Users/macbook/Desktop/Huz/Huz-Backend/partners /Users/macbook/Desktop/Huz/Huz-Backend/booking | rg '/tests?\.py$|/tests/'` still returns only `common/tests.py`, `partners/tests.py`, and `booking/tests.py`.
+ - Repo-state verification: `git -C /Users/macbook/Desktop/Huz/Huz-Backend status --short` still shows the same broad dirty-tree pattern with live-file modifications, deleted legacy modules, and many media artifacts, so the atlas should continue to describe the checked-out tree rather than assume clean history.
+ - Verification for this phase remained documentation-only. No product code was modified.
++
++### 2026-03-12 Plan Batch Phase 0 Read Context and Backlog
++- Re-read the plan-batch run state, phase prompt, project-bot config, operator profile, required atlas docs, `CHANGE_MAP.md`, `DEEP_SCAN_REPORT.md`, and `BUG_BACKLOG.md` before any batching decisions.
++- Confirmed the planning scope is unchanged: the entire backend at `/Users/macbook/Desktop/Huz/Huz-Backend` with no narrower module target, report-only execution, and ownership limited to backlog triage plus batching.
++- Confirmed the current priority landscape still clusters cleanly into three downstream batches:
++  - Immediate auth and tenancy containment: `SEC-B1`, `SEC-B2`, and `DS-B1`, centered on token disclosure, raw token trust, partner-principal rebinding, and public serializer leaks.
++  - Next data-integrity and concurrency fixes: `DS-B2`, centered on one-row booking state invariants and wallet debit locking.
++  - Later drift and verification cleanup: `DS-B3` plus `SEC-B4`, centered on dead-route cleanup, management coverage, and production exposure guardrails.
++- Identified stale-document blockers for later planning depth:
++  - `docs/qa/FULL_AUDIT_REPORT.md` is still a placeholder stub, so this run should treat `docs/qa/DEEP_SCAN_REPORT.md` and `docs/qa/BUG_BACKLOG.md` as the authoritative audit inputs.
++  - `docs/atlas/BACKEND_BLUEPRINT.md`, `docs/atlas/BACKEND_SCHEMA_MAP.md`, and `docs/atlas/TRACEABILITY_MAP.md` remain minimally populated and should be refreshed before any schema-heavy or traceability-heavy planning pass.
++- Reconfirmed two operational blockers that downstream implementation phases must account for:
++  - Runtime verification is still blocked in the current shell until Django and related test dependencies are available.
++  - The target repository remains a dirty working tree, so planning should follow the checked-out files instead of assuming clean-history baselines.
++- Verification in this phase remained source-based and documentation-only. No product code was modified.
+
+codex
+Phase 0 docs are updated. I’m doing a quick verification pass on the appended sections, then I’ll run the orchestrator `complete` and `next` commands and capture the generated `NEXT_PROMPT.md` verbatim.
+exec
+/bin/zsh -lc 'tail -n 30 docs/qa/BUG_BACKLOG.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backendexec
+/bin/zsh -lc 'tail -n 40 docs/qa/DEEP_SCAN_REPORT.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 53ms:
+| SEC-B1 | Immediate | `SEC-002`, `SEC-005`, `SEC-006`, `SEC-007`, `SEC-008` | Contain active credential leakage | Rotate the Firebase credential, replace deterministic customer tokens with opaque random tokens, remove auth/device-token fields from package, booking, and existence/profile serializers, then invalidate and reissue the exposed customer and partner session tokens. |
+| SEC-B2 | Immediate | `SEC-001`, `SEC-003`, `SEC-009`, `DS-P1-001` | Stop trusting raw tokens on self-service and finance routes | Move legacy partner profile/account flows to authenticated principal resolution, reject query/body token transport on high-value mutations, and keep any temporary compatibility window explicit and short-lived. |
+| SEC-B3 | Next | `SEC-010`, `DS-P1-002` | Remove cross-tenant re-binding from partner booking mutations | Use the already-authenticated partner context for booking actions, ignore request-supplied `partner_session_token` selectors, and add regression coverage for cross-tenant tampering attempts. |
+| SEC-B4 | Next | `SEC-004`, `DS-P1-006` | Add exposure guardrails and verification | Add management/security regression tests, assert serializers never emit auth/device tokens on public or cross-role surfaces, and confirm media/docs flags stay disabled in production unless intentionally enabled. |
+
+- Coordination note: if any external client still relies on query/body session tokens, that migration plan is downstream work. The backend-side fix within Huz-Backend should still fail closed on finance, profile, and mutation routes.
+
+## 2026-03-12 Deep Scan Phase 2 Remediation Order
+
+| Batch | Priority | Backlog IDs | Goal | Guidance |
+| --- | --- | --- | --- | --- |
+| DS-B1 | Immediate | `DS-P1-001`, `DS-P1-002`, `SEC-003`, `SEC-005`, `SEC-006`, `SEC-007`, `SEC-009`, `SEC-010` | Close auth and tenancy holes first | Remove token disclosure from serializers and public lookup flows, then bind partner-facing writes to the authenticated principal before touching payout or workflow refactors. |
+| DS-B2 | High | `DS-P1-003`, `DS-P1-004` | Restore booking-state and wallet invariants | Add one-row booking-state constraints, recompute readiness on document delete, and lock wallet debits with transaction-safe updates. |
+| DS-B3 | Medium | `DS-P1-005`, `DS-P1-006` | Reduce drift and recover verification strength | Remove or deliberately route dead views, trim duplicate package code, and rebuild management regression coverage before larger admin refactors. |
+
+## 2026-03-12 Deep Scan Phase 3 Verification Notes
+
+- Revalidated `DS-P1-001` through `DS-P1-005` plus the linked security items `SEC-005` through `SEC-010` directly against the current source tree. Their status and priority remain unchanged.
+- Confirmed that `/common/manage_user_account/` is staff-gated by `CreateMemberProfileView.permission_classes = [IsAdminUser]`, so Phase 3 corrected the atlas instead of opening a new backlog item for that route.
+- Runtime verification is still blocked in this shell because `python3 manage.py test management partners booking common --settings=huz.settings_test` fails before discovery with `ModuleNotFoundError: No module named 'django'`.
+ succeeded in 53ms:
+  - `rg -n "permission_classes = \[AllowAny\]|PartnerProfile.objects.filter\(partner_session_token|partner_session_token\b|firebase_token|web_firebase_token" ...`
+  - `rg -n "partner_session_token|resolve_authenticated_partner_profile|get_or_create\(|DocumentsStatus|PartnersBookingPayment|document_statuses\[0\]|select_for_update|withdraw_amount|wallet.amount" ...`
+  - `rg -n "GetAllApprovedCompaniesView|ManageFeaturedPackageView|path\(|urlpatterns|class .*Package|GetHuz.*ForWebsiteView|partner_session_token|session_token" ...`
+  - `rg --files /Users/macbook/Desktop/Huz/Huz-Backend/management /Users/macbook/Desktop/Huz/Huz-Backend/common /Users/macbook/Desktop/Huz/Huz-Backend/partners /Users/macbook/Desktop/Huz/Huz-Backend/booking | rg '/tests?\.py$|/tests/'`
+  - `nl -ba ... | sed -n '214,260p'`, `208,270p`, `168,286p`, `206,232p`, `726,770p`, `552,640p`, `388,470p`, `832,910p`, `1030,1055p`, `1408,1436p`, `1458,1698p`, and `360,377p` for line-accurate evidence.
+- Remaining blind spots after Phase 2:
+  - Runtime verification is still blocked because the current shell lacks Django, so no endpoint test, migration, or query-count run could be executed in this phase.
+  - No production or QA database snapshot was available, so duplicate `DocumentsStatus` or `PartnersBookingPayment` rows were assessed from schema plus write-path analysis rather than measured from live data.
+  - External client reliance on legacy query/body session tokens is still unknown; any compatibility window may need downstream coordination, but the backend-side hardening can still be implemented entirely inside this repository.
+  - Large checked-in `media/`, `static/`, and deleted legacy files remain out of active scan scope unless a future remediation batch needs them.
+- Verification for this phase remained source-based and documentation-only. No product code, atlas docs, or non-report run files were modified before phase completion.
+
+### 2026-03-12 Deep Scan Phase 3 Verify and Summarize
+- Re-read the required atlas docs, run artifacts, and the live source for the highest-priority deep-scan findings. The auth/token exposure, partner-principal rebinding, duplicate booking-state row, wallet concurrency, and unmounted-route findings all still match the current checked-out tree.
+- Revalidated the main evidence directly in `common/authentication.py`, `common/user_profile.py`, `common/serializers.py`, `common/api_v1.py`, `partners/partner_profile.py`, `partners/partner_accounts_and_transactions.py`, `partners/serializers.py`, `partners/package_management.py`, `booking/request_serializers.py`, `booking/views/bookings.py`, `booking/serializers.py`, `booking/manage_partner_booking.py`, `booking/models.py`, `booking/workflow.py`, `booking/services.py`, `management/approval_task.py`, and `management/urls.py`.
+- Corrected one atlas mismatch found during the Phase 3 sanity check: `/common/manage_user_account/` is still `IsAdminUser` for both create and delete in the live tree, so the route map and API surface were updated to stop describing POST as public.
+- Added two durable contract clarifications to the atlas instead of opening new backlog items:
+  - `/api/v1/bookings/*` still validates a `session_token` field at the serializer layer, but `booking/views/bookings.py` backfills it from the authenticated user context for non-admin callers before validation.
+  - `booking/manage_partner_booking.py` is only partially migrated to auth-context-first partner resolution: queue/detail and several statistics reads use `extract_partner_session_token()`, while many mutation handlers still reload `PartnerProfile` from the request body token.
+- Confirmed the backlog priorities remain unchanged. No deep-scan or security item was closed, downgraded, or superseded by the Phase 3 verification pass.
+exec
+/bin/zsh -lc 'tail -n 40 docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 53ms:
+# Run Summary
+
+- Run mode: `plan-batch`
+- Target project: `/Users/macbook/Desktop/Huz/Huz-Backend`
+- Workspace root: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend`
+- Scope level: `panel-be`
+- Scope: `/Users/macbook/Desktop/Huz/Huz-Backend`
+- Scope targets: None
+- Full-system required docs: `disabled`
+- Rule: append one section per completed phase. Do not overwrite prior phase sections.
+
+Expected section format:
+
+## Phase X - Title
+### Changes Made
+### How It Was Implemented
+### Files Touched
+### Verification
+
+## Phase 0 - Read Context and Backlog
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md
+index 8b03284acf02147f4828988e53d478460cb88d67..cd8e14638bc777de6717c3f33fb164c0aac47074
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md
+@@ -16,3 +16,24 @@
+ ### How It Was Implemented
+ ### Files Touched
+ ### Verification
++
++## Phase 0 - Read Context and Backlog
++### Changes Made
++- Read the run state, Phase 0 prompt, project-bot config, operator profile, task prompt, required atlas docs, and current QA/backlog artifacts for the plan-batch lane.
++- Reconfirmed the active planning scope, priority order, and current blockers against the live backend tree and dirty working-tree state.
++- Recorded the Phase 0 planning inputs and blockers in `docs/qa/DEEP_SCAN_REPORT.md` and `docs/qa/BUG_BACKLOG.md`.
++### How It Was Implemented
++- Reopened the required planning docs first so batching decisions stayed grounded in the existing atlas and upstream audit outputs rather than a fresh repo-wide rescan.
++- Cross-checked the current target project tree and `git status --short` output to confirm the backend app layout still matches the mapped `common`, `partners`, `booking`, and `management` surfaces and that the checked-out tree remains the correct source of truth.
++- Reviewed the latest remediation ordering from the deep-scan and security runs, then collapsed it into three downstream planning groups: immediate auth and tenancy containment, next booking-state and wallet integrity fixes, and later drift/verification cleanup.
++- Flagged the stale or incomplete planning artifacts that would distort later phases if left unaddressed: the placeholder `FULL_AUDIT_REPORT.md`, plus the minimally populated `BACKEND_BLUEPRINT.md`, `BACKEND_SCHEMA_MAP.md`, and `TRACEABILITY_MAP.md`.
++### Files Touched
++- `docs/qa/DEEP_SCAN_REPORT.md`
++- `docs/qa/BUG_BACKLOG.md`
++- `docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md`
++### Verification
++- Re-read all Phase 0 required context files listed in the run prompt before documenting conclusions.
++- Ran `git -C /Users/macbook/Desktop/Huz/Huz-Backend status --short` to confirm the plan must track the current checked-out backend tree, not a clean historical baseline.
++- Rechecked `management/approval_task.py` versus `management/urls.py` for the known unmounted admin views and confirmed the earlier backlog findings still match the live tree.
++- Verified that `docs/qa/FULL_AUDIT_REPORT.md`, `docs/atlas/BACKEND_BLUEPRINT.md`, `docs/atlas/BACKEND_SCHEMA_MAP.md`, and `docs/atlas/TRACEABILITY_MAP.md` are still incomplete relative to the required planning depth.
++- No product code changed and no runtime tests were executed in this phase.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md
+index f508709a551584bd04c03d98e499e6108cc30c50..13fe23041a35f6a222758027448640e72cac463a
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md
+@@ -46,3 +46,12 @@
+ - Confirmed that `/common/manage_user_account/` is staff-gated by `CreateMemberProfileView.permission_classes = [IsAdminUser]`, so Phase 3 corrected the atlas instead of opening a new backlog item for that route.
+ - Runtime verification is still blocked in this shell because `python3 manage.py test management partners booking common --settings=huz.settings_test` fails before discovery with `ModuleNotFoundError: No module named 'django'`.
+ - Coverage verification still shows no live `management` test module: `rg --files /Users/macbook/Desktop/Huz/Huz-Backend/management /Users/macbook/Desktop/Huz/Huz-Backend/common /Users/macbook/Desktop/Huz/Huz-Backend/partners /Users/macbook/Desktop/Huz/Huz-Backend/booking | rg '/tests?\.py$|/tests/'` returns only `common/tests.py`, `partners/tests.py`, and `booking/tests.py`.
++
++## 2026-03-12 Plan Batch Phase 0 Planning Notes
++
++- Scope confirmation: the next batch should still be planned against the full backend tree at `/Users/macbook/Desktop/Huz/Huz-Backend`; no narrower module target has been selected yet.
++- Priority confirmation: the first implementation batch should stay anchored on `SEC-B1`, `SEC-B2`, and `DS-B1` because auth exposure and partner-principal binding risks still dominate every lower-priority finding.
++- Deferred until after the first auth batch: `DS-B2` for booking-state and wallet invariants, then `DS-B3` plus `SEC-B4` for dead-route cleanup, management coverage, and production exposure guardrails.
++- Planning blocker: `docs/qa/FULL_AUDIT_REPORT.md` is still a stub, so backlog planning should continue to rely on `DEEP_SCAN_REPORT.md` and this backlog instead of the full-audit file.
++- Planning blocker: `docs/atlas/BACKEND_BLUEPRINT.md`, `docs/atlas/BACKEND_SCHEMA_MAP.md`, and `docs/atlas/TRACEABILITY_MAP.md` are still placeholder-level docs and should be refreshed before any schema-first or end-to-end traceability planning run.
++- Verification blocker: runtime test execution is still unavailable in the current shell until Django dependencies are provisioned; this remains the main environment gap for follow-on fix batches.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+index c70faf4403384210d7882fcc6bb9cf162155ae62..cf0c4e9f012f46de9434982c83597a587a89483d
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+@@ -194,3 +194,18 @@
+   - `rg --files /Users/macbook/Desktop/Huz/Huz-Backend/management /Users/macbook/Desktop/Huz/Huz-Backend/common /Users/macbook/Desktop/Huz/Huz-Backend/partners /Users/macbook/Desktop/Huz/Huz-Backend/booking | rg '/tests?\.py$|/tests/'` still returns only `common/tests.py`, `partners/tests.py`, and `booking/tests.py`.
+ - Repo-state verification: `git -C /Users/macbook/Desktop/Huz/Huz-Backend status --short` still shows the same broad dirty-tree pattern with live-file modifications, deleted legacy modules, and many media artifacts, so the atlas should continue to describe the checked-out tree rather than assume clean history.
+ - Verification for this phase remained documentation-only. No product code was modified.
++
++### 2026-03-12 Plan Batch Phase 0 Read Context and Backlog
++- Re-read the plan-batch run state, phase prompt, project-bot config, operator profile, required atlas docs, `CHANGE_MAP.md`, `DEEP_SCAN_REPORT.md`, and `BUG_BACKLOG.md` before any batching decisions.
++- Confirmed the planning scope is unchanged: the entire backend at `/Users/macbook/Desktop/Huz/Huz-Backend` with no narrower module target, report-only execution, and ownership limited to backlog triage plus batching.
++- Confirmed the current priority landscape still clusters cleanly into three downstream batches:
++  - Immediate auth and tenancy containment: `SEC-B1`, `SEC-B2`, and `DS-B1`, centered on token disclosure, raw token trust, partner-principal rebinding, and public serializer leaks.
++  - Next data-integrity and concurrency fixes: `DS-B2`, centered on one-row booking state invariants and wallet debit locking.
++  - Later drift and verification cleanup: `DS-B3` plus `SEC-B4`, centered on dead-route cleanup, management coverage, and production exposure guardrails.
++- Identified stale-document blockers for later planning depth:
++  - `docs/qa/FULL_AUDIT_REPORT.md` is still a placeholder stub, so this run should treat `docs/qa/DEEP_SCAN_REPORT.md` and `docs/qa/BUG_BACKLOG.md` as the authoritative audit inputs.
++  - `docs/atlas/BACKEND_BLUEPRINT.md`, `docs/atlas/BACKEND_SCHEMA_MAP.md`, and `docs/atlas/TRACEABILITY_MAP.md` remain minimally populated and should be refreshed before any schema-heavy or traceability-heavy planning pass.
++- Reconfirmed two operational blockers that downstream implementation phases must account for:
++  - Runtime verification is still blocked in the current shell until Django and related test dependencies are available.
++  - The target repository remains a dirty working tree, so planning should follow the checked-out files instead of assuming clean-history baselines.
++- Verification in this phase remained source-based and documentation-only. No product code was modified.
+
+Plan update
+Phase 0 context gathering and durable documentation are complete. I’m finalizing the run state through the orchestration script and then capturing the generated next-phase prompt.
+  ✓ Read required run context, atlas docs, audit reports, and backlog
+  ✓ Sanity-check atlas/backlog context against current Huz-Backend structure and identify stale-doc blockers
+  → Append Phase 0 findings to durable docs, complete the phase, and print NEXT_PROMPT.md
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md
+index 8b03284acf02147f4828988e53d478460cb88d67..cd8e14638bc777de6717c3f33fb164c0aac47074
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md
+@@ -16,3 +16,24 @@
+ ### How It Was Implemented
+ ### Files Touched
+ ### Verification
++
++## Phase 0 - Read Context and Backlog
++### Changes Made
++- Read the run state, Phase 0 prompt, project-bot config, operator profile, task prompt, required atlas docs, and current QA/backlog artifacts for the plan-batch lane.
++- Reconfirmed the active planning scope, priority order, and current blockers against the live backend tree and dirty working-tree state.
++- Recorded the Phase 0 planning inputs and blockers in `docs/qa/DEEP_SCAN_REPORT.md` and `docs/qa/BUG_BACKLOG.md`.
++### How It Was Implemented
++- Reopened the required planning docs first so batching decisions stayed grounded in the existing atlas and upstream audit outputs rather than a fresh repo-wide rescan.
++- Cross-checked the current target project tree and `git status --short` output to confirm the backend app layout still matches the mapped `common`, `partners`, `booking`, and `management` surfaces and that the checked-out tree remains the correct source of truth.
++- Reviewed the latest remediation ordering from the deep-scan and security runs, then collapsed it into three downstream planning groups: immediate auth and tenancy containment, next booking-state and wallet integrity fixes, and later drift/verification cleanup.
++- Flagged the stale or incomplete planning artifacts that would distort later phases if left unaddressed: the placeholder `FULL_AUDIT_REPORT.md`, plus the minimally populated `BACKEND_BLUEPRINT.md`, `BACKEND_SCHEMA_MAP.md`, and `TRACEABILITY_MAP.md`.
++### Files Touched
++- `docs/qa/DEEP_SCAN_REPORT.md`
++- `docs/qa/BUG_BACKLOG.md`
++- `docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md`
++### Verification
++- Re-read all Phase 0 required context files listed in the run prompt before documenting conclusions.
++- Ran `git -C /Users/macbook/Desktop/Huz/Huz-Backend status --short` to confirm the plan must track the current checked-out backend tree, not a clean historical baseline.
++- Rechecked `management/approval_task.py` versus `management/urls.py` for the known unmounted admin views and confirmed the earlier backlog findings still match the live tree.
++- Verified that `docs/qa/FULL_AUDIT_REPORT.md`, `docs/atlas/BACKEND_BLUEPRINT.md`, `docs/atlas/BACKEND_SCHEMA_MAP.md`, and `docs/atlas/TRACEABILITY_MAP.md` are still incomplete relative to the required planning depth.
++- No product code changed and no runtime tests were executed in this phase.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md
+index f508709a551584bd04c03d98e499e6108cc30c50..13fe23041a35f6a222758027448640e72cac463a
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md
+@@ -46,3 +46,12 @@
+ - Confirmed that `/common/manage_user_account/` is staff-gated by `CreateMemberProfileView.permission_classes = [IsAdminUser]`, so Phase 3 corrected the atlas instead of opening a new backlog item for that route.
+ - Runtime verification is still blocked in this shell because `python3 manage.py test management partners booking common --settings=huz.settings_test` fails before discovery with `ModuleNotFoundError: No module named 'django'`.
+ - Coverage verification still shows no live `management` test module: `rg --files /Users/macbook/Desktop/Huz/Huz-Backend/management /Users/macbook/Desktop/Huz/Huz-Backend/common /Users/macbook/Desktop/Huz/Huz-Backend/partners /Users/macbook/Desktop/Huz/Huz-Backend/booking | rg '/tests?\.py$|/tests/'` returns only `common/tests.py`, `partners/tests.py`, and `booking/tests.py`.
++
++## 2026-03-12 Plan Batch Phase 0 Planning Notes
++
++- Scope confirmation: the next batch should still be planned against the full backend tree at `/Users/macbook/Desktop/Huz/Huz-Backend`; no narrower module target has been selected yet.
++- Priority confirmation: the first implementation batch should stay anchored on `SEC-B1`, `SEC-B2`, and `DS-B1` because auth exposure and partner-principal binding risks still dominate every lower-priority finding.
++- Deferred until after the first auth batch: `DS-B2` for booking-state and wallet invariants, then `DS-B3` plus `SEC-B4` for dead-route cleanup, management coverage, and production exposure guardrails.
++- Planning blocker: `docs/qa/FULL_AUDIT_REPORT.md` is still a stub, so backlog planning should continue to rely on `DEEP_SCAN_REPORT.md` and this backlog instead of the full-audit file.
++- Planning blocker: `docs/atlas/BACKEND_BLUEPRINT.md`, `docs/atlas/BACKEND_SCHEMA_MAP.md`, and `docs/atlas/TRACEABILITY_MAP.md` are still placeholder-level docs and should be refreshed before any schema-first or end-to-end traceability planning run.
++- Verification blocker: runtime test execution is still unavailable in the current shell until Django dependencies are provisioned; this remains the main environment gap for follow-on fix batches.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+index c70faf4403384210d7882fcc6bb9cf162155ae62..cf0c4e9f012f46de9434982c83597a587a89483d
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+@@ -194,3 +194,18 @@
+   - `rg --files /Users/macbook/Desktop/Huz/Huz-Backend/management /Users/macbook/Desktop/Huz/Huz-Backend/common /Users/macbook/Desktop/Huz/Huz-Backend/partners /Users/macbook/Desktop/Huz/Huz-Backend/booking | rg '/tests?\.py$|/tests/'` still returns only `common/tests.py`, `partners/tests.py`, and `booking/tests.py`.
+ - Repo-state verification: `git -C /Users/macbook/Desktop/Huz/Huz-Backend status --short` still shows the same broad dirty-tree pattern with live-file modifications, deleted legacy modules, and many media artifacts, so the atlas should continue to describe the checked-out tree rather than assume clean history.
+ - Verification for this phase remained documentation-only. No product code was modified.
++
++### 2026-03-12 Plan Batch Phase 0 Read Context and Backlog
++- Re-read the plan-batch run state, phase prompt, project-bot config, operator profile, required atlas docs, `CHANGE_MAP.md`, `DEEP_SCAN_REPORT.md`, and `BUG_BACKLOG.md` before any batching decisions.
++- Confirmed the planning scope is unchanged: the entire backend at `/Users/macbook/Desktop/Huz/Huz-Backend` with no narrower module target, report-only execution, and ownership limited to backlog triage plus batching.
++- Confirmed the current priority landscape still clusters cleanly into three downstream batches:
++  - Immediate auth and tenancy containment: `SEC-B1`, `SEC-B2`, and `DS-B1`, centered on token disclosure, raw token trust, partner-principal rebinding, and public serializer leaks.
++  - Next data-integrity and concurrency fixes: `DS-B2`, centered on one-row booking state invariants and wallet debit locking.
++  - Later drift and verification cleanup: `DS-B3` plus `SEC-B4`, centered on dead-route cleanup, management coverage, and production exposure guardrails.
++- Identified stale-document blockers for later planning depth:
++  - `docs/qa/FULL_AUDIT_REPORT.md` is still a placeholder stub, so this run should treat `docs/qa/DEEP_SCAN_REPORT.md` and `docs/qa/BUG_BACKLOG.md` as the authoritative audit inputs.
++  - `docs/atlas/BACKEND_BLUEPRINT.md`, `docs/atlas/BACKEND_SCHEMA_MAP.md`, and `docs/atlas/TRACEABILITY_MAP.md` remain minimally populated and should be refreshed before any schema-heavy or traceability-heavy planning pass.
++- Reconfirmed two operational blockers that downstream implementation phases must account for:
++  - Runtime verification is still blocked in the current shell until Django and related test dependencies are available.
++  - The target repository remains a dirty working tree, so planning should follow the checked-out files instead of assuming clean-history baselines.
++- Verification in this phase remained source-based and documentation-only. No product code was modified.
+
+exec
+/bin/zsh -lc 'node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch --phase 0' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 73ms:
+Marked phase 0 as completed.
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md
+index 8b03284acf02147f4828988e53d478460cb88d67..cd8e14638bc777de6717c3f33fb164c0aac47074
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md
+@@ -16,3 +16,24 @@
+ ### How It Was Implemented
+ ### Files Touched
+ ### Verification
++
++## Phase 0 - Read Context and Backlog
++### Changes Made
++- Read the run state, Phase 0 prompt, project-bot config, operator profile, task prompt, required atlas docs, and current QA/backlog artifacts for the plan-batch lane.
++- Reconfirmed the active planning scope, priority order, and current blockers against the live backend tree and dirty working-tree state.
++- Recorded the Phase 0 planning inputs and blockers in `docs/qa/DEEP_SCAN_REPORT.md` and `docs/qa/BUG_BACKLOG.md`.
++### How It Was Implemented
++- Reopened the required planning docs first so batching decisions stayed grounded in the existing atlas and upstream audit outputs rather than a fresh repo-wide rescan.
++- Cross-checked the current target project tree and `git status --short` output to confirm the backend app layout still matches the mapped `common`, `partners`, `booking`, and `management` surfaces and that the checked-out tree remains the correct source of truth.
++- Reviewed the latest remediation ordering from the deep-scan and security runs, then collapsed it into three downstream planning groups: immediate auth and tenancy containment, next booking-state and wallet integrity fixes, and later drift/verification cleanup.
++- Flagged the stale or incomplete planning artifacts that would distort later phases if left unaddressed: the placeholder `FULL_AUDIT_REPORT.md`, plus the minimally populated `BACKEND_BLUEPRINT.md`, `BACKEND_SCHEMA_MAP.md`, and `TRACEABILITY_MAP.md`.
++### Files Touched
++- `docs/qa/DEEP_SCAN_REPORT.md`
++- `docs/qa/BUG_BACKLOG.md`
++- `docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md`
++### Verification
++- Re-read all Phase 0 required context files listed in the run prompt before documenting conclusions.
++- Ran `git -C /Users/macbook/Desktop/Huz/Huz-Backend status --short` to confirm the plan must track the current checked-out backend tree, not a clean historical baseline.
++- Rechecked `management/approval_task.py` versus `management/urls.py` for the known unmounted admin views and confirmed the earlier backlog findings still match the live tree.
++- Verified that `docs/qa/FULL_AUDIT_REPORT.md`, `docs/atlas/BACKEND_BLUEPRINT.md`, `docs/atlas/BACKEND_SCHEMA_MAP.md`, and `docs/atlas/TRACEABILITY_MAP.md` are still incomplete relative to the required planning depth.
++- No product code changed and no runtime tests were executed in this phase.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md
+index f508709a551584bd04c03d98e499e6108cc30c50..13fe23041a35f6a222758027448640e72cac463a
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md
+@@ -46,3 +46,12 @@
+ - Confirmed that `/common/manage_user_account/` is staff-gated by `CreateMemberProfileView.permission_classes = [IsAdminUser]`, so Phase 3 corrected the atlas instead of opening a new backlog item for that route.
+ - Runtime verification is still blocked in this shell because `python3 manage.py test management partners booking common --settings=huz.settings_test` fails before discovery with `ModuleNotFoundError: No module named 'django'`.
+ - Coverage verification still shows no live `management` test module: `rg --files /Users/macbook/Desktop/Huz/Huz-Backend/management /Users/macbook/Desktop/Huz/Huz-Backend/common /Users/macbook/Desktop/Huz/Huz-Backend/partners /Users/macbook/Desktop/Huz/Huz-Backend/booking | rg '/tests?\.py$|/tests/'` returns only `common/tests.py`, `partners/tests.py`, and `booking/tests.py`.
++
++## 2026-03-12 Plan Batch Phase 0 Planning Notes
++
++- Scope confirmation: the next batch should still be planned against the full backend tree at `/Users/macbook/Desktop/Huz/Huz-Backend`; no narrower module target has been selected yet.
++- Priority confirmation: the first implementation batch should stay anchored on `SEC-B1`, `SEC-B2`, and `DS-B1` because auth exposure and partner-principal binding risks still dominate every lower-priority finding.
++- Deferred until after the first auth batch: `DS-B2` for booking-state and wallet invariants, then `DS-B3` plus `SEC-B4` for dead-route cleanup, management coverage, and production exposure guardrails.
++- Planning blocker: `docs/qa/FULL_AUDIT_REPORT.md` is still a stub, so backlog planning should continue to rely on `DEEP_SCAN_REPORT.md` and this backlog instead of the full-audit file.
++- Planning blocker: `docs/atlas/BACKEND_BLUEPRINT.md`, `docs/atlas/BACKEND_SCHEMA_MAP.md`, and `docs/atlas/TRACEABILITY_MAP.md` are still placeholder-level docs and should be refreshed before any schema-first or end-to-end traceability planning run.
++- Verification blocker: runtime test execution is still unavailable in the current shell until Django dependencies are provisioned; this remains the main environment gap for follow-on fix batches.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+index c70faf4403384210d7882fcc6bb9cf162155ae62..cf0c4e9f012f46de9434982c83597a587a89483d
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+@@ -194,3 +194,18 @@
+   - `rg --files /Users/macbook/Desktop/Huz/Huz-Backend/management /Users/macbook/Desktop/Huz/Huz-Backend/common /Users/macbook/Desktop/Huz/Huz-Backend/partners /Users/macbook/Desktop/Huz/Huz-Backend/booking | rg '/tests?\.py$|/tests/'` still returns only `common/tests.py`, `partners/tests.py`, and `booking/tests.py`.
+ - Repo-state verification: `git -C /Users/macbook/Desktop/Huz/Huz-Backend status --short` still shows the same broad dirty-tree pattern with live-file modifications, deleted legacy modules, and many media artifacts, so the atlas should continue to describe the checked-out tree rather than assume clean history.
+ - Verification for this phase remained documentation-only. No product code was modified.
++
++### 2026-03-12 Plan Batch Phase 0 Read Context and Backlog
++- Re-read the plan-batch run state, phase prompt, project-bot config, operator profile, required atlas docs, `CHANGE_MAP.md`, `DEEP_SCAN_REPORT.md`, and `BUG_BACKLOG.md` before any batching decisions.
++- Confirmed the planning scope is unchanged: the entire backend at `/Users/macbook/Desktop/Huz/Huz-Backend` with no narrower module target, report-only execution, and ownership limited to backlog triage plus batching.
++- Confirmed the current priority landscape still clusters cleanly into three downstream batches:
++  - Immediate auth and tenancy containment: `SEC-B1`, `SEC-B2`, and `DS-B1`, centered on token disclosure, raw token trust, partner-principal rebinding, and public serializer leaks.
++  - Next data-integrity and concurrency fixes: `DS-B2`, centered on one-row booking state invariants and wallet debit locking.
++  - Later drift and verification cleanup: `DS-B3` plus `SEC-B4`, centered on dead-route cleanup, management coverage, and production exposure guardrails.
++- Identified stale-document blockers for later planning depth:
++  - `docs/qa/FULL_AUDIT_REPORT.md` is still a placeholder stub, so this run should treat `docs/qa/DEEP_SCAN_REPORT.md` and `docs/qa/BUG_BACKLOG.md` as the authoritative audit inputs.
++  - `docs/atlas/BACKEND_BLUEPRINT.md`, `docs/atlas/BACKEND_SCHEMA_MAP.md`, and `docs/atlas/TRACEABILITY_MAP.md` remain minimally populated and should be refreshed before any schema-heavy or traceability-heavy planning pass.
++- Reconfirmed two operational blockers that downstream implementation phases must account for:
++  - Runtime verification is still blocked in the current shell until Django and related test dependencies are available.
++  - The target repository remains a dirty working tree, so planning should follow the checked-out files instead of assuming clean-history baselines.
++- Verification in this phase remained source-based and documentation-only. No product code was modified.
+
+exec
+/bin/zsh -lc 'node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 52ms:
+Use $project-autopilot-manager in `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend`.
+Read `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/state.json` and `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/prompts/phase-01.md`.
+Execute only Phase 1 (Prioritize the Next Batch) against target project `/Users/macbook/Desktop/Huz/Huz-Backend`.
+At the end, run:
+1. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch --phase 1`
+2. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch`
+Then print `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/NEXT_PROMPT.md`.
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md
+index 8b03284acf02147f4828988e53d478460cb88d67..cd8e14638bc777de6717c3f33fb164c0aac47074
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md
+@@ -16,3 +16,24 @@
+ ### How It Was Implemented
+ ### Files Touched
+ ### Verification
++
++## Phase 0 - Read Context and Backlog
++### Changes Made
++- Read the run state, Phase 0 prompt, project-bot config, operator profile, task prompt, required atlas docs, and current QA/backlog artifacts for the plan-batch lane.
++- Reconfirmed the active planning scope, priority order, and current blockers against the live backend tree and dirty working-tree state.
++- Recorded the Phase 0 planning inputs and blockers in `docs/qa/DEEP_SCAN_REPORT.md` and `docs/qa/BUG_BACKLOG.md`.
++### How It Was Implemented
++- Reopened the required planning docs first so batching decisions stayed grounded in the existing atlas and upstream audit outputs rather than a fresh repo-wide rescan.
++- Cross-checked the current target project tree and `git status --short` output to confirm the backend app layout still matches the mapped `common`, `partners`, `booking`, and `management` surfaces and that the checked-out tree remains the correct source of truth.
++- Reviewed the latest remediation ordering from the deep-scan and security runs, then collapsed it into three downstream planning groups: immediate auth and tenancy containment, next booking-state and wallet integrity fixes, and later drift/verification cleanup.
++- Flagged the stale or incomplete planning artifacts that would distort later phases if left unaddressed: the placeholder `FULL_AUDIT_REPORT.md`, plus the minimally populated `BACKEND_BLUEPRINT.md`, `BACKEND_SCHEMA_MAP.md`, and `TRACEABILITY_MAP.md`.
++### Files Touched
++- `docs/qa/DEEP_SCAN_REPORT.md`
++- `docs/qa/BUG_BACKLOG.md`
++- `docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md`
++### Verification
++- Re-read all Phase 0 required context files listed in the run prompt before documenting conclusions.
++- Ran `git -C /Users/macbook/Desktop/Huz/Huz-Backend status --short` to confirm the plan must track the current checked-out backend tree, not a clean historical baseline.
++- Rechecked `management/approval_task.py` versus `management/urls.py` for the known unmounted admin views and confirmed the earlier backlog findings still match the live tree.
++- Verified that `docs/qa/FULL_AUDIT_REPORT.md`, `docs/atlas/BACKEND_BLUEPRINT.md`, `docs/atlas/BACKEND_SCHEMA_MAP.md`, and `docs/atlas/TRACEABILITY_MAP.md` are still incomplete relative to the required planning depth.
++- No product code changed and no runtime tests were executed in this phase.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md
+index f508709a551584bd04c03d98e499e6108cc30c50..13fe23041a35f6a222758027448640e72cac463a
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md
+@@ -46,3 +46,12 @@
+ - Confirmed that `/common/manage_user_account/` is staff-gated by `CreateMemberProfileView.permission_classes = [IsAdminUser]`, so Phase 3 corrected the atlas instead of opening a new backlog item for that route.
+ - Runtime verification is still blocked in this shell because `python3 manage.py test management partners booking common --settings=huz.settings_test` fails before discovery with `ModuleNotFoundError: No module named 'django'`.
+ - Coverage verification still shows no live `management` test module: `rg --files /Users/macbook/Desktop/Huz/Huz-Backend/management /Users/macbook/Desktop/Huz/Huz-Backend/common /Users/macbook/Desktop/Huz/Huz-Backend/partners /Users/macbook/Desktop/Huz/Huz-Backend/booking | rg '/tests?\.py$|/tests/'` returns only `common/tests.py`, `partners/tests.py`, and `booking/tests.py`.
++
++## 2026-03-12 Plan Batch Phase 0 Planning Notes
++
++- Scope confirmation: the next batch should still be planned against the full backend tree at `/Users/macbook/Desktop/Huz/Huz-Backend`; no narrower module target has been selected yet.
++- Priority confirmation: the first implementation batch should stay anchored on `SEC-B1`, `SEC-B2`, and `DS-B1` because auth exposure and partner-principal binding risks still dominate every lower-priority finding.
++- Deferred until after the first auth batch: `DS-B2` for booking-state and wallet invariants, then `DS-B3` plus `SEC-B4` for dead-route cleanup, management coverage, and production exposure guardrails.
++- Planning blocker: `docs/qa/FULL_AUDIT_REPORT.md` is still a stub, so backlog planning should continue to rely on `DEEP_SCAN_REPORT.md` and this backlog instead of the full-audit file.
++- Planning blocker: `docs/atlas/BACKEND_BLUEPRINT.md`, `docs/atlas/BACKEND_SCHEMA_MAP.md`, and `docs/atlas/TRACEABILITY_MAP.md` are still placeholder-level docs and should be refreshed before any schema-first or end-to-end traceability planning run.
++- Verification blocker: runtime test execution is still unavailable in the current shell until Django dependencies are provisioned; this remains the main environment gap for follow-on fix batches.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+index c70faf4403384210d7882fcc6bb9cf162155ae62..cf0c4e9f012f46de9434982c83597a587a89483d
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+@@ -194,3 +194,18 @@
+   - `rg --files /Users/macbook/Desktop/Huz/Huz-Backend/management /Users/macbook/Desktop/Huz/Huz-Backend/common /Users/macbook/Desktop/Huz/Huz-Backend/partners /Users/macbook/Desktop/Huz/Huz-Backend/booking | rg '/tests?\.py$|/tests/'` still returns only `common/tests.py`, `partners/tests.py`, and `booking/tests.py`.
+ - Repo-state verification: `git -C /Users/macbook/Desktop/Huz/Huz-Backend status --short` still shows the same broad dirty-tree pattern with live-file modifications, deleted legacy modules, and many media artifacts, so the atlas should continue to describe the checked-out tree rather than assume clean history.
+ - Verification for this phase remained documentation-only. No product code was modified.
++
++### 2026-03-12 Plan Batch Phase 0 Read Context and Backlog
++- Re-read the plan-batch run state, phase prompt, project-bot config, operator profile, required atlas docs, `CHANGE_MAP.md`, `DEEP_SCAN_REPORT.md`, and `BUG_BACKLOG.md` before any batching decisions.
++- Confirmed the planning scope is unchanged: the entire backend at `/Users/macbook/Desktop/Huz/Huz-Backend` with no narrower module target, report-only execution, and ownership limited to backlog triage plus batching.
++- Confirmed the current priority landscape still clusters cleanly into three downstream batches:
++  - Immediate auth and tenancy containment: `SEC-B1`, `SEC-B2`, and `DS-B1`, centered on token disclosure, raw token trust, partner-principal rebinding, and public serializer leaks.
++  - Next data-integrity and concurrency fixes: `DS-B2`, centered on one-row booking state invariants and wallet debit locking.
++  - Later drift and verification cleanup: `DS-B3` plus `SEC-B4`, centered on dead-route cleanup, management coverage, and production exposure guardrails.
++- Identified stale-document blockers for later planning depth:
++  - `docs/qa/FULL_AUDIT_REPORT.md` is still a placeholder stub, so this run should treat `docs/qa/DEEP_SCAN_REPORT.md` and `docs/qa/BUG_BACKLOG.md` as the authoritative audit inputs.
++  - `docs/atlas/BACKEND_BLUEPRINT.md`, `docs/atlas/BACKEND_SCHEMA_MAP.md`, and `docs/atlas/TRACEABILITY_MAP.md` remain minimally populated and should be refreshed before any schema-heavy or traceability-heavy planning pass.
++- Reconfirmed two operational blockers that downstream implementation phases must account for:
++  - Runtime verification is still blocked in the current shell until Django and related test dependencies are available.
++  - The target repository remains a dirty working tree, so planning should follow the checked-out files instead of assuming clean-history baselines.
++- Verification in this phase remained source-based and documentation-only. No product code was modified.
+
+codex
+The orchestrator has advanced the run to Phase 1. I’m reading the generated `NEXT_PROMPT.md` now so the final response includes the exact handoff prompt the run produced.
+exec
+/bin/zsh -lc "sed -n '1,260p' /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/NEXT_PROMPT.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend succeeded in 53ms:
+Use $project-autopilot-manager in `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend`.
+Read `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/state.json` and `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/prompts/phase-01.md`.
+Execute only Phase 1 (Prioritize the Next Batch) against target project `/Users/macbook/Desktop/Huz/Huz-Backend`.
+At the end, run:
+1. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch --phase 1`
+2. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch`
+Then print `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/NEXT_PROMPT.md`.
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md
+index 8b03284acf02147f4828988e53d478460cb88d67..cd8e14638bc777de6717c3f33fb164c0aac47074
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md
+@@ -16,3 +16,24 @@
+ ### How It Was Implemented
+ ### Files Touched
+ ### Verification
++
++## Phase 0 - Read Context and Backlog
++### Changes Made
++- Read the run state, Phase 0 prompt, project-bot config, operator profile, task prompt, required atlas docs, and current QA/backlog artifacts for the plan-batch lane.
++- Reconfirmed the active planning scope, priority order, and current blockers against the live backend tree and dirty working-tree state.
++- Recorded the Phase 0 planning inputs and blockers in `docs/qa/DEEP_SCAN_REPORT.md` and `docs/qa/BUG_BACKLOG.md`.
++### How It Was Implemented
++- Reopened the required planning docs first so batching decisions stayed grounded in the existing atlas and upstream audit outputs rather than a fresh repo-wide rescan.
++- Cross-checked the current target project tree and `git status --short` output to confirm the backend app layout still matches the mapped `common`, `partners`, `booking`, and `management` surfaces and that the checked-out tree remains the correct source of truth.
++- Reviewed the latest remediation ordering from the deep-scan and security runs, then collapsed it into three downstream planning groups: immediate auth and tenancy containment, next booking-state and wallet integrity fixes, and later drift/verification cleanup.
++- Flagged the stale or incomplete planning artifacts that would distort later phases if left unaddressed: the placeholder `FULL_AUDIT_REPORT.md`, plus the minimally populated `BACKEND_BLUEPRINT.md`, `BACKEND_SCHEMA_MAP.md`, and `TRACEABILITY_MAP.md`.
++### Files Touched
++- `docs/qa/DEEP_SCAN_REPORT.md`
++- `docs/qa/BUG_BACKLOG.md`
++- `docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md`
++### Verification
++- Re-read all Phase 0 required context files listed in the run prompt before documenting conclusions.
++- Ran `git -C /Users/macbook/Desktop/Huz/Huz-Backend status --short` to confirm the plan must track the current checked-out backend tree, not a clean historical baseline.
++- Rechecked `management/approval_task.py` versus `management/urls.py` for the known unmounted admin views and confirmed the earlier backlog findings still match the live tree.
++- Verified that `docs/qa/FULL_AUDIT_REPORT.md`, `docs/atlas/BACKEND_BLUEPRINT.md`, `docs/atlas/BACKEND_SCHEMA_MAP.md`, and `docs/atlas/TRACEABILITY_MAP.md` are still incomplete relative to the required planning depth.
++- No product code changed and no runtime tests were executed in this phase.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md
+index f508709a551584bd04c03d98e499e6108cc30c50..13fe23041a35f6a222758027448640e72cac463a
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md
+@@ -46,3 +46,12 @@
+ - Confirmed that `/common/manage_user_account/` is staff-gated by `CreateMemberProfileView.permission_classes = [IsAdminUser]`, so Phase 3 corrected the atlas instead of opening a new backlog item for that route.
+ - Runtime verification is still blocked in this shell because `python3 manage.py test management partners booking common --settings=huz.settings_test` fails before discovery with `ModuleNotFoundError: No module named 'django'`.
+ - Coverage verification still shows no live `management` test module: `rg --files /Users/macbook/Desktop/Huz/Huz-Backend/management /Users/macbook/Desktop/Huz/Huz-Backend/common /Users/macbook/Desktop/Huz/Huz-Backend/partners /Users/macbook/Desktop/Huz/Huz-Backend/booking | rg '/tests?\.py$|/tests/'` returns only `common/tests.py`, `partners/tests.py`, and `booking/tests.py`.
++
++## 2026-03-12 Plan Batch Phase 0 Planning Notes
++
++- Scope confirmation: the next batch should still be planned against the full backend tree at `/Users/macbook/Desktop/Huz/Huz-Backend`; no narrower module target has been selected yet.
++- Priority confirmation: the first implementation batch should stay anchored on `SEC-B1`, `SEC-B2`, and `DS-B1` because auth exposure and partner-principal binding risks still dominate every lower-priority finding.
++- Deferred until after the first auth batch: `DS-B2` for booking-state and wallet invariants, then `DS-B3` plus `SEC-B4` for dead-route cleanup, management coverage, and production exposure guardrails.
++- Planning blocker: `docs/qa/FULL_AUDIT_REPORT.md` is still a stub, so backlog planning should continue to rely on `DEEP_SCAN_REPORT.md` and this backlog instead of the full-audit file.
++- Planning blocker: `docs/atlas/BACKEND_BLUEPRINT.md`, `docs/atlas/BACKEND_SCHEMA_MAP.md`, and `docs/atlas/TRACEABILITY_MAP.md` are still placeholder-level docs and should be refreshed before any schema-first or end-to-end traceability planning run.
++- Verification blocker: runtime test execution is still unavailable in the current shell until Django dependencies are provisioned; this remains the main environment gap for follow-on fix batches.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+index c70faf4403384210d7882fcc6bb9cf162155ae62..cf0c4e9f012f46de9434982c83597a587a89483d
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+@@ -194,3 +194,18 @@
+   - `rg --files /Users/macbook/Desktop/Huz/Huz-Backend/management /Users/macbook/Desktop/Huz/Huz-Backend/common /Users/macbook/Desktop/Huz/Huz-Backend/partners /Users/macbook/Desktop/Huz/Huz-Backend/booking | rg '/tests?\.py$|/tests/'` still returns only `common/tests.py`, `partners/tests.py`, and `booking/tests.py`.
+ - Repo-state verification: `git -C /Users/macbook/Desktop/Huz/Huz-Backend status --short` still shows the same broad dirty-tree pattern with live-file modifications, deleted legacy modules, and many media artifacts, so the atlas should continue to describe the checked-out tree rather than assume clean history.
+ - Verification for this phase remained documentation-only. No product code was modified.
++
++### 2026-03-12 Plan Batch Phase 0 Read Context and Backlog
++- Re-read the plan-batch run state, phase prompt, project-bot config, operator profile, required atlas docs, `CHANGE_MAP.md`, `DEEP_SCAN_REPORT.md`, and `BUG_BACKLOG.md` before any batching decisions.
++- Confirmed the planning scope is unchanged: the entire backend at `/Users/macbook/Desktop/Huz/Huz-Backend` with no narrower module target, report-only execution, and ownership limited to backlog triage plus batching.
++- Confirmed the current priority landscape still clusters cleanly into three downstream batches:
++  - Immediate auth and tenancy containment: `SEC-B1`, `SEC-B2`, and `DS-B1`, centered on token disclosure, raw token trust, partner-principal rebinding, and public serializer leaks.
++  - Next data-integrity and concurrency fixes: `DS-B2`, centered on one-row booking state invariants and wallet debit locking.
++  - Later drift and verification cleanup: `DS-B3` plus `SEC-B4`, centered on dead-route cleanup, management coverage, and production exposure guardrails.
++- Identified stale-document blockers for later planning depth:
++  - `docs/qa/FULL_AUDIT_REPORT.md` is still a placeholder stub, so this run should treat `docs/qa/DEEP_SCAN_REPORT.md` and `docs/qa/BUG_BACKLOG.md` as the authoritative audit inputs.
++  - `docs/atlas/BACKEND_BLUEPRINT.md`, `docs/atlas/BACKEND_SCHEMA_MAP.md`, and `docs/atlas/TRACEABILITY_MAP.md` remain minimally populated and should be refreshed before any schema-heavy or traceability-heavy planning pass.
++- Reconfirmed two operational blockers that downstream implementation phases must account for:
++  - Runtime verification is still blocked in the current shell until Django and related test dependencies are available.
++  - The target repository remains a dirty working tree, so planning should follow the checked-out files instead of assuming clean-history baselines.
++- Verification in this phase remained source-based and documentation-only. No product code was modified.
+
+Plan update
+Phase 0 is fully closed out. The run metadata is advanced, and the next-phase prompt has been captured for handoff.
+  ✓ Read required run context, atlas docs, audit reports, and backlog
+  ✓ Sanity-check atlas/backlog context against current Huz-Backend structure and identify stale-doc blockers
+  ✓ Append Phase 0 findings to durable docs, complete the phase, and print NEXT_PROMPT.md
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md
+index 8b03284acf02147f4828988e53d478460cb88d67..cd8e14638bc777de6717c3f33fb164c0aac47074
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md
+@@ -16,3 +16,24 @@
+ ### How It Was Implemented
+ ### Files Touched
+ ### Verification
++
++## Phase 0 - Read Context and Backlog
++### Changes Made
++- Read the run state, Phase 0 prompt, project-bot config, operator profile, task prompt, required atlas docs, and current QA/backlog artifacts for the plan-batch lane.
++- Reconfirmed the active planning scope, priority order, and current blockers against the live backend tree and dirty working-tree state.
++- Recorded the Phase 0 planning inputs and blockers in `docs/qa/DEEP_SCAN_REPORT.md` and `docs/qa/BUG_BACKLOG.md`.
++### How It Was Implemented
++- Reopened the required planning docs first so batching decisions stayed grounded in the existing atlas and upstream audit outputs rather than a fresh repo-wide rescan.
++- Cross-checked the current target project tree and `git status --short` output to confirm the backend app layout still matches the mapped `common`, `partners`, `booking`, and `management` surfaces and that the checked-out tree remains the correct source of truth.
++- Reviewed the latest remediation ordering from the deep-scan and security runs, then collapsed it into three downstream planning groups: immediate auth and tenancy containment, next booking-state and wallet integrity fixes, and later drift/verification cleanup.
++- Flagged the stale or incomplete planning artifacts that would distort later phases if left unaddressed: the placeholder `FULL_AUDIT_REPORT.md`, plus the minimally populated `BACKEND_BLUEPRINT.md`, `BACKEND_SCHEMA_MAP.md`, and `TRACEABILITY_MAP.md`.
++### Files Touched
++- `docs/qa/DEEP_SCAN_REPORT.md`
++- `docs/qa/BUG_BACKLOG.md`
++- `docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md`
++### Verification
++- Re-read all Phase 0 required context files listed in the run prompt before documenting conclusions.
++- Ran `git -C /Users/macbook/Desktop/Huz/Huz-Backend status --short` to confirm the plan must track the current checked-out backend tree, not a clean historical baseline.
++- Rechecked `management/approval_task.py` versus `management/urls.py` for the known unmounted admin views and confirmed the earlier backlog findings still match the live tree.
++- Verified that `docs/qa/FULL_AUDIT_REPORT.md`, `docs/atlas/BACKEND_BLUEPRINT.md`, `docs/atlas/BACKEND_SCHEMA_MAP.md`, and `docs/atlas/TRACEABILITY_MAP.md` are still incomplete relative to the required planning depth.
++- No product code changed and no runtime tests were executed in this phase.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md
+index f508709a551584bd04c03d98e499e6108cc30c50..13fe23041a35f6a222758027448640e72cac463a
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md
+@@ -46,3 +46,12 @@
+ - Confirmed that `/common/manage_user_account/` is staff-gated by `CreateMemberProfileView.permission_classes = [IsAdminUser]`, so Phase 3 corrected the atlas instead of opening a new backlog item for that route.
+ - Runtime verification is still blocked in this shell because `python3 manage.py test management partners booking common --settings=huz.settings_test` fails before discovery with `ModuleNotFoundError: No module named 'django'`.
+ - Coverage verification still shows no live `management` test module: `rg --files /Users/macbook/Desktop/Huz/Huz-Backend/management /Users/macbook/Desktop/Huz/Huz-Backend/common /Users/macbook/Desktop/Huz/Huz-Backend/partners /Users/macbook/Desktop/Huz/Huz-Backend/booking | rg '/tests?\.py$|/tests/'` returns only `common/tests.py`, `partners/tests.py`, and `booking/tests.py`.
++
++## 2026-03-12 Plan Batch Phase 0 Planning Notes
++
++- Scope confirmation: the next batch should still be planned against the full backend tree at `/Users/macbook/Desktop/Huz/Huz-Backend`; no narrower module target has been selected yet.
++- Priority confirmation: the first implementation batch should stay anchored on `SEC-B1`, `SEC-B2`, and `DS-B1` because auth exposure and partner-principal binding risks still dominate every lower-priority finding.
++- Deferred until after the first auth batch: `DS-B2` for booking-state and wallet invariants, then `DS-B3` plus `SEC-B4` for dead-route cleanup, management coverage, and production exposure guardrails.
++- Planning blocker: `docs/qa/FULL_AUDIT_REPORT.md` is still a stub, so backlog planning should continue to rely on `DEEP_SCAN_REPORT.md` and this backlog instead of the full-audit file.
++- Planning blocker: `docs/atlas/BACKEND_BLUEPRINT.md`, `docs/atlas/BACKEND_SCHEMA_MAP.md`, and `docs/atlas/TRACEABILITY_MAP.md` are still placeholder-level docs and should be refreshed before any schema-first or end-to-end traceability planning run.
++- Verification blocker: runtime test execution is still unavailable in the current shell until Django dependencies are provisioned; this remains the main environment gap for follow-on fix batches.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+index c70faf4403384210d7882fcc6bb9cf162155ae62..cf0c4e9f012f46de9434982c83597a587a89483d
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+@@ -194,3 +194,18 @@
+   - `rg --files /Users/macbook/Desktop/Huz/Huz-Backend/management /Users/macbook/Desktop/Huz/Huz-Backend/common /Users/macbook/Desktop/Huz/Huz-Backend/partners /Users/macbook/Desktop/Huz/Huz-Backend/booking | rg '/tests?\.py$|/tests/'` still returns only `common/tests.py`, `partners/tests.py`, and `booking/tests.py`.
+ - Repo-state verification: `git -C /Users/macbook/Desktop/Huz/Huz-Backend status --short` still shows the same broad dirty-tree pattern with live-file modifications, deleted legacy modules, and many media artifacts, so the atlas should continue to describe the checked-out tree rather than assume clean history.
+ - Verification for this phase remained documentation-only. No product code was modified.
++
++### 2026-03-12 Plan Batch Phase 0 Read Context and Backlog
++- Re-read the plan-batch run state, phase prompt, project-bot config, operator profile, required atlas docs, `CHANGE_MAP.md`, `DEEP_SCAN_REPORT.md`, and `BUG_BACKLOG.md` before any batching decisions.
++- Confirmed the planning scope is unchanged: the entire backend at `/Users/macbook/Desktop/Huz/Huz-Backend` with no narrower module target, report-only execution, and ownership limited to backlog triage plus batching.
++- Confirmed the current priority landscape still clusters cleanly into three downstream batches:
++  - Immediate auth and tenancy containment: `SEC-B1`, `SEC-B2`, and `DS-B1`, centered on token disclosure, raw token trust, partner-principal rebinding, and public serializer leaks.
++  - Next data-integrity and concurrency fixes: `DS-B2`, centered on one-row booking state invariants and wallet debit locking.
++  - Later drift and verification cleanup: `DS-B3` plus `SEC-B4`, centered on dead-route cleanup, management coverage, and production exposure guardrails.
++- Identified stale-document blockers for later planning depth:
++  - `docs/qa/FULL_AUDIT_REPORT.md` is still a placeholder stub, so this run should treat `docs/qa/DEEP_SCAN_REPORT.md` and `docs/qa/BUG_BACKLOG.md` as the authoritative audit inputs.
++  - `docs/atlas/BACKEND_BLUEPRINT.md`, `docs/atlas/BACKEND_SCHEMA_MAP.md`, and `docs/atlas/TRACEABILITY_MAP.md` remain minimally populated and should be refreshed before any schema-heavy or traceability-heavy planning pass.
++- Reconfirmed two operational blockers that downstream implementation phases must account for:
++  - Runtime verification is still blocked in the current shell until Django and related test dependencies are available.
++  - The target repository remains a dirty working tree, so planning should follow the checked-out files instead of assuming clean-history baselines.
++- Verification in this phase remained source-based and documentation-only. No product code was modified.
+
+codex
+Phase 0 is complete. I updated [DEEP_SCAN_REPORT.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md), [BUG_BACKLOG.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md), and [RUN_SUMMARY.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md). The planning context stays anchored on auth/tenancy fixes first, with placeholder audit/atlas docs and missing Django test dependencies recorded as current blockers. No product code changed.
+
+`NEXT_PROMPT.md`:
+```text
+Use $project-autopilot-manager in `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend`.
+Read `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/state.json` and `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/prompts/phase-01.md`.
+Execute only Phase 1 (Prioritize the Next Batch) against target project `/Users/macbook/Desktop/Huz/Huz-Backend`.
+At the end, run:
+1. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch --phase 1`
+2. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch`
+Then print `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/NEXT_PROMPT.md`.
+```
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md
+index 8b03284acf02147f4828988e53d478460cb88d67..cd8e14638bc777de6717c3f33fb164c0aac47074
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md
+@@ -16,3 +16,24 @@
+ ### How It Was Implemented
+ ### Files Touched
+ ### Verification
++
++## Phase 0 - Read Context and Backlog
++### Changes Made
++- Read the run state, Phase 0 prompt, project-bot config, operator profile, task prompt, required atlas docs, and current QA/backlog artifacts for the plan-batch lane.
++- Reconfirmed the active planning scope, priority order, and current blockers against the live backend tree and dirty working-tree state.
++- Recorded the Phase 0 planning inputs and blockers in `docs/qa/DEEP_SCAN_REPORT.md` and `docs/qa/BUG_BACKLOG.md`.
++### How It Was Implemented
++- Reopened the required planning docs first so batching decisions stayed grounded in the existing atlas and upstream audit outputs rather than a fresh repo-wide rescan.
++- Cross-checked the current target project tree and `git status --short` output to confirm the backend app layout still matches the mapped `common`, `partners`, `booking`, and `management` surfaces and that the checked-out tree remains the correct source of truth.
++- Reviewed the latest remediation ordering from the deep-scan and security runs, then collapsed it into three downstream planning groups: immediate auth and tenancy containment, next booking-state and wallet integrity fixes, and later drift/verification cleanup.
++- Flagged the stale or incomplete planning artifacts that would distort later phases if left unaddressed: the placeholder `FULL_AUDIT_REPORT.md`, plus the minimally populated `BACKEND_BLUEPRINT.md`, `BACKEND_SCHEMA_MAP.md`, and `TRACEABILITY_MAP.md`.
++### Files Touched
++- `docs/qa/DEEP_SCAN_REPORT.md`
++- `docs/qa/BUG_BACKLOG.md`
++- `docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md`
++### Verification
++- Re-read all Phase 0 required context files listed in the run prompt before documenting conclusions.
++- Ran `git -C /Users/macbook/Desktop/Huz/Huz-Backend status --short` to confirm the plan must track the current checked-out backend tree, not a clean historical baseline.
++- Rechecked `management/approval_task.py` versus `management/urls.py` for the known unmounted admin views and confirmed the earlier backlog findings still match the live tree.
++- Verified that `docs/qa/FULL_AUDIT_REPORT.md`, `docs/atlas/BACKEND_BLUEPRINT.md`, `docs/atlas/BACKEND_SCHEMA_MAP.md`, and `docs/atlas/TRACEABILITY_MAP.md` are still incomplete relative to the required planning depth.
++- No product code changed and no runtime tests were executed in this phase.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md
+index f508709a551584bd04c03d98e499e6108cc30c50..13fe23041a35f6a222758027448640e72cac463a
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md
+@@ -46,3 +46,12 @@
+ - Confirmed that `/common/manage_user_account/` is staff-gated by `CreateMemberProfileView.permission_classes = [IsAdminUser]`, so Phase 3 corrected the atlas instead of opening a new backlog item for that route.
+ - Runtime verification is still blocked in this shell because `python3 manage.py test management partners booking common --settings=huz.settings_test` fails before discovery with `ModuleNotFoundError: No module named 'django'`.
+ - Coverage verification still shows no live `management` test module: `rg --files /Users/macbook/Desktop/Huz/Huz-Backend/management /Users/macbook/Desktop/Huz/Huz-Backend/common /Users/macbook/Desktop/Huz/Huz-Backend/partners /Users/macbook/Desktop/Huz/Huz-Backend/booking | rg '/tests?\.py$|/tests/'` returns only `common/tests.py`, `partners/tests.py`, and `booking/tests.py`.
++
++## 2026-03-12 Plan Batch Phase 0 Planning Notes
++
++- Scope confirmation: the next batch should still be planned against the full backend tree at `/Users/macbook/Desktop/Huz/Huz-Backend`; no narrower module target has been selected yet.
++- Priority confirmation: the first implementation batch should stay anchored on `SEC-B1`, `SEC-B2`, and `DS-B1` because auth exposure and partner-principal binding risks still dominate every lower-priority finding.
++- Deferred until after the first auth batch: `DS-B2` for booking-state and wallet invariants, then `DS-B3` plus `SEC-B4` for dead-route cleanup, management coverage, and production exposure guardrails.
++- Planning blocker: `docs/qa/FULL_AUDIT_REPORT.md` is still a stub, so backlog planning should continue to rely on `DEEP_SCAN_REPORT.md` and this backlog instead of the full-audit file.
++- Planning blocker: `docs/atlas/BACKEND_BLUEPRINT.md`, `docs/atlas/BACKEND_SCHEMA_MAP.md`, and `docs/atlas/TRACEABILITY_MAP.md` are still placeholder-level docs and should be refreshed before any schema-first or end-to-end traceability planning run.
++- Verification blocker: runtime test execution is still unavailable in the current shell until Django dependencies are provisioned; this remains the main environment gap for follow-on fix batches.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+index c70faf4403384210d7882fcc6bb9cf162155ae62..cf0c4e9f012f46de9434982c83597a587a89483d
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md
+@@ -194,3 +194,18 @@
+   - `rg --files /Users/macbook/Desktop/Huz/Huz-Backend/management /Users/macbook/Desktop/Huz/Huz-Backend/common /Users/macbook/Desktop/Huz/Huz-Backend/partners /Users/macbook/Desktop/Huz/Huz-Backend/booking | rg '/tests?\.py$|/tests/'` still returns only `common/tests.py`, `partners/tests.py`, and `booking/tests.py`.
+ - Repo-state verification: `git -C /Users/macbook/Desktop/Huz/Huz-Backend status --short` still shows the same broad dirty-tree pattern with live-file modifications, deleted legacy modules, and many media artifacts, so the atlas should continue to describe the checked-out tree rather than assume clean history.
+ - Verification for this phase remained documentation-only. No product code was modified.
++
++### 2026-03-12 Plan Batch Phase 0 Read Context and Backlog
++- Re-read the plan-batch run state, phase prompt, project-bot config, operator profile, required atlas docs, `CHANGE_MAP.md`, `DEEP_SCAN_REPORT.md`, and `BUG_BACKLOG.md` before any batching decisions.
++- Confirmed the planning scope is unchanged: the entire backend at `/Users/macbook/Desktop/Huz/Huz-Backend` with no narrower module target, report-only execution, and ownership limited to backlog triage plus batching.
++- Confirmed the current priority landscape still clusters cleanly into three downstream batches:
++  - Immediate auth and tenancy containment: `SEC-B1`, `SEC-B2`, and `DS-B1`, centered on token disclosure, raw token trust, partner-principal rebinding, and public serializer leaks.
++  - Next data-integrity and concurrency fixes: `DS-B2`, centered on one-row booking state invariants and wallet debit locking.
++  - Later drift and verification cleanup: `DS-B3` plus `SEC-B4`, centered on dead-route cleanup, management coverage, and production exposure guardrails.
++- Identified stale-document blockers for later planning depth:
++  - `docs/qa/FULL_AUDIT_REPORT.md` is still a placeholder stub, so this run should treat `docs/qa/DEEP_SCAN_REPORT.md` and `docs/qa/BUG_BACKLOG.md` as the authoritative audit inputs.
++  - `docs/atlas/BACKEND_BLUEPRINT.md`, `docs/atlas/BACKEND_SCHEMA_MAP.md`, and `docs/atlas/TRACEABILITY_MAP.md` remain minimally populated and should be refreshed before any schema-heavy or traceability-heavy planning pass.
++- Reconfirmed two operational blockers that downstream implementation phases must account for:
++  - Runtime verification is still blocked in the current shell until Django and related test dependencies are available.
++  - The target repository remains a dirty working tree, so planning should follow the checked-out files instead of assuming clean-history baselines.
++- Verification in this phase remained source-based and documentation-only. No product code was modified.
+
+tokens used
+138,200
+Phase 0 is complete. I updated [DEEP_SCAN_REPORT.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md), [BUG_BACKLOG.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md), and [RUN_SUMMARY.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/RUN_SUMMARY.md). The planning context stays anchored on auth/tenancy fixes first, with placeholder audit/atlas docs and missing Django test dependencies recorded as current blockers. No product code changed.
+
+`NEXT_PROMPT.md`:
+```text
+Use $project-autopilot-manager in `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend`.
+Read `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/state.json` and `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/prompts/phase-01.md`.
+Execute only Phase 1 (Prioritize the Next Batch) against target project `/Users/macbook/Desktop/Huz/Huz-Backend`.
+At the end, run:
+1. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch --phase 1`
+2. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch`
+Then print `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/project-bot/runs/20260312-174754-plan-batch/NEXT_PROMPT.md`.
+```

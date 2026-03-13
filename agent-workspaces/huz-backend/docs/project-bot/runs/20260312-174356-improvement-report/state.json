@@ -1,0 +1,100 @@
+{
+  "version": 1,
+  "workspaceRoot": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend",
+  "projectPath": "/Users/macbook/Desktop/Huz/Huz-Backend",
+  "mode": "improvement-report",
+  "modeTitle": "Improvement Report",
+  "description": "Inspect a project or scoped module and write prioritized improvement suggestions without implementing the changes.",
+  "scopeLevel": "panel-fe",
+  "scope": "/Users/macbook/Desktop/Huz/Huz-Backend",
+  "scopeTargets": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/huz-backend"
+  ],
+  "request": "Team mission: Audit the entire Huz-Backend project deeply. Act as a project manager, backend architect, backend performance specialist, security reviewer, QA engineer, and implementation engineer. First perform a full backend audit for performance bottlenecks, optimization issues, N+1 queries, inefficient loops, unnecessary DB/API work, security loopholes, dead code, risky patterns, maintainability issues, and anything wrong. Then create a prioritized remediation plan and implement the safe backend fixes in parallel. Important constraint: only document and fix issues that can be resolved entirely within the backend. If an issue would require any frontend change, contract/consumer update, UI change, or downstream frontend work, do not implement that part. Document it clearly as frontend-impacting and skip code changes for it. Keep all changes scoped to the backend repo, verify each batch, and finish with a final summary of issues found, fixes implemented, skipped frontend-impacting items, and verification results.\n\nYou are the React / JavaScript Specialist in coordinated team \"Huz Backend Backend-Only Audit and Fix\".\nAssigned lane: Frontend runtime and architecture review\nPrimary objective: Inspect render flow, state usage, effects, dead UI code, and frontend efficiency issues.\nExecution phase: audit\nMode: improvement-report\nScope level: panel-fe\nScope: /Users/macbook/Desktop/Huz/Huz-Backend\nScope targets: huz-backend\n\nTeam coordination contract:\n- Work only inside your assigned lane.\n- Ownership boundaries: audit:frontend\n- This is a report-only run. Do not modify product code; workspace docs and reports are allowed.\n- Read atlas docs, QA reports, and BUG_BACKLOG before making major decisions.\n- If you discover issues outside your lane, document them clearly in RUN_SUMMARY or BUG_BACKLOG instead of implementing them here.\n- Upstream dependencies that should already be complete: Project Manager Atlas\n\nAudit contract:\n- Find loopholes, optimization issues, efficiency problems, dead code, threats, regressions, and anything clearly wrong.\n- Provide concrete, prioritized findings with file or module references when possible.\n- Update DEEP_SCAN_REPORT and BUG_BACKLOG with lane-aware findings and recommended fixes.\n\nOriginal operator request:\nAudit the entire Huz-Backend project deeply. Act as a project manager, backend architect, backend performance specialist, security reviewer, QA engineer, and implementation engineer. First perform a full backend audit for performance bottlenecks, optimization issues, N+1 queries, inefficient loops, unnecessary DB/API work, security loopholes, dead code, risky patterns, maintainability issues, and anything wrong. Then create a prioritized remediation plan and implement the safe backend fixes in parallel. Important constraint: only document and fix issues that can be resolved entirely within the backend. If an issue would require any frontend change, contract/consumer update, UI change, or downstream frontend work, do not implement that part. Document it clearly as frontend-impacting and skip code changes for it. Keep all changes scoped to the backend repo, verify each batch, and finish with a final summary of issues found, fixes implemented, skipped frontend-impacting items, and verification results.\n\nGlobal Instructions (always apply):\nAlways maintain full-system project memory in docs for the selected scope level.\nExclude non-dev and non-required files from deep mapping and auditing.\nWhen code changes touch modules/routes/APIs/contracts/schema/security/state, refresh relevant atlas docs in the same run.\nKeep audit findings traceable with status updates (open, fixed, verified) when remediation occurs.\nFor full-system or multi-panel fullstack scope, ensure frontend panels and backend structure/contracts are mapped together.",
+  "projectSurfaces": [
+    {
+      "id": "huz-backend",
+      "label": "Huz-Backend",
+      "path": "/Users/macbook/Desktop/Huz/Huz-Backend",
+      "kind": "panel-fullstack"
+    }
+  ],
+  "devIgnorePatterns": [
+    "node_modules/**",
+    "dist/**",
+    "build/**",
+    "coverage/**",
+    ".git/**",
+    "*.log"
+  ],
+  "fullSystemRequiredDocs": false,
+  "requiredAtlasDocs": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/PROJECT_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/MODULE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/ROUTES_AND_ENTRYPOINTS.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/API_SURFACE.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/CHANGE_MAP.md"
+  ],
+  "designGuides": [
+    "/Users/macbook/Desktop/Huz/UI_DESIGN_SYSTEM_GUIDE.md",
+    "/Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md"
+  ],
+  "referenceDocs": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/SYSTEM_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/FILE_MAP_DEV_ONLY.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/PANEL_MODULE_INDEX.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/FRONTEND_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/BACKEND_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/PROJECT_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/MODULE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/ROUTES_AND_ENTRYPOINTS.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/API_SURFACE.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/CHANGE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/ROUTE_MATRIX.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/STATE_MANAGEMENT_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/API_CONTRACT_REGISTRY.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/BACKEND_SCHEMA_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/DEPENDENCY_GRAPH.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/SECURITY_THREAT_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/atlas/TRACEABILITY_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/FULL_AUDIT_REPORT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md"
+  ],
+  "forceExternalDocs": true,
+  "reportFiles": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/DEEP_SCAN_REPORT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz-backend/docs/qa/BUG_BACKLOG.md"
+  ],
+  "createdAt": "2026-03-12T12:43:56.529Z",
+  "updatedAt": "2026-03-12T12:43:56.529Z",
+  "phaseCursor": 0,
+  "phases": [
+    {
+      "id": 0,
+      "title": "Assess Current State",
+      "status": "pending",
+      "completedAt": null,
+      "note": "",
+      "goal": "Read the atlas docs and inspect the requested scope enough to form a grounded improvement analysis.",
+      "required": [
+        "Read the current atlas docs and targeted code paths relevant to the request.",
+        "Identify technical debt, performance issues, UX gaps, structure problems, or process weaknesses in scope.",
+        "Keep the assessment evidence-based and scoped."
+      ]
+    },
+    {
+      "id": 1,
+      "title": "Write Prioritized Recommendations",
+      "status": "pending",
+      "completedAt": null,
+      "note": "",
+      "goal": "Produce a durable improvement report with prioritized actions and rationale.",
+      "required": [
+        "Write prioritized suggestions with impact, scope, and likely verification steps.",
+        "Update the backlog if some recommendations should become tracked work items.",
+        "Refresh atlas docs only if the review clarified stale project understanding."
+      ]
+    }
+  ]
+}

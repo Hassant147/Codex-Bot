@@ -1,0 +1,116 @@
+{
+  "version": 1,
+  "workspaceRoot": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz",
+  "projectPath": "/Users/macbook/Desktop/Huz",
+  "mode": "migration-batch",
+  "modeTitle": "Migration Batch",
+  "description": "Handle a structured refactor or contract migration across multiple modules safely, with explicit planning, implementation, and verification boundaries.",
+  "scopeLevel": "panel-fe",
+  "scope": "/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src",
+  "scopeTargets": [
+    "/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ListingPage",
+    "/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/UserSetting",
+    "/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HajjGuidance",
+    "/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx"
+  ],
+  "request": "Refactor the remaining Huz-Web-Frontend pages that still use separate mobile implementations into one responsive page per route.\n\nProject root: /Users/macbook/Desktop/Huz\nPrimary target repo: /Users/macbook/Desktop/Huz/Huz-Web-Frontend\nScoped code area: /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src\n\nRequired targets:\n- Listing: src/pages/ListingPage/ListingPage.js and src/pages/ListingPage/ListingMobileScreen.jsx\n- Booking setup: src/pages/UserSetting/MyApplication/Booking/booking.jsx and src/pages/UserSetting/MyApplication/Mobile/mobilebooking.jsx\n- Booking status: src/pages/UserSetting/MyApplication/Booking/bookingstatus.jsx and src/pages/UserSetting/MyApplication/Mobile/bookingstatus.jsx\n- Payment methods: src/pages/UserSetting/PaymentMethods/paymentMethods.jsx and src/pages/UserSetting/PaymentMethods/Mobile/paymentmethod.jsx\n- Remaining payment: src/pages/UserSetting/RemainingPayment/remainingPayment.jsx and src/pages/UserSetting/RemainingPayment/Mobile/remainingPayment.jsx\n- Traveler details: src/pages/UserSetting/Datatable/datatable.jsx and src/pages/UserSetting/Datatable/Mobile/datatable.jsx\n- Messages: src/pages/UserSetting/Message/messagePage.jsx and src/pages/UserSetting/Mobile/Message/messagepageview.jsx\n- Payment and wallet: src/pages/UserSetting/Payment&Wallet/payment&wallet.jsx and src/pages/UserSetting/Payment&Wallet/Mobile/paymentwallet.jsx\n- Operator response: src/pages/UserSetting/OperatorResponse/operatorresponse.jsx and src/pages/UserSetting/OperatorResponse/Mobile/operatorresponse.jsx\n- Wishlist: src/pages/UserSetting/Wishlist/index.jsx, src/pages/UserSetting/Wishlist/wishlist.jsx, and src/pages/UserSetting/Wishlist/wishlistMobile.jsx\n- Route-level mobile-only cases in src/routes/AppRoutes.jsx, including /payment-wallet-mobile and /booking-page\n- Inline mobile branch in src/pages/HajjGuidance/HajjGuidance.jsx\n\nImplementation rules:\n- Use one consistent Huz theme, layout system, spacing rhythm, and visual language across all affected pages.\n- Follow /Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md as a reference guide only.\n- Enforce one page, one responsive design. Do not preserve separate mobile-only page trees for normal rendering.\n- Prefer reusable shared components, section primitives, and modular responsive layouts instead of duplicated JSX.\n- Keep routes, business logic, data flow, and user-facing features stable unless a mobile-only route must become a compatibility alias to the unified responsive page.\n- Keep the work clean, optimized, aligned, maintainable, and consistent with modern React and JavaScript practices already suitable for this repo.\n- Preserve feature parity across breakpoints. Do not remove fields, actions, states, or payment/message flow behavior.\n- Remove dead mobile wrappers only when the shared responsive page has absorbed their behavior safely.\n- Keep the scope focused on responsive unification and structural cleanup, not unrelated redesign.\n\nImportant constraints:\n- Do not run npm install, npm ci, npm run build, npm test, or other heavy verification/build commands in this run.\n- Verify by code inspection, route/component dependency tracing, and scoped static consistency checks only.\n- Update the bot workspace docs and run summaries as the run progresses.\n\nExecution priority:\n1. Booking and payment flow pages first.\n2. Remaining user-setting pages next.\n3. Listing, wishlist, HajjGuidance, and route cleanup after the flow-critical pages.\n\nCompletion standard:\nThe task is complete only when the listed routes no longer depend on separate mobile page implementations for normal rendering and responsive behavior is handled by shared page structures.",
+  "projectSurfaces": [
+    {
+      "id": "primary-project",
+      "label": "Huz-Web-Frontend",
+      "path": "/Users/macbook/Desktop/Huz/Huz-Web-Frontend",
+      "kind": "panel-fe"
+    }
+  ],
+  "devIgnorePatterns": [
+    "node_modules/**",
+    "dist/**",
+    "build/**",
+    "coverage/**",
+    ".git/**",
+    ".cache/**",
+    ".next/**",
+    ".turbo/**",
+    ".idea/**",
+    ".vscode/**",
+    "logs/**",
+    "tmp/**",
+    "temp/**",
+    "*.min.js",
+    "*.map",
+    "*.log",
+    "*.lock"
+  ],
+  "fullSystemRequiredDocs": true,
+  "requiredAtlasDocs": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/PROJECT_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/MODULE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/ROUTES_AND_ENTRYPOINTS.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/API_SURFACE.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/CHANGE_MAP.md"
+  ],
+  "designGuides": [
+    "/Users/macbook/Desktop/Huz/UI_DESIGN_SYSTEM_GUIDE.md",
+    "/Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md"
+  ],
+  "referenceDocs": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/PROJECT_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/MODULE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/ROUTES_AND_ENTRYPOINTS.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/API_SURFACE.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md",
+    "/Users/macbook/Desktop/Huz/docs/codex_reports/PACKAGE_FLOW_AUDIT_2026-03-07.md",
+    "/Users/macbook/Desktop/Huz/docs/codex_reports/API_ALIGNMENT_BLUEPRINT_2026-03-07.md",
+    "/Users/macbook/Desktop/Huz/Huz-Web-Frontend/docs/CLEANUP_SUMMARY.md"
+  ],
+  "forceExternalDocs": true,
+  "reportFiles": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md"
+  ],
+  "createdAt": "2026-03-07T23:30:36.038Z",
+  "updatedAt": "2026-03-08T00:17:37.958Z",
+  "phaseCursor": 3,
+  "phases": [
+    {
+      "id": 0,
+      "title": "Map Migration Surface",
+      "status": "completed",
+      "completedAt": "2026-03-07T23:36:30.715Z",
+      "note": "",
+      "goal": "Identify every module, contract, and dependency touched by the migration.",
+      "required": [
+        "Read the atlas docs and inspect the current implementation surface of the migration target.",
+        "Map the current pattern, the desired pattern, and the modules that must move together.",
+        "Call out compatibility risks and rollback requirements before editing code."
+      ]
+    },
+    {
+      "id": 1,
+      "title": "Plan Migration Steps",
+      "status": "completed",
+      "completedAt": "2026-03-07T23:42:10.541Z",
+      "note": "",
+      "goal": "Create a bounded migration sequence that avoids half-finished drift.",
+      "required": [
+        "Define the exact sequence of changes for the migration batch.",
+        "Keep the batch small enough to verify coherently.",
+        "Document temporary compatibility bridges only if they are required."
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Execute and Verify Migration",
+      "status": "completed",
+      "completedAt": "2026-03-08T00:17:37.955Z",
+      "note": "",
+      "goal": "Apply the migration batch and confirm the new pattern is stable.",
+      "required": [
+        "Implement the migration changes across the scoped modules.",
+        "Run the relevant build, test, lint, and contract checks.",
+        "Refresh atlas and change map docs to reflect the migrated structure."
+      ]
+    }
+  ]
+}

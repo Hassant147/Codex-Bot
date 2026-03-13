@@ -1,0 +1,2040 @@
+OpenAI Codex v0.108.0-alpha.12 (research preview)
+--------
+workdir: /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz
+model: gpt-5.4
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR, /Users/macbook/.codex/memories, /Users/macbook/Desktop/Huz]
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019ccd1b-477c-7093-a823-e6d3e1962081
+--------
+user
+Use $project-autopilot-manager in `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz`.
+Read `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/state.json` and `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/prompts/phase-00.md`.
+Execute only Phase 0 (Select Backlog Target) against target project `/Users/macbook/Desktop/Huz`.
+At the end, run:
+1. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog --phase 0`
+2. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog`
+Then print `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/NEXT_PROMPT.md`.
+
+mcp: playwright starting
+mcp: playwright ready
+mcp startup: ready: playwright
+2026-03-08T11:00:47.537240Z  WARN codex_core::shell_snapshot: Failed to delete shell snapshot at "/Users/macbook/.codex/shell_snapshots/019ccd1b-477c-7093-a823-e6d3e1962081.tmp-1772967643305211000": Os { code: 2, kind: NotFound, message: "No such file or directory" }
+2026-03-08T11:01:00.344852Z  WARN codex_core::state_db: state db apply_rollout_items failed during rollout_writer for /Users/macbook/.codex/sessions/2026/03/08/rollout-2026-03-08T16-00-43-019ccd1b-477c-7093-a823-e6d3e1962081.jsonl: error returned from database: (code: 5) database is locked
+2026-03-08T11:01:00.344852Z  WARN sqlx::query: slow statement: execution time exceeded alert threshold summary="INSERT INTO threads ( …" db.statement="\n\n\nINSERT INTO threads (\n    id,\n    rollout_path,\n    created_at,\n    updated_at,\n    source,\n    agent_nickname,\n    agent_role,\n    model_provider,\n    cwd,\n    cli_version,\n    title,\n    sandbox_policy,\n    approval_mode,\n    tokens_used,\n    first_user_message,\n    archived,\n    archived_at,\n    git_sha,\n    git_branch,\n    git_origin_url,\n    memory_mode\n) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\nON CONFLICT(id) DO UPDATE SET\n    rollout_path = excluded.rollout_path,\n    created_at = excluded.created_at,\n    updated_at = excluded.updated_at,\n    source = excluded.source,\n    agent_nickname = excluded.agent_nickname,\n    agent_role = excluded.agent_role,\n    model_provider = excluded.model_provider,\n    cwd = excluded.cwd,\n    cli_version = excluded.cli_version,\n    title = excluded.title,\n    sandbox_policy = excluded.sandbox_policy,\n    approval_mode = excluded.approval_mode,\n    tokens_used = excluded.tokens_used,\n    first_user_message = excluded.first_user_message,\n    archived = excluded.archived,\n    archived_at = excluded.archived_at,\n    git_sha = excluded.git_sha,\n    git_branch = excluded.git_branch,\n    git_origin_url = excluded.git_origin_url\n            \n" rows_affected=0 rows_returned=0 elapsed=5.231818875s elapsed_secs=5.231818875 slow_threshold=1s
+codex
+Using `project-autopilot-manager` to execute only Phase 0 for the existing `fix-backlog` run. I’m reading the run state and phase prompt first, then I’ll inspect the target project docs the phase depends on and make only the Phase 0 updates.
+exec
+/bin/zsh -lc "sed -n '1,240p' /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/state.json" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "sed -n '1,240p' /Users/macbook/.codex/skills/project-autopilot-manager/SKILL.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "sed -n '1,260p' /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/prompts/phase-00.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+{
+  "version": 1,
+  "workspaceRoot": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz",
+  "projectPath": "/Users/macbook/Desktop/Huz",
+  "mode": "fix-backlog",
+  "modeTitle": "Fix Backlog",
+  "description": "Read the bug/improvement backlog, pick the next highest-priority item or module batch, implement it, verify it, and keep the backlog and atlas in sync.",
+  "scopeLevel": "multi-panel-fe",
+  "scope": "all remaining unrevamped Huz-Web-Frontend pages, remaining site pages, account pages, and proven-safe cleanup",
+  "scopeTargets": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/all remaining unrevamped Huz-Web-Frontend pages",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/remaining site pages",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/account pages",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/and proven-safe cleanup"
+  ],
+  "request": "Continue the large enhancement campaign in one bounded batch.\n\nCampaign objective: Start a full enhance implementation campaign now for all remaining pages in Huz-Web-Frontend.\n\nWorkspace: /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz\nProject: /Users/macbook/Desktop/Huz\nProfile: HUZ\nScope: all remaining unrevamped Huz-Web-Frontend pages, remaining site pages, account pages, and proven-safe cleanup\n\nThis is a large project-wide frontend redesign and implementation mission across 20+ pages. Do not treat it as report-only work.\n\nMandatory operating contract:\n- Read /Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md first and use it as the source of truth for the shared Huz shell, theme, layout, and responsive page system.\n- Inspect the already revamped reference implementations named in that guide. Treat them as completed references, not pages to redesign again, unless a tiny shared-system alignment fix is strictly required.\n- Read the existing workspace atlas, backlog, analysis report, and the previous completed run summary at /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-062131-full-enhance/RUN_SUMMARY.md. Continue from the remaining batches instead of redoing verified work.\n- The previous bot missed site pages. This campaign must finish the remaining guide/holy-site pages and all other remaining unrevamped routes, including static site pages.\n\nPrimary goal:\n- Revamp all remaining non-aligned pages in Huz-Web-Frontend so they follow one consistent Huz theme across desktop and mobile using one responsive design system.\n- Implement reusable, modular, data-driven shared sections and templates instead of repeated page-specific JSX.\n- Delete old, unused, dead, compatibility-only, or duplicate files only when route/import tracing proves they are safe to remove.\n- Keep code aligned, sorted, efficient, modern React + JavaScript, and consistent with the already revamped pages.\n- Improve runtime and maintainability by consolidating repeated static/page families into shared abstractions, removing duplicate mobile/desktop trees where safe, and avoiding unnecessary component duplication.\n\nAlready revamped references to follow and not rework unless required for a shared-system fix:\n- Homepage\n- ListingPage\n- PackageDetailPage\n- booking.jsx\n- paymentMethods.jsx\n- auth layout routes\n- PersonalDetailsPage\n- the already verified public/static pages from the previous run\n\nMandatory execution order:\n1. FE-REV-003 guide and holy-site content family:\n   - PreparationTips\n   - TravelEssentials\n   - UmrahGuide\n   - MakkahHolySites\n   - MadinahHolySites\n   - JeddahHolySites\n   - TaifHolySites\n2. FE-REV-005 lead-gen and partner pages:\n   - VisaServices\n   - ContactUs\n   - HajjUmrahBusiness\n   - ListPackagePage\n3. FE-REV-004 protected account shell convergence:\n   - bookingstatus.jsx\n   - datatable.jsx\n   - remainingPayment.jsx\n   - operatorresponse.jsx\n   - payment&wallet.jsx\n   - messagePage.jsx\n   - wishlist.jsx\n4. FE-REV-006 compatibility cleanup and dead file removal after canonical owners are stable.\n\nImplementation rules:\n- Reuse BrandPageShell, homepage layout tokens, global surface classes, shared promo sections, and shared content abstractions.\n- For guide/static/site-page families, consolidate repeated hero, article, related-card, city-guide, slider, CTA, and promo patterns into reusable modules.\n- Preserve existing route paths, data flows, navigation behavior, and feature hooks unless a safer shared abstraction is required.\n- One route, one responsive design. No separate mobile-vs-desktop page redesigns.\n- Remove placeholder, dead, duplicate, or compatibility-only structures after migration.\n- Keep workspace atlas docs, backlog, report files, and run summary updated after each implementation batch.\n- If a file is deleted, document exactly why it was safe.\n\nHard constraints:\n- No build.\n- No npm install.\n- No lockfile changes.\n- No cosmetic redesign of already aligned reference pages.\n- Use route tracing, import tracing, parser validation, targeted lint/static checks, and explicit dead-file proof.\n- Record concrete verification commands and outcomes in RUN_SUMMARY.\nCampaign ID: campaign-1772963821265-l5wabj\nBatch index: 2\nPrevious run: /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-145701-full-enhance\n\nFollow-up contract:\n- Read BUG_BACKLOG and atlas docs first.\n- Implement only one bounded batch (target <= 8 pages or one backend domain).\n- Keep frontend/backend contracts synchronized for touched flows.\n- Mark completed/deferred items in BUG_BACKLOG and name the next recommended batch.\n- Refresh atlas docs and append verification evidence in RUN_SUMMARY.\n- If backlog in this scope is already clear, produce verification-only summary and stop without unrelated edits.\n\nScope override: all remaining unrevamped Huz-Web-Frontend pages, remaining site pages, account pages, and proven-safe cleanup\nScope targets: all remaining unrevamped Huz-Web-Frontend pages, remaining site pages, account pages, and proven-safe cleanup\n\nGlobal Instructions (always apply):\nAlways maintain full-system project memory in docs for the selected scope level.\nExclude non-dev and non-required files from deep mapping and auditing.\nWhen code changes touch modules/routes/APIs/contracts/schema/security/state, refresh relevant atlas docs in the same run.\nKeep audit findings traceable with status updates (open, fixed, verified) when remediation occurs.\nFor full-system or multi-panel fullstack scope, ensure frontend panels and backend structure/contracts are mapped together.",
+  "projectSurfaces": [
+    {
+      "id": "primary-project",
+      "label": "Huz-Web-Frontend",
+ succeeded in 52ms:
+---
+name: project-autopilot-manager
+description: General-purpose Codex project bot for initializing persistent atlas docs, creating bounded multi-phase task runs, keeping blueprint/map files updated after code changes, and automating fresh-session execution for scans, cleanup, revamps, feature work, and full project enhancement. Use when Codex should manage a project end-to-end instead of relying on repeated manual prompt transfer.
+---
+
+# Project Autopilot Manager
+
+## Purpose
+
+Run large project tasks through durable docs and bounded fresh-session phases so Codex can keep working without rescanning the entire codebase every time.
+
+## Core Guarantees
+
+- Keep atlas docs current after code changes.
+- Store project memory in files, not chat memory.
+- Split large work into bounded phases.
+- Generate fresh-session prompts automatically.
+- Work across different local projects by changing the target project path.
+
+## Main Script
+ succeeded in 52ms:
+# Phase 0: Select Backlog Target
+
+Run Mode: `fix-backlog`
+Run Directory: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog`
+Workspace Root: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz`
+Target Project: `/Users/macbook/Desktop/Huz`
+Scoped Directory/Module: `all remaining unrevamped Huz-Web-Frontend pages, remaining site pages, account pages, and proven-safe cleanup`
+
+## Original Request
+Continue the large enhancement campaign in one bounded batch.
+
+Campaign objective: Start a full enhance implementation campaign now for all remaining pages in Huz-Web-Frontend.
+
+Workspace: /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz
+Project: /Users/macbook/Desktop/Huz
+Profile: HUZ
+Scope: all remaining unrevamped Huz-Web-Frontend pages, remaining site pages, account pages, and proven-safe cleanup
+
+This is a large project-wide frontend redesign and implementation mission across 20+ pages. Do not treat it as report-only work.
+
+2026-03-08T11:01:05.950133Z  WARN sqlx::query: slow statement: execution time exceeded alert threshold summary="INSERT INTO threads ( …" db.statement="\n\n\nINSERT INTO threads (\n    id,\n    rollout_path,\n    created_at,\n    updated_at,\n    source,\n    agent_nickname,\n    agent_role,\n    model_provider,\n    cwd,\n    cli_version,\n    title,\n    sandbox_policy,\n    approval_mode,\n    tokens_used,\n    first_user_message,\n    archived,\n    archived_at,\n    git_sha,\n    git_branch,\n    git_origin_url,\n    memory_mode\n) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\nON CONFLICT(id) DO UPDATE SET\n    rollout_path = excluded.rollout_path,\n    created_at = excluded.created_at,\n    updated_at = excluded.updated_at,\n    source = excluded.source,\n    agent_nickname = excluded.agent_nickname,\n    agent_role = excluded.agent_role,\n    model_provider = excluded.model_provider,\n    cwd = excluded.cwd,\n    cli_version = excluded.cli_version,\n    title = excluded.title,\n    sandbox_policy = excluded.sandbox_policy,\n    approval_mode = excluded.approval_mode,\n    tokens_used = excluded.tokens_used,\n    first_user_message = excluded.first_user_message,\n    archived = excluded.archived,\n    archived_at = excluded.archived_at,\n    git_sha = excluded.git_sha,\n    git_branch = excluded.git_branch,\n    git_origin_url = excluded.git_origin_url\n            \n" rows_affected=0 rows_returned=0 elapsed=5.226283791s elapsed_secs=5.226283791 slow_threshold=1s
+2026-03-08T11:01:05.950168Z  WARN codex_core::state_db: state db apply_rollout_items failed during rollout_writer for /Users/macbook/.codex/sessions/2026/03/08/rollout-2026-03-08T16-00-43-019ccd1b-477c-7093-a823-e6d3e1962081.jsonl: error returned from database: (code: 5) database is locked
+codex
+I have the phase contract. Next I’m loading the required workspace docs plus the backlog/report sections that determine the next bounded batch, and I’ll confirm the target against the actual frontend files before writing Phase 0 notes.
+exec
+/bin/zsh -lc "sed -n '1,220p' docs/project-bot/config.json" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "sed -n '1,260p' docs/project-bot/OPERATOR_PROFILE.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "sed -n '1,240p' docs/atlas/PROJECT_BLUEPRINT.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 51ms:
+# Operator Profile
+
+This file captures the default working style for the project bot. Every run should read this file before planning or changing code.
+
+## Working Style
+- Work in clearly scoped phases with durable written outputs.
+- Prefer module-by-module execution instead of scattered random fixes.
+- Treat frontend and backend as one connected system map when integration is involved.
+- Use existing atlas docs first, then read only the extra code needed for accuracy.
+
+## Scope Rules
+- The target project is the only place code changes should happen unless the task explicitly requires a related supporting change.
+- Keep the bot workspace as the long-term memory layer. Store reports, atlas docs, backlogs, summaries, and run state here instead of inside the target repo when possible.
+- Match frontend to backend contracts when drift is found, unless the task explicitly says to refactor the backend contract itself.
+
+## Quality Rules
+- Reduce duplication, stale logic, dead code, and brittle state flows.
+- Prefer modern modular patterns, reusable primitives, and clear ownership boundaries.
+- Keep routes stable unless the task explicitly requires a migration.
+- If code changes affect structure, routes, APIs, or ownership, refresh the relevant atlas docs in the same phase.
+ succeeded in 51ms:
+{
+  "version": 1,
+  "workspaceRoot": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz",
+  "projectPath": "/Users/macbook/Desktop/Huz",
+  "designGuides": [
+    "/Users/macbook/Desktop/Huz/UI_DESIGN_SYSTEM_GUIDE.md",
+    "/Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md"
+  ],
+  "blueprintSources": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/PROJECT_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/MODULE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/ROUTES_AND_ENTRYPOINTS.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/API_SURFACE.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md"
+  ],
+  "projectSurfaces": [
+    {
+      "id": "primary-project",
+      "label": "Huz-Web-Frontend",
+exec
+/bin/zsh -lc "sed -n '1,220p' docs/project-bot/runs/20260308-160042-fix-backlog/TASK.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "sed -n '1,240p' docs/atlas/API_SURFACE.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "sed -n '1,260p' docs/atlas/ROUTES_AND_ENTRYPOINTS.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "sed -n '1,260p' docs/atlas/MODULE_MAP.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "sed -n '1,240p' docs/atlas/CHANGE_MAP.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+# Project Blueprint
+
+Last refreshed: 2026-03-08 (Phase 5 - Finalize Docs and Summary, full-enhance run `20260308-145701-full-enhance`).
+
+## Scope
+- Target project: `/Users/macbook/Desktop/Huz`
+- Scope level: `panel-fullstack`
+- Surfaces mapped in this refresh:
+  - `Huz-Backend` (Django 5 monolith)
+  - `Huz-Web-Frontend` (public/user React app)
+  - `Huz-Admin-Frontend` (super-admin + partner panel React app)
+  - `Huz-Operator-Frontend` (operator React app)
+
+## Architecture Overview
+- Backend is a modular Django monolith exposing REST endpoints across six route groups: `/api/v1`, `/common`, `/partner`, `/bookings`, `/management`, `/chat`.
+- Frontend surfaces are split by audience:
+  - `Huz-Web-Frontend`: website discovery and user booking lifecycle.
+  - `Huz-Admin-Frontend`: super-admin approvals and partner/admin panel flows.
+  - `Huz-Operator-Frontend`: partner/operator operational dashboard flows.
+- API contracts are currently anchored in FE-side API utility modules (`src/api/*` and `src/utility/*`) instead of a shared typed contract package.
+ succeeded in 52ms:
+Continue the large enhancement campaign in one bounded batch.
+
+Campaign objective: Start a full enhance implementation campaign now for all remaining pages in Huz-Web-Frontend.
+
+Workspace: /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz
+Project: /Users/macbook/Desktop/Huz
+Profile: HUZ
+Scope: all remaining unrevamped Huz-Web-Frontend pages, remaining site pages, account pages, and proven-safe cleanup
+
+This is a large project-wide frontend redesign and implementation mission across 20+ pages. Do not treat it as report-only work.
+
+Mandatory operating contract:
+- Read /Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md first and use it as the source of truth for the shared Huz shell, theme, layout, and responsive page system.
+- Inspect the already revamped reference implementations named in that guide. Treat them as completed references, not pages to redesign again, unless a tiny shared-system alignment fix is strictly required.
+- Read the existing workspace atlas, backlog, analysis report, and the previous completed run summary at /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-062131-full-enhance/RUN_SUMMARY.md. Continue from the remaining batches instead of redoing verified work.
+- The previous bot missed site pages. This campaign must finish the remaining guide/holy-site pages and all other remaining unrevamped routes, including static site pages.
+
+Primary goal:
+- Revamp all remaining non-aligned pages in Huz-Web-Frontend so they follow one consistent Huz theme across desktop and mobile using one responsive design system.
+- Implement reusable, modular, data-driven shared sections and templates instead of repeated page-specific JSX.
+ succeeded in 50ms:
+# Module Map
+
+Last refreshed: 2026-03-08 (Phase 5 - Finalize Docs and Summary, full-enhance run `20260308-145701-full-enhance`).
+
+| Module | Path | Responsibility | Notes |
+| --- | --- | --- | --- |
+| Backend Core Config | `Huz-Backend/huz` | Django settings, root URL routing, ASGI/WSGI bootstrapping | Root URL includes `/api/v1`, `/common`, `/partner`, `/bookings`, `/management`, `/chat` |
+| Common Domain | `Huz-Backend/common` | End-user auth/profile, OTP, address, firebase token, user wallet/account primitives | 17 backend endpoints; 10 currently consumed by FE |
+| Partner Domain | `Huz-Backend/partners` | Partner auth/profile, package lifecycle, website listing APIs, partner wallet ops | 37 backend endpoints; 36 consumed by FE |
+| Booking Domain | `Huz-Backend/booking` | Booking creation/payment/passport, partner booking operations, complaints/reviews/requests | 34 legacy booking endpoints; 31 consumed by FE |
+| Booking v1 API | `Huz-Backend/booking/api_urls.py`, `Huz-Backend/booking/views/api_v1.py` | DRF booking endpoints under `/api/v1` | 5 v1 endpoints; 3 consumed by FE |
+| Management Domain | `Huz-Backend/management` | Super-admin approvals, payment transfer, reporting/KPI, hotel master catalog | 24 endpoints; 9 consumed by FE |
+| Chat Domain | `Huz-Backend/chat` | REST chat inbox/message endpoints + websocket routing | 5 REST endpoints; 0 consumed by current FE API literals |
+| Web App Shell | `Huz-Web-Frontend/src` | Public site, booking flow, user settings UI | Routing in `src/routes/AppRoutes.jsx`; current route tree exposes 43 routes (`28` public/auth, `12` canonical protected, `3` protected aliases) |
+| Web Shared Layout System | `Huz-Web-Frontend/src/shared/layout`, `Huz-Web-Frontend/src/pages/HomePage/homepageLayout.js`, `Huz-Web-Frontend/src/styles/globals.css` | Shared shell, width/rhythm tokens, branded surfaces, ambient background contract | Primary page-system contract for the revamp; used by Home, Listing, Package Detail, Hajj Guidance, Booking, Payment Methods, Personal Details, and AuthLayout |
+| Web Static Content System | `Huz-Web-Frontend/src/features/staticPages`, `Huz-Web-Frontend/src/features/staticPages/content` | Shared branded content shell plus route-driven content modules for public info/legal pages | Powers `HowWeWork`, `AboutUs`, `CoreValues`, `ComingSoon`, `FrequentlyAskedQuestions`, `PolicyPages`, `GenericPages`, `PrivacyPolicy`, and `TermsServices`; this earlier public/static batch remains verified, and the lead-gen routes are now the remaining public pages still outside the shared branded systems |
+| Web Pilgrimage Guide System | `Huz-Web-Frontend/src/features/pilgrimageGuides`, `Huz-Web-Frontend/src/features/pilgrimageGuides/content` | Shared branded guide/article and holy-site city templates plus route-content modules | Powers `PreparationTips`, `TravelEssentials`, `UmrahGuide`, `MakkahHolySites`, `MadinahHolySites`, `JeddahHolySites`, and `TaifHolySites`; centralizes `BrandPageShell`, routed `CityNavbar`, related-article cards, `react-slick` settings, and shared promo placement |
+| Web Guide and Holy-Site Pages | `Huz-Web-Frontend/src/pages/PreparationTips`, `TravelEssentials`, `UmrahGuide`, `MakkahHolySites`, `MadinahHolySites`, `JeddahHolySites`, `TaifHolySites` | Route-owner wrappers for pilgrimage content pages | The 7 route files are now thin wrappers over the shared pilgrimage guide system, so the duplicated `Header`/`Footer`, hero, related-article, and city-carousel layout logic no longer lives in each route owner |
+| Web Lead and Partner Pages | `Huz-Web-Frontend/src/pages/VisaServices`, `ContactUs`, `HajjUmrahBusiness`, `ListPackagePage` | Remaining acquisition, contact, and partner-onboarding routes | `VisaServices` and `ContactUs` still submit to `console.log`, `HajjUmrahBusiness` ends with an inert CTA, and `ListPackagePage` keeps direct `operator.hajjumrah.co` links inside a bespoke protected shell |
+| Web Auth Surface | `Huz-Web-Frontend/src/features/auth`, `Huz-Web-Frontend/src/pages/Login`, `Huz-Web-Frontend/src/pages/Signup`, `Huz-Web-Frontend/src/pages/Otp` | OTP-driven traveler signup/login/verification flow | All auth routes now funnel through `AuthLayout` |
+ succeeded in 50ms:
+# Routes and Entrypoints
+
+Last refreshed: 2026-03-08 (Phase 5 - Finalize Docs and Summary, full-enhance run `20260308-145701-full-enhance`).
+
+## Backend Entrypoints
+- Root URL config: `Huz-Backend/huz/urls.py`
+- API group modules:
+  - `/api/v1/` -> `Huz-Backend/booking/api_urls.py`
+  - `/common/` -> `Huz-Backend/common/urls.py`
+  - `/partner/` -> `Huz-Backend/partners/urls.py`
+  - `/bookings/` -> `Huz-Backend/booking/urls.py`
+  - `/management/` -> `Huz-Backend/management/urls.py`
+  - `/chat/` -> `Huz-Backend/chat/urls.py`
+
+## Backend Route Group Coverage
+| Route Group | URL File | Endpoint Count | FE-Connected Count | Notes |
+| --- | --- | --- | --- | --- |
+| `/api/v1/` | `Huz-Backend/booking/api_urls.py` + `booking/views/api_v1.py` | 5 | 3 | DRF booking list/create + payment/passport actions |
+| `/common/` | `Huz-Backend/common/urls.py` | 17 | 10 | User profile/auth + account/wallet primitives |
+| `/partner/` | `Huz-Backend/partners/urls.py` | 37 | 36 | Partner auth/profile/package + website package listing |
+ succeeded in 51ms:
+Total output lines: 240
+
+# API Surface
+
+Last refreshed: 2026-03-08 (Phase 5 - Finalize Docs and Summary, full-enhance run `20260308-145701-full-enhance`).
+
+## Coverage Summary
+- Backend endpoints discovered from live URL configs: **122**
+- Backend endpoints consumed by frontend modules: **89**
+- Backend endpoints with no frontend consumer: **33**
+- Frontend endpoint literals not present in backend URL map: **10**
+- FE unique endpoint literals by panel: Web **29**, Admin **64**, Operator **48**
+
+## Phase 2 Notes
+- The 2026-03-08 `migration-batch` run changed responsive page ownership only; it did not add, remove, or rename frontend API client modules or backend endpoint literals.
+- Web booking, traveler, wallet, operator-response, wishlist, listing, and message routes now consume their existing API modules through unified responsive route owners instead of separate mobile route pages.
+- Coverage totals above remain unchanged for this phase.
+
+## Phase 3 Notes
+- The 2026-03-08 `full-enhance` Phase 3 batch changed only public/static route composition and content modules.
+ succeeded in 51ms:
+# Change Map
+
+Every code-changing or atlas-refresh run should append what changed and which docs were refreshed.
+
+## Entries
+
+### 2026-03-07 - Phase 0 - Inventory Scope (`system-atlas`)
+- Scope: Full project inventory for backend + web/admin/operator frontends.
+- Files changed:
+  - `docs/qa/DEEP_SCAN_REPORT.md`
+  - `docs/project-bot/runs/20260307-154419-system-atlas/RUN_SUMMARY.md`
+- Atlas docs refreshed: None (inventory-only phase).
+- Notes:
+  - Established baseline route/API/module inventory.
+  - Identified stale atlas docs and FE/backend contract drift candidates.
+
+### 2026-03-07 - Phase 1 - Refresh Atlas Docs (`system-atlas`)
+- Scope: Refresh atlas documentation with full backend API list and frontend module connections.
+- Files changed:
+  - `docs/atlas/PROJECT_BLUEPRINT.md`
+codex
+The atlas already reflects that `FE-REV-003` was implemented and verified in the previous run, so I’m checking the backlog/report and the actual route files to make sure Phase 0 selects the real next batch rather than repeating stale instructions.
+exec
+/bin/zsh -lc 'rg -n "FE-REV-00[3456]|next recommended|remaining execution order|Status|Priority" docs/qa/BUG_BACKLOG.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "sed -n '1,260p' docs/qa/BUG_BACKLOG.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 50ms:
+5:| ID | Priority | Module | Summary | Status | Verification |
+14:| FE-REV-003 | High | Guide and holy-site content family | Consolidate `PreparationTips`, `TravelEssentials`, `UmrahGuide`, `MakkahHolySites`, `MadinahHolySites`, `JeddahHolySites`, and `TaifHolySites` around reusable article and city-guide templates. These routes repeat the same hero, article, related-card, slider, and `AppDownload` structures. | Verified | Verified in Phase 4 of run `20260308-145701-full-enhance` with live route tracing for the 7 paths, wrapper/shared-module tracing, no-new-API-side-effect search returning no matches, parser validation across 12 touched files, and scoped eslint showing only the existing `caniuse-lite` age warning. |
+15:| FE-REV-004 | High | Protected account shell convergence | Move `bookingstatus.jsx`, `datatable.jsx`, `remainingPayment.jsx`, `operatorresponse.jsx`, `payment&wallet.jsx`, `messagePage.jsx`, and `wishlist.jsx` onto one responsive branded account shell while preserving the existing feature hooks and route-state handoff. | Open | Pending: route tracing across `/booking-status` -> `/data-table` -> `/remaining-payment` -> `/operator-response` plus `/messages` and `/wishlist`. |
+16:| FE-REV-005 | Medium | Lead-gen and partner pages | Align `VisaServices.jsx`, `ContactUs.jsx`, `HajjUmrahBusiness.jsx`, and `ListPackagePage.js` to the Huz design system and replace placeholder form behavior or isolated landing-page shells. `VisaServices.jsx` and `ContactUs.jsx` still submit to `console.log`, `HajjUmrahBusiness.jsx` ends with an inert CTA, and `ListPackagePage.js` remains outside the shared shell while deep-linking to `operator.hajjumrah.co`. | Open | Pending: preserve CTA destinations, keep outbound partner links intact where intentional, and confirm no new network side effects are introduced. |
+17:| FE-REV-006 | Medium | Compatibility cleanup | Remove or convert the remaining dead compatibility surfaces after canonical routes are stable, especially `src/pages/UserSetting/Mobile/Message/messagepageview.jsx`, `src/pages/PackageDetailPage/Mobile/components/invoice.jsx`, and the 9 current mobile re-export wrappers. | Open | Pending: `rg` consumer search, alias tracing for `/booking-page`, `/payment-wallet-mobile`, and `/messages-chat`, plus zero-consumer proof across the 11-file compatibility surface. |
+58:  - Batch B: `FE-REV-003` guide and holy-site content family (`PreparationTips`, `TravelEssentials`, `UmrahGuide`, `MakkahHolySites`, `MadinahHolySites`, `JeddahHolySites`, `TaifHolySites`)
+59:  - Batch C: `FE-REV-005` lead-gen and partner pages (`VisaServices`, `ContactUs`, `HajjUmrahBusiness`, `ListPackagePage`)
+60:  - Batch D: `FE-REV-004` protected account shell convergence (`bookingstatus.jsx`, `datatable.jsx`, `remainingPayment.jsx`, `operatorresponse.jsx`, `payment&wallet.jsx`, `messagePage.jsx`, `wishlist.jsx`)
+61:  - Batch E: `FE-REV-006` compatibility cleanup after the canonical static/public migrations land
+74:  - Batch B: `FE-REV-003` guide and holy-site content family (`PreparationTips`, `TravelEssentials`, `UmrahGuide`, `MakkahHolySites`, `MadinahHolySites`, `JeddahHolySites`, `TaifHolySites`)
+75:  - Batch C: `FE-REV-005` lead-gen and partner pages (`VisaServices`, `ContactUs`, `HajjUmrahBusiness`, `ListPackagePage`)
+76:  - Batch D: `FE-REV-004` protected account shell convergence (`bookingstatus.jsx`, `datatable.jsx`, `remainingPayment.jsx`, `operatorresponse.jsx`, `payment&wallet.jsx`, `messagePage.jsx`, `wishlist.jsx`)
+77:  - Batch E: `FE-REV-006` compatibility cleanup after the canonical public-route migration stabilizes
+79:  - Batch B: `FE-REV-003` guide and holy-site content family (`PreparationTips`, `TravelEssentials`, `UmrahGuide`, `MakkahHolySites`, `MadinahHolySites`, `JeddahHolySites`, `TaifHolySites`)
+93:  - Batch B / `FE-REV-003` guide and holy-site content family
+94:  - Batch C / `FE-REV-005` lead-gen and partner pages
+95:  - Batch D / `FE-REV-004` protected account shell convergence
+96:  - Batch E / `FE-REV-006` compatibility cleanup
+98:  - `FE-REV-003` for `PreparationTips`, `TravelEssentials`, `UmrahGuide`, `MakkahHolySites`, `MadinahHolySites`, `JeddahHolySites`, and `TaifHolySites`
+111:  - `FE-REV-003`, `FE-REV-004`, `FE-REV-005`, and `FE-REV-006` remain open
+ succeeded in 50ms:
+# Bug and Improvement Backlog
+
+Use this backlog for prioritized follow-up work discovered during scans or implementation.
+
+| ID | Priority | Module | Summary | Status | Verification |
+| --- | --- | --- | --- | --- | --- |
+| MB-RESP-001 | High | Web booking flow | Unify `src/pages/UserSetting/MyApplication/Booking/booking.jsx` and `src/pages/UserSetting/MyApplication/Mobile/mobilebooking.jsx` around one shared responsive page owner; both files currently duplicate `useBookingLogic` and booking UI state. | Fixed | Verified by scoped eslint plus route tracing of `/package-booking`/`/bookings` -> `/payment-methods`; `mobilebooking.jsx` now resolves to the unified route owner. |
+| MB-RESP-002 | High | Wallet + operator response | Extract shared state modules for `Payment&Wallet` and `OperatorResponse` before deleting mobile files; both desktop/mobile pairs duplicate API fetches, modal state, and booking-status decisions. | Fixed | Verified by scoped eslint plus import tracing; `/payment-wallet-mobile` now redirects to `/payment-wallet`, and mobile wallet/operator-response files now resolve to the unified responsive owners. |
+| MB-RESP-003 | High | Wishlist + messages | Replace `window.innerWidth` routing in `Wishlist/index.jsx` and unify the separate desktop/mobile message trees; these surfaces still maintain duplicate local state and inconsistent route structure. | Fixed | Verified by scoped eslint and route tracing; `/messages-chat` now redirects into `/messages`, wishlist keeps `savedPackages` localStorage, and route owners no longer import mobile-only page trees. |
+| MB-RESP-004 | Medium | Flow wrappers | Collapse booking status, traveler details, and remaining payment around one responsive account shell; these pages already share feature hooks but still maintain breakpoint-specific wrappers and steppers. | Fixed | Verified by scoped eslint plus dependency tracing across `/booking-status` -> `/data-table` -> `/remaining-payment` -> `/operator-response`, preserving `booking_number` query/state handoff. |
+| MB-RESP-005 | Medium | Listing + Hajj Guidance + route aliases | Fold `ListingMobileScreen.jsx` and the inline Hajj Guidance mobile branch into single responsive page structures, then convert `/booking-page` and `/payment-wallet-mobile` into compatibility aliases to the unified routes. | Fixed | Verified by scoped eslint, import tracing, and route tracing; `ListingMobileScreen.jsx` is now a compatibility re-export, Hajj Guidance uses one responsive shell, and legacy alias routes now redirect to canonical pages. |
+| FE-REV-001 | High | Shared static page system | Consolidate the public static abstraction on top of `BrandPageShell` and homepage shell tokens so the data-driven public routes share one shell contract. | Verified | Revalidated in Phase 4 by import tracing across the static/public batch: `StaticContentPage.jsx` resolves through `BrandPageShell`, the scoped public route owners no longer import `Header` or `Footer` directly, and no placeholder route bodies remain in the policy/generic batch. |
+| FE-REV-002 | High | Public info and legal routes | Migrate `AboutUs`, `CoreValues`, `ComingSoon`, `FrequentlyAskedQuestions`, `TermsServices`, `PrivacyPolicy`, `PolicyPages`, and `GenericPages` onto the branded static/legal system while preserving route-driven behavior and legal copy intent. | Verified | Revalidated in Phase 4 by route tracing for the 10 public paths, content-key checks for `/refund-policy`, `/cancellation-policy`, `/Media`, and `/career`, parser-level JSX checks, and scoped eslint showing only the existing `caniuse-lite` age warning. |
+| FE-REV-003 | High | Guide and holy-site content family | Consolidate `PreparationTips`, `TravelEssentials`, `UmrahGuide`, `MakkahHolySites`, `MadinahHolySites`, `JeddahHolySites`, and `TaifHolySites` around reusable article and city-guide templates. These routes repeat the same hero, article, related-card, slider, and `AppDownload` structures. | Verified | Verified in Phase 4 of run `20260308-145701-full-enhance` with live route tracing for the 7 paths, wrapper/shared-module tracing, no-new-API-side-effect search returning no matches, parser validation across 12 touched files, and scoped eslint showing only the existing `caniuse-lite` age warning. |
+| FE-REV-004 | High | Protected account shell convergence | Move `bookingstatus.jsx`, `datatable.jsx`, `remainingPayment.jsx`, `operatorresponse.jsx`, `payment&wallet.jsx`, `messagePage.jsx`, and `wishlist.jsx` onto one responsive branded account shell while preserving the existing feature hooks and route-state handoff. | Open | Pending: route tracing across `/booking-status` -> `/data-table` -> `/remaining-payment` -> `/operator-response` plus `/messages` and `/wishlist`. |
+| FE-REV-005 | Medium | Lead-gen and partner pages | Align `VisaServices.jsx`, `ContactUs.jsx`, `HajjUmrahBusiness.jsx`, and `ListPackagePage.js` to the Huz design system and replace placeholder form behavior or isolated landing-page shells. `VisaServices.jsx` and `ContactUs.jsx` still submit to `console.log`, `HajjUmrahBusiness.jsx` ends with an inert CTA, and `ListPackagePage.js` remains outside the shared shell while deep-linking to `operator.hajjumrah.co`. | Open | Pending: preserve CTA destinations, keep outbound partner links intact where intentional, and confirm no new network side effects are introduced. |
+| FE-REV-006 | Medium | Compatibility cleanup | Remove or convert the remaining dead compatibility surfaces after canonical routes are stable, especially `src/pages/UserSetting/Mobile/Message/messagepageview.jsx`, `src/pages/PackageDetailPage/Mobile/components/invoice.jsx`, and the 9 current mobile re-export wrappers. | Open | Pending: `rg` consumer search, alias tracing for `/booking-page`, `/payment-wallet-mobile`, and `/messages-chat`, plus zero-consumer proof across the 11-file compatibility surface. |
+
+## 2026-03-08 - Phase 1 Planning Notes
+
+exec
+/bin/zsh -lc "sed -n '1,260p' docs/project-bot/runs/20260308-062131-full-enhance/RUN_SUMMARY.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "sed -n '1,260p' /Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "sed -n '1,260p' docs/project-bot/runs/20260308-145701-full-enhance/RUN_SUMMARY.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "sed -n '1,280p' docs/qa/DEEP_SCAN_REPORT.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'rg -n "FE-REV-00[3456]|next recommended|remaining execution order|lead-gen|protected account|cleanup" docs/qa/DEEP_SCAN_REPORT.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'rg -n "already revamped|BrandPageShell|PreparationTips|TravelEssentials|UmrahGuide|MakkahHolySites|VisaServices|ContactUs|HajjUmrahBusiness|ListPackagePage|bookingstatus|datatable|remainingPayment|operatorresponse|payment&wallet|messagePage|wishlist" /Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+# Huz Web Frontend Design System Guide
+### Shared Theme, Layout, and Page Construction Rules
+
+This document replaces the old homepage-only guide.
+
+It is now the source of truth for building and reviewing branded pages in `Huz-Web-Frontend`, including public marketing routes and protected traveller flows, especially:
+- Homepage
+- Listing
+- Package Detail
+- Booking
+- Payment
+- Auth
+- Profile
+
+The goal is simple:
+
+1. Every branded page must feel like the same product on desktop and mobile.
+2. Developers must stop building page-specific shells.
+3. Developers must stop creating separate desktop and mobile page designs for the same route.
+4. Header, background, spacing, promo blocks, and footer must come from one shared system.
+ succeeded in 51ms:
+# Run Summary
+
+- Run mode: `full-enhance`
+- Target project: `/Users/macbook/Desktop/Huz`
+- Workspace root: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz`
+- Scope level: `multi-panel-fe`
+- Scope: `all remaining unrevamped Huz-Web-Frontend pages, remaining site pages, account pages, and proven-safe cleanup`
+- Scope targets: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/all remaining unrevamped Huz-Web-Frontend pages`, `/Users/macbook/Desktop/Codex-Project-Bot-GUI/remaining site pages`, `/Users/macbook/Desktop/Codex-Project-Bot-GUI/account pages`, `/Users/macbook/Desktop/Codex-Project-Bot-GUI/and proven-safe cleanup`
+- Full-system required docs: `enabled`
+- Rule: append one section per completed phase. Do not overwrite prior phase sections.
+
+Expected section format:
+
+## Phase X - Title
+### Changes Made
+### How It Was Implemented
+### Files Touched
+### Verification
+
+## Phase 0 - Refresh Atlas and Inventory
+ succeeded in 50ms:
+207:| Operator response | `src/pages/UserSetting/OperatorResponse/operatorresponse.jsx` and `src/pages/UserSetting/OperatorResponse/Mobile/operatorresponse.jsx` each fetch bookings and each recompute payment/booking status logic. | `fetchBookingsByUser` only; no dedicated feature hook exists yet. | Needs extraction before JSX cleanup, otherwise desktop/mobile status logic will continue to drift. |
+210:| Messages | `/messages` points to `src/pages/UserSetting/Message/messagePage.jsx`, which renders desktop `message.jsx` and mobile `Mobile/Message/messagepageview.jsx`; `/messages-chat` points to `src/pages/UserSetting/Message/messagechat.jsx`. | No backend chat feature hook; current conversations are hard-coded UI state in desktop/mobile files. | This surface is structurally inconsistent even before responsive cleanup. Phase 1 should decide whether `/messages-chat` stays as a compatibility subroute or collapses into `/messages`. |
+282:  - Guide and holy-site article family (`FE-REV-003`)
+283:  - Lead-gen and partner pages (`FE-REV-005`)
+284:  - Protected account shell convergence (`FE-REV-004`)
+285:  - Compatibility cleanup (`FE-REV-006`) until the canonical public routes stabilize
+404:5. Listing, Hajj Guidance, and route cleanup last:
+413:- Checkpoint C: wishlist/messages plus listing/Hajj Guidance/alias cleanup (`MB-RESP-003`, `MB-RESP-005`).
+446:- Legacy compatibility re-export files remain intentionally in place for future cleanup once downstream imports are fully removed.
+499:- Compatibility cleanup is partly finished but not closed:
+517:5. Batch E - Compatibility and dead-code cleanup:
+560:- Execute Batch B / `FE-REV-003` next:
+588:  - Batch B / `FE-REV-003`: guide and holy-site content family
+589:  - Batch C / `FE-REV-005`: lead-gen and partner pages
+590:  - Batch D / `FE-REV-004`: protected account shell convergence
+591:  - Batch E / `FE-REV-006`: compatibility cleanup
+592:- Exact next recommended batch:
+593:  - `FE-REV-003` covering `PreparationTips`, `TravelEssentials`, `UmrahGuide`, `MakkahHolySites`, `MadinahHolySites`, `JeddahHolySites`, and `TaifHolySites`
+601:- Future runs can start from Batch B / `FE-REV-003` without rescanning the already-verified public/static batch.
+604:- Exact next recommended batch:
+ succeeded in 52ms:
+# Run Summary
+
+- Run mode: `full-enhance`
+- Target project: `/Users/macbook/Desktop/Huz`
+- Workspace root: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz`
+- Scope level: `multi-panel-fe`
+- Scope: `Huz-Web-Frontend remaining routes and shared page system`
+- Scope targets: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/Huz-Web-Frontend`, `/Users/macbook/Desktop/Codex-Project-Bot-GUI/public-marketing-pages`, `/Users/macbook/Desktop/Codex-Project-Bot-GUI/static-site-pages`, `/Users/macbook/Desktop/Codex-Project-Bot-GUI/auth-pages`, `/Users/macbook/Desktop/Codex-Project-Bot-GUI/protected-user-pages`, `/Users/macbook/Desktop/Codex-Project-Bot-GUI/shared-layout-system`
+- Full-system required docs: `enabled`
+- Rule: append one section per completed phase. Do not overwrite prior phase sections.
+
+Expected section format:
+
+## Phase X - Title
+### Changes Made
+### How It Was Implemented
+### Files Touched
+### Verification
+
+## Phase 0 - Refresh Atlas and Inventory
+ succeeded in 50ms:
+# Deep Scan Report
+
+Use this report for on-demand deep analysis of logic, structures, routes, contracts, and mismatch risks.
+
+## Findings
+
+### 2026-03-07 - Phase 0 Inventory Scope (`system-atlas`)
+
+#### Scope Scanned
+- `/Users/macbook/Desktop/Huz/Huz-Backend`
+- `/Users/macbook/Desktop/Huz/Huz-Web-Frontend`
+- `/Users/macbook/Desktop/Huz/Huz-Admin-Frontend`
+- `/Users/macbook/Desktop/Huz/Huz-Operator-Frontend`
+
+#### Module and Ownership Inventory
+- Backend platform (`Django 5`):
+  - `huz/` project config and root URL includes.
+  - `common/` user auth/profile, OTP, account/wallet primitives.
+  - `partners/` partner auth/profile, package lifecycle, partner wallet, website package listing endpoints.
+  - `booking/` user booking lifecycle, partner booking operations, DRF v1 booking routes.
+ succeeded in 50ms:
+28:- `Huz-Web-Frontend/src/shared/layout/BrandPageShell.jsx`
+46:- `Huz-Web-Frontend/src/pages/UserSetting/RemainingPayment/remainingPayment.jsx`
+47:- `Huz-Web-Frontend/src/pages/UserSetting/Payment&Wallet/payment&wallet.jsx`
+65:Instead, use `BrandPageShell`.
+115:<BrandPageShell
+126:</BrandPageShell>
+129:### 3.1 What `BrandPageShell` owns
+331:<BrandPageShell>
+335:</BrandPageShell>
+343:<BrandPageShell preFooter={<AppPromoSection />}>
+347:</BrandPageShell>
+355:<BrandPageShell
+363:</BrandPageShell>
+411:- desktop shell is still manually composed today and should converge to `BrandPageShell`
+416:- desktop shell is still manually composed today and should converge to `BrandPageShell`
+451:- `BrandPageShell`
+494:- It uses `BrandPageShell`
+513:1. start from `BrandPageShell`
+codex
+I’ve confirmed the current workspace memory is ahead of the stale phase prompt: `FE-REV-003` is already verified, so Phase 0 should pick `FE-REV-005`, not repeat the pilgrimage batch. I’m checking the live lead-gen route owners now and then I’ll write the Phase 0 handoff into the run docs, backlog, and scan report before closing the phase.
+exec
+/bin/zsh -lc "sed -n '1,220p' /Users/macbook/Desktop/Huz/UI_DESIGN_SYSTEM_GUIDE.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 51ms:
+# UI Design System Guide — Operator Panel
+### How the Package Module was redesigned — and how to apply it to other modules
+
+---
+
+## 1. Design Philosophy
+
+The goal was to move from a **functional-but-plain** interface to a **premium product feel** — the kind of UI that makes an operator feel they are using a well-crafted SaaS tool, not a generic form page.
+
+The three pillars used for every decision:
+
+| Pillar | What it means in practice |
+|---|---|
+| **Depth** | Cards should feel like they are floating. Use shadows, borders, and subtle gradients. |
+| **Hierarchy** | The most important element on the page must visually dominate. Titles, CTAs, and status indicators all have distinct visual weight. |
+| **Feedback** | Every interactive element must respond — hover, active, disabled states are never left blank. |
+
+---
+
+## 2. Color System
+exec
+/bin/zsh -lc "sed -n '1,260p' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "sed -n '1,260p' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ListPackagePage/ListPackagePage.js" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "sed -n '1,240p' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/VisaServices/VisaServices.jsx" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "sed -n '1,240p' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ContactUs/ContactUs.jsx" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "sed -n '1,260p' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HajjUmrahBusiness/HajjUmrahBusiness.jsx" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "ls -la docs/project-bot/runs/20260308-160042-fix-backlog && sed -n '1,220p' docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "rg -n 'path=\"/(visa-services|contact|hajjUmrah-partner|list-your-packages)\"|VisaServices|ContactUs|HajjUmrahBusiness|ListPackagePage' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/VisaServices/VisaServices.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ContactUs/ContactUs.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HajjUmrahBusiness/HajjUmrahBusiness.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ListPackagePage/ListPackagePage.js" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+import React, { lazy } from "react";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
+import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute";
+
+const HomePage = lazy(() => import("../pages/HomePage/HomePage"));
+const ListingPage = lazy(() => import("../pages/ListingPage/ListingPage"));
+const PackageDetailPage = lazy(() => import("../pages/PackageDetailPage/PackageDetailPage"));
+const PersonalDetailsPage = lazy(() => import("../pages/UserSetting/PersonalDetailsPage"));
+const ListPackagePage = lazy(() => import("../pages/ListPackagePage/ListPackagePage"));
+const SignUpPage = lazy(() => import("../pages/Signup/Signup"));
+const LoginPage = lazy(() => import("../pages/Login/Login"));
+const OtpPage = lazy(() => import("../pages/Otp/Otp"));
+const VisaServices = lazy(() => import("../pages/VisaServices/VisaServices"));
+const HajjGuidance = lazy(() => import("../pages/HajjGuidance/HajjGuidance"));
+const UmrahGuide = lazy(() => import("../pages/UmrahGuide/UmrahGuide"));
+const PreparationTips = lazy(() => import("../pages/PreparationTips/PreparationTips"));
+const TravelEssentials = lazy(() => import("../pages/TravelEssentials/TravelEssentials"));
+const MakkahHolySites = lazy(() => import("../pages/MakkahHolySites/MakkahHolySites"));
+const MadinahHolySites = lazy(() => import("../pages/MadinahHolySites/MadinahHolySites"));
+const JeddahHolySites = lazy(() => import("../pages/JeddahHolySites/JeddahHolySites"));
+ succeeded in 51ms:
+import React, { useEffect, useState } from "react";
+import logo from "../../assets/logoIcon.png";
+import { NavLink } from "react-router-dom";
+import tickLogo from "../../assets/listPackage/ticktLogo.svg";
+import satisfactionLogo from "../../assets/listPackage/satisfasction.svg";
+import digitalImg from "../../assets/listPackage/digital.svg";
+import expImg from "../../assets/listPackage/exp.svg";
+import Footer from "../../components/Footer/Footer";
+const ListPackagePage = () => {
+  const [text, setText] = useState("Umrah");
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setText((prev) => (prev === "Umrah" ? "Hajj" : "Umrah"));
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+  const features = [
+    {
+      title: "Peace of mind",
+      description:
+ succeeded in 51ms:
+import React, { useState } from "react";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
+import { motion } from "framer-motion";
+import {
+  FileText,
+  CreditCard,
+  Camera,
+  Phone,
+  Building,
+  Users,
+} from "lucide-react";
+
+const VisaServices = () => {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    email: "",
+    mobileNumber: "",
+  });
+
+ succeeded in 51ms:
+import React from 'react';
+import { motion } from 'framer-motion';
+import { ArrowLeft } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
+
+const HajjUmrahBusiness = () => {
+  const navigate = useNavigate();
+
+  const benefits = [
+    "Digital exposure to a global audience: Leverage our platform to showcase your packages to pilgrims from all around the world.",
+    "Easy package management: Our user-friendly interface makes it simple to upload and manage your travel packages.",
+    "Direct connection with potential clients: Interact directly with interested pilgrims, answer their queries, and build trust."
+  ];
+
+  const partnerBenefits = [
+    "Access to a large network of potential customers: Our platform attracts a diverse range of pilgrims actively seeking Hajj, Umrah, and Ziyarat packages.",
+    "Streamlined package management tools: Our intuitive tools help you efficiently manage your offerings, ensuring your packages are always up-to-date and appealing.",
+    "Enhanced visibility and credibility: A strong digital presence on Huz Partner enhances your agency's visibility and credibility, making it easier to attract and retain clients.",
+ succeeded in 51ms:
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { ArrowLeft } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
+
+const ContactUs = () => {
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    firstName: 'Aleena',
+    lastName: 'Ali',
+    email: 'aleenaali@gmail.com',
+    message: 'message....'
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+ succeeded in 52ms:
+total 64
+drwxr-xr-x@ 9 macbook  staff    288 Mar  8 16:00 .
+drwxr-xr-x@ 9 macbook  staff    288 Mar  8 16:00 ..
+-rw-r--r--@ 1 macbook  staff   1102 Mar  8 16:00 NEXT_PROMPT.md
+-rw-r--r--@ 1 macbook  staff   1988 Mar  8 16:00 README.md
+-rw-r--r--@ 1 macbook  staff    893 Mar  8 16:00 RUN_SUMMARY.md
+-rw-r--r--@ 1 macbook  staff   5664 Mar  8 16:00 TASK.md
+drwxr-xr-x@ 3 macbook  staff     96 Mar  8 16:00 logs
+drwxr-xr-x@ 6 macbook  staff    192 Mar  8 16:00 prompts
+-rw-r--r--@ 1 macbook  staff  10884 Mar  8 16:00 state.json
+# Run Summary
+
+- Run mode: `fix-backlog`
+- Target project: `/Users/macbook/Desktop/Huz`
+- Workspace root: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz`
+- Scope level: `multi-panel-fe`
+- Scope: `all remaining unrevamped Huz-Web-Frontend pages, remaining site pages, account pages, and proven-safe cleanup`
+- Scope targets: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/all remaining unrevamped Huz-Web-Frontend pages`, `/Users/macbook/Desktop/Codex-Project-Bot-GUI/remaining site pages`, `/Users/macbook/Desktop/Codex-Project-Bot-GUI/account pages`, `/Users/macbook/Desktop/Codex-Project-Bot-GUI/and proven-safe cleanup`
+- Full-system required docs: `enabled`
+- Rule: append one section per completed phase. Do not overwrite prior phase sections.
+ succeeded in 51ms:
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ListPackagePage/ListPackagePage.js:9:const ListPackagePage = () => {
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ListPackagePage/ListPackagePage.js:183:export default ListPackagePage;
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx:9:const ListPackagePage = lazy(() => import("../pages/ListPackagePage/ListPackagePage"));
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx:13:const VisaServices = lazy(() => import("../pages/VisaServices/VisaServices"));
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx:25:const HajjUmrahBusiness = lazy(() => import("../pages/HajjUmrahBusiness/HajjUmrahBusiness"));
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx:32:const ContactUs = lazy(() => import("../pages/ContactUs/ContactUs"));
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx:69:      <Route path="/visa-services" element={<VisaServices />} />
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx:81:      <Route path="/hajjUmrah-partner" element={<HajjUmrahBusiness />} />
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx:88:      <Route path="/contact" element={<ContactUs />} />
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx:133:        path="/list-your-packages"
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx:136:            <ListPackagePage />
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ContactUs/ContactUs.jsx:8:const ContactUs = () => {
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ContactUs/ContactUs.jsx:183:export default ContactUs;
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/VisaServices/VisaServices.jsx:14:const VisaServices = () => {
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/VisaServices/VisaServices.jsx:229:export default VisaServices;
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HajjUmrahBusiness/HajjUmrahBusiness.jsx:8:const HajjUmrahBusiness = () => {
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HajjUmrahBusiness/HajjUmrahBusiness.jsx:236:export default HajjUmrahBusiness;
+codex
+I’m at the write stage now. The Phase 0 outcome is clear: select `FE-REV-005` with a static-only verification plan, and document why the run prompt’s old `FE-REV-003` assumption is no longer valid.
+exec
+/bin/zsh -lc 'tail -n 80 docs/qa/BUG_BACKLOG.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'tail -n 120 docs/qa/DEEP_SCAN_REPORT.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+  - `UmrahGuide`
+  - `MakkahHolySites`
+  - `MadinahHolySites`
+  - `JeddahHolySites`
+  - `TaifHolySites`
+- Why this batch now:
+  - Fits the campaign contract at `7` route owners, staying within the `<= 8` bounded-batch cap.
+  - Carries low contract risk because these pages do not own active frontend API clients or backend data flows.
+  - Removes the largest remaining public duplication cluster before the higher-risk lead-gen and protected-shell batches.
+- Planned Phase 3 change set:
+  - Extend the existing shared public layer around `BrandPageShell`, homepage layout tokens, `AppPromoSection`, and the reusable primitives already exported from `src/features/staticPages/StaticContentPage.jsx`.
+  - Build one shared guide/article template for `PreparationTips`, `TravelEssentials`, and `UmrahGuide`, preserving back navigation, section pacing, long-form religious copy, Arabic/transliteration blocks, and related-article links.
+  - Build one shared holy-site city template for `MakkahHolySites`, `MadinahHolySites`, `JeddahHolySites`, and `TaifHolySites`, centralizing hero metadata, intro copy, card rendering, `react-slick` settings, and `AppPromoSection` placement.
+  - Converge `MakkahHolySites.jsx` onto the routed `CityNavbar` contract so all four city pages share real cross-city navigation instead of the current page-local tab state.
+  - Keep the current inert behavior of the city-card `Read More` buttons unless the same bounded batch also introduces explicit destinations and verification for them.
+- Explicitly deferred after this batch:
+  - `FE-REV-005` lead-gen and partner pages
+  - `FE-REV-004` protected account shell convergence
+  - `FE-REV-006` compatibility cleanup after the canonical route owners are stable
+- Planned Phase 3 verification:
+ succeeded in 51ms:
+- Reason for deferral:
+  - `FE-REV-005` requires product decisions around placeholder form submits and outbound partner CTA behavior
+  - `FE-REV-004` touches live account-state contracts and remains materially riskier than the public content family
+  - `FE-REV-006` depends on post-implementation consumer proof and should stay cleanup-only
+
+#### Verification
+- Revalidated the selected route set with:
+  - `rg -n 'path="/(Umrah-Guidance|browse-tips|travel-essential|makkah-holy-sites|madina-holy-sites|jeddah-holy-sites|taif-holy-sites)"' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx`
+- Revalidated the duplication seam with:
+  - `rg -n "^import |Header|Footer|AppPromoSection|relatedArticles|const holySites|const attractions|CityNavbar|Navbar|Slider|MAKKAH_HERO_BACKGROUND" /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/PreparationTips/PreparationTips.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/TravelEssentials/TravelEssentials.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/UmrahGuide/UmrahGuide.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/MakkahHolySites/MakkahHolySites.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/MadinahHolySites/MadinahHolySites.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/JeddahHolySites/JeddahHolySites.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/TaifHolySites/TaifHolySites.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HajjGuidance/HajjGuidance.jsx`
+- Revalidated the shared-system landing spots with:
+  - `rg --files /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/features/staticPages /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/shared/sections /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/shared/assets`
+  - direct reads of `src/features/staticPages/StaticContentPage.jsx`, `src/components/CityNavbar/CityNavbar.jsx`, and `src/shared/assets/publicAssetCatalog.js`
+- Revalidated batch size with:
+  - `wc -l /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/PreparationTips/PreparationTips.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/TravelEssentials/TravelEssentials.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/UmrahGuide/UmrahGuide.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/MakkahHolySites/MakkahHolySites.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/MadinahHolySites/MadinahHolySites.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/JeddahHolySites/JeddahHolySites.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/TaifHolySites/TaifHolySites.jsx`
+- No build was run. No `npm install` was run. No lockfiles were modified. No target-project code was changed in this phase.
+
+### 2026-03-08 - Phase 3 Implement Guide and Holy-Site Batch (`full-enhance`, run `20260308-145701-full-enhance`)
+
+#### Scope Changed
+codex
+I’m appending the Phase 0 handoff now. This is docs-only: backlog selection, selection rationale, implementation boundaries, and verification plan for the next phase.
+2026-03-08T11:03:41.872399Z  WARN codex_core::state_db: state db apply_rollout_items failed during rollout_writer for /Users/macbook/.codex/sessions/2026/03/08/rollout-2026-03-08T16-00-43-019ccd1b-477c-7093-a823-e6d3e1962081.jsonl: error returned from database: (code: 5) database is locked
+2026-03-08T11:03:41.874198Z  WARN sqlx::query: slow statement: execution time exceeded alert threshold summary="INSERT INTO threads ( …" db.statement="\n\n\nINSERT INTO threads (\n    id,\n    rollout_path,\n    created_at,\n    updated_at,\n    source,\n    agent_nickname,\n    agent_role,\n    model_provider,\n    cwd,\n    cli_version,\n    title,\n    sandbox_policy,\n    approval_mode,\n    tokens_used,\n    first_user_message,\n    archived,\n    archived_at,\n    git_sha,\n    git_branch,\n    git_origin_url,\n    memory_mode\n) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\nON CONFLICT(id) DO UPDATE SET\n    rollout_path = excluded.rollout_path,\n    created_at = excluded.created_at,\n    updated_at = excluded.updated_at,\n    source = excluded.source,\n    agent_nickname = excluded.agent_nickname,\n    agent_role = excluded.agent_role,\n    model_provider = excluded.model_provider,\n    cwd = excluded.cwd,\n    cli_version = excluded.cli_version,\n    title = excluded.title,\n    sandbox_policy = excluded.sandbox_policy,\n    approval_mode = excluded.approval_mode,\n    tokens_used = excluded.tokens_used,\n    first_user_message = excluded.first_user_message,\n    archived = excluded.archived,\n    archived_at = excluded.archived_at,\n    git_sha = excluded.git_sha,\n    git_branch = excluded.git_branch,\n    git_origin_url = excluded.git_origin_url\n            \n" rows_affected=0 rows_returned=0 elapsed=5.36903275s elapsed_secs=5.36903275 slow_threshold=1s
+2026-03-08T11:03:47.174554Z  WARN sqlx::query: slow statement: execution time exceeded alert threshold summary="INSERT INTO threads ( …" db.statement="\n\n\nINSERT INTO threads (\n    id,\n    rollout_path,\n    created_at,\n    updated_at,\n    source,\n    agent_nickname,\n    agent_role,\n    model_provider,\n    cwd,\n    cli_version,\n    title,\n    sandbox_policy,\n    approval_mode,\n    tokens_used,\n    first_user_message,\n    archived,\n    archived_at,\n    git_sha,\n    git_branch,\n    git_origin_url,\n    memory_mode\n) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\nON CONFLICT(id) DO UPDATE SET\n    rollout_path = excluded.rollout_path,\n    created_at = excluded.created_at,\n    updated_at = excluded.updated_at,\n    source = excluded.source,\n    agent_nickname = excluded.agent_nickname,\n    agent_role = excluded.agent_role,\n    model_provider = excluded.model_provider,\n    cwd = excluded.cwd,\n    cli_version = excluded.cli_version,\n    title = excluded.title,\n    sandbox_policy = excluded.sandbox_policy,\n    approval_mode = excluded.approval_mode,\n    tokens_used = excluded.tokens_used,\n    first_user_message = excluded.first_user_message,\n    archived = excluded.archived,\n    archived_at = excluded.archived_at,\n    git_sha = excluded.git_sha,\n    git_branch = excluded.git_branch,\n    git_origin_url = excluded.git_origin_url\n            \n" rows_affected=0 rows_returned=0 elapsed=5.24688075s elapsed_secs=5.24688075 slow_threshold=1s
+2026-03-08T11:03:47.177890Z  WARN codex_core::state_db: state db apply_rollout_items failed during rollout_writer for /Users/macbook/.codex/sessions/2026/03/08/rollout-2026-03-08T16-00-43-019ccd1b-477c-7093-a823-e6d3e1962081.jsonl: error returned from database: (code: 5) database is locked
+file update
+M /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
+@@ -907 +907,55 @@
+ - No build was run. No `npm install` was run. No lockfiles were modified.
++
++### 2026-03-08 - Phase 0 Select Backlog Target (`fix-backlog`, run `20260308-160042-fix-backlog`)
++
++#### Scope Scanned
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/state.json`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/prompts/phase-00.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-062131-full-enhance/RUN_SUMMARY.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-145701-full-enhance/RUN_SUMMARY.md`
++- `/Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md`
++- `/Users/macbook/Desktop/Huz/UI_DESIGN_SYSTEM_GUIDE.md`
++- `Huz-Web-Frontend/src/routes/AppRoutes.jsx`
++- `Huz-Web-Frontend/src/pages/VisaServices/VisaServices.jsx`
++- `Huz-Web-Frontend/src/pages/ContactUs/ContactUs.jsx`
++- `Huz-Web-Frontend/src/pages/HajjUmrahBusiness/HajjUmrahBusiness.jsx`
++- `Huz-Web-Frontend/src/pages/ListPackagePage/ListPackagePage.js`
++
++#### Selection Findings
++- `FE-REV-003` is already implemented and verified in run `20260308-145701-full-enhance`, so selecting it again would repeat completed work.
++- The next real execution-order batch is `FE-REV-005` for the 4 remaining lead-gen and partner pages:
++  - `VisaServices`
++  - `ContactUs`
++  - `HajjUmrahBusiness`
++  - `ListPackagePage`
++- All 4 selected route owners still remain outside the shared branded page system:
++  - `VisaServices.jsx` imports `Header` and `Footer` directly and still submits to `console.log`
++  - `ContactUs.jsx` imports `Header` and `Footer` directly and still submits to `console.log`
++  - `HajjUmrahBusiness.jsx` imports `Header` and `Footer` directly and still ends with an inert `Get Started` button
++  - `ListPackagePage.js` keeps a bespoke protected marketing shell and direct `https://operator.hajjumrah.co/` anchors instead of the shared page system
++- These 4 routes are structurally safer than `FE-REV-004` because they do not own the active booking/wallet/account route-state contracts preserved by the protected convergence batch.
++- Remaining ordered work after this selection stays:
++  - `FE-REV-005`
++  - `FE-REV-004`
++  - `FE-REV-006`
++
++#### Exact Phase 1 Target
++- Execute `FE-REV-005` next:
++  - migrate `VisaServices`, `ContactUs`, `HajjUmrahBusiness`, and `ListPackagePage` onto the shared Huz branded system
++  - preserve the existing route paths and protected status for `/list-your-packages`
++  - preserve intentional outbound `operator.hajjumrah.co` destinations
++  - avoid silently introducing new backend/network behavior while replacing placeholder submit UX
++
++#### Required Verification
++- Route tracing:
++  - `rg -n 'path="/(visa-services|contact|hajjUmrah-partner|list-your-packages)"' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx`
++- Manual-shell and placeholder-behavior tracing:
++  - `rg -n 'import Header|import Footer|console\.log|operator\.hajjumrah\.co|Get Started' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/VisaServices/VisaServices.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ContactUs/ContactUs.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HajjUmrahBusiness/HajjUmrahBusiness.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ListPackagePage/ListPackagePage.js`
++- Shared-system alignment:
++  - re-read `BrandPageShell` rules from `HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md`
++  - preserve the public-route shell rhythm from the homepage/layout token contract
++- Static-only validation budget:
++  - parser validation and scoped eslint on touched files only
++  - no build, no `npm install`, and no lockfile changes
+M /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md
+@@ -18 +18,23 @@
+ ### Verification
++
++## Phase 0 - Select Backlog Target
++### Changes Made
++- Read the required fix-backlog context, revalidated the current workspace memory against the live Huz web frontend lead-gen routes, and selected the next real backlog batch for this run.
++- Recorded the corrected batch decision in the workspace backlog and deep-scan docs: `FE-REV-005` for `VisaServices`, `ContactUs`, `HajjUmrahBusiness`, and `ListPackagePage`.
++- Left target-project code untouched in Phase 0; this phase only updated workspace memory for the upcoming implementation step.
++
++### How It Was Implemented
++- Read the run state/prompt, project-bot config, operator profile, atlas docs, backlog, deep-scan report, Huz design guides, and the prior completed run summaries before selecting a target.
++- Revalidated that `FE-REV-003` is already verified in run `20260308-145701-full-enhance`, so the run prompt's first execution slot is stale and should not be repeated.
++- Inspected the live route declarations plus the 4 remaining lead-gen page owners to confirm they still use manual shells or placeholder behaviors, then documented the scope constraints and static-only verification plan for `FE-REV-005`.
++
++### Files Touched
++- `docs/qa/BUG_BACKLOG.md`
++- `docs/qa/DEEP_SCAN_REPORT.md`
++- `docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md`
++
++### Verification
++- `rg -n "FE-REV-003|FE-REV-005|20260308-145701-full-enhance" /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-145701-full-enhance/RUN_SUMMARY.md`
++- `rg -n 'path="/(visa-services|contact|hajjUmrah-partner|list-your-packages)"' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx`
++- `rg -n "import Header|import Footer|console\\.log|operator\\.hajjumrah\\.co|Get Started" /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/VisaServices/VisaServices.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ContactUs/ContactUs.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HajjUmrahBusiness/HajjUmrahBusiness.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ListPackagePage/ListPackagePage.js`
++- No build was run. No `npm install` was run. No lockfiles were modified. No target-project code was changed in this phase.
+M /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md
+@@ -314 +314,31 @@
+   - no build was run, no `npm install` was run, and no lockfiles were modified
++
++## 2026-03-08 - Phase 0 Selection Notes (`fix-backlog`, run `20260308-160042-fix-backlog`)
++
++- Re-read the backlog, atlas docs, design guides, and the completed run `20260308-145701-full-enhance`, then rechecked the live route owners in `Huz-Web-Frontend`.
++- Confirmed the stale Phase 0 prompt still lists `FE-REV-003` first, but that batch is already verified and should not be repeated in this run.
++- Selected the exact next bounded implementation batch for this run:
++  - `FE-REV-005` lead-gen and partner pages
++  - `VisaServices`
++  - `ContactUs`
++  - `HajjUmrahBusiness`
++  - `ListPackagePage`
++- Why this batch now:
++  - next execution-order batch after the verified `FE-REV-003` family
++  - bounded to 4 route owners
++  - all 4 pages still sit outside the shared `BrandPageShell` system or still depend on placeholder CTA/form behavior
++  - it finishes the remaining public-facing revamp work before the higher-risk protected-account and cleanup phases
++- Phase 1 implementation constraints for `FE-REV-005`:
++  - keep route paths `/visa-services`, `/contact`, `/hajjUmrah-partner`, and protected `/list-your-packages` unchanged
++  - preserve intentional outbound `https://operator.hajjumrah.co/` destinations in `ListPackagePage.js`
++  - treat the `HajjUmrahBusiness.jsx` "Get Started" action as an explicit flow decision, not a visual-only placeholder
++  - replace the current `console.log` submit behavior in `VisaServices.jsx` and `ContactUs.jsx` only with intentional frontend UX unless a later phase explicitly adds a real backend contract
++- Deferred after this batch:
++  - `FE-REV-004` protected account shell convergence
++  - `FE-REV-006` compatibility cleanup
++- Planned Phase 1 verification:
++  - route tracing for `/visa-services`, `/contact`, `/hajjUmrah-partner`, and `/list-your-packages`
++  - shell tracing for `BrandPageShell`, `Header`, and `Footer` usage in the 4 selected route owners
++  - placeholder-behavior tracing for `console.log`, `operator.hajjumrah.co`, and the current CTA labels
++  - parser validation plus scoped eslint on touched files only
++  - no build, no `npm install`, and no lockfile changes
+apply_patch(auto_approved=true) exited 0 in 42ms:
+Success. Updated the following files:
+M /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md
+M /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
+M /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md
+index 0618d5e1892ef95715b12012aded37b543fbc3a0..ee1126dee6c0aaeeb58de834d3e1e064c864f698
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md
+@@ -16,3 +16,25 @@
+ ### How It Was Implemented
+ ### Files Touched
+ ### Verification
++
++## Phase 0 - Select Backlog Target
++### Changes Made
++- Read the required fix-backlog context, revalidated the current workspace memory against the live Huz web frontend lead-gen routes, and selected the next real backlog batch for this run.
++- Recorded the corrected batch decision in the workspace backlog and deep-scan docs: `FE-REV-005` for `VisaServices`, `ContactUs`, `HajjUmrahBusiness`, and `ListPackagePage`.
++- Left target-project code untouched in Phase 0; this phase only updated workspace memory for the upcoming implementation step.
++
++### How It Was Implemented
++- Read the run state/prompt, project-bot config, operator profile, atlas docs, backlog, deep-scan report, Huz design guides, and the prior completed run summaries before selecting a target.
++- Revalidated that `FE-REV-003` is already verified in run `20260308-145701-full-enhance`, so the run prompt's first execution slot is stale and should not be repeated.
++- Inspected the live route declarations plus the 4 remaining lead-gen page owners to confirm they still use manual shells or placeholder behaviors, then documented the scope constraints and static-only verification plan for `FE-REV-005`.
++
++### Files Touched
++- `docs/qa/BUG_BACKLOG.md`
++- `docs/qa/DEEP_SCAN_REPORT.md`
++- `docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md`
++
++### Verification
++- `rg -n "FE-REV-003|FE-REV-005|20260308-145701-full-enhance" /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-145701-full-enhance/RUN_SUMMARY.md`
++- `rg -n 'path="/(visa-services|contact|hajjUmrah-partner|list-your-packages)"' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx`
++- `rg -n "import Header|import Footer|console\\.log|operator\\.hajjumrah\\.co|Get Started" /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/VisaServices/VisaServices.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ContactUs/ContactUs.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HajjUmrahBusiness/HajjUmrahBusiness.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ListPackagePage/ListPackagePage.js`
++- No build was run. No `npm install` was run. No lockfiles were modified. No target-project code was changed in this phase.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md
+index e6dcfd503b4c60f2e6786fa48c6d59e185ff8414..294dd1abcb6cef99ba39dfdee4927d06b44c919f
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md
+@@ -312,3 +312,33 @@
+   - atlas last-refreshed markers now point at Phase 5 for run `20260308-145701-full-enhance`
+   - backlog, deep scan report, change map, and run summary now all preserve `FE-REV-005` as the exact next batch
+   - no build was run, no `npm install` was run, and no lockfiles were modified
++
++## 2026-03-08 - Phase 0 Selection Notes (`fix-backlog`, run `20260308-160042-fix-backlog`)
++
++- Re-read the backlog, atlas docs, design guides, and the completed run `20260308-145701-full-enhance`, then rechecked the live route owners in `Huz-Web-Frontend`.
++- Confirmed the stale Phase 0 prompt still lists `FE-REV-003` first, but that batch is already verified and should not be repeated in this run.
++- Selected the exact next bounded implementation batch for this run:
++  - `FE-REV-005` lead-gen and partner pages
++  - `VisaServices`
++  - `ContactUs`
++  - `HajjUmrahBusiness`
++  - `ListPackagePage`
++- Why this batch now:
++  - next execution-order batch after the verified `FE-REV-003` family
++  - bounded to 4 route owners
++  - all 4 pages still sit outside the shared `BrandPageShell` system or still depend on placeholder CTA/form behavior
++  - it finishes the remaining public-facing revamp work before the higher-risk protected-account and cleanup phases
++- Phase 1 implementation constraints for `FE-REV-005`:
++  - keep route paths `/visa-services`, `/contact`, `/hajjUmrah-partner`, and protected `/list-your-packages` unchanged
++  - preserve intentional outbound `https://operator.hajjumrah.co/` destinations in `ListPackagePage.js`
++  - treat the `HajjUmrahBusiness.jsx` "Get Started" action as an explicit flow decision, not a visual-only placeholder
++  - replace the current `console.log` submit behavior in `VisaServices.jsx` and `ContactUs.jsx` only with intentional frontend UX unless a later phase explicitly adds a real backend contract
++- Deferred after this batch:
++  - `FE-REV-004` protected account shell convergence
++  - `FE-REV-006` compatibility cleanup
++- Planned Phase 1 verification:
++  - route tracing for `/visa-services`, `/contact`, `/hajjUmrah-partner`, and `/list-your-packages`
++  - shell tracing for `BrandPageShell`, `Header`, and `Footer` usage in the 4 selected route owners
++  - placeholder-behavior tracing for `console.log`, `operator.hajjumrah.co`, and the current CTA labels
++  - parser validation plus scoped eslint on touched files only
++  - no build, no `npm install`, and no lockfile changes
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
+index fb9778ba2ec6fe99f2be6ec461a2dce338dd5e08..05cb4d2a39dd5398b88faa83e78e0799b8ce3d0e
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
+@@ -905,3 +905,57 @@
+   - `rg -n 'Last refreshed: 2026-03-08 \(Phase 5 - Finalize Docs and Summary, full-enhance run \`20260308-145701-full-enhance\`\)\.' /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/PROJECT_BLUEPRINT.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/MODULE_MAP.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/ROUTES_AND_ENTRYPOINTS.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/API_SURFACE.md`
+   - `rg -n "FE-REV-005|VisaServices|ContactUs|HajjUmrahBusiness|ListPackagePage|20260308-145701-full-enhance" /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/CHANGE_MAP.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-145701-full-enhance/RUN_SUMMARY.md`
+ - No build was run. No `npm install` was run. No lockfiles were modified.
++
++### 2026-03-08 - Phase 0 Select Backlog Target (`fix-backlog`, run `20260308-160042-fix-backlog`)
++
++#### Scope Scanned
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/state.json`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/prompts/phase-00.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-062131-full-enhance/RUN_SUMMARY.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-145701-full-enhance/RUN_SUMMARY.md`
++- `/Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md`
++- `/Users/macbook/Desktop/Huz/UI_DESIGN_SYSTEM_GUIDE.md`
++- `Huz-Web-Frontend/src/routes/AppRoutes.jsx`
++- `Huz-Web-Frontend/src/pages/VisaServices/VisaServices.jsx`
++- `Huz-Web-Frontend/src/pages/ContactUs/ContactUs.jsx`
++- `Huz-Web-Frontend/src/pages/HajjUmrahBusiness/HajjUmrahBusiness.jsx`
++- `Huz-Web-Frontend/src/pages/ListPackagePage/ListPackagePage.js`
++
++#### Selection Findings
++- `FE-REV-003` is already implemented and verified in run `20260308-145701-full-enhance`, so selecting it again would repeat completed work.
++- The next real execution-order batch is `FE-REV-005` for the 4 remaining lead-gen and partner pages:
++  - `VisaServices`
++  - `ContactUs`
++  - `HajjUmrahBusiness`
++  - `ListPackagePage`
++- All 4 selected route owners still remain outside the shared branded page system:
++  - `VisaServices.jsx` imports `Header` and `Footer` directly and still submits to `console.log`
++  - `ContactUs.jsx` imports `Header` and `Footer` directly and still submits to `console.log`
++  - `HajjUmrahBusiness.jsx` imports `Header` and `Footer` directly and still ends with an inert `Get Started` button
++  - `ListPackagePage.js` keeps a bespoke protected marketing shell and direct `https://operator.hajjumrah.co/` anchors instead of the shared page system
++- These 4 routes are structurally safer than `FE-REV-004` because they do not own the active booking/wallet/account route-state contracts preserved by the protected convergence batch.
++- Remaining ordered work after this selection stays:
++  - `FE-REV-005`
++  - `FE-REV-004`
++  - `FE-REV-006`
++
++#### Exact Phase 1 Target
++- Execute `FE-REV-005` next:
++  - migrate `VisaServices`, `ContactUs`, `HajjUmrahBusiness`, and `ListPackagePage` onto the shared Huz branded system
++  - preserve the existing route paths and protected status for `/list-your-packages`
++  - preserve intentional outbound `operator.hajjumrah.co` destinations
++  - avoid silently introducing new backend/network behavior while replacing placeholder submit UX
++
++#### Required Verification
++- Route tracing:
++  - `rg -n 'path="/(visa-services|contact|hajjUmrah-partner|list-your-packages)"' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx`
++- Manual-shell and placeholder-behavior tracing:
++  - `rg -n 'import Header|import Footer|console\.log|operator\.hajjumrah\.co|Get Started' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/VisaServices/VisaServices.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ContactUs/ContactUs.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HajjUmrahBusiness/HajjUmrahBusiness.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ListPackagePage/ListPackagePage.js`
++- Shared-system alignment:
++  - re-read `BrandPageShell` rules from `HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md`
++  - preserve the public-route shell rhythm from the homepage/layout token contract
++- Static-only validation budget:
++  - parser validation and scoped eslint on touched files only
++  - no build, no `npm install`, and no lockfile changes
+
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md
+index 0618d5e1892ef95715b12012aded37b543fbc3a0..ee1126dee6c0aaeeb58de834d3e1e064c864f698
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md
+@@ -16,3 +16,25 @@
+ ### How It Was Implemented
+ ### Files Touched
+ ### Verification
++
++## Phase 0 - Select Backlog Target
++### Changes Made
++- Read the required fix-backlog context, revalidated the current workspace memory against the live Huz web frontend lead-gen routes, and selected the next real backlog batch for this run.
++- Recorded the corrected batch decision in the workspace backlog and deep-scan docs: `FE-REV-005` for `VisaServices`, `ContactUs`, `HajjUmrahBusiness`, and `ListPackagePage`.
++- Left target-project code untouched in Phase 0; this phase only updated workspace memory for the upcoming implementation step.
++
++### How It Was Implemented
++- Read the run state/prompt, project-bot config, operator profile, atlas docs, backlog, deep-scan report, Huz design guides, and the prior completed run summaries before selecting a target.
++- Revalidated that `FE-REV-003` is already verified in run `20260308-145701-full-enhance`, so the run prompt's first execution slot is stale and should not be repeated.
++- Inspected the live route declarations plus the 4 remaining lead-gen page owners to confirm they still use manual shells or placeholder behaviors, then documented the scope constraints and static-only verification plan for `FE-REV-005`.
++
++### Files Touched
++- `docs/qa/BUG_BACKLOG.md`
++- `docs/qa/DEEP_SCAN_REPORT.md`
++- `docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md`
++
++### Verification
++- `rg -n "FE-REV-003|FE-REV-005|20260308-145701-full-enhance" /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-145701-full-enhance/RUN_SUMMARY.md`
++- `rg -n 'path="/(visa-services|contact|hajjUmrah-partner|list-your-packages)"' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx`
++- `rg -n "import Header|import Footer|console\\.log|operator\\.hajjumrah\\.co|Get Started" /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/VisaServices/VisaServices.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ContactUs/ContactUs.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HajjUmrahBusiness/HajjUmrahBusiness.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ListPackagePage/ListPackagePage.js`
++- No build was run. No `npm install` was run. No lockfiles were modified. No target-project code was changed in this phase.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md
+index e6dcfd503b4c60f2e6786fa48c6d59e185ff8414..294dd1abcb6cef99ba39dfdee4927d06b44c919f
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md
+@@ -312,3 +312,33 @@
+   - atlas last-refreshed markers now point at Phase 5 for run `20260308-145701-full-enhance`
+   - backlog, deep scan report, change map, and run summary now all preserve `FE-REV-005` as the exact next batch
+   - no build was run, no `npm install` was run, and no lockfiles were modified
++
++## 2026-03-08 - Phase 0 Selection Notes (`fix-backlog`, run `20260308-160042-fix-backlog`)
++
++- Re-read the backlog, atlas docs, design guides, and the completed run `20260308-145701-full-enhance`, then rechecked the live route owners in `Huz-Web-Frontend`.
++- Confirmed the stale Phase 0 prompt still lists `FE-REV-003` first, but that batch is already verified and should not be repeated in this run.
++- Selected the exact next bounded implementation batch for this run:
++  - `FE-REV-005` lead-gen and partner pages
++  - `VisaServices`
++  - `ContactUs`
++  - `HajjUmrahBusiness`
++  - `ListPackagePage`
++- Why this batch now:
++  - next execution-order batch after the verified `FE-REV-003` family
++  - bounded to 4 route owners
++  - all 4 pages still sit outside the shared `BrandPageShell` system or still depend on placeholder CTA/form behavior
++  - it finishes the remaining public-facing revamp work before the higher-risk protected-account and cleanup phases
++- Phase 1 implementation constraints for `FE-REV-005`:
++  - keep route paths `/visa-services`, `/contact`, `/hajjUmrah-partner`, and protected `/list-your-packages` unchanged
++  - preserve intentional outbound `https://operator.hajjumrah.co/` destinations in `ListPackagePage.js`
++  - treat the `HajjUmrahBusiness.jsx` "Get Started" action as an explicit flow decision, not a visual-only placeholder
++  - replace the current `console.log` submit behavior in `VisaServices.jsx` and `ContactUs.jsx` only with intentional frontend UX unless a later phase explicitly adds a real backend contract
++- Deferred after this batch:
++  - `FE-REV-004` protected account shell convergence
++  - `FE-REV-006` compatibility cleanup
++- Planned Phase 1 verification:
++  - route tracing for `/visa-services`, `/contact`, `/hajjUmrah-partner`, and `/list-your-packages`
++  - shell tracing for `BrandPageShell`, `Header`, and `Footer` usage in the 4 selected route owners
++  - placeholder-behavior tracing for `console.log`, `operator.hajjumrah.co`, and the current CTA labels
++  - parser validation plus scoped eslint on touched files only
++  - no build, no `npm install`, and no lockfile changes
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
+index fb9778ba2ec6fe99f2be6ec461a2dce338dd5e08..05cb4d2a39dd5398b88faa83e78e0799b8ce3d0e
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
+@@ -905,3 +905,57 @@
+   - `rg -n 'Last refreshed: 2026-03-08 \(Phase 5 - Finalize Docs and Summary, full-enhance run \`20260308-145701-full-enhance\`\)\.' /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/PROJECT_BLUEPRINT.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/MODULE_MAP.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/ROUTES_AND_ENTRYPOINTS.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/API_SURFACE.md`
+   - `rg -n "FE-REV-005|VisaServices|ContactUs|HajjUmrahBusiness|ListPackagePage|20260308-145701-full-enhance" /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/CHANGE_MAP.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-145701-full-enhance/RUN_SUMMARY.md`
+ - No build was run. No `npm install` was run. No lockfiles were modified.
++
++### 2026-03-08 - Phase 0 Select Backlog Target (`fix-backlog`, run `20260308-160042-fix-backlog`)
++
++#### Scope Scanned
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/state.json`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/prompts/phase-00.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-062131-full-enhance/RUN_SUMMARY.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-145701-full-enhance/RUN_SUMMARY.md`
++- `/Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md`
++- `/Users/macbook/Desktop/Huz/UI_DESIGN_SYSTEM_GUIDE.md`
++- `Huz-Web-Frontend/src/routes/AppRoutes.jsx`
++- `Huz-Web-Frontend/src/pages/VisaServices/VisaServices.jsx`
++- `Huz-Web-Frontend/src/pages/ContactUs/ContactUs.jsx`
++- `Huz-Web-Frontend/src/pages/HajjUmrahBusiness/HajjUmrahBusiness.jsx`
++- `Huz-Web-Frontend/src/pages/ListPackagePage/ListPackagePage.js`
++
++#### Selection Findings
++- `FE-REV-003` is already implemented and verified in run `20260308-145701-full-enhance`, so selecting it again would repeat completed work.
++- The next real execution-order batch is `FE-REV-005` for the 4 remaining lead-gen and partner pages:
++  - `VisaServices`
++  - `ContactUs`
++  - `HajjUmrahBusiness`
++  - `ListPackagePage`
++- All 4 selected route owners still remain outside the shared branded page system:
++  - `VisaServices.jsx` imports `Header` and `Footer` directly and still submits to `console.log`
++  - `ContactUs.jsx` imports `Header` and `Footer` directly and still submits to `console.log`
++  - `HajjUmrahBusiness.jsx` imports `Header` and `Footer` directly and still ends with an inert `Get Started` button
++  - `ListPackagePage.js` keeps a bespoke protected marketing shell and direct `https://operator.hajjumrah.co/` anchors instead of the shared page system
++- These 4 routes are structurally safer than `FE-REV-004` because they do not own the active booking/wallet/account route-state contracts preserved by the protected convergence batch.
++- Remaining ordered work after this selection stays:
++  - `FE-REV-005`
++  - `FE-REV-004`
++  - `FE-REV-006`
++
++#### Exact Phase 1 Target
++- Execute `FE-REV-005` next:
++  - migrate `VisaServices`, `ContactUs`, `HajjUmrahBusiness`, and `ListPackagePage` onto the shared Huz branded system
++  - preserve the existing route paths and protected status for `/list-your-packages`
++  - preserve intentional outbound `operator.hajjumrah.co` destinations
++  - avoid silently introducing new backend/network behavior while replacing placeholder submit UX
++
++#### Required Verification
++- Route tracing:
++  - `rg -n 'path="/(visa-services|contact|hajjUmrah-partner|list-your-packages)"' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx`
++- Manual-shell and placeholder-behavior tracing:
++  - `rg -n 'import Header|import Footer|console\.log|operator\.hajjumrah\.co|Get Started' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/VisaServices/VisaServices.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ContactUs/ContactUs.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HajjUmrahBusiness/HajjUmrahBusiness.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ListPackagePage/ListPackagePage.js`
++- Shared-system alignment:
++  - re-read `BrandPageShell` rules from `HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md`
++  - preserve the public-route shell rhythm from the homepage/layout token contract
++- Static-only validation budget:
++  - parser validation and scoped eslint on touched files only
++  - no build, no `npm install`, and no lockfile changes
+
+codex
+The Phase 0 notes are in place. I’m doing a quick consistency check across the edited docs, then I’ll mark Phase 0 complete, generate the next prompt, and print it.
+exec
+/bin/zsh -lc 'tail -n 60 docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'rg -n "fix-backlog`, run `20260308-160042-fix-backlog|FE-REV-005|Select Backlog Target|Phase 0 - Select Backlog Target" docs/qa/BUG_BACKLOG.md docs/qa/DEEP_SCAN_REPORT.md docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 51ms:
+# Run Summary
+
+- Run mode: `fix-backlog`
+- Target project: `/Users/macbook/Desktop/Huz`
+- Workspace root: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz`
+- Scope level: `multi-panel-fe`
+- Scope: `all remaining unrevamped Huz-Web-Frontend pages, remaining site pages, account pages, and proven-safe cleanup`
+- Scope targets: `/Users/macbook/Desktop/Codex-Project-Bot-GUI/all remaining unrevamped Huz-Web-Frontend pages`, `/Users/macbook/Desktop/Codex-Project-Bot-GUI/remaining site pages`, `/Users/macbook/Desktop/Codex-Project-Bot-GUI/account pages`, `/Users/macbook/Desktop/Codex-Project-Bot-GUI/and proven-safe cleanup`
+- Full-system required docs: `enabled`
+- Rule: append one section per completed phase. Do not overwrite prior phase sections.
+
+Expected section format:
+
+## Phase X - Title
+### Changes Made
+### How It Was Implemented
+### Files Touched
+### Verification
+
+## Phase 0 - Select Backlog Target
+ succeeded in 51ms:
+zsh:1: command not found: ,
+docs/qa/BUG_BACKLOG.md:16:| FE-REV-005 | Medium | Lead-gen and partner pages | Align `VisaServices.jsx`, `ContactUs.jsx`, `HajjUmrahBusiness.jsx`, and `ListPackagePage.js` to the Huz design system and replace placeholder form behavior or isolated landing-page shells. `VisaServices.jsx` and `ContactUs.jsx` still submit to `console.log`, `HajjUmrahBusiness.jsx` ends with an inert CTA, and `ListPackagePage.js` remains outside the shared shell while deep-linking to `operator.hajjumrah.co`. | Open | Pending: preserve CTA destinations, keep outbound partner links intact where intentional, and confirm no new network side effects are introduced. |
+docs/qa/BUG_BACKLOG.md:59:  - Batch C: `FE-REV-005` lead-gen and partner pages (`VisaServices`, `ContactUs`, `HajjUmrahBusiness`, `ListPackagePage`)
+docs/qa/BUG_BACKLOG.md:75:  - Batch C: `FE-REV-005` lead-gen and partner pages (`VisaServices`, `ContactUs`, `HajjUmrahBusiness`, `ListPackagePage`)
+docs/qa/BUG_BACKLOG.md:94:  - Batch C / `FE-REV-005` lead-gen and partner pages
+docs/qa/BUG_BACKLOG.md:111:  - `FE-REV-003`, `FE-REV-004`, `FE-REV-005`, and `FE-REV-006` remain open
+docs/qa/BUG_BACKLOG.md:114:  - Batch C / `FE-REV-005` lead-gen and partner pages
+docs/qa/BUG_BACKLOG.md:127:- Revalidated that `FE-REV-001` and `FE-REV-002` remain closed and verified; this run starts from the remaining order `FE-REV-003` -> `FE-REV-005` -> `FE-REV-004` -> `FE-REV-006`.
+docs/qa/BUG_BACKLOG.md:142:- `FE-REV-005` still needs careful behavior preservation:
+docs/qa/BUG_BACKLOG.md:185:  - `FE-REV-005` lead-gen and partner pages
+docs/qa/BUG_BACKLOG.md:201:  - `FE-REV-005`
+docs/qa/BUG_BACKLOG.md:208:- `FE-REV-005` implementation constraints:
+docs/qa/BUG_BACKLOG.md:251:  - `FE-REV-005` lead-gen and partner pages
+docs/qa/BUG_BACKLOG.md:268:  - `FE-REV-005` lead-gen and partner pages (`VisaServices`, `ContactUs`, `HajjUmrahBusiness`, `ListPackagePage`)
+docs/qa/BUG_BACKLOG.md:272:  - `FE-REV-005` lead-gen and partner pages (`VisaServices`, `ContactUs`, `HajjUmrahBusiness`, `ListPackagePage`)
+docs/qa/BUG_BACKLOG.md:287:  - `FE-REV-005` lead-gen and partner pages
+docs/qa/BUG_BACKLOG.md:291:  - `FE-REV-005` for `VisaServices`, `ContactUs`, `HajjUmrahBusiness`, and `ListPackagePage`
+docs/qa/BUG_BACKLOG.md:305:  - `FE-REV-005` lead-gen and partner pages
+docs/qa/BUG_BACKLOG.md:309:  - `FE-REV-005` for `VisaServices`, `ContactUs`, `HajjUmrahBusiness`, and `ListPackagePage`
+docs/qa/BUG_BACKLOG.md:313:  - backlog, deep scan report, change map, and run summary now all preserve `FE-REV-005` as the exact next batch
+exec
+/bin/zsh -lc 'tail -n 70 docs/qa/BUG_BACKLOG.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc 'tail -n 90 docs/qa/DEEP_SCAN_REPORT.md' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+  - Route tracing for `/Umrah-Guidance`, `/browse-tips`, `/travel-essential`, `/makkah-holy-sites`, `/madina-holy-sites`, `/jeddah-holy-sites`, and `/taif-holy-sites`
+  - Import tracing confirming the 7 route owners no longer import `Header` or `Footer` directly
+  - Shared-module tracing confirming the wrappers now resolve through `GuideArticlePage`, `HolySiteCityPage`, `BrandPageShell`, `CityNavbar`, and `AppPromoSection`
+  - Parser-level JSX validation across the new shared modules, content files, `CityNavbar.jsx`, and the 7 route owners
+  - Scoped eslint on the touched files with no errors; only the existing `Browserslist: caniuse-lite is 13 months old` warning appeared
+  - No build was run. No `npm install` was run. No lockfiles were modified.
+
+## 2026-03-08 - Phase 4 Verification Notes (`full-enhance`, run `20260308-145701-full-enhance`)
+
+- Revalidated `FE-REV-003` against the live codebase and promoted it from implemented to verified in the backlog.
+- No verification blockers were found, so no additional target-project code changes were required in this phase.
+- Remaining open work now stays ordered as:
+  - `FE-REV-005` lead-gen and partner pages
+  - `FE-REV-004` protected account shell convergence
+  - `FE-REV-006` compatibility cleanup
+- Exact next batch recommendation:
+  - `FE-REV-005` for `VisaServices`, `ContactUs`, `HajjUmrahBusiness`, and `ListPackagePage`
+  - Reason: next required execution-order batch after the verified guide/holy-site family, still bounded to 4 route owners, and it finishes the remaining public-facing revamp work before the higher-risk protected-shell and cleanup phases
+- Verification completed in this phase:
+  - Route tracing confirmed `/Umrah-Guidance`, `/browse-tips`, `/travel-essential`, `/makkah-holy-sites`, `/madina-holy-sites`, `/jeddah-holy-sites`, and `/taif-holy-sites` still resolve through the same route paths
+ succeeded in 52ms:
+  - `ContactUs`
+  - `HajjUmrahBusiness`
+  - `ListPackagePage`
+- Reason:
+  - next required execution-order batch after the now-verified guide/holy-site family
+  - still bounded to 4 route owners
+  - finishes the remaining public-facing revamp work before the higher-risk protected account and cleanup phases
+
+#### Verification
+- Route declarations, wrapper ownership, content-only contract, JSX parsing, and scoped eslint all passed.
+- `rg` tracing for new API side effects returned no matches across `src/features/pilgrimageGuides` and the 7 route-owner wrappers.
+- No build was run. No `npm install` was run. No lockfiles were modified.
+
+### 2026-03-08 - Phase 5 Finalize Docs and Summary (`full-enhance`, run `20260308-145701-full-enhance`)
+
+#### Findings
+- Phase 5 was docs-only: no target-project code, route declarations, or API ownership changed after the Phase 4 verification pass.
+- Atlas docs, backlog, change map, and run summary now all reflect the verified `FE-REV-003` outcome and the updated remaining order `FE-REV-005` -> `FE-REV-004` -> `FE-REV-006`.
+- Future runs can start directly at `FE-REV-005` without rescanning the already-verified guide and holy-site batch.
+
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md
+index 0618d5e1892ef95715b12012aded37b543fbc3a0..ee1126dee6c0aaeeb58de834d3e1e064c864f698
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md
+@@ -16,3 +16,25 @@
+ ### How It Was Implemented
+ ### Files Touched
+ ### Verification
++
++## Phase 0 - Select Backlog Target
++### Changes Made
++- Read the required fix-backlog context, revalidated the current workspace memory against the live Huz web frontend lead-gen routes, and selected the next real backlog batch for this run.
++- Recorded the corrected batch decision in the workspace backlog and deep-scan docs: `FE-REV-005` for `VisaServices`, `ContactUs`, `HajjUmrahBusiness`, and `ListPackagePage`.
++- Left target-project code untouched in Phase 0; this phase only updated workspace memory for the upcoming implementation step.
++
++### How It Was Implemented
++- Read the run state/prompt, project-bot config, operator profile, atlas docs, backlog, deep-scan report, Huz design guides, and the prior completed run summaries before selecting a target.
++- Revalidated that `FE-REV-003` is already verified in run `20260308-145701-full-enhance`, so the run prompt's first execution slot is stale and should not be repeated.
++- Inspected the live route declarations plus the 4 remaining lead-gen page owners to confirm they still use manual shells or placeholder behaviors, then documented the scope constraints and static-only verification plan for `FE-REV-005`.
++
++### Files Touched
++- `docs/qa/BUG_BACKLOG.md`
++- `docs/qa/DEEP_SCAN_REPORT.md`
++- `docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md`
++
++### Verification
++- `rg -n "FE-REV-003|FE-REV-005|20260308-145701-full-enhance" /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-145701-full-enhance/RUN_SUMMARY.md`
++- `rg -n 'path="/(visa-services|contact|hajjUmrah-partner|list-your-packages)"' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx`
++- `rg -n "import Header|import Footer|console\\.log|operator\\.hajjumrah\\.co|Get Started" /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/VisaServices/VisaServices.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ContactUs/ContactUs.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HajjUmrahBusiness/HajjUmrahBusiness.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ListPackagePage/ListPackagePage.js`
++- No build was run. No `npm install` was run. No lockfiles were modified. No target-project code was changed in this phase.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md
+index e6dcfd503b4c60f2e6786fa48c6d59e185ff8414..294dd1abcb6cef99ba39dfdee4927d06b44c919f
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md
+@@ -312,3 +312,33 @@
+   - atlas last-refreshed markers now point at Phase 5 for run `20260308-145701-full-enhance`
+   - backlog, deep scan report, change map, and run summary now all preserve `FE-REV-005` as the exact next batch
+   - no build was run, no `npm install` was run, and no lockfiles were modified
++
++## 2026-03-08 - Phase 0 Selection Notes (`fix-backlog`, run `20260308-160042-fix-backlog`)
++
++- Re-read the backlog, atlas docs, design guides, and the completed run `20260308-145701-full-enhance`, then rechecked the live route owners in `Huz-Web-Frontend`.
++- Confirmed the stale Phase 0 prompt still lists `FE-REV-003` first, but that batch is already verified and should not be repeated in this run.
++- Selected the exact next bounded implementation batch for this run:
++  - `FE-REV-005` lead-gen and partner pages
++  - `VisaServices`
++  - `ContactUs`
++  - `HajjUmrahBusiness`
++  - `ListPackagePage`
++- Why this batch now:
++  - next execution-order batch after the verified `FE-REV-003` family
++  - bounded to 4 route owners
++  - all 4 pages still sit outside the shared `BrandPageShell` system or still depend on placeholder CTA/form behavior
++  - it finishes the remaining public-facing revamp work before the higher-risk protected-account and cleanup phases
++- Phase 1 implementation constraints for `FE-REV-005`:
++  - keep route paths `/visa-services`, `/contact`, `/hajjUmrah-partner`, and protected `/list-your-packages` unchanged
++  - preserve intentional outbound `https://operator.hajjumrah.co/` destinations in `ListPackagePage.js`
++  - treat the `HajjUmrahBusiness.jsx` "Get Started" action as an explicit flow decision, not a visual-only placeholder
++  - replace the current `console.log` submit behavior in `VisaServices.jsx` and `ContactUs.jsx` only with intentional frontend UX unless a later phase explicitly adds a real backend contract
++- Deferred after this batch:
++  - `FE-REV-004` protected account shell convergence
++  - `FE-REV-006` compatibility cleanup
++- Planned Phase 1 verification:
++  - route tracing for `/visa-services`, `/contact`, `/hajjUmrah-partner`, and `/list-your-packages`
++  - shell tracing for `BrandPageShell`, `Header`, and `Footer` usage in the 4 selected route owners
++  - placeholder-behavior tracing for `console.log`, `operator.hajjumrah.co`, and the current CTA labels
++  - parser validation plus scoped eslint on touched files only
++  - no build, no `npm install`, and no lockfile changes
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
+index fb9778ba2ec6fe99f2be6ec461a2dce338dd5e08..05cb4d2a39dd5398b88faa83e78e0799b8ce3d0e
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
+@@ -905,3 +905,57 @@
+   - `rg -n 'Last refreshed: 2026-03-08 \(Phase 5 - Finalize Docs and Summary, full-enhance run \`20260308-145701-full-enhance\`\)\.' /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/PROJECT_BLUEPRINT.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/MODULE_MAP.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/ROUTES_AND_ENTRYPOINTS.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/API_SURFACE.md`
+   - `rg -n "FE-REV-005|VisaServices|ContactUs|HajjUmrahBusiness|ListPackagePage|20260308-145701-full-enhance" /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/CHANGE_MAP.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-145701-full-enhance/RUN_SUMMARY.md`
+ - No build was run. No `npm install` was run. No lockfiles were modified.
++
++### 2026-03-08 - Phase 0 Select Backlog Target (`fix-backlog`, run `20260308-160042-fix-backlog`)
++
++#### Scope Scanned
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/state.json`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/prompts/phase-00.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-062131-full-enhance/RUN_SUMMARY.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-145701-full-enhance/RUN_SUMMARY.md`
++- `/Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md`
++- `/Users/macbook/Desktop/Huz/UI_DESIGN_SYSTEM_GUIDE.md`
++- `Huz-Web-Frontend/src/routes/AppRoutes.jsx`
++- `Huz-Web-Frontend/src/pages/VisaServices/VisaServices.jsx`
++- `Huz-Web-Frontend/src/pages/ContactUs/ContactUs.jsx`
++- `Huz-Web-Frontend/src/pages/HajjUmrahBusiness/HajjUmrahBusiness.jsx`
++- `Huz-Web-Frontend/src/pages/ListPackagePage/ListPackagePage.js`
++
++#### Selection Findings
++- `FE-REV-003` is already implemented and verified in run `20260308-145701-full-enhance`, so selecting it again would repeat completed work.
++- The next real execution-order batch is `FE-REV-005` for the 4 remaining lead-gen and partner pages:
++  - `VisaServices`
++  - `ContactUs`
++  - `HajjUmrahBusiness`
++  - `ListPackagePage`
++- All 4 selected route owners still remain outside the shared branded page system:
++  - `VisaServices.jsx` imports `Header` and `Footer` directly and still submits to `console.log`
++  - `ContactUs.jsx` imports `Header` and `Footer` directly and still submits to `console.log`
++  - `HajjUmrahBusiness.jsx` imports `Header` and `Footer` directly and still ends with an inert `Get Started` button
++  - `ListPackagePage.js` keeps a bespoke protected marketing shell and direct `https://operator.hajjumrah.co/` anchors instead of the shared page system
++- These 4 routes are structurally safer than `FE-REV-004` because they do not own the active booking/wallet/account route-state contracts preserved by the protected convergence batch.
++- Remaining ordered work after this selection stays:
++  - `FE-REV-005`
++  - `FE-REV-004`
++  - `FE-REV-006`
++
++#### Exact Phase 1 Target
++- Execute `FE-REV-005` next:
++  - migrate `VisaServices`, `ContactUs`, `HajjUmrahBusiness`, and `ListPackagePage` onto the shared Huz branded system
++  - preserve the existing route paths and protected status for `/list-your-packages`
++  - preserve intentional outbound `operator.hajjumrah.co` destinations
++  - avoid silently introducing new backend/network behavior while replacing placeholder submit UX
++
++#### Required Verification
++- Route tracing:
++  - `rg -n 'path="/(visa-services|contact|hajjUmrah-partner|list-your-packages)"' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx`
++- Manual-shell and placeholder-behavior tracing:
++  - `rg -n 'import Header|import Footer|console\.log|operator\.hajjumrah\.co|Get Started' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/VisaServices/VisaServices.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ContactUs/ContactUs.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HajjUmrahBusiness/HajjUmrahBusiness.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ListPackagePage/ListPackagePage.js`
++- Shared-system alignment:
++  - re-read `BrandPageShell` rules from `HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md`
++  - preserve the public-route shell rhythm from the homepage/layout token contract
++- Static-only validation budget:
++  - parser validation and scoped eslint on touched files only
++  - no build, no `npm install`, and no lockfile changes
+
+codex
+One of the consistency-check commands was malformed because of shell quoting, so I’m rerunning that check cleanly before I advance the run state. After that I’ll execute the required `complete` and `next` commands.
+exec
+/bin/zsh -lc "rg -n 'path=\"/(visa-services|contact|hajjUmrah-partner|list-your-packages)\"' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "rg -n 'import Header|import Footer|console\\.log|operator\\.hajjumrah\\.co|Get Started' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/VisaServices/VisaServices.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ContactUs/ContactUs.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HajjUmrahBusiness/HajjUmrahBusiness.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ListPackagePage/ListPackagePage.js" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huzexec
+/bin/zsh -lc "rg -n 'Phase 0 Selection Notes|Phase 0 Select Backlog Target|FE-REV-005' docs/qa/BUG_BACKLOG.md docs/qa/DEEP_SCAN_REPORT.md docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 51ms:
+69:      <Route path="/visa-services" element={<VisaServices />} />
+81:      <Route path="/hajjUmrah-partner" element={<HajjUmrahBusiness />} />
+88:      <Route path="/contact" element={<ContactUs />} />
+133:        path="/list-your-packages"
+ succeeded in 51ms:
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ListPackagePage/ListPackagePage.js:8:import Footer from "../../components/Footer/Footer";
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ListPackagePage/ListPackagePage.js:111:                <a href="https://operator.hajjumrah.co/" className="">
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ListPackagePage/ListPackagePage.js:112:                  Get Started Now
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ListPackagePage/ListPackagePage.js:118:                href="https://operator.hajjumrah.co/"
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ListPackagePage/ListPackagePage.js:154:            <a href="https://operator.hajjumrah.co/" className="">
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ContactUs/ContactUs.jsx:5:import Header from '../../components/Header/Header';
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ContactUs/ContactUs.jsx:6:import Footer from '../../components/Footer/Footer';
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ContactUs/ContactUs.jsx:28:    console.log('Form submitted:', formData);
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/VisaServices/VisaServices.jsx:2:import Header from "../../components/Header/Header";
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/VisaServices/VisaServices.jsx:3:import Footer from "../../components/Footer/Footer";
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/VisaServices/VisaServices.jsx:31:    console.log("Form submitted:", formData);
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HajjUmrahBusiness/HajjUmrahBusiness.jsx:5:import Header from '../../components/Header/Header';
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HajjUmrahBusiness/HajjUmrahBusiness.jsx:6:import Footer from '../../components/Footer/Footer';
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HajjUmrahBusiness/HajjUmrahBusiness.jsx:153:        {/* How to Get Started Section */}
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HajjUmrahBusiness/HajjUmrahBusiness.jsx:162:              How to Get Started
+/Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HajjUmrahBusiness/HajjUmrahBusiness.jsx:225:              Get Started
+ succeeded in 51ms:
+docs/qa/BUG_BACKLOG.md:16:| FE-REV-005 | Medium | Lead-gen and partner pages | Align `VisaServices.jsx`, `ContactUs.jsx`, `HajjUmrahBusiness.jsx`, and `ListPackagePage.js` to the Huz design system and replace placeholder form behavior or isolated landing-page shells. `VisaServices.jsx` and `ContactUs.jsx` still submit to `console.log`, `HajjUmrahBusiness.jsx` ends with an inert CTA, and `ListPackagePage.js` remains outside the shared shell while deep-linking to `operator.hajjumrah.co`. | Open | Pending: preserve CTA destinations, keep outbound partner links intact where intentional, and confirm no new network side effects are introduced. |
+docs/qa/BUG_BACKLOG.md:59:  - Batch C: `FE-REV-005` lead-gen and partner pages (`VisaServices`, `ContactUs`, `HajjUmrahBusiness`, `ListPackagePage`)
+docs/qa/BUG_BACKLOG.md:75:  - Batch C: `FE-REV-005` lead-gen and partner pages (`VisaServices`, `ContactUs`, `HajjUmrahBusiness`, `ListPackagePage`)
+docs/qa/BUG_BACKLOG.md:94:  - Batch C / `FE-REV-005` lead-gen and partner pages
+docs/qa/BUG_BACKLOG.md:111:  - `FE-REV-003`, `FE-REV-004`, `FE-REV-005`, and `FE-REV-006` remain open
+docs/qa/BUG_BACKLOG.md:114:  - Batch C / `FE-REV-005` lead-gen and partner pages
+docs/qa/BUG_BACKLOG.md:127:- Revalidated that `FE-REV-001` and `FE-REV-002` remain closed and verified; this run starts from the remaining order `FE-REV-003` -> `FE-REV-005` -> `FE-REV-004` -> `FE-REV-006`.
+docs/qa/BUG_BACKLOG.md:142:- `FE-REV-005` still needs careful behavior preservation:
+docs/qa/BUG_BACKLOG.md:185:  - `FE-REV-005` lead-gen and partner pages
+docs/qa/BUG_BACKLOG.md:201:  - `FE-REV-005`
+docs/qa/BUG_BACKLOG.md:208:- `FE-REV-005` implementation constraints:
+docs/qa/BUG_BACKLOG.md:251:  - `FE-REV-005` lead-gen and partner pages
+docs/qa/BUG_BACKLOG.md:268:  - `FE-REV-005` lead-gen and partner pages (`VisaServices`, `ContactUs`, `HajjUmrahBusiness`, `ListPackagePage`)
+docs/qa/BUG_BACKLOG.md:272:  - `FE-REV-005` lead-gen and partner pages (`VisaServices`, `ContactUs`, `HajjUmrahBusiness`, `ListPackagePage`)
+docs/qa/BUG_BACKLOG.md:287:  - `FE-REV-005` lead-gen and partner pages
+docs/qa/BUG_BACKLOG.md:291:  - `FE-REV-005` for `VisaServices`, `ContactUs`, `HajjUmrahBusiness`, and `ListPackagePage`
+docs/qa/BUG_BACKLOG.md:305:  - `FE-REV-005` lead-gen and partner pages
+docs/qa/BUG_BACKLOG.md:309:  - `FE-REV-005` for `VisaServices`, `ContactUs`, `HajjUmrahBusiness`, and `ListPackagePage`
+docs/qa/BUG_BACKLOG.md:313:  - backlog, deep scan report, change map, and run summary now all preserve `FE-REV-005` as the exact next batch
+docs/qa/BUG_BACKLOG.md:316:## 2026-03-08 - Phase 0 Selection Notes (`fix-backlog`, run `20260308-160042-fix-backlog`)
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md
+index 0618d5e1892ef95715b12012aded37b543fbc3a0..ee1126dee6c0aaeeb58de834d3e1e064c864f698
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md
+@@ -16,3 +16,25 @@
+ ### How It Was Implemented
+ ### Files Touched
+ ### Verification
++
++## Phase 0 - Select Backlog Target
++### Changes Made
++- Read the required fix-backlog context, revalidated the current workspace memory against the live Huz web frontend lead-gen routes, and selected the next real backlog batch for this run.
++- Recorded the corrected batch decision in the workspace backlog and deep-scan docs: `FE-REV-005` for `VisaServices`, `ContactUs`, `HajjUmrahBusiness`, and `ListPackagePage`.
++- Left target-project code untouched in Phase 0; this phase only updated workspace memory for the upcoming implementation step.
++
++### How It Was Implemented
++- Read the run state/prompt, project-bot config, operator profile, atlas docs, backlog, deep-scan report, Huz design guides, and the prior completed run summaries before selecting a target.
++- Revalidated that `FE-REV-003` is already verified in run `20260308-145701-full-enhance`, so the run prompt's first execution slot is stale and should not be repeated.
++- Inspected the live route declarations plus the 4 remaining lead-gen page owners to confirm they still use manual shells or placeholder behaviors, then documented the scope constraints and static-only verification plan for `FE-REV-005`.
++
++### Files Touched
++- `docs/qa/BUG_BACKLOG.md`
++- `docs/qa/DEEP_SCAN_REPORT.md`
++- `docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md`
++
++### Verification
++- `rg -n "FE-REV-003|FE-REV-005|20260308-145701-full-enhance" /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-145701-full-enhance/RUN_SUMMARY.md`
++- `rg -n 'path="/(visa-services|contact|hajjUmrah-partner|list-your-packages)"' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx`
++- `rg -n "import Header|import Footer|console\\.log|operator\\.hajjumrah\\.co|Get Started" /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/VisaServices/VisaServices.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ContactUs/ContactUs.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HajjUmrahBusiness/HajjUmrahBusiness.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ListPackagePage/ListPackagePage.js`
++- No build was run. No `npm install` was run. No lockfiles were modified. No target-project code was changed in this phase.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md
+index e6dcfd503b4c60f2e6786fa48c6d59e185ff8414..294dd1abcb6cef99ba39dfdee4927d06b44c919f
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md
+@@ -312,3 +312,33 @@
+   - atlas last-refreshed markers now point at Phase 5 for run `20260308-145701-full-enhance`
+   - backlog, deep scan report, change map, and run summary now all preserve `FE-REV-005` as the exact next batch
+   - no build was run, no `npm install` was run, and no lockfiles were modified
++
++## 2026-03-08 - Phase 0 Selection Notes (`fix-backlog`, run `20260308-160042-fix-backlog`)
++
++- Re-read the backlog, atlas docs, design guides, and the completed run `20260308-145701-full-enhance`, then rechecked the live route owners in `Huz-Web-Frontend`.
++- Confirmed the stale Phase 0 prompt still lists `FE-REV-003` first, but that batch is already verified and should not be repeated in this run.
++- Selected the exact next bounded implementation batch for this run:
++  - `FE-REV-005` lead-gen and partner pages
++  - `VisaServices`
++  - `ContactUs`
++  - `HajjUmrahBusiness`
++  - `ListPackagePage`
++- Why this batch now:
++  - next execution-order batch after the verified `FE-REV-003` family
++  - bounded to 4 route owners
++  - all 4 pages still sit outside the shared `BrandPageShell` system or still depend on placeholder CTA/form behavior
++  - it finishes the remaining public-facing revamp work before the higher-risk protected-account and cleanup phases
++- Phase 1 implementation constraints for `FE-REV-005`:
++  - keep route paths `/visa-services`, `/contact`, `/hajjUmrah-partner`, and protected `/list-your-packages` unchanged
++  - preserve intentional outbound `https://operator.hajjumrah.co/` destinations in `ListPackagePage.js`
++  - treat the `HajjUmrahBusiness.jsx` "Get Started" action as an explicit flow decision, not a visual-only placeholder
++  - replace the current `console.log` submit behavior in `VisaServices.jsx` and `ContactUs.jsx` only with intentional frontend UX unless a later phase explicitly adds a real backend contract
++- Deferred after this batch:
++  - `FE-REV-004` protected account shell convergence
++  - `FE-REV-006` compatibility cleanup
++- Planned Phase 1 verification:
++  - route tracing for `/visa-services`, `/contact`, `/hajjUmrah-partner`, and `/list-your-packages`
++  - shell tracing for `BrandPageShell`, `Header`, and `Footer` usage in the 4 selected route owners
++  - placeholder-behavior tracing for `console.log`, `operator.hajjumrah.co`, and the current CTA labels
++  - parser validation plus scoped eslint on touched files only
++  - no build, no `npm install`, and no lockfile changes
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
+index fb9778ba2ec6fe99f2be6ec461a2dce338dd5e08..05cb4d2a39dd5398b88faa83e78e0799b8ce3d0e
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
+@@ -905,3 +905,57 @@
+   - `rg -n 'Last refreshed: 2026-03-08 \(Phase 5 - Finalize Docs and Summary, full-enhance run \`20260308-145701-full-enhance\`\)\.' /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/PROJECT_BLUEPRINT.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/MODULE_MAP.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/ROUTES_AND_ENTRYPOINTS.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/API_SURFACE.md`
+   - `rg -n "FE-REV-005|VisaServices|ContactUs|HajjUmrahBusiness|ListPackagePage|20260308-145701-full-enhance" /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/CHANGE_MAP.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-145701-full-enhance/RUN_SUMMARY.md`
+ - No build was run. No `npm install` was run. No lockfiles were modified.
++
++### 2026-03-08 - Phase 0 Select Backlog Target (`fix-backlog`, run `20260308-160042-fix-backlog`)
++
++#### Scope Scanned
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/state.json`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/prompts/phase-00.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-062131-full-enhance/RUN_SUMMARY.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-145701-full-enhance/RUN_SUMMARY.md`
++- `/Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md`
++- `/Users/macbook/Desktop/Huz/UI_DESIGN_SYSTEM_GUIDE.md`
++- `Huz-Web-Frontend/src/routes/AppRoutes.jsx`
++- `Huz-Web-Frontend/src/pages/VisaServices/VisaServices.jsx`
++- `Huz-Web-Frontend/src/pages/ContactUs/ContactUs.jsx`
++- `Huz-Web-Frontend/src/pages/HajjUmrahBusiness/HajjUmrahBusiness.jsx`
++- `Huz-Web-Frontend/src/pages/ListPackagePage/ListPackagePage.js`
++
++#### Selection Findings
++- `FE-REV-003` is already implemented and verified in run `20260308-145701-full-enhance`, so selecting it again would repeat completed work.
++- The next real execution-order batch is `FE-REV-005` for the 4 remaining lead-gen and partner pages:
++  - `VisaServices`
++  - `ContactUs`
++  - `HajjUmrahBusiness`
++  - `ListPackagePage`
++- All 4 selected route owners still remain outside the shared branded page system:
++  - `VisaServices.jsx` imports `Header` and `Footer` directly and still submits to `console.log`
++  - `ContactUs.jsx` imports `Header` and `Footer` directly and still submits to `console.log`
++  - `HajjUmrahBusiness.jsx` imports `Header` and `Footer` directly and still ends with an inert `Get Started` button
++  - `ListPackagePage.js` keeps a bespoke protected marketing shell and direct `https://operator.hajjumrah.co/` anchors instead of the shared page system
++- These 4 routes are structurally safer than `FE-REV-004` because they do not own the active booking/wallet/account route-state contracts preserved by the protected convergence batch.
++- Remaining ordered work after this selection stays:
++  - `FE-REV-005`
++  - `FE-REV-004`
++  - `FE-REV-006`
++
++#### Exact Phase 1 Target
++- Execute `FE-REV-005` next:
++  - migrate `VisaServices`, `ContactUs`, `HajjUmrahBusiness`, and `ListPackagePage` onto the shared Huz branded system
++  - preserve the existing route paths and protected status for `/list-your-packages`
++  - preserve intentional outbound `operator.hajjumrah.co` destinations
++  - avoid silently introducing new backend/network behavior while replacing placeholder submit UX
++
++#### Required Verification
++- Route tracing:
++  - `rg -n 'path="/(visa-services|contact|hajjUmrah-partner|list-your-packages)"' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx`
++- Manual-shell and placeholder-behavior tracing:
++  - `rg -n 'import Header|import Footer|console\.log|operator\.hajjumrah\.co|Get Started' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/VisaServices/VisaServices.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ContactUs/ContactUs.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HajjUmrahBusiness/HajjUmrahBusiness.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ListPackagePage/ListPackagePage.js`
++- Shared-system alignment:
++  - re-read `BrandPageShell` rules from `HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md`
++  - preserve the public-route shell rhythm from the homepage/layout token contract
++- Static-only validation budget:
++  - parser validation and scoped eslint on touched files only
++  - no build, no `npm install`, and no lockfile changes
+
+codex
+Phase 0 is documented and verified. I’m now advancing the run state with the required orchestration commands, then I’ll read the newly generated `NEXT_PROMPT.md`.
+exec
+/bin/zsh -lc 'node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog --phase 0' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 90ms:
+Marked phase 0 as completed.
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md
+index 0618d5e1892ef95715b12012aded37b543fbc3a0..ee1126dee6c0aaeeb58de834d3e1e064c864f698
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md
+@@ -16,3 +16,25 @@
+ ### How It Was Implemented
+ ### Files Touched
+ ### Verification
++
++## Phase 0 - Select Backlog Target
++### Changes Made
++- Read the required fix-backlog context, revalidated the current workspace memory against the live Huz web frontend lead-gen routes, and selected the next real backlog batch for this run.
++- Recorded the corrected batch decision in the workspace backlog and deep-scan docs: `FE-REV-005` for `VisaServices`, `ContactUs`, `HajjUmrahBusiness`, and `ListPackagePage`.
++- Left target-project code untouched in Phase 0; this phase only updated workspace memory for the upcoming implementation step.
++
++### How It Was Implemented
++- Read the run state/prompt, project-bot config, operator profile, atlas docs, backlog, deep-scan report, Huz design guides, and the prior completed run summaries before selecting a target.
++- Revalidated that `FE-REV-003` is already verified in run `20260308-145701-full-enhance`, so the run prompt's first execution slot is stale and should not be repeated.
++- Inspected the live route declarations plus the 4 remaining lead-gen page owners to confirm they still use manual shells or placeholder behaviors, then documented the scope constraints and static-only verification plan for `FE-REV-005`.
++
++### Files Touched
++- `docs/qa/BUG_BACKLOG.md`
++- `docs/qa/DEEP_SCAN_REPORT.md`
++- `docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md`
++
++### Verification
++- `rg -n "FE-REV-003|FE-REV-005|20260308-145701-full-enhance" /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-145701-full-enhance/RUN_SUMMARY.md`
++- `rg -n 'path="/(visa-services|contact|hajjUmrah-partner|list-your-packages)"' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx`
++- `rg -n "import Header|import Footer|console\\.log|operator\\.hajjumrah\\.co|Get Started" /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/VisaServices/VisaServices.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ContactUs/ContactUs.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HajjUmrahBusiness/HajjUmrahBusiness.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ListPackagePage/ListPackagePage.js`
++- No build was run. No `npm install` was run. No lockfiles were modified. No target-project code was changed in this phase.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md
+index e6dcfd503b4c60f2e6786fa48c6d59e185ff8414..294dd1abcb6cef99ba39dfdee4927d06b44c919f
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md
+@@ -312,3 +312,33 @@
+   - atlas last-refreshed markers now point at Phase 5 for run `20260308-145701-full-enhance`
+   - backlog, deep scan report, change map, and run summary now all preserve `FE-REV-005` as the exact next batch
+   - no build was run, no `npm install` was run, and no lockfiles were modified
++
++## 2026-03-08 - Phase 0 Selection Notes (`fix-backlog`, run `20260308-160042-fix-backlog`)
++
++- Re-read the backlog, atlas docs, design guides, and the completed run `20260308-145701-full-enhance`, then rechecked the live route owners in `Huz-Web-Frontend`.
++- Confirmed the stale Phase 0 prompt still lists `FE-REV-003` first, but that batch is already verified and should not be repeated in this run.
++- Selected the exact next bounded implementation batch for this run:
++  - `FE-REV-005` lead-gen and partner pages
++  - `VisaServices`
++  - `ContactUs`
++  - `HajjUmrahBusiness`
++  - `ListPackagePage`
++- Why this batch now:
++  - next execution-order batch after the verified `FE-REV-003` family
++  - bounded to 4 route owners
++  - all 4 pages still sit outside the shared `BrandPageShell` system or still depend on placeholder CTA/form behavior
++  - it finishes the remaining public-facing revamp work before the higher-risk protected-account and cleanup phases
++- Phase 1 implementation constraints for `FE-REV-005`:
++  - keep route paths `/visa-services`, `/contact`, `/hajjUmrah-partner`, and protected `/list-your-packages` unchanged
++  - preserve intentional outbound `https://operator.hajjumrah.co/` destinations in `ListPackagePage.js`
++  - treat the `HajjUmrahBusiness.jsx` "Get Started" action as an explicit flow decision, not a visual-only placeholder
++  - replace the current `console.log` submit behavior in `VisaServices.jsx` and `ContactUs.jsx` only with intentional frontend UX unless a later phase explicitly adds a real backend contract
++- Deferred after this batch:
++  - `FE-REV-004` protected account shell convergence
++  - `FE-REV-006` compatibility cleanup
++- Planned Phase 1 verification:
++  - route tracing for `/visa-services`, `/contact`, `/hajjUmrah-partner`, and `/list-your-packages`
++  - shell tracing for `BrandPageShell`, `Header`, and `Footer` usage in the 4 selected route owners
++  - placeholder-behavior tracing for `console.log`, `operator.hajjumrah.co`, and the current CTA labels
++  - parser validation plus scoped eslint on touched files only
++  - no build, no `npm install`, and no lockfile changes
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
+index fb9778ba2ec6fe99f2be6ec461a2dce338dd5e08..05cb4d2a39dd5398b88faa83e78e0799b8ce3d0e
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
+@@ -905,3 +905,57 @@
+   - `rg -n 'Last refreshed: 2026-03-08 \(Phase 5 - Finalize Docs and Summary, full-enhance run \`20260308-145701-full-enhance\`\)\.' /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/PROJECT_BLUEPRINT.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/MODULE_MAP.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/ROUTES_AND_ENTRYPOINTS.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/API_SURFACE.md`
+   - `rg -n "FE-REV-005|VisaServices|ContactUs|HajjUmrahBusiness|ListPackagePage|20260308-145701-full-enhance" /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/CHANGE_MAP.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-145701-full-enhance/RUN_SUMMARY.md`
+ - No build was run. No `npm install` was run. No lockfiles were modified.
++
++### 2026-03-08 - Phase 0 Select Backlog Target (`fix-backlog`, run `20260308-160042-fix-backlog`)
++
++#### Scope Scanned
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/state.json`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/prompts/phase-00.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-062131-full-enhance/RUN_SUMMARY.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-145701-full-enhance/RUN_SUMMARY.md`
++- `/Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md`
++- `/Users/macbook/Desktop/Huz/UI_DESIGN_SYSTEM_GUIDE.md`
++- `Huz-Web-Frontend/src/routes/AppRoutes.jsx`
++- `Huz-Web-Frontend/src/pages/VisaServices/VisaServices.jsx`
++- `Huz-Web-Frontend/src/pages/ContactUs/ContactUs.jsx`
++- `Huz-Web-Frontend/src/pages/HajjUmrahBusiness/HajjUmrahBusiness.jsx`
++- `Huz-Web-Frontend/src/pages/ListPackagePage/ListPackagePage.js`
++
++#### Selection Findings
++- `FE-REV-003` is already implemented and verified in run `20260308-145701-full-enhance`, so selecting it again would repeat completed work.
++- The next real execution-order batch is `FE-REV-005` for the 4 remaining lead-gen and partner pages:
++  - `VisaServices`
++  - `ContactUs`
++  - `HajjUmrahBusiness`
++  - `ListPackagePage`
++- All 4 selected route owners still remain outside the shared branded page system:
++  - `VisaServices.jsx` imports `Header` and `Footer` directly and still submits to `console.log`
++  - `ContactUs.jsx` imports `Header` and `Footer` directly and still submits to `console.log`
++  - `HajjUmrahBusiness.jsx` imports `Header` and `Footer` directly and still ends with an inert `Get Started` button
++  - `ListPackagePage.js` keeps a bespoke protected marketing shell and direct `https://operator.hajjumrah.co/` anchors instead of the shared page system
++- These 4 routes are structurally safer than `FE-REV-004` because they do not own the active booking/wallet/account route-state contracts preserved by the protected convergence batch.
++- Remaining ordered work after this selection stays:
++  - `FE-REV-005`
++  - `FE-REV-004`
++  - `FE-REV-006`
++
++#### Exact Phase 1 Target
++- Execute `FE-REV-005` next:
++  - migrate `VisaServices`, `ContactUs`, `HajjUmrahBusiness`, and `ListPackagePage` onto the shared Huz branded system
++  - preserve the existing route paths and protected status for `/list-your-packages`
++  - preserve intentional outbound `operator.hajjumrah.co` destinations
++  - avoid silently introducing new backend/network behavior while replacing placeholder submit UX
++
++#### Required Verification
++- Route tracing:
++  - `rg -n 'path="/(visa-services|contact|hajjUmrah-partner|list-your-packages)"' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx`
++- Manual-shell and placeholder-behavior tracing:
++  - `rg -n 'import Header|import Footer|console\.log|operator\.hajjumrah\.co|Get Started' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/VisaServices/VisaServices.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ContactUs/ContactUs.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HajjUmrahBusiness/HajjUmrahBusiness.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ListPackagePage/ListPackagePage.js`
++- Shared-system alignment:
++  - re-read `BrandPageShell` rules from `HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md`
++  - preserve the public-route shell rhythm from the homepage/layout token contract
++- Static-only validation budget:
++  - parser validation and scoped eslint on touched files only
++  - no build, no `npm install`, and no lockfile changes
+
+exec
+/bin/zsh -lc 'node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog' in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 52ms:
+Use $project-autopilot-manager in `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz`.
+Read `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/state.json` and `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/prompts/phase-01.md`.
+Execute only Phase 1 (Implement the Fix) against target project `/Users/macbook/Desktop/Huz`.
+At the end, run:
+1. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog --phase 1`
+2. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog`
+Then print `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/NEXT_PROMPT.md`.
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md
+index 0618d5e1892ef95715b12012aded37b543fbc3a0..ee1126dee6c0aaeeb58de834d3e1e064c864f698
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md
+@@ -16,3 +16,25 @@
+ ### How It Was Implemented
+ ### Files Touched
+ ### Verification
++
++## Phase 0 - Select Backlog Target
++### Changes Made
++- Read the required fix-backlog context, revalidated the current workspace memory against the live Huz web frontend lead-gen routes, and selected the next real backlog batch for this run.
++- Recorded the corrected batch decision in the workspace backlog and deep-scan docs: `FE-REV-005` for `VisaServices`, `ContactUs`, `HajjUmrahBusiness`, and `ListPackagePage`.
++- Left target-project code untouched in Phase 0; this phase only updated workspace memory for the upcoming implementation step.
++
++### How It Was Implemented
++- Read the run state/prompt, project-bot config, operator profile, atlas docs, backlog, deep-scan report, Huz design guides, and the prior completed run summaries before selecting a target.
++- Revalidated that `FE-REV-003` is already verified in run `20260308-145701-full-enhance`, so the run prompt's first execution slot is stale and should not be repeated.
++- Inspected the live route declarations plus the 4 remaining lead-gen page owners to confirm they still use manual shells or placeholder behaviors, then documented the scope constraints and static-only verification plan for `FE-REV-005`.
++
++### Files Touched
++- `docs/qa/BUG_BACKLOG.md`
++- `docs/qa/DEEP_SCAN_REPORT.md`
++- `docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md`
++
++### Verification
++- `rg -n "FE-REV-003|FE-REV-005|20260308-145701-full-enhance" /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-145701-full-enhance/RUN_SUMMARY.md`
++- `rg -n 'path="/(visa-services|contact|hajjUmrah-partner|list-your-packages)"' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx`
++- `rg -n "import Header|import Footer|console\\.log|operator\\.hajjumrah\\.co|Get Started" /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/VisaServices/VisaServices.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ContactUs/ContactUs.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HajjUmrahBusiness/HajjUmrahBusiness.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ListPackagePage/ListPackagePage.js`
++- No build was run. No `npm install` was run. No lockfiles were modified. No target-project code was changed in this phase.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md
+index e6dcfd503b4c60f2e6786fa48c6d59e185ff8414..294dd1abcb6cef99ba39dfdee4927d06b44c919f
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md
+@@ -312,3 +312,33 @@
+   - atlas last-refreshed markers now point at Phase 5 for run `20260308-145701-full-enhance`
+   - backlog, deep scan report, change map, and run summary now all preserve `FE-REV-005` as the exact next batch
+   - no build was run, no `npm install` was run, and no lockfiles were modified
++
++## 2026-03-08 - Phase 0 Selection Notes (`fix-backlog`, run `20260308-160042-fix-backlog`)
++
++- Re-read the backlog, atlas docs, design guides, and the completed run `20260308-145701-full-enhance`, then rechecked the live route owners in `Huz-Web-Frontend`.
++- Confirmed the stale Phase 0 prompt still lists `FE-REV-003` first, but that batch is already verified and should not be repeated in this run.
++- Selected the exact next bounded implementation batch for this run:
++  - `FE-REV-005` lead-gen and partner pages
++  - `VisaServices`
++  - `ContactUs`
++  - `HajjUmrahBusiness`
++  - `ListPackagePage`
++- Why this batch now:
++  - next execution-order batch after the verified `FE-REV-003` family
++  - bounded to 4 route owners
++  - all 4 pages still sit outside the shared `BrandPageShell` system or still depend on placeholder CTA/form behavior
++  - it finishes the remaining public-facing revamp work before the higher-risk protected-account and cleanup phases
++- Phase 1 implementation constraints for `FE-REV-005`:
++  - keep route paths `/visa-services`, `/contact`, `/hajjUmrah-partner`, and protected `/list-your-packages` unchanged
++  - preserve intentional outbound `https://operator.hajjumrah.co/` destinations in `ListPackagePage.js`
++  - treat the `HajjUmrahBusiness.jsx` "Get Started" action as an explicit flow decision, not a visual-only placeholder
++  - replace the current `console.log` submit behavior in `VisaServices.jsx` and `ContactUs.jsx` only with intentional frontend UX unless a later phase explicitly adds a real backend contract
++- Deferred after this batch:
++  - `FE-REV-004` protected account shell convergence
++  - `FE-REV-006` compatibility cleanup
++- Planned Phase 1 verification:
++  - route tracing for `/visa-services`, `/contact`, `/hajjUmrah-partner`, and `/list-your-packages`
++  - shell tracing for `BrandPageShell`, `Header`, and `Footer` usage in the 4 selected route owners
++  - placeholder-behavior tracing for `console.log`, `operator.hajjumrah.co`, and the current CTA labels
++  - parser validation plus scoped eslint on touched files only
++  - no build, no `npm install`, and no lockfile changes
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
+index fb9778ba2ec6fe99f2be6ec461a2dce338dd5e08..05cb4d2a39dd5398b88faa83e78e0799b8ce3d0e
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
+@@ -905,3 +905,57 @@
+   - `rg -n 'Last refreshed: 2026-03-08 \(Phase 5 - Finalize Docs and Summary, full-enhance run \`20260308-145701-full-enhance\`\)\.' /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/PROJECT_BLUEPRINT.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/MODULE_MAP.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/ROUTES_AND_ENTRYPOINTS.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/API_SURFACE.md`
+   - `rg -n "FE-REV-005|VisaServices|ContactUs|HajjUmrahBusiness|ListPackagePage|20260308-145701-full-enhance" /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/CHANGE_MAP.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-145701-full-enhance/RUN_SUMMARY.md`
+ - No build was run. No `npm install` was run. No lockfiles were modified.
++
++### 2026-03-08 - Phase 0 Select Backlog Target (`fix-backlog`, run `20260308-160042-fix-backlog`)
++
++#### Scope Scanned
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/state.json`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/prompts/phase-00.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-062131-full-enhance/RUN_SUMMARY.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-145701-full-enhance/RUN_SUMMARY.md`
++- `/Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md`
++- `/Users/macbook/Desktop/Huz/UI_DESIGN_SYSTEM_GUIDE.md`
++- `Huz-Web-Frontend/src/routes/AppRoutes.jsx`
++- `Huz-Web-Frontend/src/pages/VisaServices/VisaServices.jsx`
++- `Huz-Web-Frontend/src/pages/ContactUs/ContactUs.jsx`
++- `Huz-Web-Frontend/src/pages/HajjUmrahBusiness/HajjUmrahBusiness.jsx`
++- `Huz-Web-Frontend/src/pages/ListPackagePage/ListPackagePage.js`
++
++#### Selection Findings
++- `FE-REV-003` is already implemented and verified in run `20260308-145701-full-enhance`, so selecting it again would repeat completed work.
++- The next real execution-order batch is `FE-REV-005` for the 4 remaining lead-gen and partner pages:
++  - `VisaServices`
++  - `ContactUs`
++  - `HajjUmrahBusiness`
++  - `ListPackagePage`
++- All 4 selected route owners still remain outside the shared branded page system:
++  - `VisaServices.jsx` imports `Header` and `Footer` directly and still submits to `console.log`
++  - `ContactUs.jsx` imports `Header` and `Footer` directly and still submits to `console.log`
++  - `HajjUmrahBusiness.jsx` imports `Header` and `Footer` directly and still ends with an inert `Get Started` button
++  - `ListPackagePage.js` keeps a bespoke protected marketing shell and direct `https://operator.hajjumrah.co/` anchors instead of the shared page system
++- These 4 routes are structurally safer than `FE-REV-004` because they do not own the active booking/wallet/account route-state contracts preserved by the protected convergence batch.
++- Remaining ordered work after this selection stays:
++  - `FE-REV-005`
++  - `FE-REV-004`
++  - `FE-REV-006`
++
++#### Exact Phase 1 Target
++- Execute `FE-REV-005` next:
++  - migrate `VisaServices`, `ContactUs`, `HajjUmrahBusiness`, and `ListPackagePage` onto the shared Huz branded system
++  - preserve the existing route paths and protected status for `/list-your-packages`
++  - preserve intentional outbound `operator.hajjumrah.co` destinations
++  - avoid silently introducing new backend/network behavior while replacing placeholder submit UX
++
++#### Required Verification
++- Route tracing:
++  - `rg -n 'path="/(visa-services|contact|hajjUmrah-partner|list-your-packages)"' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx`
++- Manual-shell and placeholder-behavior tracing:
++  - `rg -n 'import Header|import Footer|console\.log|operator\.hajjumrah\.co|Get Started' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/VisaServices/VisaServices.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ContactUs/ContactUs.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HajjUmrahBusiness/HajjUmrahBusiness.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ListPackagePage/ListPackagePage.js`
++- Shared-system alignment:
++  - re-read `BrandPageShell` rules from `HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md`
++  - preserve the public-route shell rhythm from the homepage/layout token contract
++- Static-only validation budget:
++  - parser validation and scoped eslint on touched files only
++  - no build, no `npm install`, and no lockfile changes
+
+exec
+/bin/zsh -lc "sed -n '1,260p' /Users/macbook/Desktop/Codex-Project-Bot-Gui/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/NEXT_PROMPT.md" in /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz succeeded in 51ms:
+Use $project-autopilot-manager in `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz`.
+Read `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/state.json` and `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/prompts/phase-01.md`.
+Execute only Phase 1 (Implement the Fix) against target project `/Users/macbook/Desktop/Huz`.
+At the end, run:
+1. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog --phase 1`
+2. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog`
+Then print `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/NEXT_PROMPT.md`.
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md
+index 0618d5e1892ef95715b12012aded37b543fbc3a0..ee1126dee6c0aaeeb58de834d3e1e064c864f698
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md
+@@ -16,3 +16,25 @@
+ ### How It Was Implemented
+ ### Files Touched
+ ### Verification
++
++## Phase 0 - Select Backlog Target
++### Changes Made
++- Read the required fix-backlog context, revalidated the current workspace memory against the live Huz web frontend lead-gen routes, and selected the next real backlog batch for this run.
++- Recorded the corrected batch decision in the workspace backlog and deep-scan docs: `FE-REV-005` for `VisaServices`, `ContactUs`, `HajjUmrahBusiness`, and `ListPackagePage`.
++- Left target-project code untouched in Phase 0; this phase only updated workspace memory for the upcoming implementation step.
++
++### How It Was Implemented
++- Read the run state/prompt, project-bot config, operator profile, atlas docs, backlog, deep-scan report, Huz design guides, and the prior completed run summaries before selecting a target.
++- Revalidated that `FE-REV-003` is already verified in run `20260308-145701-full-enhance`, so the run prompt's first execution slot is stale and should not be repeated.
++- Inspected the live route declarations plus the 4 remaining lead-gen page owners to confirm they still use manual shells or placeholder behaviors, then documented the scope constraints and static-only verification plan for `FE-REV-005`.
++
++### Files Touched
++- `docs/qa/BUG_BACKLOG.md`
++- `docs/qa/DEEP_SCAN_REPORT.md`
++- `docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md`
++
++### Verification
++- `rg -n "FE-REV-003|FE-REV-005|20260308-145701-full-enhance" /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-145701-full-enhance/RUN_SUMMARY.md`
++- `rg -n 'path="/(visa-services|contact|hajjUmrah-partner|list-your-packages)"' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx`
++- `rg -n "import Header|import Footer|console\\.log|operator\\.hajjumrah\\.co|Get Started" /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/VisaServices/VisaServices.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ContactUs/ContactUs.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HajjUmrahBusiness/HajjUmrahBusiness.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ListPackagePage/ListPackagePage.js`
++- No build was run. No `npm install` was run. No lockfiles were modified. No target-project code was changed in this phase.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md
+index e6dcfd503b4c60f2e6786fa48c6d59e185ff8414..294dd1abcb6cef99ba39dfdee4927d06b44c919f
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md
+@@ -312,3 +312,33 @@
+   - atlas last-refreshed markers now point at Phase 5 for run `20260308-145701-full-enhance`
+   - backlog, deep scan report, change map, and run summary now all preserve `FE-REV-005` as the exact next batch
+   - no build was run, no `npm install` was run, and no lockfiles were modified
++
++## 2026-03-08 - Phase 0 Selection Notes (`fix-backlog`, run `20260308-160042-fix-backlog`)
++
++- Re-read the backlog, atlas docs, design guides, and the completed run `20260308-145701-full-enhance`, then rechecked the live route owners in `Huz-Web-Frontend`.
++- Confirmed the stale Phase 0 prompt still lists `FE-REV-003` first, but that batch is already verified and should not be repeated in this run.
++- Selected the exact next bounded implementation batch for this run:
++  - `FE-REV-005` lead-gen and partner pages
++  - `VisaServices`
++  - `ContactUs`
++  - `HajjUmrahBusiness`
++  - `ListPackagePage`
++- Why this batch now:
++  - next execution-order batch after the verified `FE-REV-003` family
++  - bounded to 4 route owners
++  - all 4 pages still sit outside the shared `BrandPageShell` system or still depend on placeholder CTA/form behavior
++  - it finishes the remaining public-facing revamp work before the higher-risk protected-account and cleanup phases
++- Phase 1 implementation constraints for `FE-REV-005`:
++  - keep route paths `/visa-services`, `/contact`, `/hajjUmrah-partner`, and protected `/list-your-packages` unchanged
++  - preserve intentional outbound `https://operator.hajjumrah.co/` destinations in `ListPackagePage.js`
++  - treat the `HajjUmrahBusiness.jsx` "Get Started" action as an explicit flow decision, not a visual-only placeholder
++  - replace the current `console.log` submit behavior in `VisaServices.jsx` and `ContactUs.jsx` only with intentional frontend UX unless a later phase explicitly adds a real backend contract
++- Deferred after this batch:
++  - `FE-REV-004` protected account shell convergence
++  - `FE-REV-006` compatibility cleanup
++- Planned Phase 1 verification:
++  - route tracing for `/visa-services`, `/contact`, `/hajjUmrah-partner`, and `/list-your-packages`
++  - shell tracing for `BrandPageShell`, `Header`, and `Footer` usage in the 4 selected route owners
++  - placeholder-behavior tracing for `console.log`, `operator.hajjumrah.co`, and the current CTA labels
++  - parser validation plus scoped eslint on touched files only
++  - no build, no `npm install`, and no lockfile changes
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
+index fb9778ba2ec6fe99f2be6ec461a2dce338dd5e08..05cb4d2a39dd5398b88faa83e78e0799b8ce3d0e
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
+@@ -905,3 +905,57 @@
+   - `rg -n 'Last refreshed: 2026-03-08 \(Phase 5 - Finalize Docs and Summary, full-enhance run \`20260308-145701-full-enhance\`\)\.' /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/PROJECT_BLUEPRINT.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/MODULE_MAP.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/ROUTES_AND_ENTRYPOINTS.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/API_SURFACE.md`
+   - `rg -n "FE-REV-005|VisaServices|ContactUs|HajjUmrahBusiness|ListPackagePage|20260308-145701-full-enhance" /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/CHANGE_MAP.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-145701-full-enhance/RUN_SUMMARY.md`
+ - No build was run. No `npm install` was run. No lockfiles were modified.
++
++### 2026-03-08 - Phase 0 Select Backlog Target (`fix-backlog`, run `20260308-160042-fix-backlog`)
++
++#### Scope Scanned
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/state.json`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/prompts/phase-00.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-062131-full-enhance/RUN_SUMMARY.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-145701-full-enhance/RUN_SUMMARY.md`
++- `/Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md`
++- `/Users/macbook/Desktop/Huz/UI_DESIGN_SYSTEM_GUIDE.md`
++- `Huz-Web-Frontend/src/routes/AppRoutes.jsx`
++- `Huz-Web-Frontend/src/pages/VisaServices/VisaServices.jsx`
++- `Huz-Web-Frontend/src/pages/ContactUs/ContactUs.jsx`
++- `Huz-Web-Frontend/src/pages/HajjUmrahBusiness/HajjUmrahBusiness.jsx`
++- `Huz-Web-Frontend/src/pages/ListPackagePage/ListPackagePage.js`
++
++#### Selection Findings
++- `FE-REV-003` is already implemented and verified in run `20260308-145701-full-enhance`, so selecting it again would repeat completed work.
++- The next real execution-order batch is `FE-REV-005` for the 4 remaining lead-gen and partner pages:
++  - `VisaServices`
++  - `ContactUs`
++  - `HajjUmrahBusiness`
++  - `ListPackagePage`
++- All 4 selected route owners still remain outside the shared branded page system:
++  - `VisaServices.jsx` imports `Header` and `Footer` directly and still submits to `console.log`
++  - `ContactUs.jsx` imports `Header` and `Footer` directly and still submits to `console.log`
++  - `HajjUmrahBusiness.jsx` imports `Header` and `Footer` directly and still ends with an inert `Get Started` button
++  - `ListPackagePage.js` keeps a bespoke protected marketing shell and direct `https://operator.hajjumrah.co/` anchors instead of the shared page system
++- These 4 routes are structurally safer than `FE-REV-004` because they do not own the active booking/wallet/account route-state contracts preserved by the protected convergence batch.
++- Remaining ordered work after this selection stays:
++  - `FE-REV-005`
++  - `FE-REV-004`
++  - `FE-REV-006`
++
++#### Exact Phase 1 Target
++- Execute `FE-REV-005` next:
++  - migrate `VisaServices`, `ContactUs`, `HajjUmrahBusiness`, and `ListPackagePage` onto the shared Huz branded system
++  - preserve the existing route paths and protected status for `/list-your-packages`
++  - preserve intentional outbound `operator.hajjumrah.co` destinations
++  - avoid silently introducing new backend/network behavior while replacing placeholder submit UX
++
++#### Required Verification
++- Route tracing:
++  - `rg -n 'path="/(visa-services|contact|hajjUmrah-partner|list-your-packages)"' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx`
++- Manual-shell and placeholder-behavior tracing:
++  - `rg -n 'import Header|import Footer|console\.log|operator\.hajjumrah\.co|Get Started' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/VisaServices/VisaServices.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ContactUs/ContactUs.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HajjUmrahBusiness/HajjUmrahBusiness.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ListPackagePage/ListPackagePage.js`
++- Shared-system alignment:
++  - re-read `BrandPageShell` rules from `HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md`
++  - preserve the public-route shell rhythm from the homepage/layout token contract
++- Static-only validation budget:
++  - parser validation and scoped eslint on touched files only
++  - no build, no `npm install`, and no lockfile changes
+
+codex
+Phase 0 is complete. I selected `FE-REV-005` as the real next batch for this run, since `FE-REV-003` was already verified in the prior `full-enhance` run. I updated [BUG_BACKLOG.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md), [DEEP_SCAN_REPORT.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md), and [RUN_SUMMARY.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md), then ran the required `complete` and `next` orchestration commands. No target-project code was changed in Phase 0.
+
+```text
+Use $project-autopilot-manager in `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz`.
+Read `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/state.json` and `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/prompts/phase-01.md`.
+Execute only Phase 1 (Implement the Fix) against target project `/Users/macbook/Desktop/Huz`.
+At the end, run:
+1. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog --phase 1`
+2. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog`
+Then print `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/NEXT_PROMPT.md`.
+```
+file update:
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md
+index 0618d5e1892ef95715b12012aded37b543fbc3a0..ee1126dee6c0aaeeb58de834d3e1e064c864f698
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md
+@@ -16,3 +16,25 @@
+ ### How It Was Implemented
+ ### Files Touched
+ ### Verification
++
++## Phase 0 - Select Backlog Target
++### Changes Made
++- Read the required fix-backlog context, revalidated the current workspace memory against the live Huz web frontend lead-gen routes, and selected the next real backlog batch for this run.
++- Recorded the corrected batch decision in the workspace backlog and deep-scan docs: `FE-REV-005` for `VisaServices`, `ContactUs`, `HajjUmrahBusiness`, and `ListPackagePage`.
++- Left target-project code untouched in Phase 0; this phase only updated workspace memory for the upcoming implementation step.
++
++### How It Was Implemented
++- Read the run state/prompt, project-bot config, operator profile, atlas docs, backlog, deep-scan report, Huz design guides, and the prior completed run summaries before selecting a target.
++- Revalidated that `FE-REV-003` is already verified in run `20260308-145701-full-enhance`, so the run prompt's first execution slot is stale and should not be repeated.
++- Inspected the live route declarations plus the 4 remaining lead-gen page owners to confirm they still use manual shells or placeholder behaviors, then documented the scope constraints and static-only verification plan for `FE-REV-005`.
++
++### Files Touched
++- `docs/qa/BUG_BACKLOG.md`
++- `docs/qa/DEEP_SCAN_REPORT.md`
++- `docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md`
++
++### Verification
++- `rg -n "FE-REV-003|FE-REV-005|20260308-145701-full-enhance" /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-145701-full-enhance/RUN_SUMMARY.md`
++- `rg -n 'path="/(visa-services|contact|hajjUmrah-partner|list-your-packages)"' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx`
++- `rg -n "import Header|import Footer|console\\.log|operator\\.hajjumrah\\.co|Get Started" /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/VisaServices/VisaServices.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ContactUs/ContactUs.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HajjUmrahBusiness/HajjUmrahBusiness.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ListPackagePage/ListPackagePage.js`
++- No build was run. No `npm install` was run. No lockfiles were modified. No target-project code was changed in this phase.
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md
+index e6dcfd503b4c60f2e6786fa48c6d59e185ff8414..294dd1abcb6cef99ba39dfdee4927d06b44c919f
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md
+@@ -312,3 +312,33 @@
+   - atlas last-refreshed markers now point at Phase 5 for run `20260308-145701-full-enhance`
+   - backlog, deep scan report, change map, and run summary now all preserve `FE-REV-005` as the exact next batch
+   - no build was run, no `npm install` was run, and no lockfiles were modified
++
++## 2026-03-08 - Phase 0 Selection Notes (`fix-backlog`, run `20260308-160042-fix-backlog`)
++
++- Re-read the backlog, atlas docs, design guides, and the completed run `20260308-145701-full-enhance`, then rechecked the live route owners in `Huz-Web-Frontend`.
++- Confirmed the stale Phase 0 prompt still lists `FE-REV-003` first, but that batch is already verified and should not be repeated in this run.
++- Selected the exact next bounded implementation batch for this run:
++  - `FE-REV-005` lead-gen and partner pages
++  - `VisaServices`
++  - `ContactUs`
++  - `HajjUmrahBusiness`
++  - `ListPackagePage`
++- Why this batch now:
++  - next execution-order batch after the verified `FE-REV-003` family
++  - bounded to 4 route owners
++  - all 4 pages still sit outside the shared `BrandPageShell` system or still depend on placeholder CTA/form behavior
++  - it finishes the remaining public-facing revamp work before the higher-risk protected-account and cleanup phases
++- Phase 1 implementation constraints for `FE-REV-005`:
++  - keep route paths `/visa-services`, `/contact`, `/hajjUmrah-partner`, and protected `/list-your-packages` unchanged
++  - preserve intentional outbound `https://operator.hajjumrah.co/` destinations in `ListPackagePage.js`
++  - treat the `HajjUmrahBusiness.jsx` "Get Started" action as an explicit flow decision, not a visual-only placeholder
++  - replace the current `console.log` submit behavior in `VisaServices.jsx` and `ContactUs.jsx` only with intentional frontend UX unless a later phase explicitly adds a real backend contract
++- Deferred after this batch:
++  - `FE-REV-004` protected account shell convergence
++  - `FE-REV-006` compatibility cleanup
++- Planned Phase 1 verification:
++  - route tracing for `/visa-services`, `/contact`, `/hajjUmrah-partner`, and `/list-your-packages`
++  - shell tracing for `BrandPageShell`, `Header`, and `Footer` usage in the 4 selected route owners
++  - placeholder-behavior tracing for `console.log`, `operator.hajjumrah.co`, and the current CTA labels
++  - parser validation plus scoped eslint on touched files only
++  - no build, no `npm install`, and no lockfile changes
+diff --git a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
+index fb9778ba2ec6fe99f2be6ec461a2dce338dd5e08..05cb4d2a39dd5398b88faa83e78e0799b8ce3d0e
+--- a//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
++++ b//Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md
+@@ -905,3 +905,57 @@
+   - `rg -n 'Last refreshed: 2026-03-08 \(Phase 5 - Finalize Docs and Summary, full-enhance run \`20260308-145701-full-enhance\`\)\.' /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/PROJECT_BLUEPRINT.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/MODULE_MAP.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/ROUTES_AND_ENTRYPOINTS.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/API_SURFACE.md`
+   - `rg -n "FE-REV-005|VisaServices|ContactUs|HajjUmrahBusiness|ListPackagePage|20260308-145701-full-enhance" /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/CHANGE_MAP.md /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-145701-full-enhance/RUN_SUMMARY.md`
+ - No build was run. No `npm install` was run. No lockfiles were modified.
++
++### 2026-03-08 - Phase 0 Select Backlog Target (`fix-backlog`, run `20260308-160042-fix-backlog`)
++
++#### Scope Scanned
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/state.json`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/prompts/phase-00.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-062131-full-enhance/RUN_SUMMARY.md`
++- `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-145701-full-enhance/RUN_SUMMARY.md`
++- `/Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md`
++- `/Users/macbook/Desktop/Huz/UI_DESIGN_SYSTEM_GUIDE.md`
++- `Huz-Web-Frontend/src/routes/AppRoutes.jsx`
++- `Huz-Web-Frontend/src/pages/VisaServices/VisaServices.jsx`
++- `Huz-Web-Frontend/src/pages/ContactUs/ContactUs.jsx`
++- `Huz-Web-Frontend/src/pages/HajjUmrahBusiness/HajjUmrahBusiness.jsx`
++- `Huz-Web-Frontend/src/pages/ListPackagePage/ListPackagePage.js`
++
++#### Selection Findings
++- `FE-REV-003` is already implemented and verified in run `20260308-145701-full-enhance`, so selecting it again would repeat completed work.
++- The next real execution-order batch is `FE-REV-005` for the 4 remaining lead-gen and partner pages:
++  - `VisaServices`
++  - `ContactUs`
++  - `HajjUmrahBusiness`
++  - `ListPackagePage`
++- All 4 selected route owners still remain outside the shared branded page system:
++  - `VisaServices.jsx` imports `Header` and `Footer` directly and still submits to `console.log`
++  - `ContactUs.jsx` imports `Header` and `Footer` directly and still submits to `console.log`
++  - `HajjUmrahBusiness.jsx` imports `Header` and `Footer` directly and still ends with an inert `Get Started` button
++  - `ListPackagePage.js` keeps a bespoke protected marketing shell and direct `https://operator.hajjumrah.co/` anchors instead of the shared page system
++- These 4 routes are structurally safer than `FE-REV-004` because they do not own the active booking/wallet/account route-state contracts preserved by the protected convergence batch.
++- Remaining ordered work after this selection stays:
++  - `FE-REV-005`
++  - `FE-REV-004`
++  - `FE-REV-006`
++
++#### Exact Phase 1 Target
++- Execute `FE-REV-005` next:
++  - migrate `VisaServices`, `ContactUs`, `HajjUmrahBusiness`, and `ListPackagePage` onto the shared Huz branded system
++  - preserve the existing route paths and protected status for `/list-your-packages`
++  - preserve intentional outbound `operator.hajjumrah.co` destinations
++  - avoid silently introducing new backend/network behavior while replacing placeholder submit UX
++
++#### Required Verification
++- Route tracing:
++  - `rg -n 'path="/(visa-services|contact|hajjUmrah-partner|list-your-packages)"' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/routes/AppRoutes.jsx`
++- Manual-shell and placeholder-behavior tracing:
++  - `rg -n 'import Header|import Footer|console\.log|operator\.hajjumrah\.co|Get Started' /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/VisaServices/VisaServices.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ContactUs/ContactUs.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/HajjUmrahBusiness/HajjUmrahBusiness.jsx /Users/macbook/Desktop/Huz/Huz-Web-Frontend/src/pages/ListPackagePage/ListPackagePage.js`
++- Shared-system alignment:
++  - re-read `BrandPageShell` rules from `HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md`
++  - preserve the public-route shell rhythm from the homepage/layout token contract
++- Static-only validation budget:
++  - parser validation and scoped eslint on touched files only
++  - no build, no `npm install`, and no lockfile changes
+
+tokens used
+101,764
+Phase 0 is complete. I selected `FE-REV-005` as the real next batch for this run, since `FE-REV-003` was already verified in the prior `full-enhance` run. I updated [BUG_BACKLOG.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md), [DEEP_SCAN_REPORT.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md), and [RUN_SUMMARY.md](/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/RUN_SUMMARY.md), then ran the required `complete` and `next` orchestration commands. No target-project code was changed in Phase 0.
+
+```text
+Use $project-autopilot-manager in `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz`.
+Read `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/state.json` and `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/prompts/phase-01.md`.
+Execute only Phase 1 (Implement the Fix) against target project `/Users/macbook/Desktop/Huz`.
+At the end, run:
+1. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs complete --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog --phase 1`
+2. `node /Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs next --run /Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog`
+Then print `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/project-bot/runs/20260308-160042-fix-backlog/NEXT_PROMPT.md`.
+```

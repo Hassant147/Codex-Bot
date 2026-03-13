@@ -1,0 +1,206 @@
+{
+  "version": 1,
+  "workspaceRoot": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz",
+  "projectPath": "/Users/macbook/Desktop/Huz",
+  "mode": "full-enhance",
+  "modeTitle": "Full Enhancement",
+  "description": "Run a complete analyze-plan-execute-verify-refresh loop for a project or large module set, splitting the work into bounded phases and keeping the atlas and backlog current throughout.",
+  "scopeLevel": "multi-panel-fullstack",
+  "scope": "/Users/macbook/Desktop/Huz",
+  "scopeTargets": [
+    "/Users/macbook/Desktop/Huz/Huz-Admin-Frontend",
+    "/Users/macbook/Desktop/Huz/Huz-Operator-Frontend",
+    "/Users/macbook/Desktop/Huz/Huz-Web-Frontend",
+    "/Users/macbook/Desktop/Huz/Huz-Backend"
+  ],
+  "request": "Fix the full March 11, 2026 booking-contract drift campaign across Huz admin frontend, operator frontend, web frontend, and backend.\n\nThis is not a report-only task. Implement the fixes end to end.\n\nPrimary source of truth for scope and confirmed mismatches:\n- /Users/macbook/Desktop/Huz/docs/codex_reports/BOOKING_FRONTEND_BACKEND_AUDIT_2026-03-11.md\n- /Users/macbook/Desktop/Huz/docs/codex_reports/BOOKING_CONTRACT_AUDIT_2026-03-11.md\n- /Users/macbook/Desktop/Huz/docs/qa/DEEP_SCAN_REPORT.md\n- /Users/macbook/Desktop/Huz/docs/qa/BUG_BACKLOG.md\n- /Users/macbook/Desktop/Huz/docs/atlas/PROJECT_BLUEPRINT.md\n- /Users/macbook/Desktop/Huz/docs/atlas/SYSTEM_BLUEPRINT.md\n- /Users/macbook/Desktop/Huz/docs/atlas/MODULE_MAP.md\n- /Users/macbook/Desktop/Huz/docs/atlas/ROUTES_AND_ENTRYPOINTS.md\n- /Users/macbook/Desktop/Huz/docs/atlas/API_SURFACE.md\n- /Users/macbook/Desktop/Huz/docs/atlas/API_CONTRACT_REGISTRY.md\n- /Users/macbook/Desktop/Huz/docs/atlas/CHANGE_MAP.md\n\nScope includes:\n- /Users/macbook/Desktop/Huz/Huz-Admin-Frontend\n- /Users/macbook/Desktop/Huz/Huz-Operator-Frontend\n- /Users/macbook/Desktop/Huz/Huz-Web-Frontend\n- /Users/macbook/Desktop/Huz/Huz-Backend\n\nKeep the previously excluded module excluded:\n- admin access-operator-profile\n\nExecution contract:\n- Treat the March 11 booking audit findings as an implementation backlog, not as optional suggestions.\n- Fix every confirmed mismatch from high risk to low risk in dependency order.\n- If you discover adjacent booking-contract drift while implementing these fixes, either fix it in the same campaign if it blocks correctness, or record it explicitly in backlog/docs before closing.\n- Do not stop after only the first easy batch. This campaign should drive through the listed remediation waves until all confirmed March 11 findings are fixed or a concrete blocker is verified.\n- Prefer frontend-consumer fixes when the backend contract is already correct and intentionally stricter.\n- If a backend contract is unsafe or incomplete, fix backend and all consumers together.\n- Keep route identity, state ownership, and payload-shape handling explicit. Do not rely on hidden localStorage coupling where route params or component state should own identity.\n\nMandatory remediation waves:\n\nWave 1: Refresh booking atlas context and import the latest March 11 audit truth\n- Reconcile the bot workspace atlas/backlog/docs with the current project-local March 11 booking audit and QA docs.\n- Ensure the bot workspace reflects admin, operator, web, and backend booking surfaces before implementation decisions.\n\nWave 2: Fix the highest-risk contract and payload-shape drift\n- Admin booking list must become page-aware and search-aware against the backend contract instead of searching only local first-page results.\n- Admin complaints list must become page-aware against the backend paginated contract.\n- Admin receivables views must correctly consume paginated payloads where the endpoint is paginated.\n- Super-admin partner settlement review must stop losing payment proofs because it refetches a contract that hides payment_detail.\n\nWave 3: Fix booking workflow state ownership drift\n- Admin pending-action workflow must honor operator_can_act and stop exposing actions the backend will reject.\n- Admin booking fulfillment subflows must stop depending on global localStorage(\"bookingNumber\") as the source of truth when route identity or component-owned state should carry booking identity.\n- Remove or reduce stale booking-localStorage coupling where it causes contract drift or weak state ownership.\n\nWave 4: Align late-stage workflow and permission behavior\n- Remove or correctly gate edit/update entrypoints that remain exposed on completed bookings when backend create/update rules do not allow those mutations.\n- Check the related delete/document paths too; if completed-state mutation is still possible through delete paths or other side routes, close that gap.\n- Add or surface the missing reported-traveler UX for issue_status=REPORTED where the backend already supports it.\n- Keep admin and operator workflow screens aligned with backend booking_status and issue_status rules.\n\nWave 5: Fix operator dashboard and bookings-module truthfulness\n- Recent Bookings must reflect the correct workflow bucket behavior and not silently degrade into a misleading READY-only queue.\n- Booking search copy and behavior must match the real backend filter contract; either implement the promised search capability end to end or correct the UI promise.\n\nWave 6: Fix low-risk but real web/support drift\n- Support history attachments and audio must resolve against the API origin, not the frontend origin, so split-origin deployments remain correct.\n- Recheck any nearby booking/support media helpers for the same issue and fix them if they are part of the same contract surface.\n\nWave 7: Regression hardening and verification\n- Run the relevant validations for each touched surface:\n  - Huz-Admin-Frontend build or equivalent scoped verification\n  - Huz-Operator-Frontend build or equivalent scoped verification\n  - Huz-Web-Frontend build or equivalent scoped verification\n  - Huz-Backend targeted checks/tests relevant to touched booking/support/payment flows\n- If current test coverage is weak around the changed contract surfaces, add focused tests where the risk is high enough to justify them.\n\nWave 8: Final documentation and closure\n- Update the bot workspace atlas, change map, deep scan report, and backlog to reflect what was fixed, what remains, and any blockers.\n- If the project-local booking audit or backlog docs are still being used as active repo memory and the implementation materially changes their status, refresh those project-local docs too.\n- Do not leave the campaign marked complete if March 11 findings remain open without explicit blocker notes.\n\nPriority order inside implementation:\n1. Pagination/payload-shape correctness\n2. Settlement proof visibility\n3. Workflow-state ownership and route identity\n4. Late-stage mutation and reported-traveler workflow alignment\n5. Operator truthfulness issues\n6. Web support media-origin fix\n7. Verification, tests, and docs\n\nSuccess criteria:\n- All confirmed March 11 booking mismatch findings are either fixed in code or explicitly blocked with proof.\n- Admin/operator/web consumers match live backend contract shapes and workflow rules.\n- No first-page-only list views remain in the scoped booking/complaints/receivables surfaces where the backend is paginated.\n- No settlement review screen falsely reports missing payment proof because of hidden payment_detail refetch behavior.\n- No booking subflow in the fixed scope relies on a stale localStorage booking number when route-owned identity should be used.\n- Completed/ready-for-travel workflow UIs no longer advertise illegal mutations.\n- Reported-traveler handling is surfaced where backend support exists.\n- Builds/tests/checks for touched surfaces are recorded.\n- Atlas/backlog/change history are refreshed for future runs.",
+  "projectSurfaces": [
+    {
+      "id": "web-panel",
+      "label": "Huz-Web-Frontend",
+      "path": "/Users/macbook/Desktop/Huz/Huz-Web-Frontend",
+      "kind": "panel-fe"
+    },
+    {
+      "id": "admin-panel",
+      "label": "Huz-Admin-Frontend",
+      "path": "/Users/macbook/Desktop/Huz/Huz-Admin-Frontend",
+      "kind": "panel-fe"
+    },
+    {
+      "id": "operator-panel",
+      "label": "Huz-Operator-Frontend",
+      "path": "/Users/macbook/Desktop/Huz/Huz-Operator-Frontend",
+      "kind": "panel-fe"
+    },
+    {
+      "id": "backend-api",
+      "label": "Huz-Backend",
+      "path": "/Users/macbook/Desktop/Huz/Huz-Backend",
+      "kind": "panel-be"
+    }
+  ],
+  "devIgnorePatterns": [
+    "node_modules/**",
+    "dist/**",
+    "build/**",
+    "coverage/**",
+    ".git/**",
+    ".cache/**",
+    ".next/**",
+    ".turbo/**",
+    ".idea/**",
+    ".vscode/**",
+    "logs/**",
+    "tmp/**",
+    "temp/**",
+    "*.min.js",
+    "*.map",
+    "*.log",
+    "*.lock"
+  ],
+  "fullSystemRequiredDocs": true,
+  "requiredAtlasDocs": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/SYSTEM_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/FILE_MAP_DEV_ONLY.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/PANEL_MODULE_INDEX.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/FRONTEND_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/BACKEND_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/PROJECT_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/MODULE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/ROUTES_AND_ENTRYPOINTS.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/ROUTE_MATRIX.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/STATE_MANAGEMENT_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/API_SURFACE.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/API_CONTRACT_REGISTRY.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/BACKEND_SCHEMA_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/DEPENDENCY_GRAPH.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/SECURITY_THREAT_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/TRACEABILITY_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/CHANGE_MAP.md"
+  ],
+  "designGuides": [
+    "/Users/macbook/Desktop/Huz/UI_DESIGN_SYSTEM_GUIDE.md",
+    "/Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md"
+  ],
+  "referenceDocs": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/PROJECT_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/SYSTEM_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/FILE_MAP_DEV_ONLY.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/PANEL_MODULE_INDEX.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/FRONTEND_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/BACKEND_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/MODULE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/ROUTES_AND_ENTRYPOINTS.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/ROUTE_MATRIX.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/STATE_MANAGEMENT_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/API_SURFACE.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/API_CONTRACT_REGISTRY.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/BACKEND_SCHEMA_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/DEPENDENCY_GRAPH.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/SECURITY_THREAT_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/TRACEABILITY_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/FULL_AUDIT_REPORT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md",
+    "/Users/macbook/Desktop/Huz/docs/codex_reports/BOOKING_FRONTEND_BACKEND_AUDIT_2026-03-11.md",
+    "/Users/macbook/Desktop/Huz/docs/codex_reports/BOOKING_CONTRACT_AUDIT_2026-03-11.md",
+    "/Users/macbook/Desktop/Huz/docs/qa/DEEP_SCAN_REPORT.md",
+    "/Users/macbook/Desktop/Huz/docs/qa/BUG_BACKLOG.md",
+    "/Users/macbook/Desktop/Huz/docs/atlas/PROJECT_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Huz/docs/atlas/SYSTEM_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Huz/docs/atlas/MODULE_MAP.md",
+    "/Users/macbook/Desktop/Huz/docs/atlas/ROUTES_AND_ENTRYPOINTS.md",
+    "/Users/macbook/Desktop/Huz/docs/atlas/API_SURFACE.md",
+    "/Users/macbook/Desktop/Huz/docs/atlas/API_CONTRACT_REGISTRY.md",
+    "/Users/macbook/Desktop/Huz/docs/atlas/CHANGE_MAP.md"
+  ],
+  "forceExternalDocs": true,
+  "reportFiles": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/DEEP_SCAN_REPORT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/qa/BUG_BACKLOG.md"
+  ],
+  "createdAt": "2026-03-11T11:53:00.895Z",
+  "updatedAt": "2026-03-11T11:53:00.895Z",
+  "phaseCursor": 0,
+  "phases": [
+    {
+      "id": 0,
+      "title": "Refresh Atlas and Inventory",
+      "status": "pending",
+      "completedAt": null,
+      "note": "",
+      "goal": "Refresh the project blueprint and identify the current module layout before enhancement work begins.",
+      "required": [
+        "Read the current atlas docs and refresh stale areas that block reliable execution.",
+        "Inventory the project scope, critical modules, routes, APIs, and major dependencies.",
+        "Capture baseline commands and verification constraints."
+      ]
+    },
+    {
+      "id": 1,
+      "title": "Deep Scan and Backlog",
+      "status": "pending",
+      "completedAt": null,
+      "note": "",
+      "goal": "Analyze the project deeply and produce a prioritized backlog of enhancements, mismatches, bugs, and structural improvements.",
+      "required": [
+        "Perform a targeted deep scan of the requested scope.",
+        "Update the deep scan report and bug backlog with prioritized, actionable items.",
+        "Group the work into coherent execution batches by module or risk."
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Plan Execution Batches",
+      "status": "pending",
+      "completedAt": null,
+      "note": "",
+      "goal": "Convert the backlog into a concrete implementation plan for the next batch of improvements.",
+      "required": [
+        "Select the highest-value batch that fits safely in the current run.",
+        "Document what will be changed now versus deferred for later batches.",
+        "Keep the plan aligned to the user request and current verification budget."
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Implement Highest-Priority Batch",
+      "status": "pending",
+      "completedAt": null,
+      "note": "",
+      "goal": "Execute the highest-priority improvement batch for the scoped project.",
+      "required": [
+        "Implement the selected fixes or enhancements across the necessary modules.",
+        "Keep changes cohesive and avoid scattering unrelated edits.",
+        "If new mismatches are uncovered, fix them or record them in the backlog before moving on."
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Verify and Reprioritize",
+      "status": "pending",
+      "completedAt": null,
+      "note": "",
+      "goal": "Validate the batch, update the backlog, and confirm the next recommended work.",
+      "required": [
+        "Run the appropriate validations and fix blockers found during verification.",
+        "Update the backlog with completed items, remaining work, and newly discovered issues.",
+        "Refresh the atlas docs for the touched modules."
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Finalize Docs and Summary",
+      "status": "pending",
+      "completedAt": null,
+      "note": "",
+      "goal": "Leave the project in a durable state for future automated runs.",
+      "required": [
+        "Update the atlas docs, scan report, backlog, and change map with final state after this batch.",
+        "Append a full summary of the work completed in this run.",
+        "Record the next recommended batch so a future run can continue without rescanning everything."
+      ]
+    }
+  ]
+}
