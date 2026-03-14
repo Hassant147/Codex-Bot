@@ -1,0 +1,142 @@
+{
+  "version": 1,
+  "workspaceRoot": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default",
+  "projectPath": "/tmp/codex-gui-smoke-fon9C8",
+  "mode": "deep-scan",
+  "modeTitle": "Deep Scan",
+  "description": "Perform a code-level analysis of the requested scope, document logic, routes, contracts, structures, and risks, and produce a report plus backlog.",
+  "scopeLevel": "module",
+  "scope": "",
+  "scopeTargets": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/src",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/server",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs"
+  ],
+  "request": "Smoke test multi-agent orchestration. Keep changes minimal and safe.\nGlobal Instructions:\nKeep reports and durable project memory outside the target repo.\nRefresh affected docs when routes, APIs, contracts, state, or module structure change.\nKeep findings traceable and preserve operator-readable summaries.",
+  "projectSurfaces": [
+    {
+      "id": "primary-project",
+      "label": "codex-gui-smoke-fon9C8",
+      "path": "/tmp/codex-gui-smoke-fon9C8",
+      "kind": "panel-fullstack"
+    }
+  ],
+  "devIgnorePatterns": [
+    "node_modules/**",
+    "dist/**",
+    "build/**",
+    "coverage/**",
+    ".git/**",
+    ".cache/**",
+    ".next/**",
+    ".turbo/**",
+    ".idea/**",
+    ".vscode/**",
+    "logs/**",
+    "tmp/**",
+    "temp/**",
+    "*.min.js",
+    "*.map",
+    "*.log",
+    "*.lock"
+  ],
+  "fullSystemRequiredDocs": true,
+  "requiredAtlasDocs": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/PROJECT_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/MODULE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/ROUTES_AND_ENTRYPOINTS.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/API_SURFACE.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/CHANGE_MAP.md"
+  ],
+  "designGuides": [],
+  "referenceDocs": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/PROJECT_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/SYSTEM_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/FILE_MAP_DEV_ONLY.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/PANEL_MODULE_INDEX.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/FRONTEND_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/BACKEND_BLUEPRINT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/MODULE_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/ROUTES_AND_ENTRYPOINTS.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/ROUTE_MATRIX.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/STATE_MANAGEMENT_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/API_SURFACE.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/API_CONTRACT_REGISTRY.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/BACKEND_SCHEMA_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/DEPENDENCY_GRAPH.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/SECURITY_THREAT_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/atlas/TRACEABILITY_MAP.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/FULL_AUDIT_REPORT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/BUG_BACKLOG.md"
+  ],
+  "forceExternalDocs": true,
+  "reportFiles": [
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/DEEP_SCAN_REPORT.md",
+    "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default/docs/qa/BUG_BACKLOG.md"
+  ],
+  "createdAt": "2026-03-14T10:53:33.953Z",
+  "updatedAt": "2026-03-14T10:53:33.953Z",
+  "phaseCursor": 0,
+  "phases": [
+    {
+      "id": 0,
+      "title": "Refresh Atlas Context",
+      "status": "pending",
+      "completedAt": null,
+      "note": "",
+      "goal": "Load the existing atlas docs, validate the scoped modules, and refresh stale context needed for a reliable scan.",
+      "required": [
+        "Read the current atlas docs before diving into code.",
+        "Confirm the exact directories, routes, APIs, or modules covered by the request.",
+        "Refresh atlas docs when stale context blocks an accurate scan."
+      ]
+    },
+    {
+      "id": 1,
+      "title": "Analyze Code Paths",
+      "status": "pending",
+      "completedAt": null,
+      "note": "",
+      "goal": "Inspect the requested scope deeply and capture logic flows, route structures, contracts, state handling, and mismatch risks.",
+      "required": [
+        "Trace important execution paths, data transformations, route definitions, and module boundaries in the scoped area.",
+        "Identify mismatches, bug risks, dead paths, duplicated logic, or weak assumptions.",
+        "Keep findings evidence-based with exact files and commands used to verify them."
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Write Findings and Backlog",
+      "status": "pending",
+      "completedAt": null,
+      "note": "",
+      "goal": "Produce durable reports and backlog entries so future work can execute without rescanning the full codebase.",
+      "required": [
+        "Update the deep scan report with findings grouped by module or concern.",
+        "Update the bug backlog with prioritized, actionable items and verification steps.",
+        "Capture the scope scanned, files examined, and remaining blind spots."
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Verify and Summarize",
+      "status": "pending",
+      "completedAt": null,
+      "note": "",
+      "goal": "Check the scan quality and ensure the atlas reflects newly clarified relationships.",
+      "required": [
+        "Sanity-check the report and backlog against the code reviewed.",
+        "Update atlas docs for any clarified structure or contract information.",
+        "Append a concise final summary of the scan and its evidence."
+      ]
+    }
+  ],
+  "multiAgent": {
+    "enabled": true,
+    "workerCount": 3,
+    "writeMode": "scoped",
+    "isolation": "worktree",
+    "mergeGate": "manager_tests"
+  }
+}

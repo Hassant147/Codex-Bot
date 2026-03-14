@@ -1,0 +1,133 @@
+{
+  "version": 2,
+  "activeAccountId": "account-1773444528891-nmxaqb",
+  "accounts": [
+    {
+      "id": "account-1773424136286-wfzwqp",
+      "name": "h.t.coc147",
+      "provider": "chatgpt",
+      "kind": "chatgpt-snapshot",
+      "createdAt": "2026-03-13T17:48:56.286Z",
+      "updatedAt": "2026-03-14T01:43:59.586Z",
+      "verifiedAt": "2026-03-14T01:44:04.309Z",
+      "lastCheckMessage": "Verified via ChatGPT.",
+      "available": true,
+      "snapshotFingerprint": "bbdc1ea0468efdecf47bf82f4c7419a7dd7b6a8f08c134d4c72c06eeff959bdd",
+      "identityEmail": "h.t.coc147@gmail.com",
+      "identitySubject": "auth0|nUbpK3J6BbZX8AEzfw9W46Tv",
+      "identityAccountId": "efe6f994-ddfa-47e5-be84-a679c7cff2be",
+      "lastKnownUsage": {
+        "source": "saved-account-cache",
+        "sessionFile": "/Users/macbook/.codex/sessions/2026/03/14/rollout-2026-03-14T05-49-23-019ce9d1-c02e-72c2-aaf7-0d6dfc80fbcc.jsonl",
+        "capturedAt": "2026-03-14T10:33:10.423Z",
+        "accountEmail": "h.t.coc147@gmail.com",
+        "accountId": "efe6f994-ddfa-47e5-be84-a679c7cff2be",
+        "planType": "plus",
+        "freshForCurrentLogin": false,
+        "primary": {
+          "usedPercent": 0,
+          "leftPercent": 100,
+          "windowMinutes": 300,
+          "resetAt": "2026-03-14T15:21:53.000Z"
+        },
+        "secondary": {
+          "usedPercent": 30,
+          "leftPercent": 70,
+          "windowMinutes": 10080,
+          "resetAt": "2026-03-20T22:54:59.000Z"
+        },
+        "credits": null
+      }
+    },
+    {
+      "id": "account-1773424253528-ozt8ez",
+      "name": "mu.hammad.hassan985",
+      "provider": "chatgpt",
+      "kind": "chatgpt-snapshot",
+      "createdAt": "2026-03-13T17:50:53.528Z",
+      "updatedAt": "2026-03-14T10:33:32.889Z",
+      "verifiedAt": "2026-03-14T10:33:36.721Z",
+      "lastCheckMessage": "Verified via ChatGPT.",
+      "available": true,
+      "snapshotFingerprint": "87ec5d63a34494d9ee7435241b88fc284da2c6d227978c3518933ac44d12471f",
+      "identityEmail": "mu.hammad.hassan985@gmail.com",
+      "identitySubject": "auth0|elXIpzAAt5hK4hTXJMbsYMGG",
+      "identityAccountId": "996a26ae-e4fa-4e81-a43c-088cc974ed52",
+      "lastKnownUsage": {
+        "source": "saved-account-cache",
+        "sessionFile": "",
+        "capturedAt": "2026-03-14T10:33:46.506997Z",
+        "accountEmail": "mu.hammad.hassan985@gmail.com",
+        "accountId": "996a26ae-e4fa-4e81-a43c-088cc974ed52",
+        "planType": "plus",
+        "freshForCurrentLogin": false,
+        "primary": {
+          "usedPercent": 0,
+          "leftPercent": 100,
+          "windowMinutes": 300,
+          "resetAt": "2026-03-14T15:33:46.000Z"
+        },
+        "secondary": {
+          "usedPercent": 94,
+          "leftPercent": 6,
+          "windowMinutes": 10080,
+          "resetAt": "2026-03-18T16:46:38.000Z"
+        },
+        "credits": null
+      }
+    },
+    {
+      "id": "account-1773424335982-orlw4e",
+      "name": "m.uhammad.hassan985",
+      "provider": "chatgpt",
+      "kind": "chatgpt-snapshot",
+      "createdAt": "2026-03-13T17:52:15.982Z",
+      "updatedAt": "2026-03-14T01:04:34.928Z",
+      "verifiedAt": "2026-03-14T01:04:39.981Z",
+      "lastCheckMessage": "Verified via ChatGPT.",
+      "available": true,
+      "snapshotFingerprint": "a87a40d09f084ac213e3757a437cc439e4f9a8ee54eb7c27617f0fe5def0e24b",
+      "identityEmail": "m.uhammad.hassan985@gmail.com",
+      "identitySubject": "auth0|KIwffDuj3njKV4HuhBqrO1mK",
+      "identityAccountId": "aa973919-4fa4-49eb-956b-03307e44e327",
+      "lastKnownUsage": null
+    },
+    {
+      "id": "account-1773444528891-nmxaqb",
+      "name": "h.assantahir1471+n1",
+      "provider": "chatgpt",
+      "kind": "chatgpt-snapshot",
+      "createdAt": "2026-03-13T23:28:48.890Z",
+      "updatedAt": "2026-03-14T10:40:04.870Z",
+      "verifiedAt": "2026-03-14T10:40:09.742Z",
+      "lastCheckMessage": "Verified via ChatGPT.",
+      "available": true,
+      "snapshotFingerprint": "7e5579c2861a7f8f7f02245f56e94e7c2c7807a19a1bd2646ac0193a2516f99a",
+      "identityEmail": "h.assantahir1471+n1@gmail.com",
+      "identitySubject": "auth0|nrurI5AThLJyUFmq1e8LiFSa",
+      "identityAccountId": "ef3b294f-8777-421f-92bc-93277db67fe0",
+      "lastKnownUsage": {
+        "source": "saved-account-cache",
+        "sessionFile": "/Users/macbook/.codex/sessions/2026/03/14/rollout-2026-03-14T05-49-23-019ce9d1-c02e-72c2-aaf7-0d6dfc80fbcc.jsonl",
+        "capturedAt": "2026-03-14T10:53:51.601Z",
+        "accountEmail": "h.assantahir1471+n1@gmail.com",
+        "accountId": "ef3b294f-8777-421f-92bc-93277db67fe0",
+        "planType": "plus",
+        "freshForCurrentLogin": false,
+        "primary": {
+          "usedPercent": 0,
+          "leftPercent": 100,
+          "windowMinutes": 300,
+          "resetAt": "2026-03-14T15:21:53.000Z"
+        },
+        "secondary": {
+          "usedPercent": 30,
+          "leftPercent": 70,
+          "windowMinutes": 10080,
+          "resetAt": "2026-03-20T22:54:59.000Z"
+        },
+        "credits": null
+      }
+    }
+  ]
+}

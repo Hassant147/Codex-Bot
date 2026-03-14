@@ -1,49 +1,44 @@
 # Codex Project Bot GUI
 
-Standalone local GUI for the Codex project bot. This app lives outside the `Huz` workspace and controls the project-bot workflow through a browser.
+Local-desktop control surface for the Codex project-bot workflow. The app now uses a modular `React + TypeScript + Vite` client and a modular Node/Express backend with a persistent runtime supervisor, SSE-based live run updates, and a local account center for manual API-key and browser-login account switching.
 
-Beginner manual:
-- See `USER_MANUAL.md` for full step-by-step usage.
+## Architecture
 
-Storage model:
-- The GUI uses a separate agent workspace for memory and reports.
-- The default agent workspace is `/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/default`
-- The target project is only the repo Codex edits.
-- This keeps bot docs, run state, and summaries out of the project repo.
+- `src/`: React/Vite client with modular feature areas for dashboard, run wizard, history, agents, CLI, chat, and settings.
+- `server/`: Express API, workspace/profile services, Codex/CLI services, runtime supervisor, chat service, and compatibility aliases.
+- `bin/run-orchestration-autopilot.sh`: existing execution engine wrapper used by the runtime supervisor.
+- `agent-workspaces/`: durable external docs, runs, chat history, account metadata, and workspace state.
 
-## Start
+## Core Product Changes
+
+- Guided home dashboard with clear `Create`, `Start`, `Pause`, `Resume`, `Stop`, `View Details`, and `Switch Account` actions.
+- Three-step run wizard that defaults to plain-language outcomes and keeps advanced modes behind an expandable section.
+- Manual `Multi-Agent Mode` in the wizard with one manager plus `2` or `3` isolated Git worktree workers.
+- Persistent per-run runtime state under `runtime/status.json`, `runtime/events.jsonl`, `runtime/heartbeat.json`, and `runtime/command.json`.
+- Coordinated multi-agent runtime artifacts under `runtime/coordination.json`, `runtime/agents/*`, and `runtime/merge-report.json`.
+- SSE live updates for run status and ordered runtime/log events.
+- Account center with provider-aware session detection, manual API-key profile switching, and saved ChatGPT browser-login snapshots backed by the macOS keychain.
+- Unified command preview and execution model across dashboard, agents, and CLI surfaces.
+
+## Scripts
 
 ```bash
-cd /Users/macbook/Desktop/Codex-Project-Bot-GUI
-npm start
+npm run dev        # Vite client + Node API in parallel
+npm run build      # Production client build
+npm run serve      # Start the Node server against the built client
+npm start          # Build then serve
+npm test           # Unit + integration tests (Vitest)
+npm run test:e2e   # Playwright smoke tests
 ```
 
-Then open:
-
-- http://localhost:4311
-
-## What It Can Do
-
-- Initialize a project-bot workspace
-- Start a new project-bot run in any supported mode
-- Show a guided mode helper so non-technical users can choose the right job type
-- Offer prompt-coaching helpers, starter prompts, and a structured prompt template
-- Offer one-click quick-start presets for common jobs like scans, backlog fixing, revamps, audits, cleanup, and release checks
-- Offer a workspace library so you can create separate agent workspaces per project and switch between them with one click
-- Offer an old-run migration tool that imports previous runs into the current agent workspace
-- Show recent runs, reopen them, and restart autopilot from the GUI
-- Build coordinated multi-agent team plans from one master prompt, with per-agent run prompts, ownership lanes, and dependency waves
-- Auto-advance a team campaign so ready agents start in order as earlier waves finish
-- Show recent summary previews so you can browse older run outcomes without loading each run
-- Launch autopilot for the current run
-- Stop the active autopilot process started by this GUI
-- Choose a model, reasoning depth, quality preset, quiet mode, refresh rate, and max cycles
-- Enforce a stored “Force External Docs” policy so reports and bot memory stay outside the project repo by default
-- Show run status, next prompt, run summary, and the latest log tail
+The production app serves on `http://localhost:4311`.
 
 ## Notes
 
-- The GUI uses the existing global project-bot engine at:
-  - `/Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs`
-- It ships with its own local autopilot runner under `bin/`.
-- No npm dependencies are required beyond Node.js.
+- The GUI still uses the existing global project-bot engine at `/Users/macbook/.codex/skills/project-autopilot-manager/scripts/project_orchestrate.mjs`.
+- Reports and durable bot memory remain outside the target repo by default.
+- The default workspace seed is now generic; project-specific paths must be set explicitly in Settings or the run wizard.
+- Multi-agent start is blocked unless the target project is a Git repo with a clean working tree; single-agent behavior is unchanged.
+- Browser-login account switching depends on Codex exposing a readable `~/.codex/auth.json` on the current machine.
+- Browser-login switching is manual only. The app does not auto-rotate accounts after usage limits are hit.
+- Exact remaining Codex quota is not shown for every saved account. Use Codex `/status` for the active session.

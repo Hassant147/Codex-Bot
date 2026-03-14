@@ -4,6 +4,32 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "node server.mjs"
+    "dev": "concurrently -k \"vite\" \"node --watch server/index.mjs\"",
+    "build": "vite build",
+    "serve": "node server/index.mjs",
+    "start": "npm run build && node server/index.mjs",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^25.5.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@types/supertest": "^7.2.0",
+    "@vitejs/plugin-react-swc": "^4.3.0",
+    "concurrently": "^9.2.1",
+    "jsdom": "^28.1.0",
+    "playwright": "^1.58.2",
+    "supertest": "^7.2.2",
+    "typescript": "^5.9.3",
+    "vite": "^8.0.0",
+    "vitest": "^4.1.0"
   }
 }

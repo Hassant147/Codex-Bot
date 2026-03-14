@@ -1,74 +1,72 @@
 # Project Blueprint
 
-Keep this file current whenever code changes touch architecture, flows, or module boundaries.
+Last refreshed: 2026-03-13
 
-## Scope
-- Project goals
-- High-level architecture
-- Critical flows
+## Project purpose
 
-## Current Notes
-- Last refreshed: 2026-03-05 (Phase 3 - Verify and Summarize, run `20260305-152546-deep-scan`)
-- Previous refresh: 2026-03-05 (Phase 1 - Refresh Atlas Docs, run `20260305-152520-system-atlas`)
+Codex Project Bot GUI is a local-desktop operations product for managing Codex-powered project runs without requiring operators to work directly in the terminal. The product wraps the existing project-bot orchestration engine with a modular browser UI, a local Node API, persistent runtime state, and account recovery controls.
 
-## Project Purpose
-- Frontend for HajjUmrah.co booking experience: package discovery, package details, booking creation, and authenticated user self-service flows.
-- Primary stack: React 18, `react-scripts` (CRA), React Router v6, Tailwind CSS, Axios, Context API.
-- Operates as a frontend client for backend APIs under auth, partner packages, booking, wallet, and profile domains.
+## High-level architecture
 
-## High-Level Architecture
-- Bootstrap: `src/index.js` mounts `src/App.js` under `React.StrictMode`.
-- App shell (`src/App.js`) composes providers and router in this order:
-  - `AuthContextProvider`
-  - `CurrencyProvider`
-  - `ModalProvider`
-  - `BookingProvider`
-  - `BrowserRouter` + `AppRoutes`
-- Routing source-of-truth: `src/routes/AppRoutes.jsx` with lazy-loaded route components and route-level `ProtectedRoute` wrapping.
-- View composition pattern:
-  - `src/pages/*` defines route-level screens.
-  - `src/features/*` contains domain logic/hooks/utilities reused by pages.
-  - `src/components/*` + `src/shared/*` provide reusable UI blocks.
-- Service/data layer:
-  - Core transport in `src/services/api/httpClient.js`.
-  - Domain wrappers in `src/api/AuthApi.js`, `src/api/UserAuthApis.js`, `src/api/homepageApi.js`, `src/api/listingApi.js`, `src/api/apiService.js`.
-- Key runtime helpers:
-  - Route scroll reset via `ScrollToTop` (`src/Utilities/UtilityFunctions.js`).
-  - Homepage package cache via `useHomepageData` (`src/hooks/useHomepageData.js`, 5-minute in-memory TTL).
+- Client: `React + TypeScript + Vite` single-page app under `src/`
+- Server: local `Node + Express` API under `server/`
+- Runtime: `RuntimeSupervisor` manages either one single-agent autopilot process or one coordinated manager-plus-workers fleet and emits SSE updates
+- Execution engine: existing project-bot scripts and Codex CLI remain the execution core
+- Durable state: local workspace docs, runs, timelines, chat threads, profiles, and runtime files under `agent-workspaces/`
+- Secrets: saved API-key credentials are stored through the local macOS keychain integration
 
-## Critical Flows
-1. Discovery flow
-- Home (`/`) search (`SearchBar`) builds query params (`departureLocation`, `departureDate`) and navigates to `/listing-page`.
-- Listing reads query params in `useListingPageData` and fetches package lists via `src/api/listingApi.js`.
+## Critical flows
 
-2. Package detail flow
-- Listing/package cards navigate to `/package-detail-page?PackageId=...`.
-- Package detail hook (`usePackageDetailLogic`) resolves `PackageId` and requests package detail through `apiService.getPackageDetailByPackageId`.
-- Mobile package detail primary CTA currently navigates directly to `/bookings` (`buildBookingNavigationState`) while still mounting a legacy drawer component (`pages/PackageDetailPage/Mobile/components/Booking.jsx`) that is never opened because `showBookingDrawer` is never toggled `true`.
+### 1. App bootstrap
+- `src/main.tsx` mounts the SPA.
+- `src/app/AppProvider.tsx` loads `/api/app/bootstrap`.
+- Bootstrap returns workspace config, saved workspaces, run history, current run, account state, and CLI capabilities.
 
-3. Booking + payment continuation flow
-- Booking payload is built in `features/booking` utilities and posted through `apiService.createBookingRequest` (`/booking/new/create/`).
-- On success, flow continues to `/payment-methods` with booking and invoice state.
-- Additional payment/receipt, traveler update, objection, and status screens are protected routes under user settings.
+### 2. Guided run creation
+- `src/features/run-wizard/RunWizardPage.tsx` provides a 3-step flow:
+  - choose outcome
+  - confirm scope
+  - review and create
+- The wizard also exposes a manual `Multi-Agent Mode` toggle with `2` or `3` workers.
+- The server creates a run through `ProjectBotService`, then attaches runtime metadata through `RunService`.
 
-4. Auth and session flow
-- Auth bootstrap (`AuthContextProvider`) reads `accessToken`/`refreshToken` cookies, attempts refresh via `/api/token/refresh/`, then hydrates profile from `/auth/api/get-user-profile/`.
-- `ProtectedRoute` gates private routes and shows login prompt for unauthenticated users.
+### 3. Live run monitoring
+- `src/features/dashboard/DashboardPage.tsx` shows the current run, account health, and one ordered timeline.
+- `/api/runs/:runId/stream` delivers SSE updates from `RuntimeSupervisor`.
+- Runtime state is persisted to `runtime/status.json`, `runtime/events.jsonl`, `runtime/heartbeat.json`, and `runtime/command.json`.
+- Multi-agent runs also persist `runtime/coordination.json`, per-agent status/event/assignment/worktree files, and `runtime/merge-report.json`.
 
-5. User self-service flow
-- Authenticated users manage bookings, wallet/payment methods, messages, wishlist, profile data, and remaining payment through routes under `src/pages/UserSetting/*`.
+### 3a. Coordinated multi-agent execution
+- `server/services/runtime-supervisor.mjs` validates Git preflight, creates isolated worktrees, plans non-overlapping worker assignments, and pauses the entire run on quota/auth or repeated worker failure.
+- `server/services/multi-agent-service.mjs` is the shared source of truth for coordination state, sub-agent summaries, assignment ownership, and merge-gate helpers.
+- `server/services/git-service.mjs` owns Git preflight checks, worktree creation, diff enumeration, and manager patch application/reversal.
 
-## Ownership Boundaries and Constraints
-- Route ownership boundary is centralized in `src/routes/AppRoutes.jsx`; components navigate to many paths, but only AppRoutes declares valid route entries.
-- Current route ambiguity exists: `/listing-page` is declared twice (`ListingPage` then `ComingSoon`), so first-match ordering determines behavior.
-- Auth context contract mismatch exists: `ProtectedRoute` reads `loading`, but `AuthContextProvider` currently provides `{ login, setLogin, signOut }` only.
-- API ownership is partially split between modern and legacy wrappers:
-  - Modern: `AuthApi`, `homepageApi`, `listingApi`.
-  - Legacy/mixed: `UserAuthApis` and parts of `apiService`.
-- Endpoint naming drift is present (`/auth/api/...` and `/auth/apis/...`; modern partner endpoints and legacy `/partner/apis/...` endpoints both remain).
-- Booking list contract mismatch remains: `fetchBookingsByUser` returns `response?.data` from normalized `apiGet`, so HTTP failures can degrade into `undefined` payloads instead of thrown errors at call sites.
+### 4. Pause, resume, and recovery
+- Runs move through a strict lifecycle: `draft`, `queued`, `starting`, `running`, `paused`, `waiting_auth`, `stopping`, `stopped`, `failed`, `completed`.
+- Quota or authentication errors detected from runtime output move the run into `waiting_auth`.
+- Operators can recheck account status, reconnect the active account, switch saved accounts, and resume the same run.
 
-## Scoped Area For Current Run
-- Run target project: `/Users/macbook/Desktop/Huz/Huz-Web-Frontend`.
-- Effective analysis scope for this atlas phase: frontend source (`src/`) plus root config (`package.json`, `.env`) needed for route/API context.
-- Run state scope value remains `/Users/macbook/Desktop/Huz`; this phase was executed against the target frontend project only.
+### 5. Shared command execution
+- The same command-building logic is used by the dashboard runtime path, the CLI screen, and other launch surfaces.
+- `src/features/cli/CliPage.tsx` exposes the exact preview of the generated command before execution.
+
+### 6. Account management
+- `src/features/settings/SettingsPage.tsx` hosts the account center.
+- `AccountService` manages saved profiles and active account state.
+- `CodexService` parses provider-aware login status for `ChatGPT`, `API key`, or `unknown`.
+
+## Ownership boundaries
+
+- `src/app/*`: app bootstrap, global state, API client, shared types
+- `src/features/*`: page-level product modules, including the current-run fleet view in `agents` and the multi-agent dashboard panel
+- `src/shared-ui/*`: reusable UI system
+- `server/routes/*`: HTTP API contract
+- `server/services/*`: workspace, run, runtime, CLI, account, chat, and orchestration logic
+- `agent-workspaces/*`: local product memory and operator data
+
+## Product constraints
+
+- This is a local-desktop product, not a hosted SaaS service.
+- The project intentionally preserves compatibility aliases for older endpoints while the new SPA becomes the primary shell.
+- Durable docs and run artifacts are stored outside the target project by default.
+- Multi-agent mode is opt-in and blocked unless the target project is a clean Git working tree.

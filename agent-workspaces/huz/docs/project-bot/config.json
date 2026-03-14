@@ -2,10 +2,7 @@
   "version": 1,
   "workspaceRoot": "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz",
   "projectPath": "/Users/macbook/Desktop/Huz",
-  "designGuides": [
-    "/Users/macbook/Desktop/Huz/UI_DESIGN_SYSTEM_GUIDE.md",
-    "/Users/macbook/Desktop/Huz/HOMEPAGE_DEVELOPMENT_CUSTOMIZATION_GUIDE.md"
-  ],
+  "designGuides": [],
   "blueprintSources": [
     "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/PROJECT_BLUEPRINT.md",
     "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/SYSTEM_BLUEPRINT.md",
@@ -29,28 +26,10 @@
   ],
   "projectSurfaces": [
     {
-      "id": "web-panel",
-      "label": "Huz-Web-Frontend",
-      "path": "/Users/macbook/Desktop/Huz/Huz-Web-Frontend",
-      "kind": "panel-fe"
-    },
-    {
-      "id": "admin-panel",
-      "label": "Huz-Admin-Frontend",
-      "path": "/Users/macbook/Desktop/Huz/Huz-Admin-Frontend",
-      "kind": "panel-fe"
-    },
-    {
-      "id": "operator-panel",
-      "label": "Huz-Operator-Frontend",
-      "path": "/Users/macbook/Desktop/Huz/Huz-Operator-Frontend",
-      "kind": "panel-fe"
-    },
-    {
-      "id": "backend-api",
-      "label": "Huz-Backend",
-      "path": "/Users/macbook/Desktop/Huz/Huz-Backend",
-      "kind": "panel-be"
+      "id": "primary-project",
+      "label": "Huz",
+      "path": "/Users/macbook/Desktop/Huz",
+      "kind": "panel-fullstack"
     }
   ],
   "devIgnorePatterns": [
@@ -81,6 +60,15 @@
     "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/API_SURFACE.md",
     "/Users/macbook/Desktop/Codex-Project-Bot-GUI/agent-workspaces/huz/docs/atlas/CHANGE_MAP.md"
   ],
+  "executionProfile": {
+    "multiAgent": {
+      "enabled": true,
+      "workerCount": 3,
+      "writeMode": "scoped",
+      "isolation": "worktree",
+      "mergeGate": "manager_tests"
+    }
+  },
   "forceExternalDocs": true,
-  "updatedAt": "2026-03-11T11:51:13.877Z"
+  "updatedAt": "2026-03-14T10:33:21.476Z"
 }

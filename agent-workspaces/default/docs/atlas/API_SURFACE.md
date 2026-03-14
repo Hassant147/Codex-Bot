@@ -1,101 +1,106 @@
 # API Surface
 
-Track endpoints, service modules, request/response contracts, and important integration notes here.
+Last refreshed: 2026-03-13
 
-## APIs
-- Last refreshed: 2026-03-05 (Phase 3 - Verify and Summarize, run `20260305-152546-deep-scan`)
+## Core contracts
 
-## Base Config
-- Base URL source: `process.env.REACT_APP_API_BASE_URL` (`src/services/api/httpClient.js`).
-- Static auth header source: `process.env.REACT_APP_AUTH_TOKEN`.
-- Current `.env` in target project:
-  - `REACT_APP_API_BASE_URL=http://127.0.0.1:8000`
-  - `REACT_APP_AUTH_TOKEN=Basic ...`
+The local API is built around these shared data models:
+- `WorkspaceConfig`
+- `WorkspaceSummary`
+- `ProjectProfile`
+- `ExecutionProfile`
+- `MultiAgentConfig`
+- `RunSnapshot`
+- `RunRuntimeState`
+- `RunEvent`
+- `CoordinationState`
+- `SubAgentSummary`
+- `SubAgentDetail`
+- `MergeReport`
+- `AccountPayload`
+- `CliCapabilities`
+- `ChatThread`
 
-## HTTP Client Modules
-| Client | Module | Auth Behavior |
-| --- | --- | --- |
-| `publicClient` | `src/services/api/httpClient.js` | No token interceptor |
-| `authHeaderClient` | `src/services/api/httpClient.js` | Adds static `Authorization` from env token |
-| `httpClient` | `src/services/api/httpClient.js` | Uses `accessToken`/`refreshToken`, auto-refreshes via `/api/token/refresh/` |
-| `legacyHttpClient` | `src/services/api/httpClient.js` | Uses `access_token`/`refresh_token` legacy cookie keys |
+## Bootstrap contract
 
-## Auth and Profile Endpoints
-Source modules: `src/api/AuthApi.js`, `src/api/UserAuthApis.js`
+`GET /api/app/bootstrap` returns:
+- UI tab metadata
+- mode catalog
+- run templates
+- scope levels
+- quality presets
+- current workspace config
+- saved workspaces
+- project profiles
+- run history
+- account state
+- Codex capabilities
+- current run snapshot
 
-- `/auth/api/user-login-with-email/`
-- `/auth/apis/user-login-with-email/` (legacy login path still used by `UserAuthApis`)
-- `/auth/api/is-phone-number-exist/`
-- `/auth/api/is-email-exist/`
-- `/auth/api/otp-request/`
-- `/auth/api/otp-validate/`
-- `/auth/api/sign-up-with-phone/`
-- `/auth/api/resend-verification-email/`
-- `/auth/api/get-user-profile/`
-- `/auth/api/user-logout/`
-- `/auth/api/verify-email/?token=...`
-- `/user/profile/address/create/`
-- `/user/profile/address/get-all/`
-- `/api/token/refresh/`
+## Run contracts
 
-## Package Discovery Endpoints
-Source modules: `src/api/homepageApi.js`, `src/api/listingApi.js`, `src/api/apiService.js`
+### Create a run
+`POST /api/runs`
 
-### Active modern discovery paths (homepage/listing hooks)
-- `/partner/get_featured_packages/`
-- `/partner/get_package_short_detail_for_web/`
-- `/partner/get_package_detail_by_city_and_date/`
+Important inputs:
+- `workspaceRoot`
+- `projectPath`
+- `mode`
+- `request`
+- `scope`
+- `scopeLevel`
+- `scopeTargets`
+- `multiAgent.enabled`
+- `multiAgent.workerCount`
+- `requiredAtlasDocs`
+- `references`
 
-### Legacy discovery paths still exported from `apiService`
-- `/partner/apis/packages/client/all/get/?`
-- `/partner/apis/packages/client/search/date-and-city/?`
-- `/partner/apis/packages/client/get-package-detail/?`
+### Monitor a run
+- `GET /api/runs/:runId`
+- `GET /api/runs/:runId/stream`
+- `GET /api/runs/:runId/agents`
+- `GET /api/runs/:runId/agents/:agentId`
 
-## Booking and Traveler Endpoints
-Source module: `src/api/apiService.js`
+The SSE stream emits:
+- `snapshot`: full run snapshot
+- `update`: runtime state update, coordination update, agent summary update, or timeline event
+- `ping`: keepalive
 
-- `/booking/new/create/`
-- `/booking/all/get/`
-- `/booking/booking-number/get-detail/?booking_number=...`
-- `/booking/booking-number/traveler/update/`
-- `/booking/booking-number/traveler/passport-or-photo/update/`
-- `/bookings/manage_user_passport_photo/`
-- `/booking/booking-number/payment/create/`
-- `/booking/booking-number/payment/receipt/create/`
-- `/booking/booking-number/objection/response/`
-- `/bookings/objection_response_by_user/`
-- `/booking/booking-number/rating-and-review/create/`
-- `/booking/booking-number/delete/`
+### Control a run
+- `POST /api/runs/:runId/start`
+- `POST /api/runs/:runId/pause`
+- `POST /api/runs/:runId/resume`
+- `POST /api/runs/:runId/stop`
 
-### Booking List Client Contract Caveat (Phase 3 verification)
-- `apiGet` returns normalized objects (`{ success: boolean, data?, error? }`) and does not throw for HTTP failures.
-- `fetchBookingsByUser` currently returns `response?.data` after calling `apiGet("/booking/all/get/")`.
-- When `/booking/all/get/` fails, `fetchBookingsByUser` can resolve `undefined` instead of throwing, while downstream consumers (`useBookingStatusData`, `useTravelersInfoLogic`) are structured around thrown-error handling.
+Run-control requests accept an execution profile so every surface can launch Codex with the same normalized settings.
+When multi-agent start fails preflight, the error payload includes a `preflight` object describing Git-repo and clean-worktree requirements plus the single-agent fallback path.
 
-## Complaints and Concierge Endpoints
-Source module: `src/api/apiService.js`
+## Account contracts
 
-- `/booking/complaint/create/`
-- `/booking/complaint/users/all/get/`
-- `/booking/booking-number/concierge-request/create/`
-- `/booking/concierge-request/all/get/`
+- `GET /api/accounts`
+- `POST /api/accounts/login`
+- `POST /api/accounts/switch`
+- `POST /api/accounts/logout`
+- `DELETE /api/accounts/:accountId`
 
-## Account, Wallet, and Custom Package Endpoints
-Source module: `src/api/apiService.js`
+Important behaviors:
+- login can save an API-key profile locally
+- switching a saved account can append an audit event to the paused run timeline
+- account status is provider-aware and distinguishes `ChatGPT`, `API key`, and `unknown`
 
-- `/common/update_user_gender/`
-- `/auth/api/user-subscribe/`
-- `/auth/api/update-user-name/`
-- `/auth/api/update-user-phone-number/`
-- `/wallet/apis/bank/create/`
-- `/wallet/apis/withdraw/create/`
-- `/wallet/apis/transaction/get/all/`
-- `/management/apis/custom/manage/packages/` (GET/POST/PUT)
+## CLI contracts
 
-## Contract and Integration Notes
-- `src/api/apiService.js` remains a mixed-domain file and is a high-priority contract-drift surface.
-- Auth flows are split between modern (`AuthApi`) and legacy (`UserAuthApis`) wrappers; both modern and legacy token profiles remain active.
-- Partner package APIs are also split across modern (`/partner/get_*`) and legacy (`/partner/apis/*`) endpoint families.
-- `AuthContextProvider` depends on app-token refresh path (`/api/token/refresh/`) and profile hydration (`/auth/api/get-user-profile/`) for route access decisions.
-- OTP verification stores `authToken` in cookies (`src/pages/Otp/Otp.js`) while main transport/logout logic uses `accessToken` and `refreshToken` (`src/services/api/httpClient.js`, `src/components/Header/Header.js`), leaving token lifecycle ownership split.
-- Commented legacy endpoints (example: `bookings/pay_booking_amount_by_transaction_photo`) still exist in source comments and should be treated as non-active unless explicitly reintroduced.
+- `GET /api/codex/capabilities`
+- `POST /api/cli/preview`
+- `POST /api/cli/run`
+
+The preview endpoint returns the exact binary and args that the UI is about to execute.
+
+## Chat contracts
+
+- `GET /api/chat/threads`
+- `POST /api/chat/threads`
+- `GET /api/chat/threads/:threadId`
+- `POST /api/chat/threads/:threadId/messages`
+
+Chat threads are stored locally and tied to the selected workspace/project context.
